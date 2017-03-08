@@ -6,6 +6,7 @@
 package hvv_admin4.panels;
 
 import hvv_admin4.HVV_Admin4;
+import hvv_admin4.HVV_Admin4Constants;
 import hvv_admin4.steps.info.TechProcessGetterInfo;
 import hvv_admin4.steps.info.TechProcessHvProcessInfo;
 import hvv_admin4.steps.info.TechProcessIgenIextProcessInfo;
@@ -33,6 +34,8 @@ public class PanelTimer extends javax.swing.JPanel {
     public long m_lUpTickTimer;
     Timer m_pUpTickTimer;
     
+    final Color m_clrRed;
+    
     private final int TIMER_UPTICK = 1;
     private final int TIMER_DOWNTICK = 2;
     private int m_nTimerToShow;
@@ -42,6 +45,8 @@ public class PanelTimer extends javax.swing.JPanel {
     public PanelTimer( HVV_Admin4 app) {
         theApp = app;
         initComponents();
+        
+        m_clrRed =  new Color( 220, 150, 150);
         
         m_pUpTickTimer = new Timer( 1000, new ActionListener() {
 
@@ -62,6 +67,7 @@ public class PanelTimer extends javax.swing.JPanel {
 
     public void Init() {
         chkLongShoulder.setVisible( false);
+        btnNext.setBackground( null);
         
         switch( theApp.GetCurrentStep()) {
             case 21:
@@ -81,12 +87,22 @@ public class PanelTimer extends javax.swing.JPanel {
                 
             case 41:
                 m_nTimerToShow = TIMER_DOWNTICK;
-                lblTitle.setText( "<html><u>3.1 Обработка O<sub>2</sub> - Ne<sub>20</sub>. Цикл 1. Длинное плечо</u></thml>");
+                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM)
+                    lblTitle.setText( "<html><u>3.1 Обработка O<sub>2</sub> - Ne<sub>20</sub>. Цикл 1. Длинное плечо</u></thml>");
+                else
+                    lblTitle.setText( "<html><u>3.1 Обработка O<sub>2</sub> - Ne<sub>20</sub>. Цикл 1.</u></thml>");
+                
                 btnStart.setVisible( false);
                 lblStart.setVisible( false);
                 btnNext.setEnabled(  false);
-                chkLongShoulder.setVisible( true);
-                chkLongShoulder.setSelected( false);
+                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM) {
+                    chkLongShoulder.setVisible( true);
+                    chkLongShoulder.setSelected( false);
+                }
+                else {
+                    chkLongShoulder.setVisible( false);
+                    chkLongShoulder.setSelected( true);
+                }
             break;
             case 43:
                 m_nTimerToShow = TIMER_DOWNTICK;
@@ -97,12 +113,22 @@ public class PanelTimer extends javax.swing.JPanel {
             break;
             case 45:
                 m_nTimerToShow = TIMER_DOWNTICK;
-                lblTitle.setText( "<html><u>3.5 Обработка O<sub>2</sub> - Ne<sub>20</sub>. Цикл 2. Длинное плечо</u></thml>");
+                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM)
+                    lblTitle.setText( "<html><u>3.5 Обработка O<sub>2</sub> - Ne<sub>20</sub>. Цикл 2. Длинное плечо</u></thml>");
+                else
+                    lblTitle.setText( "<html><u>3.5 Обработка O<sub>2</sub> - Ne<sub>20</sub>. Цикл 2.</u></thml>");
+                
                 btnStart.setVisible( false);
                 lblStart.setVisible( false);
                 btnNext.setEnabled(  false);
-                chkLongShoulder.setVisible( true);
-                chkLongShoulder.setSelected( false);
+                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM) {
+                    chkLongShoulder.setVisible( true);
+                    chkLongShoulder.setSelected( false);
+                }
+                else {
+                    chkLongShoulder.setVisible( false);
+                    chkLongShoulder.setSelected( true);
+                }
             break;
             case 47:
                 m_nTimerToShow = TIMER_DOWNTICK;
@@ -295,7 +321,9 @@ public class PanelTimer extends javax.swing.JPanel {
                 
                 if( m_lDownTickTimer == 0) {
                     theApp.SetCurrentStepInProgress( false);
+                    
                     btnNext.setEnabled( true);
+                    btnNext.setBackground( m_clrRed);
                     
                     ( ( Timer) e.getSource()).stop();
                     

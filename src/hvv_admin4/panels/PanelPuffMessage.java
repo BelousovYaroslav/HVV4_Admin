@@ -6,6 +6,7 @@
 package hvv_admin4.panels;
 
 import hvv_admin4.HVV_Admin4;
+import hvv_admin4.HVV_Admin4Constants;
 import hvv_admin4.steps.info.TechProcessStepCommon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -206,13 +207,17 @@ public class PanelPuffMessage extends javax.swing.JPanel {
                 
             break;
                 
-            case 41:
-            case 45:
+            case 41: //3.1 O2-Ne20. Обработка. 1ый цикл.
+            case 45: //3.1 O2-Ne20. Обработка. 2oй цикл.
                 if( theApp.IsCurrentStepInProgress()) {
                     theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
                     theApp.m_pMainWnd.m_pnlStopWatch.Init();
-                    theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) theApp.GetSettings().GetProcessingTime_3(), 0);
-
+                    
+                    if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM)
+                        theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) theApp.GetSettings().GetProcessingTime_3(), 0);
+                    else {
+                        theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) theApp.GetSettings().GetProcessingTime_3() * 2, 0);
+                    }
                     theApp.m_pMainWnd.m_pnlPuffMessage.setVisible( false);
                 } else {
                     theApp.SetCurrentStepInProgress( true);
