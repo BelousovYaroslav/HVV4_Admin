@@ -9,10 +9,13 @@ import hvv_admin4.HVV_Admin4;
 import hvv_admin4.HVV_Admin4Constants;
 import hvv_admin4.steps.info.TechProcessGetterInfo;
 import hvv_admin4.steps.info.TechProcessStepCommon;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import org.apache.log4j.Logger;
 
 /**
@@ -172,6 +175,16 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
             
             InitOnStart_91(dt);
         }
+        
+        btnNext.setEnabled( false);
+        new  Timer( 1000, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                (( Timer) e.getSource()).stop();
+                btnNext.setEnabled( true);
+            }
+        }).start();
         
         edt4vEffusionPmax.setText( "1.00");
         edt9vEffusionPmax.setText( "1.00");

@@ -6,6 +6,7 @@
 package hvv_admin4.panels;
 
 import hvv_admin4.HVV_Admin4;
+import hvv_admin4.HVV_Admin4Constants;
 import hvv_admin4.steps.info.TechProcessHvProcessInfo;
 import hvv_admin4.steps.info.TechProcessStepCommon;
 import java.awt.event.ActionEvent;
@@ -59,9 +60,23 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             case 22:  lblTitle.setText( "<html><u>2.2 Обработка O<sub>2</sub>. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
             case 24:  lblTitle.setText( "<html><u>2.4 Обработка O<sub>2</sub>. 2-ой цикл. Ввод напряжений.</u></thml>"); break;
             
-            case 42:  lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 1.Дл. пл. Ввод напряжений.</u></thml>"); break;
+            case 42:
+                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM) {
+                    lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 1.Дл. пл. Ввод напряжений.</u></thml>");
+                }
+                else {
+                    lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. Цикл 1.Ввод напряжений.</u></thml>");
+                }
+            break;
             case 44:  lblTitle.setText( "<html><u>3.4 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 1.Кор. пл. Ввод напряжений.</u></thml>"); break;
-            case 46:  lblTitle.setText( "<html><u>3.6 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 2.Дл. пл. Ввод напряжений.</u></thml>"); break;
+            case 46:
+                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM) {
+                    lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 2.Дл. пл. Ввод напряжений.</u></thml>");
+                }
+                else {
+                    lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. Цикл 2.Ввод напряжений.</u></thml>");
+                }
+            break;
             case 48:  lblTitle.setText( "<html><u>3.8 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 2.Кор. пл. Ввод напряжений.</u></thml>"); break;
                 
             case 103: lblTitle.setText( "<html><u>6.3 Тренировка катода. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
@@ -76,6 +91,16 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             default: lblTitle.setText( "ЭТАП " + theApp.GetCurrentStep() + "НЕ ДЛЯ ВВОДА НАПРЯЖЕНИЙ!"); break;
         }
         lblTimer.setText( "");
+        
+        btnNext.setEnabled( false);
+        new  Timer( 1000, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                (( Timer) e.getSource()).stop();
+                btnNext.setEnabled( true);
+            }
+        }).start();
     }
     
     /**

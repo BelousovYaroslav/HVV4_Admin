@@ -34,7 +34,7 @@ public class PanelImpermeability extends javax.swing.JPanel {
     
     public void Init() {
         btnNext.setEnabled( false);
-        new Timer( 3000, new ActionListener() {
+        new Timer( 1000, new ActionListener() {
 
             @Override
             public void actionPerformed( ActionEvent e) {

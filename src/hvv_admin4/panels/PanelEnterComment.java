@@ -8,6 +8,9 @@ package hvv_admin4.panels;
 import hvv_admin4.HVV_Admin4;
 import hvv_admin4.steps.info.TechProcessCommentInfo;
 import hvv_admin4.steps.info.TechProcessStepCommon;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 import org.apache.log4j.Logger;
 
 /**
@@ -44,6 +47,17 @@ public class PanelEnterComment extends javax.swing.JPanel {
             break;
         }
         
+        btnOkNext.setEnabled( false);
+        btnFailStop.setEnabled( false);
+        new  Timer( 1000, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                (( Timer) e.getSource()).stop();
+                btnOkNext.setEnabled( true);
+                btnFailStop.setEnabled( true);
+            }
+        }).start();
     }
     
     /**

@@ -113,7 +113,18 @@ public class PanelActivation extends javax.swing.JPanel {
         else {
             
         }
+        
         defineProgram();
+        
+        btnNext.setEnabled( false);
+        new  Timer( 1000, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                (( Timer) e.getSource()).stop();
+                btnNext.setEnabled( true);
+            }
+        }).start();
     }
     
     /**

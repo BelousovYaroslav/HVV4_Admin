@@ -48,6 +48,16 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
             }
         });
         m_tmrRefreshTimer.start();
+        
+        btnNext.setEnabled( false);
+        new  Timer( 1000, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                (( Timer) e.getSource()).stop();
+                btnNext.setEnabled( true);
+            }
+        }).start();
     }
     
     /**

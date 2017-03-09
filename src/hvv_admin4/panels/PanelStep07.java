@@ -275,7 +275,7 @@ public class PanelStep07 extends TechProcessStepPanelTemplate {
             lbl_07_01_Title.setEnabled( theApp.GetCurrentStep() <= 121);
             btn_07_01_Start.setVisible( theApp.GetCurrentStep() == 121 && !theApp.IsCurrentStepInProgress());
             btn_07_01_Next.setVisible(  theApp.GetCurrentStep() == 121 &&  theApp.IsCurrentStepInProgress());
-            btn_07_01_Start.setVisible( true);
+            //btn_07_01_Start.setVisible( true);
             
             //7.2
             FillStepDates("122", lbl_07_02_Date_start, lbl_07_02_Time_start, lbl_07_02_Date_stop, lbl_07_02_Time_stop);

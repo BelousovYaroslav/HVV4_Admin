@@ -10,6 +10,9 @@ import hvv_admin4.HVV_Admin4Constants;
 import hvv_admin4.steps.info.TechProcessCommentInfo;
 import hvv_admin4.steps.info.TechProcessIgenIextProcessInfo;
 import hvv_admin4.steps.info.TechProcessUacProcessInfo;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 import org.apache.log4j.Logger;
 
 /**
@@ -82,6 +85,16 @@ public class PanelEnterCVC extends javax.swing.JPanel {
         lblValueUa1200.setText( "0 V");
         edt1200mcA_UT.setText(  "");
         lblValueUt1200.setText( "0 V");
+        
+        btnNext.setEnabled( false);
+        new  Timer( 1000, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                (( Timer) e.getSource()).stop();
+                btnNext.setEnabled( true);
+            }
+        }).start();
     }
     
     /**
