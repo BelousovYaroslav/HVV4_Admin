@@ -1164,7 +1164,10 @@ public class ReportGenerator {
             File fl = new File( theApp.GetAMSRoot(), "reports" + File.separator + strReportFileNameLoc);
             fl.delete();
             
-            strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + ".html";
+            if( theApp.GetFailInMiddleFlag())
+                strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + " на переюстировку.html";
+            else
+                strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + ".html";
         }
         
         try {
