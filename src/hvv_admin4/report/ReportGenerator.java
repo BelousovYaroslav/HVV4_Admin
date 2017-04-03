@@ -217,6 +217,7 @@ public class ReportGenerator {
         writer.write( "  <th width=\"120\" align=\"left\"></th>\n");
         writer.write( "  <th width=\"80\" align=\"left\">Начало</th>\n");
         writer.write( "  <th width=\"80\" align=\"left\">Конец</th>\n");
+        writer.write( "  <th width=\"80\" align=\"left\"><font color=\"blue\">Разница</font></th>\n");
         writer.write( " </tr>\n");
         
         
@@ -272,6 +273,8 @@ public class ReportGenerator {
             writer.write( "  <td width=\"120\" align=\"left\">U<sub>на аноде</sub></td>\n");
             writer.write( "  <td width=\"80\">" + String.format( "%.0f", info.GetAnStart()) + " В</td>\n");
             writer.write( "  <td width=\"80\">" + String.format( "%.0f", info.GetAnStop()) + " В</td>\n");
+            writer.write( "  <td width=\"80\"><font color=\"blue\">" +
+                    String.format( "%.0f", info.GetAnStart() - info.GetAnStop()) + " В</font></td>\n");
             writer.write( " </tr>\n");
             
             writer.write( " <tr height=\"30\">\n");
@@ -279,6 +282,8 @@ public class ReportGenerator {
             writer.write( "  <td width=\"120\" align=\"left\">U<sub>на штенгеле</sub></td>\n");
             writer.write( "  <td width=\"80\">" + String.format( "%.0f", info.GetTuStart()) + " В</td>\n");
             writer.write( "  <td width=\"80\">" + String.format( "%.0f", info.GetTuStop()) + " В</td>\n");
+            writer.write( "  <td width=\"80\"><font color=\"blue\">" +
+                    String.format( "%.0f", info.GetTuStart() - info.GetTuStop()) + " В</font></td>\n");
             writer.write( " </tr>\n");           
         }
         else {
@@ -586,6 +591,7 @@ public class ReportGenerator {
             writer.write( "  <th width=\"150\" align=\"center\">1.0 мА</th>\n");
             writer.write( "  <th width=\"150\" align=\"center\">1.1 мА</th>\n");
             writer.write( "  <th width=\"150\" align=\"center\">1.2 мА</th>\n");
+            writer.write( "  <th width=\"150\" align=\"center\"><font color=\"blue\">Разница</font></th>\n");
             
             writer.write( " </tr>\n <tr height=\"30\">\n");
             
@@ -593,6 +599,7 @@ public class ReportGenerator {
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1000_A()) + "</td>\n");
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1100_A()) + "</td>\n");
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1200_A()) + "</td>\n");
+            writer.write( "  <td align=\"center\"><font color=\"blue\">" + String.format( "%.0f В", info.Get_1000_A() - info.Get_1200_A()) + "</font></td>\n");
             
             writer.write( " </tr>\n <tr height=\"30\">\n");
             
@@ -600,6 +607,7 @@ public class ReportGenerator {
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1000_T()) + "</td>\n");
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1100_T()) + "</td>\n");
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1200_T()) + "</td>\n");
+            writer.write( "  <td align=\"center\"><font color=\"blue\">" + String.format( "%.0f В", info.Get_1000_T() - info.Get_1200_T()) + "</font></td>\n");
             
             writer.write( " </tr>\n</table>\n<br>\n");
                 
@@ -1164,10 +1172,18 @@ public class ReportGenerator {
             File fl = new File( theApp.GetAMSRoot(), "reports" + File.separator + strReportFileNameLoc);
             fl.delete();
             
-            if( theApp.GetFailInMiddleFlag())
-                strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + " на переюстировку.html";
-            else
-                strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + ".html";
+            if( theApp.GetFailInMiddleFlag()) {
+                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_SMALL)
+                    strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + "(м) на переюстировку.html";
+                else
+                    strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + " на переюстировку.html";
+            }
+            else {
+                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_SMALL)
+                    strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + "(м).html";
+                else
+                    strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + ".html";
+            }
         }
         
         try {

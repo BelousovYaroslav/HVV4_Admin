@@ -63,21 +63,34 @@ public class HVV_Admin4Settings {
     public String GetRemoteReportsPath() { return m_strRemoteReportsPath;}
 
     //коэффициент пересчёта напряжений для РМ1
-    private double m_dblCoeffU_ARM1;
-    public double GetCoeffU_ARM1() { return m_dblCoeffU_ARM1;}
+    private double m_dblCoeffU1000_ARM1, m_dblCoeffU1100_ARM1, m_dblCoeffU1200_ARM1, m_dblCoeffU2500_ARM1;
+    public double GetCoeffU1000_ARM1() { return m_dblCoeffU1000_ARM1;}
+    public double GetCoeffU1100_ARM1() { return m_dblCoeffU1100_ARM1;}
+    public double GetCoeffU1200_ARM1() { return m_dblCoeffU1200_ARM1;}
+    public double GetCoeffU2500_ARM1() { return m_dblCoeffU2500_ARM1;}
     
     //коэффициент пересчёта напряжений для РМ2
-    private double m_dblCoeffU_ARM2;
-    public double GetCoeffU_ARM2() { return m_dblCoeffU_ARM2;}
+    private double m_dblCoeffU1000_ARM2, m_dblCoeffU1100_ARM2, m_dblCoeffU1200_ARM2, m_dblCoeffU2500_ARM2;
+    public double GetCoeffU1000_ARM2() { return m_dblCoeffU1000_ARM2;}
+    public double GetCoeffU1100_ARM2() { return m_dblCoeffU1100_ARM2;}
+    public double GetCoeffU1200_ARM2() { return m_dblCoeffU1200_ARM2;}
+    public double GetCoeffU2500_ARM2() { return m_dblCoeffU2500_ARM2;}
     
     //коэффициент пересчёта напряжений для РМ3
-    private double m_dblCoeffU_ARM3;
-    public double GetCoeffU_ARM3() { return m_dblCoeffU_ARM3;}
+    private double m_dblCoeffU1000_ARM3, m_dblCoeffU1100_ARM3, m_dblCoeffU1200_ARM3, m_dblCoeffU2500_ARM3;
+    public double GetCoeffU1000_ARM3() { return m_dblCoeffU1000_ARM3;}
+    public double GetCoeffU1100_ARM3() { return m_dblCoeffU1100_ARM3;}
+    public double GetCoeffU1200_ARM3() { return m_dblCoeffU1200_ARM3;}
+    public double GetCoeffU2500_ARM3() { return m_dblCoeffU2500_ARM3;}
     
     //коэффициент пересчёта напряжений для РМ4
-    private double m_dblCoeffU_ARM4;
-    public double GetCoeffU_ARM4() { return m_dblCoeffU_ARM4;}
-    
+    private double m_dblCoeffU1000_ARM4, m_dblCoeffU1100_ARM4, m_dblCoeffU1200_ARM4, m_dblCoeffU2500_ARM4;
+    public double GetCoeffU1000_ARM4() { return m_dblCoeffU1000_ARM4;}
+    public double GetCoeffU1100_ARM4() { return m_dblCoeffU1100_ARM4;}
+    public double GetCoeffU1200_ARM4() { return m_dblCoeffU1200_ARM4;}
+    public double GetCoeffU2500_ARM4() { return m_dblCoeffU2500_ARM4;}
+
+    /*
     //коэффициент пересчёта напряжений для UNIVERSAL
     public double GetCoeffU( int nArm) {
         double dblResult = 1.;
@@ -89,6 +102,7 @@ public class HVV_Admin4Settings {
         }
         return dblResult;
     }
+    */
     
     private String m_strPuff2Message0_small, m_strPuff2Message0_medium, m_strPuff2Message0_big;
     private String m_strPuff2Message1_small, m_strPuff2Message1_medium, m_strPuff2Message1_big;
@@ -426,16 +440,28 @@ public class HVV_Admin4Settings {
                 if( "excerpt.time".equals( name))  m_nExcerptTime = Integer.parseInt( value);
                 
                 //<!--коэффициент пересчёта напряжений РМ1 -->
-                if( "Coeff.U.ARM1".equals( name)) m_dblCoeffU_ARM1 = Double.parseDouble( value);
+                if( "Coeff.U.1000.ARM1".equals( name)) m_dblCoeffU1000_ARM1 = Double.parseDouble( value);
+                if( "Coeff.U.1100.ARM1".equals( name)) m_dblCoeffU1100_ARM1 = Double.parseDouble( value);
+                if( "Coeff.U.1200.ARM1".equals( name)) m_dblCoeffU1200_ARM1 = Double.parseDouble( value);
+                if( "Coeff.U.2500.ARM1".equals( name)) m_dblCoeffU2500_ARM1 = Double.parseDouble( value);
                 
                 //<!--коэффициент пересчёта напряжений РМ2 -->
-                if( "Coeff.U.ARM2".equals( name)) m_dblCoeffU_ARM2 = Double.parseDouble( value);
+                if( "Coeff.U.1000.ARM2".equals( name)) m_dblCoeffU1000_ARM2 = Double.parseDouble( value);
+                if( "Coeff.U.1100.ARM2".equals( name)) m_dblCoeffU1100_ARM2 = Double.parseDouble( value);
+                if( "Coeff.U.1200.ARM2".equals( name)) m_dblCoeffU1200_ARM2 = Double.parseDouble( value);
+                if( "Coeff.U.2500.ARM2".equals( name)) m_dblCoeffU2500_ARM2 = Double.parseDouble( value);
                 
                 //<!--коэффициент пересчёта напряжений РМ3 -->
-                if( "Coeff.U.ARM3".equals( name)) m_dblCoeffU_ARM3 = Double.parseDouble( value);
+                if( "Coeff.U.1000.ARM3".equals( name)) m_dblCoeffU1000_ARM3 = Double.parseDouble( value);
+                if( "Coeff.U.1100.ARM3".equals( name)) m_dblCoeffU1100_ARM3 = Double.parseDouble( value);
+                if( "Coeff.U.1200.ARM3".equals( name)) m_dblCoeffU1200_ARM3 = Double.parseDouble( value);
+                if( "Coeff.U.2500.ARM3".equals( name)) m_dblCoeffU2500_ARM3 = Double.parseDouble( value);
                 
                 //<!--коэффициент пересчёта напряжений РМ4 -->
-                if( "Coeff.U.ARM4".equals( name)) m_dblCoeffU_ARM4 = Double.parseDouble( value);
+                if( "Coeff.U.1000.ARM4".equals( name)) m_dblCoeffU1000_ARM4 = Double.parseDouble( value);
+                if( "Coeff.U.1100.ARM4".equals( name)) m_dblCoeffU1100_ARM4 = Double.parseDouble( value);
+                if( "Coeff.U.1200.ARM4".equals( name)) m_dblCoeffU1200_ARM4 = Double.parseDouble( value);
+                if( "Coeff.U.2500.ARM4".equals( name)) m_dblCoeffU2500_ARM4 = Double.parseDouble( value);
                 
                 //ВСПОМОГАТЕЛЬНЫЕ СООБЩЕНИЯ ДЛЯ НАПУСКОВ И ОБРАБОТКИ
                 //Малый прибор
