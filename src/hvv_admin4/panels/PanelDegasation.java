@@ -446,8 +446,7 @@ public class PanelDegasation extends javax.swing.JPanel {
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 10));
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 12));
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 14));
-                    m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 16));
-                    m_lstProgram.add( new TechProcessDegasationStepInfo( 5, 17));
+                    m_lstProgram.add( new TechProcessDegasationStepInfo( 5, 15));
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 14));
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 12));
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 10));
@@ -459,19 +458,19 @@ public class PanelDegasation extends javax.swing.JPanel {
             break;
                 
             //MEDIUM
-            case 211:   //small, get1, ind1    - no
+            case 211:   //medium, get1, ind1    - no
                 m_lstProgram.clear();
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 1,  1));
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 2,  1));
             break;
                 
-            case 212:   //small, get1, ind2    - no
+            case 212:   //medium, get1, ind2    - no
                 m_lstProgram.clear();
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 1,  1));
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 2,  1));
             break;
             
-            case 221:   //small, get2, ind1    - yes
+            case 221:   //medium, get2, ind1    - yes
                 m_lstProgram.clear();
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 3, 10));
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 3, 15));
@@ -484,7 +483,7 @@ public class PanelDegasation extends javax.swing.JPanel {
                 }
             break;
                 
-            case 222:   //small, get2, ind2    - yes
+            case 222:   //medium, get2, ind2    - yes
                 m_lstProgram.clear();
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 2,  2));
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 2,  4));
@@ -510,25 +509,25 @@ public class PanelDegasation extends javax.swing.JPanel {
                 
                 
             //BIG
-            case 311:   //small, get1, ind1    - no
+            case 311:   //BIG, get1, ind1    - no
                 m_lstProgram.clear();
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 1,  1));
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 2,  1));
             break;
                 
-            case 312:   //small, get1, ind2    - no
+            case 312:   //BIG, get1, ind2    - no
                 m_lstProgram.clear();
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 1,  1));
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 2,  1));
             break;
             
-            case 321:   //small, get2, ind1    - no
+            case 321:   //BIG, get2, ind1    - no
                 m_lstProgram.clear();
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 1,  1));
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 2,  1));
             break;
                 
-            case 322:   //small, get2, ind2    - no
+            case 322:   //BIG, get2, ind2    - no
                 m_lstProgram.clear();
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 1,  1));
                 m_lstProgram.add( new TechProcessDegasationStepInfo( 2,  1));
