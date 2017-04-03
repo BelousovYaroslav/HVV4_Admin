@@ -447,7 +447,6 @@ public class PanelDegasation extends javax.swing.JPanel {
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 12));
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 14));
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 5, 15));
-                    m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 14));
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 12));
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 10));
                     m_lstProgram.add( new TechProcessDegasationStepInfo( 2, 8));
