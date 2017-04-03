@@ -57,7 +57,7 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
             case HVV_Admin4Constants.ARM4: strTitle += "РМ4, "; break;
         }
         
-        strTitle += theApp.GetSerial() + ",     v 2017.03.09 12:20, (С) ФЛАВТ, 2017.";
+        strTitle += theApp.GetSerial() + ",     v 2017.04.03 14:00, (С) ФЛАВТ, 2017.";
         setTitle( strTitle);
         
         m_pnlMain = new PanelMain( theApp);
