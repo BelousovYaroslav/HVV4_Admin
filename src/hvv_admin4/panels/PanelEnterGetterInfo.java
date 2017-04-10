@@ -514,8 +514,8 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
         if( theApp.GetCurrentStep() == 121) {
             
             //Выброс 4V
-            m_gdtmDate4vEffusion.set( Calendar.HOUR_OF_DAY, ( int) spn4vHours.getValue());
-            m_gdtmDate4vEffusion.set( Calendar.MINUTE, ( int) spn4vMinutes.getValue());
+            m_gdtmDate4vEffusion.set( Calendar.HOUR_OF_DAY, Integer.parseInt( lbl4vEffusionHour.getText()));        //spn4vHours.getValue());
+            m_gdtmDate4vEffusion.set( Calendar.MINUTE, Integer.parseInt( lbl4vEffusionMinutes.getText()));          //( int) spn4vMinutes.getValue());
             info.SetDtEffusion4v( m_gdtmDate4vEffusion.getTime());
             String str = edt4vEffusionPmax.getText();
             str = str.replace( ',', '.');
@@ -529,8 +529,8 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
             info.SetDblEffusion4v( d * Math.pow( 10, ( int) spn4vEffusionExponent.getValue()));
             
             //Выброс 9V
-            m_gdtmDate9vEffusion.set( Calendar.HOUR_OF_DAY, ( int) spn9vHours.getValue());
-            m_gdtmDate9vEffusion.set( Calendar.MINUTE, ( int) spn9vMinutes.getValue());
+            m_gdtmDate9vEffusion.set( Calendar.HOUR_OF_DAY, Integer.parseInt( lbl9vEffusionHour.getText()));        //( int) spn9vHours.getValue());
+            m_gdtmDate9vEffusion.set( Calendar.MINUTE, Integer.parseInt( lbl9vEffusionMinutes.getText()));          //( int) spn9vMinutes.getValue());
             info.SetDtEffusion9v( m_gdtmDate9vEffusion.getTime());
             str = edt9vEffusionPmax.getText();
             str = str.replace( ',', '.');
@@ -559,8 +559,8 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
         if( theApp.GetCurrentStep() == 161) {
             
             //Выброс 4V
-            m_gdtmDate4vEffusion.set( Calendar.HOUR_OF_DAY, ( int) spn4vHours.getValue());
-            m_gdtmDate4vEffusion.set( Calendar.MINUTE, ( int) spn4vMinutes.getValue());
+            m_gdtmDate4vEffusion.set( Calendar.HOUR_OF_DAY, Integer.parseInt( lbl4vEffusionHour.getText()));        //spn4vHours.getValue());
+            m_gdtmDate4vEffusion.set( Calendar.MINUTE, Integer.parseInt( lbl4vEffusionMinutes.getText()));          //( int) spn9vMinutes.getValue());
             info.SetDtEffusion4v( m_gdtmDate4vEffusion.getTime());
             String str = edt4vEffusionPmax.getText();
             str = str.replace( ',', '.');
@@ -574,8 +574,8 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
             info.SetDblEffusion4v( d * Math.pow( 10, ( int) spn4vEffusionExponent.getValue()));
             
             //Выброс 9V
-            m_gdtmDate9vEffusion.set( Calendar.HOUR_OF_DAY, ( int) spn9vHours.getValue());
-            m_gdtmDate9vEffusion.set( Calendar.MINUTE, ( int) spn9vMinutes.getValue());
+            m_gdtmDate9vEffusion.set( Calendar.HOUR_OF_DAY, Integer.parseInt( lbl9vEffusionHour.getText()));        //spn4vHours.getValue());
+            m_gdtmDate9vEffusion.set( Calendar.MINUTE, Integer.parseInt( lbl9vEffusionMinutes.getText()));          //( int) spn9vMinutes.getValue());
             info.SetDtEffusion9v( m_gdtmDate9vEffusion.getTime());
             str = edt9vEffusionPmax.getText();
             str = str.replace( ',', '.');

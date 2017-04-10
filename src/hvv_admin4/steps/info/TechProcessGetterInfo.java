@@ -14,12 +14,13 @@ import java.util.Date;
  */
 public class TechProcessGetterInfo extends TechProcessStepCommon {
     
-    private Date m_dtEffusion4v;
+    
 
     public TechProcessGetterInfo(HVV_Admin4 app) {
         super(app);
     }
     
+    private Date m_dtEffusion4v;
     public Date GetDtEffusion4v() { return m_dtEffusion4v;}
     public void SetDtEffusion4v( Date dt) { m_dtEffusion4v = dt;}
     

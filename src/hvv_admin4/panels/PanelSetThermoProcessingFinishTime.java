@@ -444,7 +444,7 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
         
         
         if( theApp.GetSelectedArm() == HVV_Admin4Constants.ARM1 ||
-                    theApp.GetSelectedArm() == HVV_Admin4Constants.ARM2) {
+            theApp.GetSelectedArm() == HVV_Admin4Constants.ARM2) {
             
             //включение 4v
             lblTurnOn4vValue.setText( "" + ( nSpan - 60));
@@ -465,8 +465,6 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
             //выключение 9v
             lblTurnOff9vValue.setText( "" + ( nSpan - 5));
         }
-        
-        
         
     }
     

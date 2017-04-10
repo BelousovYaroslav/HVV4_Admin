@@ -19,7 +19,6 @@ import hvv_admin4.steps.info.TechProcessStepCommon;
 import hvv_admin4.steps.info.TechProcessUacProcessInfo;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Calendar;
@@ -493,6 +492,15 @@ public class ReportGenerator {
                 writer.write( "  <td>" + Gen_NiceDate( info2.GetDtTurnOff9v()) + "</td>\n");
                 writer.write( "  <td>" + Gen_NiceTime( info2.GetDtTurnOff9v()) + "</td>\n");
                 writer.write( "  <td>" + "Отключение 9 В.</td>\n");
+                writer.write( " </tr>\n");
+            }
+            
+            //время отключения печек
+            if( theApp.GetDtmTOEnd() != null) {
+                writer.write( " <tr height=\"30\">\n");
+                writer.write( "  <td>" + Gen_NiceDate( theApp.GetDtmTOEnd()) + "</td>\n");
+                writer.write( "  <td>" + Gen_NiceTime( theApp.GetDtmTOEnd()) + "</td>\n");
+                writer.write( "  <td>" + "Время отключения печек</td>\n");
                 writer.write( " </tr>\n");
             }
             
