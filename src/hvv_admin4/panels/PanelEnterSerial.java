@@ -162,7 +162,13 @@ public class PanelEnterSerial extends javax.swing.JPanel {
         if( radSizeBig.isSelected())    theApp.SetProcessedDeviceType( HVV_Admin4Constants.DEVICE_BIG);
         
         String strTitle = theApp.m_pMainWnd.getTitle();
-        strTitle = strTitle.replaceFirst( "null", theApp.GetSerial());
+        
+        String strSerial = theApp.GetSerial();
+        if( radSizeSmall.isSelected()) {
+            if( !strSerial.contains( "(м)"))
+                strSerial += " (м)";
+        }
+        strTitle = strTitle.replaceFirst( "null", strSerial);
         theApp.m_pMainWnd.setTitle( strTitle);
         
         

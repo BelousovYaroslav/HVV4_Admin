@@ -57,7 +57,12 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
             case HVV_Admin4Constants.ARM4: strTitle += "РМ4, "; break;
         }
         
-        strTitle += theApp.GetSerial() + ",     v 2017.04.03 14:00, (С) ФЛАВТ, 2017.";
+        strTitle += theApp.GetSerial();
+        if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_SMALL) {
+            if( !theApp.GetSerial().contains( "(м)"))
+                strTitle += " (м)";
+        }
+        strTitle += ",     v 2017.04.26 11:40, (С) ФЛАВТ, 2017.";
         setTitle( strTitle);
         
         m_pnlMain = new PanelMain( theApp);
