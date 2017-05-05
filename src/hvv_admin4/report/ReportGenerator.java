@@ -174,30 +174,39 @@ public class ReportGenerator {
         writer.write( "<H1>Отчёт о процессе технологической обработки<br>\n" + 
                 "Прибор: " + theApp.GetSerial());
         switch( theApp.GetProcessedDeviceType()) {
-            case HVV_Admin4Constants.DEVICE_BIG:    writer.write( " (Б)"); break;
-            case HVV_Admin4Constants.DEVICE_MEDIUM: writer.write( ""); break;
-            case HVV_Admin4Constants.DEVICE_SMALL:  writer.write( " (м)"); break;
+            case HVV_Admin4Constants.DEVICE_BIG:
+                if( !theApp.GetSerial().contains("(Б)")) writer.write( " (Б)");
+            break;
+            //case HVV_Admin4Constants.DEVICE_MEDIUM: writer.write( ""); break;
+            case HVV_Admin4Constants.DEVICE_SMALL:
+                if( !theApp.GetSerial().contains("(м)")) writer.write( " (м)");
+            break;
             default:  writer.write( " (???)");
         }
         writer.write( "<br>\n");
         
-        switch( theApp.GetSelectedArm()) {
-            case HVV_Admin4Constants.ARM1: writer.write( "РМ1 "); break;
-            case HVV_Admin4Constants.ARM2: writer.write( "РМ2 "); break;
-            case HVV_Admin4Constants.ARM3: writer.write( "РМ3 "); break;
-            case HVV_Admin4Constants.ARM4: writer.write( "РМ4 "); break;
-            default:  writer.write( " (???) ");
-        }
         
         writer.write( Gen_NiceDate( dtStart) + " - ");
         if( dtFinish != null)
-            writer.write( Gen_NiceDate( dtFinish) + "</H1>\n");
+            writer.write( Gen_NiceDate( dtFinish));
         else {
             if( theApp.GetFailInMiddleFlag())
-                writer.write( Gen_NiceDate( theApp.GetLocalDate()) + "</H1>\n");
+                writer.write( Gen_NiceDate( theApp.GetLocalDate()) + "\n");
             else
-                writer.write( "(обработка ещё не закончена)</H1>\n");
+                writer.write( "(обработка ещё не закончена)\n");
         }
+        
+        writer.write( "<br>\n");
+        
+        switch( theApp.GetSelectedArm()) {
+            case HVV_Admin4Constants.ARM1: writer.write( "РМ1"); break;
+            case HVV_Admin4Constants.ARM2: writer.write( "РМ2"); break;
+            case HVV_Admin4Constants.ARM3: writer.write( "РМ3"); break;
+            case HVV_Admin4Constants.ARM4: writer.write( "РМ4"); break;
+            default:  writer.write( " (???) ");
+        }
+        
+        writer.write( "\n</H1>\n");
     }
     
     public void Gen_TableHeader( OutputStreamWriter writer) throws IOException {
@@ -374,7 +383,7 @@ public class ReportGenerator {
         if( theApp.IsStepMapContainsKey( "043")) {
             //у нас были обработки длинная и короткая
             
-            //3.3 обработка по короткому плечу
+            //3.3 обработка по коротким плечам
             writer.write( "</table>\n<table>\n");
             writer.write( " <tr>\n");
             writer.write( "  <th width=\"120\" align=\"left\"></th>\n");
@@ -417,7 +426,7 @@ public class ReportGenerator {
         
         
         if( theApp.IsStepMapContainsKey( "047")) {
-            //3.7 Второй цикл. по короткому плечу.
+            //3.7 Второй цикл. по коротким плечам
             writer.write( "</table>\n<table>\n");
             writer.write( " <tr>\n");
             writer.write( "  <th width=\"120\" align=\"left\"></th>\n");
@@ -1113,6 +1122,7 @@ public class ReportGenerator {
             writer.write( "  <th width=\"150\" align=\"center\">1.0 мА</th>\n");
             writer.write( "  <th width=\"150\" align=\"center\">1.1 мА</th>\n");
             writer.write( "  <th width=\"150\" align=\"center\">1.2 мА</th>\n");
+            writer.write( "  <th width=\"150\" align=\"center\"><font color=\"blue\">Разница</font></th>\n");
             
             writer.write( " </tr>\n <tr height=\"30\">\n");
             
@@ -1120,6 +1130,7 @@ public class ReportGenerator {
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1000_A()) + "</td>\n");
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1100_A()) + "</td>\n");
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1200_A()) + "</td>\n");
+            writer.write( "  <td align=\"center\"><font color=\"blue\">" + String.format( "%.0f В", info.Get_1000_A() - info.Get_1200_A()) + "</font></td>\n");
             
             writer.write( " </tr>\n <tr height=\"30\">\n");
             
@@ -1127,6 +1138,7 @@ public class ReportGenerator {
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1000_T()) + "</td>\n");
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1100_T()) + "</td>\n");
             writer.write( "  <td align=\"center\">" + String.format( "%.0f В", info.Get_1200_T()) + "</td>\n");
+            writer.write( "  <td align=\"center\"><font color=\"blue\">" + String.format( "%.0f В", info.Get_1000_T() - info.Get_1200_T()) + "</font></td>\n");
             
             writer.write( " </tr>\n</table>\n<br>\n");
                 
@@ -1181,14 +1193,22 @@ public class ReportGenerator {
             fl.delete();
             
             if( theApp.GetFailInMiddleFlag()) {
-                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_SMALL)
-                    strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + "(м) на переюстировку.html";
+                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_SMALL) {
+                    if( theApp.GetSerial().contains("(м)"))
+                        strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + " на переюстировку.html";
+                    else
+                        strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + "(м) на переюстировку.html";
+                }
                 else
                     strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + " на переюстировку.html";
             }
             else {
-                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_SMALL)
-                    strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + "(м).html";
+                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_SMALL) {
+                    if( theApp.GetSerial().contains("(м)"))
+                        strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + ".html";
+                    else
+                        strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + "(м).html";
+                }
                 else
                     strReportFileNameLoc = "Прибор №" + theApp.GetSerial() + ".html";
             }

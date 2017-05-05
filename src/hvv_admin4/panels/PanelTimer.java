@@ -254,9 +254,9 @@ public class PanelTimer extends javax.swing.JPanel {
             case 23: info.SetStartReportTitle( "Старт второго цикла обработки"); break;
                 
             case 41: info.SetStartReportTitle( "1 цикл. Обработка по длинному плечу"); break;
-            case 43: info.SetStartReportTitle( "1 цикл. Обработка по короткому плечу"); break;
+            case 43: info.SetStartReportTitle( "1 цикл. Обработка по коротким плечам"); break;
             case 45: info.SetStartReportTitle( "2 цикл. Обработка по длинному плечу"); break;
-            case 47: info.SetStartReportTitle( "2 цикл. Обработка по короткому плечу"); break;
+            case 47: info.SetStartReportTitle( "2 цикл. Обработка по коротким плечам"); break;
                 
             case 62: info.SetStartReportTitle( "Старт термообезгаживания"); break;
             case 64: info.SetStartReportTitle( "Старт выдержки рабочей смеси"); break;
@@ -460,13 +460,13 @@ public class PanelTimer extends javax.swing.JPanel {
                     
                 case 41:
                     if( chkLongShoulder.isSelected())
-                        info.SetStartReportTitle( "1 цикл. Обработка по короткому плечу");
+                        info.SetStartReportTitle( "1 цикл. Обработка по коротким плечам");
                     info.SetStopReportTitle( "Завершение обработки");
                 break;
                 case 43: info.SetStopReportTitle( "Завершение обработки"); break;
                 case 45:
                     if( chkLongShoulder.isSelected())
-                        info.SetStartReportTitle( "2 цикл. Обработка по короткому плечу");
+                        info.SetStartReportTitle( "2 цикл. Обработка по коротким плечам");
                     info.SetStopReportTitle( "Завершение обработки");
                 break;
                 case 47: info.SetStopReportTitle( "Завершение обработки"); break;

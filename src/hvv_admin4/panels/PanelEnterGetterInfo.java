@@ -486,7 +486,7 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
             
             //Выброс 9V
             m_gdtmDate9vEffusion.set( Calendar.HOUR_OF_DAY, Integer.parseInt( lbl9vEffusionHour.getText())); //( int) spn9vHours.getValue());
-            m_gdtmDate9vEffusion.set( Calendar.MINUTE, Integer.parseInt( lbl4vEffusionMinutes.getText()));
+            m_gdtmDate9vEffusion.set( Calendar.MINUTE, Integer.parseInt( lbl9vEffusionMinutes.getText()));
             info.SetDtEffusion9v( m_gdtmDate9vEffusion.getTime());
             str = edt9vEffusionPmax.getText();
             str = str.replace( ',', '.');
