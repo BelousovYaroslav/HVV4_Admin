@@ -25,6 +25,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
     
     private Timer m_pTimer;
     int m_nSecondsSpentHere;
+    int m_nSecondsPlanned;
     
     /**
      * Creates new form PanelProcess
@@ -34,14 +35,26 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void StartTimer() {
+    public void StartTimer( int nSecondsPlanned) {
+        m_nSecondsPlanned = nSecondsPlanned;
         m_nSecondsSpentHere = 0;
         m_pTimer = new Timer( 1000, new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 m_nSecondsSpentHere++;
-                String strMsg = String.format( "%02d:%02d", m_nSecondsSpentHere / 60, m_nSecondsSpentHere % 60);
+                String strMsg;
+                if( m_nSecondsPlanned != 0) {
+                    if( m_nSecondsSpentHere > m_nSecondsPlanned)
+                        m_nSecondsSpentHere = m_nSecondsPlanned;
+                    
+                    strMsg = String.format( "%02d:%02d",
+                            ( m_nSecondsPlanned - m_nSecondsSpentHere) / 60,
+                            ( m_nSecondsPlanned - m_nSecondsSpentHere) % 60);
+                }
+                else {
+                    strMsg = String.format( "%02d:%02d", m_nSecondsSpentHere / 60, m_nSecondsSpentHere % 60);
+                }
                 lblTimer.setText( strMsg);
             }
         });
@@ -57,9 +70,15 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
     
     public void Init() {
         switch( theApp.GetCurrentStep()) {
-            case 22:  lblTitle.setText( "<html><u>2.2 Обработка O<sub>2</sub>. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
-            case 24:  lblTitle.setText( "<html><u>2.4 Обработка O<sub>2</sub>. 2-ой цикл. Ввод напряжений.</u></thml>"); break;
+            case 21:
+            case 22:
+                lblTitle.setText( "<html><u>2.2 Обработка O<sub>2</sub>. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
             
+            case 23:
+            case 24:
+                lblTitle.setText( "<html><u>2.4 Обработка O<sub>2</sub>. 2-ой цикл. Ввод напряжений.</u></thml>"); break;
+            
+            case 41:
             case 42:
                 if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM) {
                     lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 1.Дл. пл. Ввод напряжений.</u></thml>");
@@ -68,7 +87,12 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                     lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. Цикл 1.Ввод напряжений.</u></thml>");
                 }
             break;
-            case 44:  lblTitle.setText( "<html><u>3.4 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 1.Кор. пл. Ввод напряжений.</u></thml>"); break;
+            
+            case 43:
+            case 44:
+                lblTitle.setText( "<html><u>3.4 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 1.Кор. пл. Ввод напряжений.</u></thml>"); break;
+            
+            case 45:
             case 46:
                 if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM) {
                     lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 2.Дл. пл. Ввод напряжений.</u></thml>");
@@ -77,11 +101,23 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                     lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. Цикл 2.Ввод напряжений.</u></thml>");
                 }
             break;
-            case 48:  lblTitle.setText( "<html><u>3.8 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 2.Кор. пл. Ввод напряжений.</u></thml>"); break;
+            
+            case 47:
+            case 48:
+                lblTitle.setText( "<html><u>3.8 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 2.Кор. пл. Ввод напряжений.</u></thml>"); break;
                 
-            case 103: lblTitle.setText( "<html><u>6.3 Тренировка катода. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
-            case 106: lblTitle.setText( "<html><u>6.6 Тренировка катода. 2-ой цикл. Ввод напряжений.</u></thml>"); break;
-            case 109: lblTitle.setText( "<html><u>6.9 Тренировка катода. 3-ий цикл. Ввод напряжений.</u></thml>"); break;
+            
+            case 102:
+            case 103:
+                lblTitle.setText( "<html><u>6.3 Тренировка катода. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
+            
+            case 105:
+            case 106:
+                lblTitle.setText( "<html><u>6.6 Тренировка катода. 2-ой цикл. Ввод напряжений.</u></thml>"); break;
+            
+            case 108:
+            case 109:
+                lblTitle.setText( "<html><u>6.9 Тренировка катода. 3-ий цикл. Ввод напряжений.</u></thml>"); break;
             
             case 142: lblTitle.setText( "<html><u>8.2 Тренировка в тр. смеси. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
             case 143: lblTitle.setText( "<html><u>8.2 Тренировка в тр. смеси. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
@@ -231,7 +267,12 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         TechProcessHvProcessInfo info;
-        if( theApp.GetCurrentStep() == 142 || theApp.GetCurrentStep() == 145) {
+        if( theApp.GetCurrentStep() == 21 || theApp.GetCurrentStep() == 23 ||
+            theApp.GetCurrentStep() == 41 || theApp.GetCurrentStep() == 43 ||                
+            theApp.GetCurrentStep() == 45 || theApp.GetCurrentStep() == 47 ||
+            theApp.GetCurrentStep() == 102 || theApp.GetCurrentStep() == 105 || theApp.GetCurrentStep() == 108 ||
+            theApp.GetCurrentStep() == 142 || theApp.GetCurrentStep() == 145) {
+            
             info = new TechProcessHvProcessInfo( theApp);
         }
         else {
@@ -251,6 +292,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         } catch( NumberFormatException ex) {
             logger.warn( "NumberFormatException caught при преобразовании в текст '" + edtAnodeStart.getText() + "'!", ex);
             logger.warn( "На этапе обработки начального напряжения на аноде");
+            return;
         }
         info.SetAnStart( dblValue);
         
@@ -266,6 +308,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         } catch( NumberFormatException ex) {
             logger.warn( "NumberFormatException caught при преобразовании в текст '" + edtAnodeStop.getText() + "'!", ex);
             logger.warn( "На этапе обработки конечного напряжения на аноде");
+            return;
         }
         info.SetAnStop( dblValue);
         
@@ -282,6 +325,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         } catch( NumberFormatException ex) {
             logger.warn( "NumberFormatException caught при преобразовании в текст '" + edtTubuStart.getText() + "'!", ex);
             logger.warn( "На этапе обработки начального напряжения на штенгеле");
+            return;
         }
         info.SetTuStart( dblValue);
         
@@ -297,19 +341,45 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         } catch( NumberFormatException ex) {
             logger.warn( "NumberFormatException caught при преобразовании в текст '" + edtTubuStop.getText() + "'!", ex);
             logger.warn( "На этапе обработки конечного напряжения на штенгеле");
+            return;
         }
         info.SetTuStop( dblValue);
         
         theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
         
         
+        if( theApp.GetCurrentStep() == 21 || theApp.GetCurrentStep() == 23 ||
+            theApp.GetCurrentStep() == 41 || theApp.GetCurrentStep() == 43 ||
+            theApp.GetCurrentStep() == 45 || theApp.GetCurrentStep() == 47 ||
+            theApp.GetCurrentStep() == 102 || theApp.GetCurrentStep() == 105 || theApp.GetCurrentStep() == 108) {
+            
+            theApp.m_pMainWnd.m_pnlStopWatch.Init();
+            if( theApp.GetCurrentStep() == 21 || theApp.GetCurrentStep() == 23)
+                theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_2() - m_nSecondsSpentHere + 1, m_nSecondsSpentHere);
+            
+            if( theApp.GetCurrentStep() == 41 || theApp.GetCurrentStep() == 43 ||
+                theApp.GetCurrentStep() == 45 || theApp.GetCurrentStep() == 47) 
+                theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_3() - m_nSecondsSpentHere + 1, m_nSecondsSpentHere);
+            
+            if( theApp.GetCurrentStep() == 102 || theApp.GetCurrentStep() == 105 || theApp.GetCurrentStep() == 108) {
+                theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_6() - m_nSecondsSpentHere + 1, m_nSecondsSpentHere);
+            }
+            theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
+            theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( false);
+            
+            theApp.m_ReportGenerator.Generate();
+            
+            return;
+        }
+        
         if( theApp.GetCurrentStep() == 142 || theApp.GetCurrentStep() == 145) {
+            
             if( m_pTimer != null && m_pTimer.isRunning()) {
                 m_pTimer.stop();
             }
             
             theApp.m_pMainWnd.m_pnlStopWatch.Init();
-            theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_8() - m_nSecondsSpentHere, m_nSecondsSpentHere);
+            theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_8() - m_nSecondsSpentHere + 1, m_nSecondsSpentHere);
             theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
             theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( false);
             
@@ -379,10 +449,15 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         if( nNextStep == 43 || nNextStep == 47) {
             theApp.SetCurrentStepInProgress( true);
             
-            theApp.m_pMainWnd.m_pnlStopWatch.Init();
-            theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_3(), 0);
-            theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
-            theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( false);
+            theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
+            theApp.m_pMainWnd.m_pnlEnterHvVoltage.Init();
+            theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
+            theApp.m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( theApp.GetSettings().GetProcessingTime_3());
+                    
+            //theApp.m_pMainWnd.m_pnlStopWatch.Init();
+            //theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_3(), 0);
+            //theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
+            //theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( false);
         }
         else {
             theApp.SetCurrentStepInProgress( false);

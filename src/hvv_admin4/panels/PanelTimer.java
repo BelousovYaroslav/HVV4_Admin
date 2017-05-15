@@ -493,7 +493,9 @@ public class PanelTimer extends javax.swing.JPanel {
         info = new TechProcessHvProcessInfo( theApp);
         int nNextStep = 0;
         switch( theApp.GetCurrentStep()) {
-            case 21: /*2.1*/ info.SetStartReportTitle( ""); nNextStep = 22; break;
+            case 21: /*2.1*/
+                info.SetStartReportTitle( ""); nNextStep = 22;
+                break;
             case 23: /*2.3*/ info.SetStartReportTitle( ""); nNextStep = 24; break;
                 
             case 41: /*3.1*/ info.SetStartReportTitle( ""); nNextStep = 42; break;
@@ -625,7 +627,7 @@ public class PanelTimer extends javax.swing.JPanel {
             default:
                 //нам надо ввести зафиксированные напряжения для прошедшего этапа обработки
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.Init();
-                theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
+                //theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
                 theApp.SetCurrentStepInProgress( true);
         }

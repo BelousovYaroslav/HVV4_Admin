@@ -195,9 +195,15 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             case 21:
             case 23:
                 if( theApp.IsCurrentStepInProgress()) {
-                    theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
-                    theApp.m_pMainWnd.m_pnlStopWatch.Init();
-                    theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) theApp.GetSettings().GetProcessingTime_2(), 0);
+                    
+                    theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
+                    theApp.m_pMainWnd.m_pnlEnterHvVoltage.Init();
+                    theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
+                    theApp.m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( theApp.GetSettings().GetProcessingTime_2());
+                
+                    //theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
+                    //theApp.m_pMainWnd.m_pnlStopWatch.Init();
+                    //theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) theApp.GetSettings().GetProcessingTime_2(), 0);
 
                     theApp.m_pMainWnd.m_pnlPuffMessage.setVisible( false);
                 } else {
@@ -210,14 +216,20 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             case 41: //3.1 O2-Ne20. Обработка. 1ый цикл.
             case 45: //3.1 O2-Ne20. Обработка. 2oй цикл.
                 if( theApp.IsCurrentStepInProgress()) {
-                    theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
-                    theApp.m_pMainWnd.m_pnlStopWatch.Init();
                     
-                    if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM)
-                        theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) theApp.GetSettings().GetProcessingTime_3(), 0);
-                    else {
-                        theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) theApp.GetSettings().GetProcessingTime_3() * 2, 0);
-                    }
+                    theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
+                    theApp.m_pMainWnd.m_pnlEnterHvVoltage.Init();
+                    theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
+                    theApp.m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( theApp.GetSettings().GetProcessingTime_3());
+                
+                    //theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
+                    //theApp.m_pMainWnd.m_pnlStopWatch.Init();                    
+                    //if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM)
+                    //    theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) theApp.GetSettings().GetProcessingTime_3(), 0);
+                    //else {
+                    //    theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) theApp.GetSettings().GetProcessingTime_3() * 2, 0);
+                    //}
+                    
                     theApp.m_pMainWnd.m_pnlPuffMessage.setVisible( false);
                 } else {
                     theApp.SetCurrentStepInProgress( true);
@@ -270,9 +282,14 @@ public class PanelPuffMessage extends javax.swing.JPanel {
 
                 theApp.m_ReportGenerator.Generate();
 
-                theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
-                theApp.m_pMainWnd.m_pnlStopWatch.Init();
-                theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_6(), 0);
+                theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
+                theApp.m_pMainWnd.m_pnlEnterHvVoltage.Init();
+                theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
+                theApp.m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( theApp.GetSettings().GetProcessingTime_3());
+                    
+                //theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
+                //theApp.m_pMainWnd.m_pnlStopWatch.Init();
+                //theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_6(), 0);
                 
                 theApp.m_pMainWnd.m_pnlPuffMessage.setVisible( false);
             }
@@ -310,7 +327,7 @@ public class PanelPuffMessage extends javax.swing.JPanel {
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.Init();
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
-                theApp.m_pMainWnd.m_pnlEnterHvVoltage.StartTimer();
+                theApp.m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( 0);
                 
                 //theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
                 //theApp.m_pMainWnd.m_pnlStopWatch.Init();

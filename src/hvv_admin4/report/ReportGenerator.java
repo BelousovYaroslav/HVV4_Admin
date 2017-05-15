@@ -177,7 +177,7 @@ public class ReportGenerator {
             case HVV_Admin4Constants.DEVICE_BIG:
                 if( !theApp.GetSerial().contains("(Б)")) writer.write( " (Б)");
             break;
-            //case HVV_Admin4Constants.DEVICE_MEDIUM: writer.write( ""); break;
+            case HVV_Admin4Constants.DEVICE_MEDIUM: writer.write( ""); break;
             case HVV_Admin4Constants.DEVICE_SMALL:
                 if( !theApp.GetSerial().contains("(м)")) writer.write( " (м)");
             break;
