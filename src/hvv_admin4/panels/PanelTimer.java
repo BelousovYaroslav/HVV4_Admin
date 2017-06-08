@@ -145,7 +145,34 @@ public class PanelTimer extends javax.swing.JPanel {
                 lblStart.setVisible( false);
                 
                 btnNext.setEnabled(  false);
-                new Timer( 1000 * 60 * 60 * 24, new ActionListener() {
+                if( theApp.GetSettings().GetDebugShortenThermoProcessing()) {
+                    new Timer( 1000 * 5, new ActionListener() {
+
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            (( Timer) e.getSource()).stop();
+                            btnNext.setEnabled( true);
+                        }
+                    }).start();
+                }
+                else {
+                    new Timer( 1000 * 60 * 60 * 24, new ActionListener() {
+
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            (( Timer) e.getSource()).stop();
+                            btnNext.setEnabled( true);
+                        }
+                    }).start();
+                }
+            break;
+            case 64:
+                m_nTimerToShow = TIMER_DOWNTICK;
+                lblTitle.setText( "<html><u>4.4 Заполнение рабочей смесью. Выдержка.</u></thml>");
+                btnStart.setVisible( false);
+                lblStart.setVisible( false);
+                btnNext.setEnabled(  false);
+                new Timer( 2000, new ActionListener() {
 
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -153,14 +180,6 @@ public class PanelTimer extends javax.swing.JPanel {
                         btnNext.setEnabled( true);
                     }
                 }).start();
-                
-            break;
-            case 64:
-                m_nTimerToShow = TIMER_DOWNTICK;
-                lblTitle.setText( "<html><u>4.4 Заполнение рабочей смесью. Выдержка.</u></thml>");
-                btnStart.setVisible( false);
-                lblStart.setVisible( false);
-                btnNext.setEnabled(  true);
             break;
             case 101:
                 m_nTimerToShow = TIMER_DOWNTICK;
@@ -237,7 +256,15 @@ public class PanelTimer extends javax.swing.JPanel {
                 lblTitle.setText( "<html><u>10.1 Заполнение рабочей смесью. Выдержка.</u></thml>");
                 btnStart.setVisible( false);
                 lblStart.setVisible( false);
-                btnNext.setEnabled(  true);
+                btnNext.setEnabled(  false);
+                new Timer( 2000, new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        (( Timer) e.getSource()).stop();
+                        btnNext.setEnabled( true);
+                    }
+                }).start();
             break;    
                 
             default: lblTitle.setText( "ЭТАП НЕ ДЛЯ ТАЙМЕРА!"); break;
@@ -249,36 +276,68 @@ public class PanelTimer extends javax.swing.JPanel {
     public void StartTimer( long nSeconds, long lUpTickTimerInitialValue) {
         //мы начинаем процесс
         TechProcessStepCommon info = new TechProcessStepCommon( theApp);
+        
         switch( theApp.GetCurrentStep()) {
-            case 21: info.SetStartReportTitle( "Старт первого цикла обработки"); break;
-            case 23: info.SetStartReportTitle( "Старт второго цикла обработки"); break;
+            case 21: break;
+            case 23: break;
                 
-            case 41: info.SetStartReportTitle( "1 цикл. Обработка по длинному плечу"); break;
-            case 43: info.SetStartReportTitle( "1 цикл. Обработка по коротким плечам"); break;
-            case 45: info.SetStartReportTitle( "2 цикл. Обработка по длинному плечу"); break;
-            case 47: info.SetStartReportTitle( "2 цикл. Обработка по коротким плечам"); break;
+            case 41: break;
+            case 43: break;
+            case 45: break;
+            case 47: break;
                 
-            case 62: info.SetStartReportTitle( "Старт термообезгаживания"); break;
-            case 64: info.SetStartReportTitle( "Старт выдержки рабочей смеси"); break;
+            case 62:
+                info.SetStartReportTitle( "Старт термообезгаживания");
+                info.SetStartDateAsCurrent();
+                theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
+            break;
+            case 64:
+                info.SetStartReportTitle( "Старт выдержки рабочей смеси");
+                info.SetStartDateAsCurrent();
+                theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
+            break;
                 
-            case 101: info.SetStartReportTitle( "Старт выдержки тренировочной смеси"); break;
-            case 102: info.SetStartReportTitle( "Старт первого цикла тренировки"); break;
-            case 104: info.SetStartReportTitle( "Старт выдержки тренировочной смеси"); break;
-            case 105: info.SetStartReportTitle( "Старт второго цикла тренировки"); break;
-            case 107: info.SetStartReportTitle( "Старт выдержки тренировочной смеси"); break;
-            case 108: info.SetStartReportTitle( "Старт третьего цикла тренировки"); break;
+            case 101:
+                info.SetStartReportTitle( "Старт выдержки тренировочной смеси");
+                info.SetStartDateAsCurrent();
+                theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
+            break;
+            case 102: break;
+            case 104:
+                info.SetStartReportTitle( "Старт выдержки тренировочной смеси");
+                info.SetStartDateAsCurrent();
+                theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
+            break;
+            case 105: break;
+            case 107:
+                info.SetStartReportTitle( "Старт выдержки тренировочной смеси");
+                info.SetStartDateAsCurrent();
+                theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
+            break;
+            case 108: break;
             
-            case 141: info.SetStartReportTitle( "Старт выдержки тренировочной смеси"); break;
-            case 142: info.SetStartReportTitle( "Старт первого цикла тренировки"); break;
-            case 144: info.SetStartReportTitle( "Старт выдержки тренировочной смеси"); break;
-            case 145: info.SetStartReportTitle( "Старт второго цикла тренировки"); break;
+            case 141:
+                info.SetStartReportTitle( "Старт выдержки тренировочной смеси");
+                info.SetStartDateAsCurrent();
+                theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
+            break;
+            case 142: break;
+            case 144:
+                info.SetStartReportTitle( "Старт выдержки тренировочной смеси");
+                info.SetStartDateAsCurrent();
+                theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
+            break;
+            case 145: break;
                 
-            case 181: info.SetStartReportTitle( "Старт выдержки рабочей смеси"); break;
+            case 181:
+                info.SetStartReportTitle( "Старт выдержки рабочей смеси");
+                info.SetStartDateAsCurrent();
+                theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
+            break;
         }
         
-        info.SetStartDateAsCurrent();
         
-        theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
+        
         
         theApp.m_ReportGenerator.Generate();
         
@@ -317,6 +376,31 @@ public class PanelTimer extends javax.swing.JPanel {
                     int nMin = ( int) ( (m_lDownTickTimer % 3600) / 60);
                     int nSec = ( int) ( m_lDownTickTimer % 60);
                     lblTimer.setText( String.format( "%02d:%02d:%02d", nHou, nMin, nSec));
+                }
+                
+                if( theApp.GetCurrentStep() == 62 && m_lDownTickTimer == 60 * 90) {
+                    //для этапа термообезгаживания за полтора часа переходим на экран ввода геттер инфо
+                    TechProcessGetterInfo info = new TechProcessGetterInfo( theApp);
+                    info.SetStartReportTitle( "");
+                    info.SetStartDateAsCurrent();
+                    theApp.SetCurrentStep( 63);
+                    theApp.SaveStepInfo( "063", info, true);
+        
+                    theApp.m_ReportGenerator.Generate();
+        
+                    theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetDtmTOEnd(), 60 * 90);
+                
+                    theApp.m_pMainWnd.m_pnlEnterGetterInfo.setVisible( true);
+                    theApp.SetCurrentStepInProgress( true);
+
+        
+                    if( m_pDownTickTimer != null) {
+                        if( m_pDownTickTimer.isRunning())
+                            m_pDownTickTimer.stop();
+                    }
+        
+                    theApp.m_pMainWnd.m_pnlStopWatch.setVisible( false);
+                    return;
                 }
                 
                 if( m_lDownTickTimer == 0) {
@@ -568,9 +652,9 @@ public class PanelTimer extends javax.swing.JPanel {
         switch( nNextStep) {
             case 63: //4.3 (то есть сейчас мы закончили 4.2 и готовы перейти к 4.3)
                 if( theApp.GetDtmTOEnd() == null)
-                    theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetStepInfo( "062").GetStopDate());
+                    theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetStepInfo( "062").GetStopDate(), m_lDownTickTimer + 1);
                 else
-                    theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetDtmTOEnd());
+                    theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetDtmTOEnd(), m_lDownTickTimer + 1);
                 
                 theApp.m_pMainWnd.m_pnlEnterGetterInfo.setVisible( true);
                 theApp.SetCurrentStepInProgress( true);
