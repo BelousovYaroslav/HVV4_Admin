@@ -284,6 +284,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         try {
             String strVal = edtAnodeStart.getText();
             strVal = strVal.replace( ',', '.');
+            if( strVal.isEmpty()) strVal = "0";
             dblValue = new Double( strVal);
             if( dblValue < 0 && dblValue > 600) {
                 return;
@@ -301,6 +302,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         try {
             String strVal = edtAnodeStop.getText();
             strVal = strVal.replace( ',', '.');
+            if( strVal.isEmpty()) strVal = "0";
             dblValue = new Double( strVal);
             if( dblValue < 0 && dblValue > 600) {
                 return;
@@ -318,6 +320,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         try {
             String strVal = edtTubuStart.getText();
             strVal = strVal.replace( ',', '.');
+            if( strVal.isEmpty()) strVal = "0";
             dblValue = new Double( strVal);
             if( dblValue < 0 && dblValue > 600) {
                 return;
@@ -334,6 +337,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         try {
             String strVal = edtTubuStop.getText();
             strVal = strVal.replace( ',', '.');
+            if( strVal.isEmpty()) strVal = "0";
             dblValue = new Double( strVal);
             if( dblValue < 0 && dblValue > 600) {
                 return;
