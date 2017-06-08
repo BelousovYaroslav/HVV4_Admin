@@ -212,7 +212,7 @@ public class PanelStep07 extends TechProcessStepPanelTemplate {
         //FAKE
         theApp.SetCurrentStep( 121);
         
-        theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetLocalDate());
+        theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetLocalDate(), 0);
         theApp.SetCurrentStepInProgress( true);
         theApp.m_pMainWnd.m_pnlEnterGetterInfo.setVisible( true);
         

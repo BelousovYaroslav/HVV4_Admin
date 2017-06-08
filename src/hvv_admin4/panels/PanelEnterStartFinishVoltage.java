@@ -267,17 +267,19 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         TechProcessHvProcessInfo info;
-        if( theApp.GetCurrentStep() == 21 || theApp.GetCurrentStep() == 23 ||
-            theApp.GetCurrentStep() == 41 || theApp.GetCurrentStep() == 43 ||                
-            theApp.GetCurrentStep() == 45 || theApp.GetCurrentStep() == 47 ||
-            theApp.GetCurrentStep() == 102 || theApp.GetCurrentStep() == 105 || theApp.GetCurrentStep() == 108 ||
-            theApp.GetCurrentStep() == 142 || theApp.GetCurrentStep() == 145) {
-            
-            info = new TechProcessHvProcessInfo( theApp);
-        }
-        else {
-            info = ( TechProcessHvProcessInfo) theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
-        }
+        //if( theApp.GetCurrentStep() == 21 || theApp.GetCurrentStep() == 23 ||
+        //    theApp.GetCurrentStep() == 41 || theApp.GetCurrentStep() == 43 ||                
+        //    theApp.GetCurrentStep() == 45 || theApp.GetCurrentStep() == 47 ||
+        //    theApp.GetCurrentStep() == 102 || theApp.GetCurrentStep() == 105 || theApp.GetCurrentStep() == 108 ||
+        //    theApp.GetCurrentStep() == 142 || theApp.GetCurrentStep() == 145) {
+        //    
+        //    info = new TechProcessHvProcessInfo( theApp);
+        //}
+        //else {
+        //    info = ( TechProcessHvProcessInfo) theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+        //}
+        
+        info = ( TechProcessHvProcessInfo) theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
         
         //начальное напряжение на аноде
         Double dblValue = 0.;
@@ -452,6 +454,16 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         theApp.SetCurrentStep( nNextStep);
         if( nNextStep == 43 || nNextStep == 47) {
             theApp.SetCurrentStepInProgress( true);
+            
+            info = new TechProcessHvProcessInfo(theApp);
+            info.SetStartDateAsCurrent();
+            if( nNextStep == 43) {
+                info.SetStartReportTitle( "1 цикл. Обработка по коротким плечам");
+            }
+            if( nNextStep == 47) {
+                info.SetStartReportTitle( "2 цикл. Обработка по коротким плечам");
+            }
+            theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
             
             theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
             theApp.m_pMainWnd.m_pnlEnterHvVoltage.Init();

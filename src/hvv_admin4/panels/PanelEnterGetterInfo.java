@@ -30,6 +30,9 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
     private GregorianCalendar m_gdtmDate9vEffusion;
     private GregorianCalendar m_gdtmDate9vTurnOff;
     
+    private Timer m_pRestDownTickTimer;
+    private long m_lRestDownTickTimer;
+    
     /**
      * Creates new form PanelProcess
      */
@@ -48,7 +51,7 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
         spn9vOffMinutes.setVisible( false);
     }
 
-    public void InitOnStart_43( Date dt) {
+    public void InitOnStart_43( Date dt, long lSecondsLeft) {
         lblTitle.setText( "<html><u>4.3 Ввод данных о выбросах с геттера.</u></thml>");
         
         m_gdtmDate4vEffusion = new GregorianCalendar();
@@ -81,6 +84,26 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
         m_gdtmDate9vTurnOff = new GregorianCalendar();
         m_gdtmDate9vTurnOff.setTime( dt);
         m_gdtmDate9vTurnOff.add( Calendar.MINUTE, -5);
+        
+        m_lRestDownTickTimer = lSecondsLeft;
+        m_pRestDownTickTimer = new Timer( 1000, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                m_lRestDownTickTimer--;
+                
+                int nHou = ( int) ( m_lRestDownTickTimer / 3600);
+                int nMin = ( int) ( ( m_lRestDownTickTimer % 3600) / 60);
+                int nSec = ( int) ( m_lRestDownTickTimer % 60);
+                lblStopWatch.setText( String.format( "%02d:%02d:%02d", nHou, nMin, nSec));
+                    
+                if( m_lRestDownTickTimer == 0) {
+                    m_pRestDownTickTimer.stop();
+                    btnNext.setEnabled( true);
+                }
+            }
+        });
+        m_pRestDownTickTimer.start();
     }
     
     public void InitOnStart_71( Date dt) {
@@ -111,9 +134,12 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
         m_gdtmDate9vTurnOff.setTime( dt);
     }
     
-    public void InitOnStart( Date dt) {
-        if( theApp.GetCurrentStep() == 63)
-            InitOnStart_43(dt);
+    public void InitOnStart( Date dt, long lSecondsLeft) {
+        if( theApp.GetCurrentStep() == 63) {
+            InitOnStart_43( dt, lSecondsLeft);
+        }
+        else
+            lblStopWatch.setText( "");
         
         if( theApp.GetCurrentStep() == 121) {
             /*lblTitle4vEffusion.setVisible( false);
@@ -177,14 +203,38 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
         }
         
         btnNext.setEnabled( false);
-        new  Timer( 1000, new ActionListener() {
+        if( theApp.GetCurrentStep() == 63) {
+            if( theApp.GetSettings().GetDebugShortenThermoProcessing()) {
+                new  Timer( 1000 * 5, new ActionListener() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                (( Timer) e.getSource()).stop();
-                btnNext.setEnabled( true);
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        (( Timer) e.getSource()).stop();
+                        btnNext.setEnabled( true);
+                    }
+                }).start();
             }
-        }).start();
+            else {
+                new  Timer( 1000 * 60 * 90, new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        (( Timer) e.getSource()).stop();
+                        btnNext.setEnabled( true);
+                    }
+                }).start();
+            }
+        }
+        else {
+            new  Timer( 1000, new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    (( Timer) e.getSource()).stop();
+                    btnNext.setEnabled( true);
+                }
+            }).start();
+        }
         
         edt4vEffusionPmax.setText( "1.00");
         edt9vEffusionPmax.setText( "1.00");
@@ -229,6 +279,7 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
         lbl9vTurnOffMinutes = new javax.swing.JLabel();
         spn9vOffMinutes = new javax.swing.JSpinner();
         btnNext = new javax.swing.JButton();
+        lblStopWatch = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 200)));
         setMaximumSize(new java.awt.Dimension(640, 440));
@@ -455,6 +506,12 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
         });
         add(btnNext);
         btnNext.setBounds(10, 380, 620, 50);
+
+        lblStopWatch.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblStopWatch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStopWatch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
+        add(lblStopWatch);
+        lblStopWatch.setBounds(10, 60, 190, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
@@ -688,6 +745,7 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
     private javax.swing.JLabel lblSeparator4vEffusion;
     private javax.swing.JLabel lblSeparator9vEffusion;
     private javax.swing.JLabel lblSeparator9vTurnOff;
+    private javax.swing.JLabel lblStopWatch;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle4vEffusion;
     private javax.swing.JLabel lblTitle9vEffusion;

@@ -392,7 +392,7 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
         
         if( theApp.GetSettings().GetDebugShortenThermoProcessing()) {
             //DEBUG
-            theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) 5, 0);
+            theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) 5410, 0);
         }
         else {
             //GOOD

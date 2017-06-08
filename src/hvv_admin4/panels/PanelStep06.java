@@ -690,7 +690,8 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
             lbl_06_01_Title.setEnabled( theApp.GetCurrentStep() <= 101);
             btn_06_01_Start.setVisible( theApp.GetCurrentStep() == 101 && !theApp.IsCurrentStepInProgress());
             btn_06_01_Next.setVisible(  theApp.GetCurrentStep() == 101 &&  theApp.IsCurrentStepInProgress());
-            
+            //btn_06_01_Start.setVisible( true);
+                    
             //6.2
             FillStepDates("102", lbl_06_02_Date_start, lbl_06_02_Time_start, lbl_06_02_Date_stop, lbl_06_02_Time_stop);
             lbl_06_02_Title.setFont( theApp.GetCurrentStep() == 102 ? theApp.GetBoldFont() : theApp.GetUsualFont());
