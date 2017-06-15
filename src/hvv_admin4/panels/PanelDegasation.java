@@ -533,13 +533,13 @@ public class PanelDegasation extends javax.swing.JPanel {
             break;
         }
         
-        /*if( m_lstProgram.size() >= 7) {
+        if( m_lstProgram.size() >= 7) {
             m_scrollBar.setEnabled( true);
-            m_scrollBar.setMaximum( 40 * (m_lstProgram.size() - 7) + 21);
+            m_scrollBar.setMaximum( 21 + 40 * ( m_lstProgram.size() - 7));
         }
         else
             m_scrollBar.setEnabled( false);
-        */
+        
     }
     
     private void radGetterType1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radGetterType1ActionPerformed
