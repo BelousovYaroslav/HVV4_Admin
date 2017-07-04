@@ -1852,7 +1852,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
             break;
             
             case 221:   //small, get2, ind1    - yes
-                m_pParent.m_lstProgram.add( new TechProcessDegasationStepInfo( 5, 35));
+                //m_pParent.m_lstProgram.add( new TechProcessDegasationStepInfo( 5, 35));
                 m_pParent.m_lstProgram.add( new TechProcessDegasationStepInfo( 5, 30));
                 if( theApp.GetSettings().GetDebugShortenProgItems() == false) {
                     m_pParent.m_lstProgram.add( new TechProcessDegasationStepInfo(  5, 25));

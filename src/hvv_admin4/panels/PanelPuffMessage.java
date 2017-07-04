@@ -331,7 +331,7 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             {
                 TechProcessHvProcessInfo info = new TechProcessHvProcessInfo( theApp);
                 info.SetStartDateAsCurrent();
-                info.SetStartReportTitle( "Старт " + ( 1 + ( theApp.GetCurrentStep() - 102) / 3) + "-го цикла тренировки");
+                info.SetStartReportTitle( "Старт " + ( 1 + ( theApp.GetCurrentStep() - 142) / 3) + "-го цикла тренировки");
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
 
                 theApp.m_ReportGenerator.Generate();
