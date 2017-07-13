@@ -24,7 +24,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
     static Logger logger = Logger.getLogger( PanelEnterStartFinishVoltage.class);
     
     private Timer m_pTimer;
-    int m_nSecondsSpentHere;
+    int m_nSecondsPassed;
     int m_nSecondsPlanned;
     
     /**
@@ -37,24 +37,27 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
 
     public void StartTimer( int nSecondsPlanned) {
         m_nSecondsPlanned = nSecondsPlanned;
-        m_nSecondsSpentHere = 0;
+        m_nSecondsPassed = 0;
         m_pTimer = new Timer( 1000, new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                m_nSecondsSpentHere++;
+                m_nSecondsPassed++;
                 String strMsg;
                 if( m_nSecondsPlanned != 0) {
-                    if( m_nSecondsSpentHere > m_nSecondsPlanned)
-                        m_nSecondsSpentHere = m_nSecondsPlanned;
+                    if( m_nSecondsPassed > m_nSecondsPlanned) {
+                        m_nSecondsPassed = m_nSecondsPlanned;
+                        btnNext.setEnabled( true);
+                    }
                     
                     strMsg = String.format( "%02d:%02d",
-                            ( m_nSecondsPlanned - m_nSecondsSpentHere) / 60,
-                            ( m_nSecondsPlanned - m_nSecondsSpentHere) % 60);
+                            ( m_nSecondsPlanned - m_nSecondsPassed) / 60,
+                            ( m_nSecondsPlanned - m_nSecondsPassed) % 60);
                 }
                 else {
-                    strMsg = String.format( "%02d:%02d", m_nSecondsSpentHere / 60, m_nSecondsSpentHere % 60);
+                    strMsg = String.format( "%02d:%02d", m_nSecondsPassed / 60, m_nSecondsPassed % 60);
                 }
+                
                 lblTimer.setText( strMsg);
             }
         });
@@ -71,64 +74,64 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
     public void Init() {
         switch( theApp.GetCurrentStep()) {
             case 21:
+                lblTitle.setText( "<html><u>2.1 Обработка O<sub>2</sub>. 1-ый цикл. Ввод напряжений.</u></thml>");
+                chkLongDischargeTrackFail.setVisible( false);
+            break;
+            
             case 22:
-                lblTitle.setText( "<html><u>2.2 Обработка O<sub>2</sub>. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
+                lblTitle.setText( "<html><u>2.2 Обработка O<sub>2</sub>. 2-ой цикл. Ввод напряжений.</u></thml>");
+                chkLongDischargeTrackFail.setVisible( false);
+            break;
             
-            case 23:
-            case 24:
-                lblTitle.setText( "<html><u>2.4 Обработка O<sub>2</sub>. 2-ой цикл. Ввод напряжений.</u></thml>"); break;
-            
+                
             case 41:
+                lblTitle.setText( "<html><u>3. Обработка O<sub>2</sub>-Ne<sub>20</sub>. Цикл 1.</u></thml>");
+                chkLongDischargeTrackFail.setSelected( false);
+                chkLongDischargeTrackFail.setVisible( true);
+            break;
             case 42:
-                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM) {
-                    lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 1.Дл. пл. Ввод напряжений.</u></thml>");
-                }
-                else {
-                    lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. Цикл 1.Ввод напряжений.</u></thml>");
-                }
+                lblTitle.setText( "<html><u>3. Обработка O<sub>2</sub>-Ne<sub>20</sub>. Цикл 1. Кор. плечи.</u></thml>");
+                chkLongDischargeTrackFail.setVisible( false);
             break;
             
             case 43:
+                lblTitle.setText( "<html><u>3. Обработка O<sub>2</sub>-Ne<sub>20</sub>. Цикл 2.</u></thml>");
+                chkLongDischargeTrackFail.setSelected( false);
+                chkLongDischargeTrackFail.setVisible( true);
+            break;
+                
             case 44:
-                lblTitle.setText( "<html><u>3.4 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 1.Кор. пл. Ввод напряжений.</u></thml>"); break;
-            
-            case 45:
-            case 46:
-                if( theApp.GetProcessedDeviceType() == HVV_Admin4Constants.DEVICE_MEDIUM) {
-                    lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 2.Дл. пл. Ввод напряжений.</u></thml>");
-                }
-                else {
-                    lblTitle.setText( "<html><u>3.2 Обработка O<sub>2</sub>-Ne<sub>20</sub>. Цикл 2.Ввод напряжений.</u></thml>");
-                }
+                lblTitle.setText( "<html><u>3. Обработка O<sub>2</sub>-Ne<sub>20</sub>. Цикл 2. Кор. плечи.</u></thml>");
+                chkLongDischargeTrackFail.setVisible( false);
             break;
             
-            case 47:
-            case 48:
-                lblTitle.setText( "<html><u>3.8 Обработка O<sub>2</sub>-Ne<sub>20</sub>. 2.Кор. пл. Ввод напряжений.</u></thml>"); break;
-                
             
-            case 102:
-            case 103:
-                lblTitle.setText( "<html><u>6.3 Тренировка катода. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
+            case 102:   //6.2   Тренировка катода. 1ый цикл
+                lblTitle.setText( "<html><u>6.2 Тренировка катода. 1-ый цикл. Ввод напряжений.</u></thml>");
+                chkLongDischargeTrackFail.setVisible( false);
+            break;
             
-            case 105:
-            case 106:
-                lblTitle.setText( "<html><u>6.6 Тренировка катода. 2-ой цикл. Ввод напряжений.</u></thml>"); break;
+            case 104:   //6.4   Тренировка катода. 2ой цикл
+                lblTitle.setText( "<html><u>6.4 Тренировка катода. 2-ой цикл. Ввод напряжений.</u></thml>");
+                chkLongDischargeTrackFail.setVisible( false);
+            break;
             
-            case 108:
-            case 109:
-                lblTitle.setText( "<html><u>6.9 Тренировка катода. 3-ий цикл. Ввод напряжений.</u></thml>"); break;
+            case 106:   //6.6   Тренировка катода. 2ой цикл
+                lblTitle.setText( "<html><u>6.6 Тренировка катода. 3-ий цикл. Ввод напряжений.</u></thml>");
+                chkLongDischargeTrackFail.setVisible( false);
+            break;
             
-            case 142: lblTitle.setText( "<html><u>8.2 Тренировка в тр. смеси. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
-            case 143: lblTitle.setText( "<html><u>8.2 Тренировка в тр. смеси. 1-ый цикл. Ввод напряжений.</u></thml>"); break;
-            case 145: lblTitle.setText( "<html><u>8.5 Тренировка в тр. смеси. 2-ой цикл. Ввод напряжений.</u></thml>"); break;
-            case 146: lblTitle.setText( "<html><u>8.5 Тренировка в тр. смеси. 2-ой цикл. Ввод напряжений.</u></thml>"); break;
+            case 142: lblTitle.setText( "<html><u>8.2 Тренировка в тр. смеси. 1-ый цикл. Ввод напряжений.</u></thml>"); chkLongDischargeTrackFail.setVisible( false); break;
+            case 143: lblTitle.setText( "<html><u>8.2 Тренировка в тр. смеси. 1-ый цикл. Ввод напряжений.</u></thml>"); chkLongDischargeTrackFail.setVisible( false); break;
+            case 145: lblTitle.setText( "<html><u>8.5 Тренировка в тр. смеси. 2-ой цикл. Ввод напряжений.</u></thml>"); chkLongDischargeTrackFail.setVisible( false); break;
+            case 146: lblTitle.setText( "<html><u>8.5 Тренировка в тр. смеси. 2-ой цикл. Ввод напряжений.</u></thml>"); chkLongDischargeTrackFail.setVisible( false); break;
             
-            default: lblTitle.setText( "ЭТАП " + theApp.GetCurrentStep() + "НЕ ДЛЯ ВВОДА НАПРЯЖЕНИЙ!"); break;
+            default: lblTitle.setText( "ЭТАП " + theApp.GetCurrentStep() + "НЕ ДЛЯ ВВОДА НАПРЯЖЕНИЙ!"); chkLongDischargeTrackFail.setVisible( false); break;
         }
         lblTimer.setText( "");
         
         btnNext.setEnabled( false);
+        /*
         new  Timer( 1000, new ActionListener() {
 
             @Override
@@ -137,6 +140,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                 btnNext.setEnabled( true);
             }
         }).start();
+        */
     }
     
     /**
@@ -159,6 +163,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         btnNext = new javax.swing.JButton();
         lblTimer = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        chkLongDischargeTrackFail = new javax.swing.JCheckBox();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 200)));
         setMaximumSize(new java.awt.Dimension(640, 440));
@@ -176,7 +181,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             }
         });
         add(edtAnodeStart);
-        edtAnodeStart.setBounds(210, 120, 210, 120);
+        edtAnodeStart.setBounds(210, 120, 210, 110);
 
         lblTitle.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -195,7 +200,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             }
         });
         add(edtAnodeStop);
-        edtAnodeStop.setBounds(420, 120, 210, 120);
+        edtAnodeStop.setBounds(420, 120, 210, 110);
 
         jLabel2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -209,14 +214,14 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         jLabel3.setText("<html>U<sub>на аноде</sub>  (В)</html>");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(jLabel3);
-        jLabel3.setBounds(10, 120, 190, 120);
+        jLabel3.setBounds(10, 120, 190, 110);
 
         jLabel4.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("<html>U<sub>на штенгеле</sub> (В)</html>");
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(jLabel4);
-        jLabel4.setBounds(10, 250, 190, 120);
+        jLabel4.setBounds(10, 240, 190, 110);
 
         edtTubuStart.setFont(new java.awt.Font("Cantarell", 0, 80)); // NOI18N
         edtTubuStart.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -228,7 +233,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             }
         });
         add(edtTubuStart);
-        edtTubuStart.setBounds(210, 250, 210, 120);
+        edtTubuStart.setBounds(210, 240, 210, 110);
 
         edtTubuStop.setFont(new java.awt.Font("Cantarell", 0, 80)); // NOI18N
         edtTubuStop.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -240,7 +245,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             }
         });
         add(edtTubuStop);
-        edtTubuStop.setBounds(420, 250, 210, 120);
+        edtTubuStop.setBounds(420, 240, 210, 110);
 
         btnNext.setText("Далее");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -251,11 +256,11 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         add(btnNext);
         btnNext.setBounds(10, 380, 620, 50);
 
-        lblTimer.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblTimer.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
         lblTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTimer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
+        lblTimer.setText("00:00");
         add(lblTimer);
-        lblTimer.setBounds(10, 60, 190, 50);
+        lblTimer.setBounds(0, 50, 210, 60);
 
         jLabel6.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -263,23 +268,21 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(jLabel6);
         jLabel6.setBounds(210, 60, 210, 50);
+
+        chkLongDischargeTrackFail.setText("Прибор не удалось зажечь по длинному плечу");
+        chkLongDischargeTrackFail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkLongDischargeTrackFailActionPerformed(evt);
+            }
+        });
+        add(chkLongDischargeTrackFail);
+        chkLongDischargeTrackFail.setBounds(10, 350, 620, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        TechProcessHvProcessInfo info;
-        //if( theApp.GetCurrentStep() == 21 || theApp.GetCurrentStep() == 23 ||
-        //    theApp.GetCurrentStep() == 41 || theApp.GetCurrentStep() == 43 ||                
-        //    theApp.GetCurrentStep() == 45 || theApp.GetCurrentStep() == 47 ||
-        //    theApp.GetCurrentStep() == 102 || theApp.GetCurrentStep() == 105 || theApp.GetCurrentStep() == 108 ||
-        //    theApp.GetCurrentStep() == 142 || theApp.GetCurrentStep() == 145) {
-        //    
-        //    info = new TechProcessHvProcessInfo( theApp);
-        //}
-        //else {
-        //    info = ( TechProcessHvProcessInfo) theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
-        //}
         
-        info = ( TechProcessHvProcessInfo) theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+        TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+        info.SetStopDateAsCurrent();
         
         //начальное напряжение на аноде
         Double dblValue = 0.;
@@ -351,131 +354,109 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         }
         info.SetTuStop( dblValue);
         
+        boolean bMainPanel = false;
+        int nNextStep = 0;
+        TechProcessHvProcessInfo info2;
+        switch( theApp.GetCurrentStep()) {
+            case 21:    //Обработка кислородом. Первый цикл.
+                info.SetStopReportTitle( "Завершение первого цикла обработки.");
+                nNextStep = 22; bMainPanel = true;
+            break;
+                
+            case 22:    //Обработка кислородом. Второй цикл.
+                info.SetStopReportTitle( "Завершение второго цикла обработки.");
+                nNextStep = 41; bMainPanel = true;
+            break;
+                
+                
+            case 41:
+                //Обработка кислород-неоном. Первый цикл.
+                if( chkLongDischargeTrackFail.isSelected()) {
+                    //нам не удалось зажечь по длинным плечам - мы делали длинную обработку по коротким
+                    info2 = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "041");
+                    info2.SetStartReportTitle( "1ый цикл. Обработка по коротким плечам.");
+                    info.SetStopReportTitle( "1ый цикл. Обработка по коротким плечам. Завершение.");
+                    
+                    nNextStep = 43; bMainPanel = true;
+                }
+                else {
+                    //нам удалось зажечь по длинным плечам - мы делали половинную обработку по длиному плечу
+                    info2 = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "041");
+                    info2.SetStartReportTitle( "1ый цикл. Обработка по длинному плечу.");
+                    info.SetStopReportTitle( "1ый цикл. Обработка по длинному плечу. Завершение.");
+                    
+                    nNextStep = 42; bMainPanel = false;
+                }
+            break;
+            
+            case 42:
+                //обработка кислород-неоном. Первый цикл. Вторая половина (по коротким плечам)
+                info.SetStopReportTitle( "1ый цикл. Обработка по коротким плечам. Завершение.");
+                nNextStep = 43; bMainPanel = true;
+            break;
+                
+            case 43:
+                //Обработка кислород-неоном. Второй цикл.
+                if( chkLongDischargeTrackFail.isSelected()) {
+                    //нам не удалось зажечь по длинным плечам - мы делали длинную обработку по коротким
+                    info2 = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "043");
+                    info2.SetStartReportTitle( "2ой цикл. Обработка по коротким плечам.");
+                    info.SetStopReportTitle( "2ой цикл. Обработка по коротким плечам. Завершение.");
+                    nNextStep = 61; bMainPanel = true;
+                }
+                else {
+                    //нам удалось зажечь по длинным плечам - мы делали половинную обработку по длиному плечу
+                    info2 = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "043");
+                    info2.SetStartReportTitle( "2ой цикл. Обработка по длинному плечу.");
+                    info.SetStopReportTitle( "2ой цикл. Обработка по длинному плечу. Завершение.");
+                    nNextStep = 44; bMainPanel = false;
+                }
+            break;
+            
+            case 44:
+                //обработка кислород-неоном. Второй цикл. Вторая половина (по коротким плечам)
+                info.SetStopReportTitle( "2ой цикл. Обработка по коротким плечам. Завершение.");
+                nNextStep = 61; bMainPanel = true;
+            break;
+            
+                
+                
+            case 102:    //Тренировка катода. Первый цикл.
+                info.SetStopReportTitle( "Завершение первого цикла тренировки.");
+                nNextStep = 103; bMainPanel = true;
+            break;
+                
+            case 104:    //Тренировка катода. Второй цикл.
+                info.SetStopReportTitle( "Завершение второго цикла тренировки.");
+                nNextStep = 105; bMainPanel = true;
+            break;
+                
+            case 106:    //Тренировка катода. Третий цикл.
+                info.SetStopReportTitle( "Завершение третьего цикла тренировки.");
+                nNextStep = 121; bMainPanel = true;
+            break;
+                
+                
+                
+            case 143:    //8.3 Тренировка в тренировочной смеси. Первый цикл.
+                info.SetStopReportTitle( "Завершение первого цикла тренировки.");
+                nNextStep = 144; bMainPanel = true;
+            break;
+                
+            case 146:    //8.6 Тренировка в тренировочной смеси. Второй цикл.
+                info.SetStopReportTitle( "Завершение второго цикла тренировки.");
+                nNextStep = 161; bMainPanel = true;
+            break;
+        }
+        
         theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
         
-        
-        if( theApp.GetCurrentStep() == 21 || theApp.GetCurrentStep() == 23 ||
-            theApp.GetCurrentStep() == 41 || theApp.GetCurrentStep() == 43 ||
-            theApp.GetCurrentStep() == 45 || theApp.GetCurrentStep() == 47 ||
-            theApp.GetCurrentStep() == 102 || theApp.GetCurrentStep() == 105 || theApp.GetCurrentStep() == 108) {
-            
-            theApp.m_pMainWnd.m_pnlStopWatch.Init();
-            if( theApp.GetCurrentStep() == 21 || theApp.GetCurrentStep() == 23)
-                theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_2() - m_nSecondsSpentHere + 1, m_nSecondsSpentHere);
-            
-            if( theApp.GetCurrentStep() == 41 || theApp.GetCurrentStep() == 43 ||
-                theApp.GetCurrentStep() == 45 || theApp.GetCurrentStep() == 47) 
-                theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_3() - m_nSecondsSpentHere + 1, m_nSecondsSpentHere);
-            
-            if( theApp.GetCurrentStep() == 102 || theApp.GetCurrentStep() == 105 || theApp.GetCurrentStep() == 108) {
-                theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_6() - m_nSecondsSpentHere + 1, m_nSecondsSpentHere);
-            }
-            theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
-            theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( false);
-            
-            theApp.m_ReportGenerator.Generate();
-            
-            return;
+        if( m_pTimer != null && m_pTimer.isRunning()) {
+            m_pTimer.stop();
         }
         
-        if( theApp.GetCurrentStep() == 142 || theApp.GetCurrentStep() == 145) {
-            
-            if( m_pTimer != null && m_pTimer.isRunning()) {
-                m_pTimer.stop();
-            }
-            
-            theApp.m_pMainWnd.m_pnlStopWatch.Init();
-            theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_8() - m_nSecondsSpentHere + 1, m_nSecondsSpentHere);
-            theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
-            theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( false);
-            
-            theApp.m_ReportGenerator.Generate();
-            
-            return;
-        }
-        
-        info.SetStopDateAsCurrent();
-        int nNextStep = 0;
-        switch( theApp.GetCurrentStep()) {
-            //2.X обработка кислородом
-            case 22: info.SetStopReportTitle( ""); nNextStep = 23; break;
-            
-            case 24:
-                info.SetStopReportTitle( ""); nNextStep = 41;
-                theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep02.m_bCollapsed = true;
-            break;
-            
-                
-            //3.X обработка кислород-неоном
-            case 42:
-                info.SetStopReportTitle( "");
-                if( theApp.m_pMainWnd.m_pnlStopWatch.chkLongShoulder.isSelected())
-                    nNextStep = 45;
-                else
-                    nNextStep = 43;
-            break;
-            case 44: info.SetStopReportTitle( ""); nNextStep = 45; break;
-            case 46:
-                info.SetStopReportTitle( "");
-                info.SetStopReportTitle( "");
-                if( theApp.m_pMainWnd.m_pnlStopWatch.chkLongShoulder.isSelected()) {
-                    nNextStep = 61;
-                    theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep03.m_bCollapsed = true;
-                }
-                else
-                    nNextStep = 47;
-            break;
-            case 48:
-                info.SetStopReportTitle( ""); nNextStep = 61;
-                theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep03.m_bCollapsed = true;
-            break;
-                
-                
-            //6.X тренировка катода
-            case 103: info.SetStopReportTitle( ""); nNextStep = 104; break;
-            case 106: info.SetStopReportTitle( ""); nNextStep = 107; break;
-                
-            case 109:
-                info.SetStopReportTitle( ""); nNextStep = 121;
-                theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep06.m_bCollapsed = true;
-            break;
-            
-            //8.X тренировка в тр. смеси
-            case 143:
-                info.SetStopReportTitle( "");
-                nNextStep = 144;
-            break;
-            case 146:
-                info.SetStopReportTitle( ""); nNextStep = 161;
-                theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep08.m_bCollapsed = true;
-            break;
-        }
-        
-        theApp.SetCurrentStep( nNextStep);
-        if( nNextStep == 43 || nNextStep == 47) {
-            theApp.SetCurrentStepInProgress( true);
-            
-            info = new TechProcessHvProcessInfo(theApp);
-            info.SetStartDateAsCurrent();
-            if( nNextStep == 43) {
-                info.SetStartReportTitle( "1 цикл. Обработка по коротким плечам");
-            }
-            if( nNextStep == 47) {
-                info.SetStartReportTitle( "2 цикл. Обработка по коротким плечам");
-            }
-            theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
-            
-            theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
-            theApp.m_pMainWnd.m_pnlEnterHvVoltage.Init();
-            theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
-            theApp.m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( theApp.GetSettings().GetProcessingTime_3());
-                    
-            //theApp.m_pMainWnd.m_pnlStopWatch.Init();
-            //theApp.m_pMainWnd.m_pnlStopWatch.StartTimer( theApp.GetSettings().GetProcessingTime_3(), 0);
-            //theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
-            //theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( false);
-        }
-        else {
+        if( bMainPanel) {
+            theApp.SetCurrentStep( nNextStep);
             theApp.SetCurrentStepInProgress( false);
         
             theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.Reposition();
@@ -485,11 +466,45 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             theApp.m_pMainWnd.m_pnlMain.setVisible( true);
             theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( false);
         }
-        theApp.m_ReportGenerator.Generate();
-        
-        if( m_pTimer != null && m_pTimer.isRunning()) {
-            m_pTimer.stop();
+        else {
+            DropValues();
+            
+            theApp.SetCurrentStep( nNextStep);
+            theApp.SetCurrentStepInProgress( false);
+            
+            if( nNextStep == 42) {
+                //мы обработали кислород-неоном первый цикл по длинному плечу (этап 3.1 = 041)
+                //надо отметить начало обработки кислород-неоном первого цикла по короткому и фактически остаться на этой же панели, перекрасившись
+                TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "041");
+                inf.SetStartReportTitle( "1ый цикл. Обработка по длинному плечу.");
+                theApp.SaveStepInfo( "041", inf, false);
+                
+                TechProcessHvProcessInfo infhv = new TechProcessHvProcessInfo( theApp);
+                infhv.SetStartDateAsCurrent();
+                infhv.SetStartReportTitle( "1ый цикл. Обработка по коротким плечам.");
+                theApp.SaveStepInfo( "042", infhv, false);
+            }
+            
+            if( nNextStep == 44) {
+                //мы обработали кислород-неоном второй цикл по длинному плечу (этап 3.3 = 043)
+                //надо отметить начало обработки кислород-неоном второго цикла по короткому и фактически остаться на этой же панели, перекрасившись
+                TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "043");
+                inf.SetStartDateAsCurrent();
+                inf.SetStartReportTitle( "2ой цикл. Обработка по длинному плечу.");
+                theApp.SaveStepInfo( "043", inf, false);
+                
+                TechProcessHvProcessInfo infhv = new TechProcessHvProcessInfo( theApp);
+                infhv.SetStartDateAsCurrent();
+                infhv.SetStartReportTitle( "2ой цикл. Обработка по коротким плечам.");
+                theApp.SaveStepInfo( "044", infhv, false);
+            }
+            
+            StartTimer( theApp.GetSettings().GetProcessingTime_3());
+            
+            Init();
         }
+        
+        theApp.m_ReportGenerator.Generate();
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void edtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edtFocusGained
@@ -498,9 +513,17 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         edt.setSelectionEnd(edt.getText().length());
     }//GEN-LAST:event_edtFocusGained
 
+    private void chkLongDischargeTrackFailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkLongDischargeTrackFailActionPerformed
+        if( chkLongDischargeTrackFail.isSelected())
+            m_nSecondsPlanned += theApp.GetSettings().GetProcessingTime_3();
+        else
+            m_nSecondsPlanned -= theApp.GetSettings().GetProcessingTime_3();
+    }//GEN-LAST:event_chkLongDischargeTrackFailActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNext;
+    private javax.swing.JCheckBox chkLongDischargeTrackFail;
     public javax.swing.JTextField edtAnodeStart;
     public javax.swing.JTextField edtAnodeStop;
     public javax.swing.JTextField edtTubuStart;

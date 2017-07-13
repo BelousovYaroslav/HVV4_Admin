@@ -129,10 +129,8 @@ public class HVV_Admin4 {
 
             //2. Обработка в среде кислорода
             case  21: m_nCurrentProcessStep =  22; break;  //2.1 Обработка. 1ый цикл.
-            case  22: m_nCurrentProcessStep =  23; break;  //2.2 Ввод напряжений 1-го цикла процесса обработки O2
-            case  23: m_nCurrentProcessStep =  24; break;  //2.3 Обработка. 2ой цикл.
-            case  24: m_nCurrentProcessStep =  41; break;  //2.4 Ввод напряжений 2-го цикла процесса обработки O2
-
+            case  22: m_nCurrentProcessStep =  41; break;  //2.3 Обработка. 2ой цикл.
+            
             //3. Обработка в среде кислород-неона
             case  41: m_nCurrentProcessStep =  42; break;  //3.1 Обработка. 1ый цикл.
             case  42: m_nCurrentProcessStep =  43; break;  //3.2 Ввод напряжений 1-го цикла процесса обработки O2-Ne

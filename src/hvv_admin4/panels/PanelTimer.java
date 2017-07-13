@@ -181,6 +181,8 @@ public class PanelTimer extends javax.swing.JPanel {
                     }
                 }).start();
             break;
+                
+                
             case 101:
                 m_nTimerToShow = TIMER_DOWNTICK;
                 lblTitle.setText( "<html><u>6.1 Заполнение тренировочной смесью. Выдержка.</u></thml>");
@@ -188,41 +190,22 @@ public class PanelTimer extends javax.swing.JPanel {
                 lblStart.setVisible( false);
                 btnNext.setEnabled(  false);
             break;
-            case 102:
+            case 103:
                 m_nTimerToShow = TIMER_DOWNTICK;
-                lblTitle.setText( "<html><u>6.2 Тренировка катода. 1-ый цикл.</u></thml>");
-                btnStart.setVisible( false);
-                lblStart.setVisible( false);
-                btnNext.setEnabled(  false);
-            break;
-            case 104:
-                m_nTimerToShow = TIMER_DOWNTICK;
-                lblTitle.setText( "<html><u>6.4 Заполнение тренировочной смесью. Выдержка.</u></thml>");
+                lblTitle.setText( "<html><u>6.3 Заполнение тренировочной смесью. Выдержка.</u></thml>");
                 btnStart.setVisible( false);
                 lblStart.setVisible( false);
                 btnNext.setEnabled(  false);
             break;
             case 105:
                 m_nTimerToShow = TIMER_DOWNTICK;
-                lblTitle.setText( "<html><u>6.5 Тренировка катода. 2-ой цикл.</u></thml>");
+                lblTitle.setText( "<html><u>6.5 Заполнение тренировочной смесью. Выдержка.</u></thml>");
                 btnStart.setVisible( false);
                 lblStart.setVisible( false);
                 btnNext.setEnabled(  false);
             break;
-            case 107:
-                m_nTimerToShow = TIMER_DOWNTICK;
-                lblTitle.setText( "<html><u>6.7 Заполнение тренировочной смесью. Выдержка.</u></thml>");
-                btnStart.setVisible( false);
-                lblStart.setVisible( false);
-                btnNext.setEnabled(  false);
-            break;
-            case 108:
-                m_nTimerToShow = TIMER_DOWNTICK;
-                lblTitle.setText( "<html><u>6.8 Тренировка катода. 3-ий цикл.</u></thml>");
-                btnStart.setVisible( false);
-                lblStart.setVisible( false);
-                btnNext.setEnabled(  false);
-            break;
+            
+                
             case 141:
                 m_nTimerToShow = TIMER_DOWNTICK;
                 lblTitle.setText( "<html><u>8.1 Заполнение тренировочной смесью. Выдержка.</u></thml>");
@@ -560,10 +543,10 @@ public class PanelTimer extends javax.swing.JPanel {
                     
                 case 101: info.SetStopReportTitle( "Завершение выдержки"); break;
                 case 102: info.SetStopReportTitle( "Завершение обработки"); break;
-                case 104: info.SetStopReportTitle( "Завершение выдержки"); break;
-                case 105: info.SetStopReportTitle( "Завершение обработки"); break;
-                case 107: info.SetStopReportTitle( "Завершение выдержки"); break;
-                case 108: info.SetStopReportTitle( "Завершение обработки"); break;
+                case 103: info.SetStopReportTitle( "Завершение выдержки"); break;
+                case 104: info.SetStopReportTitle( "Завершение обработки"); break;
+                case 105: info.SetStopReportTitle( "Завершение выдержки"); break;
+                case 106: info.SetStopReportTitle( "Завершение обработки"); break;
                     
                 case 141: info.SetStopReportTitle( "Завершение выдержки"); break;
                 case 142: info.SetStopReportTitle( "Завершение обработки"); break;
@@ -598,24 +581,25 @@ public class PanelTimer extends javax.swing.JPanel {
                 nNextStep = 81;
             break;
                 
+                
             case 101: /*6.1*/
                 info = new TechProcessStepCommon( theApp);
                 info.SetStartReportTitle( null);
                 nNextStep = 102;
             break;
-            case 102: /*6.2*/ info.SetStartReportTitle( "");   nNextStep = 103; break;
-            case 104: /*6.4*/
+            
+            case 103: /*6.3*/
                 info = new TechProcessStepCommon( theApp);
                 info.SetStartReportTitle( null);
-                nNextStep = 105;
+                nNextStep = 104;
             break;
-            case 105: /*6.5*/ info.SetStartReportTitle( "");   nNextStep = 106; break;
-            case 107: /*6.7*/
+            
+            case 105: /*6.5*/
                 info = new TechProcessStepCommon( theApp);
                 info.SetStartReportTitle( null);
-                nNextStep = 108;
+                nNextStep = 106;
             break;
-            case 108: /*6.8*/ info.SetStartReportTitle( "");   nNextStep = 109; break;
+
                 
             case 141: /*8.1*/
                 info = new TechProcessStepCommon( theApp);
@@ -671,8 +655,8 @@ public class PanelTimer extends javax.swing.JPanel {
             break;
                 
             case 102: //6.2 (то есть сейчас мы закончили 6.1, и готовы перейти к 6.2)
-            case 105: //6.5 (то есть сейчас мы закончили 6.4, и готовы перейти к 6.5)
-            case 108: //6.8 (то есть сейчас мы закончили 6.7, и готовы перейти к 6.8)
+            case 104: //6.4 (то есть сейчас мы закончили 6.3, и готовы перейти к 6.4)
+            case 106: //6.6 (то есть сейчас мы закончили 6.5, и готовы перейти к 6.6)
                 theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.SetStates();
                 theApp.m_pMainWnd.m_pnlMain.ScrollActiveStepToCenter();
                 theApp.m_pMainWnd.m_pnlMain.setVisible( true);
@@ -690,7 +674,8 @@ public class PanelTimer extends javax.swing.JPanel {
             case 143: //8.3 (то есть сейчас мы закончили 8.2, и готовы перейти к 8.3)
             case 146: //8.6 (то есть сейчас мы закончили 8.5, и готовы перейти к 8.6)
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.Init();
-                //theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
+                theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
+                theApp.m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( theApp.GetSettings().GetProcessingTime_6());
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
                 theApp.SetCurrentStepInProgress( true);
             break;

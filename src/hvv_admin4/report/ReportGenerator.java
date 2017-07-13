@@ -1231,11 +1231,11 @@ public class ReportGenerator {
             if( theApp.IsStepMapContainsKey( "041")) Gen_Ch03( streamWriter);
             if( theApp.IsStepMapContainsKey( "062")) Gen_Ch04( streamWriter);
             if( theApp.IsStepMapContainsKey( "082")) Gen_Ch05( streamWriter);
-            if( theApp.IsStepMapContainsKey( "101")) Gen_Ch06( streamWriter);
-            if( theApp.IsStepMapContainsKey( "121")) Gen_Ch07( streamWriter);
-            if( theApp.IsStepMapContainsKey( "141")) Gen_Ch08( streamWriter);
-            if( theApp.IsStepMapContainsKey( "161")) Gen_Ch09( streamWriter);
-            if( theApp.IsStepMapContainsKey( "181")) Gen_Ch10( streamWriter);
+            //if( theApp.IsStepMapContainsKey( "101")) Gen_Ch06( streamWriter);
+            //if( theApp.IsStepMapContainsKey( "121")) Gen_Ch07( streamWriter);
+            //if( theApp.IsStepMapContainsKey( "141")) Gen_Ch08( streamWriter);
+            //if( theApp.IsStepMapContainsKey( "161")) Gen_Ch09( streamWriter);
+            //if( theApp.IsStepMapContainsKey( "181")) Gen_Ch10( streamWriter);
             
             Gen_Footer( streamWriter);
             

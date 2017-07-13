@@ -13,7 +13,7 @@ import hvv_admin4.steps.info.TechProcessStepCommon;
  * @author yaroslav
  */
 public class PanelStep06 extends TechProcessStepPanelTemplate {
-    public final int MAXIMIZED_HEIGHT = 300;
+    public final int MAXIMIZED_HEIGHT = 210;
     
     /**
      * Creates new form PanelStep01
@@ -44,12 +44,6 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
         btn_06_05_Next = new javax.swing.JButton();
         btn_06_06_Start = new javax.swing.JButton();
         btn_06_06_Next = new javax.swing.JButton();
-        btn_06_07_Start = new javax.swing.JButton();
-        btn_06_07_Next = new javax.swing.JButton();
-        btn_06_08_Start = new javax.swing.JButton();
-        btn_06_08_Next = new javax.swing.JButton();
-        btn_06_09_Start = new javax.swing.JButton();
-        btn_06_09_Next = new javax.swing.JButton();
         lbl_06_00_Date_start = new javax.swing.JLabel();
         lbl_06_00_Time_start = new javax.swing.JLabel();
         lbl_06_00_IcoStep = new javax.swing.JLabel();
@@ -86,24 +80,9 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
         lbl_06_06_Title = new javax.swing.JLabel();
         lbl_06_06_Date_stop = new javax.swing.JLabel();
         lbl_06_06_Time_stop = new javax.swing.JLabel();
-        lbl_06_07_Date_start = new javax.swing.JLabel();
-        lbl_06_07_Time_start = new javax.swing.JLabel();
-        lbl_06_07_Title = new javax.swing.JLabel();
-        lbl_06_07_Date_stop = new javax.swing.JLabel();
-        lbl_06_07_Time_stop = new javax.swing.JLabel();
-        lbl_06_08_Date_start = new javax.swing.JLabel();
-        lbl_06_08_Time_start = new javax.swing.JLabel();
-        lbl_06_08_Title = new javax.swing.JLabel();
-        lbl_06_08_Date_stop = new javax.swing.JLabel();
-        lbl_06_08_Time_stop = new javax.swing.JLabel();
-        lbl_06_09_Date_start = new javax.swing.JLabel();
-        lbl_06_09_Time_start = new javax.swing.JLabel();
-        lbl_06_09_Title = new javax.swing.JLabel();
-        lbl_06_09_Date_stop = new javax.swing.JLabel();
-        lbl_06_09_Time_stop = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(580, 300));
-        setMinimumSize(new java.awt.Dimension(580, 300));
+        setMaximumSize(new java.awt.Dimension(580, 210));
+        setMinimumSize(new java.awt.Dimension(580, 210));
         setName(""); // NOI18N
         setLayout(null);
 
@@ -134,6 +113,11 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
         btn_06_02_Next.setBounds(430, 59, 150, 30);
 
         btn_06_03_Start.setText("Старт");
+        btn_06_03_Start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_06_03_StartActionPerformed(evt);
+            }
+        });
         add(btn_06_03_Start);
         btn_06_03_Start.setBounds(0, 89, 150, 30);
 
@@ -168,46 +152,17 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
         btn_06_05_Next.setBounds(430, 149, 150, 30);
 
         btn_06_06_Start.setText("Старт");
+        btn_06_06_Start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_06_06_StartActionPerformed(evt);
+            }
+        });
         add(btn_06_06_Start);
         btn_06_06_Start.setBounds(0, 179, 150, 30);
 
         btn_06_06_Next.setText("Далее");
         add(btn_06_06_Next);
         btn_06_06_Next.setBounds(430, 179, 150, 30);
-
-        btn_06_07_Start.setText("Старт");
-        btn_06_07_Start.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_06_07_StartActionPerformed(evt);
-            }
-        });
-        add(btn_06_07_Start);
-        btn_06_07_Start.setBounds(0, 209, 150, 30);
-
-        btn_06_07_Next.setText("Далее");
-        add(btn_06_07_Next);
-        btn_06_07_Next.setBounds(430, 209, 150, 30);
-
-        btn_06_08_Start.setText("Старт");
-        btn_06_08_Start.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_06_08_StartActionPerformed(evt);
-            }
-        });
-        add(btn_06_08_Start);
-        btn_06_08_Start.setBounds(0, 239, 150, 30);
-
-        btn_06_08_Next.setText("Далее");
-        add(btn_06_08_Next);
-        btn_06_08_Next.setBounds(430, 239, 150, 30);
-
-        btn_06_09_Start.setText("Старт");
-        add(btn_06_09_Start);
-        btn_06_09_Start.setBounds(0, 269, 150, 30);
-
-        btn_06_09_Next.setText("Далее");
-        add(btn_06_09_Next);
-        btn_06_09_Next.setBounds(430, 269, 150, 30);
 
         lbl_06_00_Date_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_00_Date_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -339,7 +294,7 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
         lbl_06_03_Time_start.setBounds(90, 90, 60, 25);
 
         lbl_06_03_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_06_03_Title.setText("6.3 Ввод напряжений 1");
+        lbl_06_03_Title.setText("6.3 Выдержка");
         lbl_06_03_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_03_Title.setOpaque(true);
         add(lbl_06_03_Title);
@@ -374,7 +329,7 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
         lbl_06_04_Time_start.setBounds(90, 120, 60, 25);
 
         lbl_06_04_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_06_04_Title.setText("6.4 Выдержка");
+        lbl_06_04_Title.setText("6.4 Обработка. 2ой цикл.");
         lbl_06_04_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_04_Title.setOpaque(true);
         add(lbl_06_04_Title);
@@ -409,7 +364,7 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
         lbl_06_05_Time_start.setBounds(90, 150, 60, 25);
 
         lbl_06_05_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_06_05_Title.setText("6.5 Обработка. 2ой цикл.");
+        lbl_06_05_Title.setText("6.5 Выдержка");
         lbl_06_05_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_05_Title.setOpaque(true);
         add(lbl_06_05_Title);
@@ -444,7 +399,7 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
         lbl_06_06_Time_start.setBounds(90, 180, 60, 25);
 
         lbl_06_06_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_06_06_Title.setText("6.6 Ввод напряжений 2");
+        lbl_06_06_Title.setText("6.6 Обработка. 3ий цикл.");
         lbl_06_06_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_06_Title.setOpaque(true);
         add(lbl_06_06_Title);
@@ -463,111 +418,6 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
         lbl_06_06_Time_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_06_Time_stop);
         lbl_06_06_Time_stop.setBounds(520, 180, 60, 25);
-
-        lbl_06_07_Date_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_07_Date_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_07_Date_start.setText("-");
-        lbl_06_07_Date_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_07_Date_start);
-        lbl_06_07_Date_start.setBounds(0, 210, 90, 25);
-
-        lbl_06_07_Time_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_07_Time_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_07_Time_start.setText("-");
-        lbl_06_07_Time_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_07_Time_start);
-        lbl_06_07_Time_start.setBounds(90, 210, 60, 25);
-
-        lbl_06_07_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_06_07_Title.setText("6.7 Выдержка");
-        lbl_06_07_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        lbl_06_07_Title.setOpaque(true);
-        add(lbl_06_07_Title);
-        lbl_06_07_Title.setBounds(180, 210, 250, 25);
-
-        lbl_06_07_Date_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_07_Date_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_07_Date_stop.setText("-");
-        lbl_06_07_Date_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_07_Date_stop);
-        lbl_06_07_Date_stop.setBounds(430, 210, 90, 25);
-
-        lbl_06_07_Time_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_07_Time_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_07_Time_stop.setText("-");
-        lbl_06_07_Time_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_07_Time_stop);
-        lbl_06_07_Time_stop.setBounds(520, 210, 60, 25);
-
-        lbl_06_08_Date_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_08_Date_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_08_Date_start.setText("-");
-        lbl_06_08_Date_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_08_Date_start);
-        lbl_06_08_Date_start.setBounds(0, 240, 90, 25);
-
-        lbl_06_08_Time_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_08_Time_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_08_Time_start.setText("-");
-        lbl_06_08_Time_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_08_Time_start);
-        lbl_06_08_Time_start.setBounds(90, 240, 60, 25);
-
-        lbl_06_08_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_06_08_Title.setText("6.8 Обработка. 3ий цикл.");
-        lbl_06_08_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        lbl_06_08_Title.setOpaque(true);
-        add(lbl_06_08_Title);
-        lbl_06_08_Title.setBounds(180, 240, 250, 25);
-
-        lbl_06_08_Date_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_08_Date_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_08_Date_stop.setText("-");
-        lbl_06_08_Date_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_08_Date_stop);
-        lbl_06_08_Date_stop.setBounds(430, 240, 90, 25);
-
-        lbl_06_08_Time_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_08_Time_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_08_Time_stop.setText("-");
-        lbl_06_08_Time_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_08_Time_stop);
-        lbl_06_08_Time_stop.setBounds(520, 240, 60, 25);
-
-        lbl_06_09_Date_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_09_Date_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_09_Date_start.setText("-");
-        lbl_06_09_Date_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_09_Date_start);
-        lbl_06_09_Date_start.setBounds(0, 270, 90, 25);
-
-        lbl_06_09_Time_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_09_Time_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_09_Time_start.setText("-");
-        lbl_06_09_Time_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_09_Time_start);
-        lbl_06_09_Time_start.setBounds(90, 270, 60, 25);
-
-        lbl_06_09_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_06_09_Title.setText("6.9 Ввод напряжений 3");
-        lbl_06_09_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        lbl_06_09_Title.setOpaque(true);
-        add(lbl_06_09_Title);
-        lbl_06_09_Title.setBounds(180, 270, 250, 25);
-
-        lbl_06_09_Date_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_09_Date_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_09_Date_stop.setText("-");
-        lbl_06_09_Date_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_09_Date_stop);
-        lbl_06_09_Date_stop.setBounds(430, 270, 90, 25);
-
-        lbl_06_09_Time_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
-        lbl_06_09_Time_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_09_Time_stop.setText("-");
-        lbl_06_09_Time_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        add(lbl_06_09_Time_stop);
-        lbl_06_09_Time_stop.setBounds(520, 270, 60, 25);
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbl_06_00_IcoStepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_06_00_IcoStepMouseClicked
@@ -614,25 +464,25 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
         theApp.m_pMainWnd.m_pnlMain.setVisible( false);
     }//GEN-LAST:event_btn_06_05_StartActionPerformed
 
-    private void btn_06_07_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_06_07_StartActionPerformed
-        theApp.SetCurrentStep( 107);
+    private void btn_06_03_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_06_03_StartActionPerformed
+        theApp.SetCurrentStep( 103);
         theApp.SetCurrentStepInProgress( false);
         
         theApp.m_pMainWnd.m_pnlPuffMessage.Init();
         theApp.m_pMainWnd.m_pnlPuffMessage.setVisible( true);
         
         theApp.m_pMainWnd.m_pnlMain.setVisible( false);
-    }//GEN-LAST:event_btn_06_07_StartActionPerformed
+    }//GEN-LAST:event_btn_06_03_StartActionPerformed
 
-    private void btn_06_08_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_06_08_StartActionPerformed
-        theApp.SetCurrentStep( 108);
+    private void btn_06_06_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_06_06_StartActionPerformed
+        theApp.SetCurrentStep( 106);
         theApp.SetCurrentStepInProgress( false);
         
         theApp.m_pMainWnd.m_pnlPuffMessage.Init();
         theApp.m_pMainWnd.m_pnlPuffMessage.setVisible( true);
         
         theApp.m_pMainWnd.m_pnlMain.setVisible( false);
-    }//GEN-LAST:event_btn_06_08_StartActionPerformed
+    }//GEN-LAST:event_btn_06_06_StartActionPerformed
 
 
     public void SetState() {
@@ -690,7 +540,7 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
             lbl_06_01_Title.setEnabled( theApp.GetCurrentStep() <= 101);
             btn_06_01_Start.setVisible( theApp.GetCurrentStep() == 101 && !theApp.IsCurrentStepInProgress());
             btn_06_01_Next.setVisible(  theApp.GetCurrentStep() == 101 &&  theApp.IsCurrentStepInProgress());
-            //btn_06_01_Start.setVisible( true);
+            btn_06_01_Start.setVisible( true);
                     
             //6.2
             FillStepDates("102", lbl_06_02_Date_start, lbl_06_02_Time_start, lbl_06_02_Date_stop, lbl_06_02_Time_stop);
@@ -726,28 +576,6 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
             lbl_06_06_Title.setEnabled( theApp.GetCurrentStep() <= 106);
             btn_06_06_Start.setVisible( theApp.GetCurrentStep() == 106 && !theApp.IsCurrentStepInProgress());
             btn_06_06_Next.setVisible(  theApp.GetCurrentStep() == 106 &&  theApp.IsCurrentStepInProgress());
-            
-            //6.7
-            FillStepDates("107", lbl_06_07_Date_start, lbl_06_07_Time_start, lbl_06_07_Date_stop, lbl_06_07_Time_stop);
-            lbl_06_07_Title.setFont( theApp.GetCurrentStep() == 107 ? theApp.GetBoldFont() : theApp.GetUsualFont());
-            lbl_06_07_Title.setEnabled( theApp.GetCurrentStep() <= 107);
-            btn_06_07_Start.setVisible( theApp.GetCurrentStep() == 107 && !theApp.IsCurrentStepInProgress());
-            btn_06_07_Next.setVisible(  theApp.GetCurrentStep() == 107 &&  theApp.IsCurrentStepInProgress());
-            //btn_06_07_Start.setVisible( true);
-            
-            //6.8
-            FillStepDates("108", lbl_06_08_Date_start, lbl_06_08_Time_start, lbl_06_08_Date_stop, lbl_06_08_Time_stop);
-            lbl_06_08_Title.setFont( theApp.GetCurrentStep() == 108 ? theApp.GetBoldFont() : theApp.GetUsualFont());
-            lbl_06_08_Title.setEnabled( theApp.GetCurrentStep() <= 108);
-            btn_06_08_Start.setVisible( theApp.GetCurrentStep() == 108 && !theApp.IsCurrentStepInProgress());
-            btn_06_08_Next.setVisible(  theApp.GetCurrentStep() == 108 &&  theApp.IsCurrentStepInProgress());
-            
-            //6.9
-            FillStepDates("109", lbl_06_09_Date_start, lbl_06_09_Time_start, lbl_06_09_Date_stop, lbl_06_09_Time_stop);
-            lbl_06_09_Title.setFont( theApp.GetCurrentStep() == 109 ? theApp.GetBoldFont() : theApp.GetUsualFont());
-            lbl_06_09_Title.setEnabled( theApp.GetCurrentStep() <= 109);
-            btn_06_09_Start.setVisible( theApp.GetCurrentStep() == 109 && !theApp.IsCurrentStepInProgress());
-            btn_06_09_Next.setVisible(  theApp.GetCurrentStep() == 109 &&  theApp.IsCurrentStepInProgress());
         }
     }
     
@@ -764,12 +592,6 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
     public javax.swing.JButton btn_06_05_Start;
     public javax.swing.JButton btn_06_06_Next;
     public javax.swing.JButton btn_06_06_Start;
-    public javax.swing.JButton btn_06_07_Next;
-    public javax.swing.JButton btn_06_07_Start;
-    public javax.swing.JButton btn_06_08_Next;
-    public javax.swing.JButton btn_06_08_Start;
-    public javax.swing.JButton btn_06_09_Next;
-    public javax.swing.JButton btn_06_09_Start;
     public javax.swing.JLabel lbl_06_00_Date_start;
     public javax.swing.JLabel lbl_06_00_Date_stop;
     public javax.swing.JLabel lbl_06_00_IcoStep;
@@ -806,20 +628,5 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
     public javax.swing.JLabel lbl_06_06_Time_start;
     public javax.swing.JLabel lbl_06_06_Time_stop;
     public javax.swing.JLabel lbl_06_06_Title;
-    public javax.swing.JLabel lbl_06_07_Date_start;
-    public javax.swing.JLabel lbl_06_07_Date_stop;
-    public javax.swing.JLabel lbl_06_07_Time_start;
-    public javax.swing.JLabel lbl_06_07_Time_stop;
-    public javax.swing.JLabel lbl_06_07_Title;
-    public javax.swing.JLabel lbl_06_08_Date_start;
-    public javax.swing.JLabel lbl_06_08_Date_stop;
-    public javax.swing.JLabel lbl_06_08_Time_start;
-    public javax.swing.JLabel lbl_06_08_Time_stop;
-    public javax.swing.JLabel lbl_06_08_Title;
-    public javax.swing.JLabel lbl_06_09_Date_start;
-    public javax.swing.JLabel lbl_06_09_Date_stop;
-    public javax.swing.JLabel lbl_06_09_Time_start;
-    public javax.swing.JLabel lbl_06_09_Time_stop;
-    public javax.swing.JLabel lbl_06_09_Title;
     // End of variables declaration//GEN-END:variables
 }

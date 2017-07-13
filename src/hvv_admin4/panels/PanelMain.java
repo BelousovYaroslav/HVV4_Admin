@@ -109,11 +109,7 @@ public class PanelMain extends javax.swing.JPanel {
             case 21:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep02.getY() + 
                                         theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep02.btn_02_01_Start.getY(); break;
             case 22:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep02.getY() + 
-                                        theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep02.btn_02_02_Start.getY(); break;
-            case 23:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep02.getY() + 
-                                        theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep02.btn_02_03_Start.getY(); break;
-            case 24:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep02.getY() + 
-                                        theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep02.btn_02_04_Start.getY(); break;
+                                        theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep02.btn_02_02_Start.getY(); break;            
                 
             case 41:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep03.getY() + 
                                         theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep03.btn_03_01_Start.getY(); break;
@@ -150,12 +146,6 @@ public class PanelMain extends javax.swing.JPanel {
                                         theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep06.btn_06_05_Start.getY(); break;
             case 106:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep06.getY() + 
                                         theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep06.btn_06_06_Start.getY(); break;
-            case 107:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep06.getY() + 
-                                        theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep06.btn_06_07_Start.getY(); break;
-            case 108:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep06.getY() + 
-                                        theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep06.btn_06_08_Start.getY(); break;
-            case 109:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep06.getY() + 
-                                        theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep06.btn_06_09_Start.getY(); break;
 
             case 121:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep07.getY() + 
                                         theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep07.btn_07_01_Start.getY(); break;
