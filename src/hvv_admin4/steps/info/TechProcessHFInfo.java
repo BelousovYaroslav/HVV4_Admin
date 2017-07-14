@@ -29,4 +29,38 @@ public class TechProcessHFInfo extends TechProcessStepCommon {
         m_nGetter = -1;
         m_nInductor = -1;
     }
+    
+    @Override
+    public String toString() {
+        String strResult = "\n";
+        
+        if( GetStartDate() == null)
+            strResult += "dtStart: NULL" + "\n";
+        else
+            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStartDate()) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStartDate()) + "\n";
+        
+        if( GetStartReportTitle() == null)
+            strResult += "strStart: NULL" + "\n";
+        else
+            strResult += "strStart: " + GetStartReportTitle() + "\n";
+        
+        
+        if( GetStopDate() == null)
+            strResult += "dtStop: NULL" + "\n";
+        else
+            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStopDate()) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
+
+        if( GetStopReportTitle() == null)
+            strResult += "strStop: NULL" + "\n";
+        else
+            strResult += "strStop: " + GetStopReportTitle() + "\n";
+        
+        strResult += "m_nGetter: " + m_nGetter;
+        
+        strResult += "m_nInductor: " + m_nInductor;
+        
+        return strResult;
+    }
 }

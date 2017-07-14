@@ -45,4 +45,44 @@ public class TechProcessUacProcessInfo extends TechProcessStepCommon {
         m_dblT_1100mcA = 0.;
         m_dblT_1200mcA = 0.;
     }
+    
+    @Override
+    public String toString() {
+        String strResult = "\n";
+        
+        if( GetStartDate() == null)
+            strResult += "dtStart: NULL" + "\n";
+        else
+            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStartDate()) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStartDate()) + "\n";
+        
+        if( GetStartReportTitle() == null)
+            strResult += "strStart: NULL" + "\n";
+        else
+            strResult += "strStart: " + GetStartReportTitle() + "\n";
+        
+        
+        if( GetStopDate() == null)
+            strResult += "dtStop: NULL" + "\n";
+        else
+            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStopDate()) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
+
+        if( GetStopReportTitle() == null)
+            strResult += "strStop: NULL" + "\n";
+        else
+            strResult += "strStop: " + GetStopReportTitle() + "\n";
+        
+        
+        
+        strResult += "m_dblA_1000mcA: " + String.format( "%.03f", m_dblA_1000mcA);
+        strResult += "m_dblA_1100mcA: " + String.format( "%.03f", m_dblA_1100mcA);
+        strResult += "m_dblA_1200mcA: " + String.format( "%.03f", m_dblA_1200mcA);
+        
+        strResult += "m_dblT_1000mcA: " + String.format( "%.03f", m_dblT_1000mcA);
+        strResult += "m_dblT_1100mcA: " + String.format( "%.03f", m_dblT_1100mcA);
+        strResult += "m_dblT_1200mcA: " + String.format( "%.03f", m_dblT_1200mcA);
+        
+        return strResult;
+    }
 }

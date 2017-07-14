@@ -169,6 +169,11 @@ public class PanelStep03 extends TechProcessStepPanelTemplate {
         lbl_03_01_Time_stop.setBounds(520, 30, 60, 25);
 
         btn_03_02_Start.setText("Старт");
+        btn_03_02_Start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_03_02_StartActionPerformed(evt);
+            }
+        });
         add(btn_03_02_Start);
         btn_03_02_Start.setBounds(0, 59, 150, 30);
 
@@ -325,6 +330,10 @@ public class PanelStep03 extends TechProcessStepPanelTemplate {
         theApp.m_pMainWnd.m_pnlMain.setVisible( false);
     }//GEN-LAST:event_btn_03_03_StartActionPerformed
 
+    private void btn_03_02_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_03_02_StartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_03_02_StartActionPerformed
+
 
     public void SetState() {
         
@@ -390,7 +399,7 @@ public class PanelStep03 extends TechProcessStepPanelTemplate {
             lbl_03_01_Title.setEnabled( theApp.GetCurrentStep() <= 41);
             btn_03_01_Start.setVisible( theApp.GetCurrentStep() == 41 && !theApp.IsCurrentStepInProgress());
             btn_03_01_Next.setVisible(  theApp.GetCurrentStep() == 41 &&  theApp.IsCurrentStepInProgress());
-            //btn_03_01_Start.setVisible( true);
+            btn_03_01_Start.setVisible( true);
             
             //3.2 = 042
             FillStepDates("042", lbl_03_02_Date_start, lbl_03_02_Time_start, lbl_03_02_Date_stop, lbl_03_02_Time_stop);

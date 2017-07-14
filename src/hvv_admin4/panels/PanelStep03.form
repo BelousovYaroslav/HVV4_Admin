@@ -323,6 +323,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x421;&#x442;&#x430;&#x440;&#x442;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_03_02_StartActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

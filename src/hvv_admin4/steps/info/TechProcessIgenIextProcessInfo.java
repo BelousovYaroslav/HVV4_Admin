@@ -37,4 +37,44 @@ public class TechProcessIgenIextProcessInfo extends TechProcessStepCommon {
         m_dblT_Igen = 0.;
         m_dblT_Iext = 0.;
     }
+    
+    @Override
+    public String toString() {
+        String strResult = "\n";
+        
+        if( GetStartDate() == null)
+            strResult += "dtStart: NULL" + "\n";
+        else
+            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStartDate()) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStartDate()) + "\n";
+        
+        if( GetStartReportTitle() == null)
+            strResult += "strStart: NULL" + "\n";
+        else
+            strResult += "strStart: " + GetStartReportTitle() + "\n";
+        
+        
+        if( GetStopDate() == null)
+            strResult += "dtStop: NULL" + "\n";
+        else
+            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStopDate()) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
+
+        if( GetStopReportTitle() == null)
+            strResult += "strStop: NULL" + "\n";
+        else
+            strResult += "strStop: " + GetStopReportTitle() + "\n";
+        
+        
+        
+        strResult += "m_dblA_Igen: " + String.format( "%.03f", m_dblA_Igen);
+        
+        strResult += "m_dblA_Iext: " + String.format(  "%.03f", m_dblA_Iext);
+        
+        strResult += "m_dblT_Igen: " + String.format( "%.03f", m_dblT_Igen);
+        
+        strResult += "m_dblT_Iext: " + String.format(  "%.03f", m_dblT_Iext);
+        
+        return strResult;
+    }
 }

@@ -44,18 +44,32 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             public void actionPerformed(ActionEvent e) {
                 m_nSecondsPassed++;
                 String strMsg;
-                if( m_nSecondsPlanned != 0) {
-                    if( m_nSecondsPassed > m_nSecondsPlanned) {
-                        m_nSecondsPassed = m_nSecondsPlanned;
+                
+                if( theApp.GetCurrentStep() / 20 == 7) {
+                    strMsg = String.format( "%02d:%02d:%02d", m_nSecondsPassed / 3600, ( m_nSecondsPassed % 3600) / 60, m_nSecondsPassed % 60);
+                    
+                    int nEnableNextSeconds = 9 * 3600;
+                    if( theApp.GetSettings().GetDebugShortenProgTimes())
+                        nEnableNextSeconds = 10;
+                        
+                    if( m_nSecondsPassed >= nEnableNextSeconds) {
                         btnNext.setEnabled( true);
                     }
-                    
-                    strMsg = String.format( "%02d:%02d",
-                            ( m_nSecondsPlanned - m_nSecondsPassed) / 60,
-                            ( m_nSecondsPlanned - m_nSecondsPassed) % 60);
                 }
                 else {
-                    strMsg = String.format( "%02d:%02d", m_nSecondsPassed / 60, m_nSecondsPassed % 60);
+                    if( m_nSecondsPlanned != 0) {
+                        if( m_nSecondsPassed > m_nSecondsPlanned) {
+                            m_nSecondsPassed = m_nSecondsPlanned;
+                            btnNext.setEnabled( true);
+                        }
+
+                        strMsg = String.format( "%02d:%02d",
+                                ( m_nSecondsPlanned - m_nSecondsPassed) / 60,
+                                ( m_nSecondsPlanned - m_nSecondsPassed) % 60);
+                    }
+                    else {
+                        strMsg = String.format( "%02d:%02d", m_nSecondsPassed / 60, m_nSecondsPassed % 60);
+                    }
                 }
                 
                 lblTimer.setText( strMsg);
@@ -121,10 +135,15 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                 chkLongDischargeTrackFail.setVisible( false);
             break;
             
-            case 142: lblTitle.setText( "<html><u>8.2 Тренировка в тр. смеси. 1-ый цикл. Ввод напряжений.</u></thml>"); chkLongDischargeTrackFail.setVisible( false); break;
-            case 143: lblTitle.setText( "<html><u>8.2 Тренировка в тр. смеси. 1-ый цикл. Ввод напряжений.</u></thml>"); chkLongDischargeTrackFail.setVisible( false); break;
-            case 145: lblTitle.setText( "<html><u>8.5 Тренировка в тр. смеси. 2-ой цикл. Ввод напряжений.</u></thml>"); chkLongDischargeTrackFail.setVisible( false); break;
-            case 146: lblTitle.setText( "<html><u>8.5 Тренировка в тр. смеси. 2-ой цикл. Ввод напряжений.</u></thml>"); chkLongDischargeTrackFail.setVisible( false); break;
+            case 142:
+                lblTitle.setText( "<html><u>8.2 Тренировка в тр. смеси. 1-ый цикл. </u></thml>");
+                chkLongDischargeTrackFail.setVisible( false);
+            break;
+            case 144:
+                lblTitle.setText( "<html><u>8.4 Тренировка в тр. смеси. 2-ой цикл. </u></thml>");
+                chkLongDischargeTrackFail.setVisible( false);
+            break;
+            
             
             default: lblTitle.setText( "ЭТАП " + theApp.GetCurrentStep() + "НЕ ДЛЯ ВВОДА НАПРЯЖЕНИЙ!"); chkLongDischargeTrackFail.setVisible( false); break;
         }
@@ -205,9 +224,8 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Конец");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(jLabel2);
-        jLabel2.setBounds(420, 60, 210, 50);
+        jLabel2.setBounds(440, 60, 160, 50);
 
         jLabel3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -258,16 +276,15 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
 
         lblTimer.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
         lblTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTimer.setText("00:00");
+        lblTimer.setText("00:00:00");
         add(lblTimer);
-        lblTimer.setBounds(0, 50, 210, 60);
+        lblTimer.setBounds(0, 50, 230, 60);
 
         jLabel6.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Начало");
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(jLabel6);
-        jLabel6.setBounds(210, 60, 210, 50);
+        jLabel6.setBounds(230, 60, 170, 50);
 
         chkLongDischargeTrackFail.setText("Прибор не удалось зажечь по длинному плечу");
         chkLongDischargeTrackFail.addActionListener(new java.awt.event.ActionListener() {
@@ -356,7 +373,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         
         boolean bMainPanel = false;
         int nNextStep = 0;
-        TechProcessHvProcessInfo info2;
+
         switch( theApp.GetCurrentStep()) {
             case 21:    //Обработка кислородом. Первый цикл.
                 info.SetStopReportTitle( "Завершение первого цикла обработки.");
@@ -373,18 +390,17 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                 //Обработка кислород-неоном. Первый цикл.
                 if( chkLongDischargeTrackFail.isSelected()) {
                     //нам не удалось зажечь по длинным плечам - мы делали длинную обработку по коротким
-                    info2 = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "041");
-                    info2.SetStartReportTitle( "1ый цикл. Обработка по коротким плечам.");
+                    theApp.ProcessingStepsRemoveStep( "041");
+                    info.SetStartReportTitle( "1ый цикл. Обработка по коротким плечам.");
                     info.SetStopReportTitle( "1ый цикл. Обработка по коротким плечам. Завершение.");
                     
-                    nNextStep = 43; bMainPanel = true;
+                    theApp.SetCurrentStep( 42);
+                    nNextStep = 43;
+                    bMainPanel = true;
                 }
                 else {
                     //нам удалось зажечь по длинным плечам - мы делали половинную обработку по длиному плечу
-                    info2 = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "041");
-                    info2.SetStartReportTitle( "1ый цикл. Обработка по длинному плечу.");
                     info.SetStopReportTitle( "1ый цикл. Обработка по длинному плечу. Завершение.");
-                    
                     nNextStep = 42; bMainPanel = false;
                 }
             break;
@@ -399,15 +415,16 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                 //Обработка кислород-неоном. Второй цикл.
                 if( chkLongDischargeTrackFail.isSelected()) {
                     //нам не удалось зажечь по длинным плечам - мы делали длинную обработку по коротким
-                    info2 = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "043");
-                    info2.SetStartReportTitle( "2ой цикл. Обработка по коротким плечам.");
-                    info.SetStopReportTitle( "2ой цикл. Обработка по коротким плечам. Завершение.");
-                    nNextStep = 61; bMainPanel = true;
+                    theApp.ProcessingStepsRemoveStep( "043");
+                    info.SetStartReportTitle( "1ый цикл. Обработка по коротким плечам.");
+                    info.SetStopReportTitle( "1ый цикл. Обработка по коротким плечам. Завершение.");
+                    
+                    theApp.SetCurrentStep( 44);
+                    nNextStep = 61;
+                    bMainPanel = true;
                 }
                 else {
                     //нам удалось зажечь по длинным плечам - мы делали половинную обработку по длиному плечу
-                    info2 = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "043");
-                    info2.SetStartReportTitle( "2ой цикл. Обработка по длинному плечу.");
                     info.SetStopReportTitle( "2ой цикл. Обработка по длинному плечу. Завершение.");
                     nNextStep = 44; bMainPanel = false;
                 }
@@ -438,12 +455,12 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                 
                 
                 
-            case 143:    //8.3 Тренировка в тренировочной смеси. Первый цикл.
+            case 142:    //8.2 Тренировка в тренировочной смеси. Первый цикл.
                 info.SetStopReportTitle( "Завершение первого цикла тренировки.");
-                nNextStep = 144; bMainPanel = true;
+                nNextStep = 143; bMainPanel = true;
             break;
                 
-            case 146:    //8.6 Тренировка в тренировочной смеси. Второй цикл.
+            case 144:    //8.4 Тренировка в тренировочной смеси. Второй цикл.
                 info.SetStopReportTitle( "Завершение второго цикла тренировки.");
                 nNextStep = 161; bMainPanel = true;
             break;

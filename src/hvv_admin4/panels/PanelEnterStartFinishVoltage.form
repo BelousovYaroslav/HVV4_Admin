@@ -110,17 +110,10 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="&#x41a;&#x43e;&#x43d;&#x435;&#x446;"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="420" y="60" width="210" height="50"/>
+          <AbsoluteConstraints x="440" y="60" width="160" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -231,11 +224,11 @@
           <Font name="Cantarell" size="48" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="00:00"/>
+        <Property name="text" type="java.lang.String" value="00:00:00"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="50" width="210" height="60"/>
+          <AbsoluteConstraints x="0" y="50" width="230" height="60"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -246,17 +239,10 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="&#x41d;&#x430;&#x447;&#x430;&#x43b;&#x43e;"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="210" y="60" width="210" height="50"/>
+          <AbsoluteConstraints x="230" y="60" width="170" height="50"/>
         </Constraint>
       </Constraints>
     </Component>

@@ -220,16 +220,16 @@ public class PanelTimer extends javax.swing.JPanel {
                 lblStart.setVisible( false);
                 btnNext.setEnabled(  false);
             break;
-            case 144:
+            case 143:
                 m_nTimerToShow = TIMER_DOWNTICK;
-                lblTitle.setText( "<html><u>8.4 Заполнение тренировочной смесью. Выдержка.</u></thml>");
+                lblTitle.setText( "<html><u>8.3 Заполнение тренировочной смесью. Выдержка.</u></thml>");
                 btnStart.setVisible( false);
                 lblStart.setVisible( false);
                 btnNext.setEnabled(  false);
             break;
-            case 145:
+            case 144:
                 m_nTimerToShow = TIMER_UPTICK;
-                lblTitle.setText( "<html><u>8.5 Тренировка в тренировочной смеси. 2-ой цикл.</u></thml>");
+                lblTitle.setText( "<html><u>8.4 Тренировка в тренировочной смеси. 2-ой цикл.</u></thml>");
                 btnStart.setVisible( false);
                 lblStart.setVisible( false);
                 btnNext.setEnabled(  false);
@@ -607,11 +607,11 @@ public class PanelTimer extends javax.swing.JPanel {
                 nNextStep = 142;
             break;
             case 142: /*8.2*/ info.SetStartReportTitle( ""); nNextStep = 143; break;
-            case 144: /*8.4*/
+            case 143: /*8.3*/
                 info = new TechProcessStepCommon( theApp);
                 info.SetStartReportTitle( null);
-                nNextStep = 145; break;
-            case 145: /*8.5*/ info.SetStartReportTitle( ""); nNextStep = 146; break;
+                nNextStep = 144; break;
+            case 144: /*8.4*/ info.SetStartReportTitle( ""); nNextStep = 161; break;
                 
             case 181: /*10.1 Выдержка - переход к финишному замеру параметров*/
                 info = new TechProcessIgenIextProcessInfo( theApp);
@@ -664,7 +664,7 @@ public class PanelTimer extends javax.swing.JPanel {
             break;
                 
             case 142: //8.2 (то есть сейчас мы закончили 8.1, и готовы перейти к 8.2)
-            case 145: //8.5 (то есть сейчас мы закончили 8.4, и готовы перейти к 8.5)
+            case 144: //8.4 (то есть сейчас мы закончили 8.3, и готовы перейти к 8.4)
                 theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.SetStates();
                 theApp.m_pMainWnd.m_pnlMain.ScrollActiveStepToCenter();
                 theApp.m_pMainWnd.m_pnlMain.setVisible( true);
@@ -672,7 +672,7 @@ public class PanelTimer extends javax.swing.JPanel {
             break;
             
             case 143: //8.3 (то есть сейчас мы закончили 8.2, и готовы перейти к 8.3)
-            case 146: //8.6 (то есть сейчас мы закончили 8.5, и готовы перейти к 8.6)
+            case 161: //9.1 (то есть сейчас мы закончили 8.4, и готовы перейти к 9.1)
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.Init();
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( theApp.GetSettings().GetProcessingTime_6());

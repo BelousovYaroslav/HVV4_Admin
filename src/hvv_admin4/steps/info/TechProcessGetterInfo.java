@@ -39,4 +39,59 @@ public class TechProcessGetterInfo extends TechProcessStepCommon {
     private Date m_dtTurnOff9v;
     public Date GetDtTurnOff9v() { return m_dtTurnOff9v;}
     public void SetDtTurnOff9v( Date dt) { m_dtTurnOff9v = dt;}
+    
+    @Override
+    public String toString() {
+        String strResult = "\n";
+        
+        if( GetStartDate() == null)
+            strResult += "dtStart: NULL" + "\n";
+        else
+            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStartDate()) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStartDate()) + "\n";
+        
+        if( GetStartReportTitle() == null)
+            strResult += "strStart: NULL" + "\n";
+        else
+            strResult += "strStart: " + GetStartReportTitle() + "\n";
+        
+        
+        if( GetStopDate() == null)
+            strResult += "dtStop: NULL" + "\n";
+        else
+            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStopDate()) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
+        
+        if( GetStopReportTitle() == null)
+            strResult += "strStop: NULL" + "\n";
+        else
+            strResult += "strStop: " + GetStopReportTitle() + "\n";
+
+        //4v
+        if( m_dtEffusion4v == null)
+            strResult += "m_dtEffusion4v: NULL" + "\n";
+        else
+            strResult += "m_dtEffusion4v: " + theApp.m_ReportGenerator.Gen_NiceDate( m_dtEffusion4v) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime( m_dtEffusion4v) + "\n";
+        
+        strResult += "m_dblEffusion4v: " + String.format( "%.03f", m_dblEffusion4v);
+        
+        //9v
+        if( m_dtEffusion9v == null)
+            strResult += "m_dtEffusion9v: NULL" + "\n";
+        else
+            strResult += "m_dtEffusion9v: " + theApp.m_ReportGenerator.Gen_NiceDate( m_dtEffusion9v) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime( m_dtEffusion9v) + "\n";
+        
+        strResult += "m_dblEffusion9v: " + String.format( "%.03f", m_dblEffusion9v);
+        
+        //dt9off
+        if( m_dtTurnOff9v == null)
+            strResult += "m_dtTurnOff9v: NULL" + "\n";
+        else
+            strResult += "m_dtTurnOff9v: " + theApp.m_ReportGenerator.Gen_NiceDate( m_dtTurnOff9v) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime( m_dtTurnOff9v) + "\n";
+        
+        return strResult;
+    }
 }

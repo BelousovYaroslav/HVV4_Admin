@@ -85,6 +85,11 @@ public class HVV_Admin4 {
     public void SetDtmTOEnd( Date dtVal) { m_dtTOend = dtVal;}
     
     private final TreeMap m_mapSteps;
+    
+    //SECRET BACKDOOR - used only in ReportGeneration
+    public TreeMap SecretSteps() { return m_mapSteps;}
+    
+    public void ProcessingStepsRemoveStep( String strStepKey) { if( m_mapSteps.containsKey( strStepKey)) m_mapSteps.remove( strStepKey);}
     public boolean IsStepMapContainsKey( String strStepName) { return m_mapSteps.containsKey( strStepName);}
     public void SaveStepInfo( String strStepName, TechProcessStepCommon info, boolean bSaveState) {
         m_mapSteps.put( strStepName, info);

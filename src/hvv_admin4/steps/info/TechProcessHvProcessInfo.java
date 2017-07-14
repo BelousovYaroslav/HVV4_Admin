@@ -33,4 +33,44 @@ public class TechProcessHvProcessInfo extends TechProcessStepCommon {
         m_dblVoltageTuStart = 0.;
         m_dblVoltageTuStop  = 0.;
     }
+    
+    @Override
+    public String toString() {
+        String strResult = "\n";
+        
+        if( GetStartDate() == null)
+            strResult += "dtStart: NULL" + "\n";
+        else
+            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStartDate()) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStartDate()) + "\n";
+        
+        if( GetStartReportTitle() == null)
+            strResult += "strStart: NULL" + "\n";
+        else
+            strResult += "strStart: " + GetStartReportTitle() + "\n";
+        
+        
+        if( GetStopDate() == null)
+            strResult += "dtStop: NULL" + "\n";
+        else
+            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStopDate()) +
+                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
+
+        if( GetStopReportTitle() == null)
+            strResult += "strStop: NULL" + "\n";
+        else
+            strResult += "strStop: " + GetStopReportTitle() + "\n";
+        
+        
+        
+        strResult += "m_dblVoltageAnStart: " + String.format( "%.03f", m_dblVoltageAnStart) + "\n";
+        
+        strResult += "m_dblVoltageAnStop: " + String.format(  "%.03f", m_dblVoltageAnStop) + "\n";
+        
+        strResult += "m_dblVoltageTuStart: " + String.format( "%.03f", m_dblVoltageTuStart) + "\n";
+        
+        strResult += "m_dblVoltageTuStop: " + String.format(  "%.03f", m_dblVoltageTuStop) + "\n";
+        
+        return strResult;
+    }
 }

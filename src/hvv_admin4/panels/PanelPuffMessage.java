@@ -42,6 +42,7 @@ public class PanelPuffMessage extends javax.swing.JPanel {
         String strHv   =  theApp.GetSettings().GetPuffMessage( 1 + theApp.GetCurrentStep() / 20, 3, theApp.GetProcessedDeviceType());
 
         switch( theApp.GetCurrentStep()) {
+            //ЭТАП 2. Обработка O2
             case 21:
             case 22:
                 if( theApp.IsCurrentStepInProgress()) {
@@ -57,7 +58,8 @@ public class PanelPuffMessage extends javax.swing.JPanel {
                     btnNext.setText( "Прибор заполнен");                    
                 }
             break;
-                
+
+            //ЭТАП 3. Обработка O2-Ne20
             case 41:
             case 43:
                 if( theApp.IsCurrentStepInProgress()) {
@@ -73,14 +75,16 @@ public class PanelPuffMessage extends javax.swing.JPanel {
                     btnNext.setText( "Прибор заполнен");                    
                 }
             break;
-                
+
+            //ЭТАП 4. Термообезгаживание. Здесь последний этап - выдержка рабочей смеси перед промежуточным контролем.
             case 64:
                 lblMessageL.setText( strGas1);
                 lblMessageR.setText( strGas2);
                 lblMessageF.setText( "");
                 btnNext.setText( "Прибор заполнен. Начать отсчёт времени выдержки.");
             break;
-                
+
+            //ЭТАП 6. Тренировка катода
             case 101:
             case 103:
             case 105:
@@ -89,7 +93,7 @@ public class PanelPuffMessage extends javax.swing.JPanel {
                 lblMessageF.setText( "");
                 btnNext.setText( "Прибор заполнен. Начать отсчёт времени выдержки.");
             break;
-                
+            
             case 102:
             case 104:
             case 106:
@@ -98,9 +102,10 @@ public class PanelPuffMessage extends javax.swing.JPanel {
                 lblMessageF.setText( strHv);
                 btnNext.setText( "Высокое подано. Начать отсчёт времени тренировки.");
             break;
-                
+
+            //ЭТАП 8. Тр. в тр. смеси
             case 141:
-            case 144:
+            case 143:
                 lblMessageL.setText( strGas1);
                 lblMessageR.setText( strGas2);
                 lblMessageF.setText( "");
@@ -108,13 +113,14 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             break;
                 
             case 142:
-            case 145:
+            case 144:
                 lblMessageL.setText( "");
                 lblMessageR.setText( "");
                 lblMessageF.setText( strHv);
                 btnNext.setText( "Высокое подано. Начать отсчёт времени тренировки.");
             break;
-                
+            
+            //ЭТАП 10. Выходная оценка параметров
             case 181:
                 lblMessageL.setText( strGas1);
                 lblMessageR.setText( strGas2);
@@ -309,7 +315,7 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             break;
                 
             case 141:   //8.1 Выдержка тренировочной смеси
-            case 144:   //8.4 Выдержка тренировочной смеси
+            case 143:   //8.3 Выдержка тренировочной смеси
             {
                 TechProcessStepCommon info = new TechProcessStepCommon( theApp);
                 info.SetStartDateAsCurrent();
@@ -327,22 +333,19 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             break;
                 
             case 142:   //8.2 Тренировка в тренировочной смеси. 1ый цикл.
-            case 145:   //8.5 Тренировка в тренировочной смеси. 2ой цикл.
+            case 144:   //8.4 Тренировка в тренировочной смеси. 2ой цикл.
             {
                 TechProcessHvProcessInfo info = new TechProcessHvProcessInfo( theApp);
                 info.SetStartDateAsCurrent();
                 info.SetStartReportTitle( "Старт " + ( 1 + ( theApp.GetCurrentStep() - 142) / 3) + "-го цикла тренировки");
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
 
-                theApp.SetCurrentStep( theApp.GetCurrentStep() + 1);
-                
                 theApp.m_ReportGenerator.Generate();
-
                 
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.Init();
                 theApp.m_pMainWnd.m_pnlEnterHvVoltage.DropValues();
-                theApp.m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( 0);
+                theApp.m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( theApp.GetSettings().GetProcessingTime_8());
                 
                 //theApp.m_pMainWnd.m_pnlStopWatch.setVisible( true);
                 //theApp.m_pMainWnd.m_pnlStopWatch.Init();

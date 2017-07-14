@@ -25,6 +25,9 @@ public class HVV_Admin4Settings {
     private int m_nTimeZoneShift;
     public int GetTimeZoneShift() { return m_nTimeZoneShift;}
     
+    private boolean m_bDebugReport;
+    public boolean GetDebugReport() { return m_bDebugReport; }
+    
     private boolean m_bDebugShortenProgTimes;
     public boolean GetDebugShortenProgTimes() { return m_bDebugShortenProgTimes; }
     
@@ -329,6 +332,7 @@ public class HVV_Admin4Settings {
         //TIME ZONE SHIFT
         m_nTimeZoneShift = 1;
         
+        m_bDebugReport = false;
         m_bDebugShortenProgItems = false;
         m_bDebugShortenProgTimes = false;
         m_bDebugShortenThermoProcessing = false;
@@ -398,7 +402,13 @@ public class HVV_Admin4Settings {
           
                 //<!-- путь к папке на внешнем хранилище куда складывать готовые отчёты -->
                 if( "RemoteReportsPath".equals( name))  m_strRemoteReportsPath = value;
-          
+                
+                //<!-- ОТЛАДКА: отладка отчёта -->
+                if( "debug.report".equals( name)) {
+                    if( "true".equals( value))
+                        m_bDebugReport = true;
+                }
+                
                 //<!-- ОТЛАДКА: сократить количество пунктов программ обезгаживания и активации -->
                 if( "debug.shorten.program.items".equals( name)) {
                     if( "true".equals( value))

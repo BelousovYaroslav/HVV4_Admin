@@ -25,6 +25,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 import org.apache.log4j.Logger;
 
 /**
@@ -1224,20 +1227,41 @@ public class ReportGenerator {
             //                            new File( theApp.GetAMSRoot(), "reports" + File.separator + strReportFileNameLoc));
             
             
-            Gen_Header( streamWriter);
-            Gen_Ch01( streamWriter);
-            
-            if( theApp.IsStepMapContainsKey( "021")) Gen_Ch02( streamWriter);
-            if( theApp.IsStepMapContainsKey( "041")) Gen_Ch03( streamWriter);
-            if( theApp.IsStepMapContainsKey( "062")) Gen_Ch04( streamWriter);
-            if( theApp.IsStepMapContainsKey( "082")) Gen_Ch05( streamWriter);
-            //if( theApp.IsStepMapContainsKey( "101")) Gen_Ch06( streamWriter);
-            //if( theApp.IsStepMapContainsKey( "121")) Gen_Ch07( streamWriter);
-            //if( theApp.IsStepMapContainsKey( "141")) Gen_Ch08( streamWriter);
-            //if( theApp.IsStepMapContainsKey( "161")) Gen_Ch09( streamWriter);
-            //if( theApp.IsStepMapContainsKey( "181")) Gen_Ch10( streamWriter);
-            
-            Gen_Footer( streamWriter);
+            if( theApp.GetSettings().GetDebugReport()) {
+                Gen_Header( streamWriter);
+                
+                TreeMap stps = theApp.SecretSteps();
+                Set set = stps.entrySet();
+                Iterator it = set.iterator();
+                while( it.hasNext()) {
+                    Map.Entry entry = (Map.Entry) it.next();
+                    
+                    String strKey = ( String) entry.getKey();
+                    Object objVal = entry.getValue();
+                    
+                    streamWriter.write( strKey);
+                    streamWriter.write( objVal + "\n");
+                }
+                
+
+                Gen_Footer( streamWriter);
+            }
+            else {
+                Gen_Header( streamWriter);
+                Gen_Ch01( streamWriter);
+
+                if( theApp.IsStepMapContainsKey( "021")) Gen_Ch02( streamWriter);
+                if( theApp.IsStepMapContainsKey( "041")) Gen_Ch03( streamWriter);
+                if( theApp.IsStepMapContainsKey( "062")) Gen_Ch04( streamWriter);
+                if( theApp.IsStepMapContainsKey( "082")) Gen_Ch05( streamWriter);
+                //if( theApp.IsStepMapContainsKey( "101")) Gen_Ch06( streamWriter);
+                //if( theApp.IsStepMapContainsKey( "121")) Gen_Ch07( streamWriter);
+                //if( theApp.IsStepMapContainsKey( "141")) Gen_Ch08( streamWriter);
+                //if( theApp.IsStepMapContainsKey( "161")) Gen_Ch09( streamWriter);
+                //if( theApp.IsStepMapContainsKey( "181")) Gen_Ch10( streamWriter);
+
+                Gen_Footer( streamWriter);
+            }
             
         
             streamWriter.close();

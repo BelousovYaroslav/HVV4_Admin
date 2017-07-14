@@ -160,10 +160,6 @@ public class PanelMain extends javax.swing.JPanel {
                                         theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep08.btn_08_03_Start.getY(); break;
             case 144:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep08.getY() + 
                                         theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep08.btn_08_04_Start.getY(); break;
-            case 145:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep08.getY() + 
-                                        theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep08.btn_08_05_Start.getY(); break;
-            case 146:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep08.getY() + 
-                                        theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep08.btn_08_06_Start.getY(); break;
                 
             case 161:  nCurrentStepY = theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep09.getY() + 
                                         theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.m_pnlStep09.btn_09_01_Start.getY(); break;
