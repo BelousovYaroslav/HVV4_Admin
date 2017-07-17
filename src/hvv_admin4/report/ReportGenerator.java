@@ -370,85 +370,54 @@ public class ReportGenerator {
         //writer.write( "<P style=\"page-break-before: always\">\n");
         writer.write( "<H3>3. Обработка в среде кислород-неона</H3>\n");
         
-        //Первый цикл обработки
+        //3.1 Первый цикл обработки. Длинное плечо
         //<table>
         Gen_TableHeader( writer);
         Gen_TableLine( writer, "041");
-
+        writer.write( "</table>\n");
+        Gen_TableVoltageHeader(writer);
+        Gen_TableVoltageLine( writer, "041");
+        writer.write( "<br>\n</table>\n");
+            
+        //3.2 Первый цикл обработки. Короткие плечи
         bContinue &= ( theApp.GetCurrentStep() > 42);
         if( bContinue) {
-            //3.2 напряжения начало - конец
+            if( theApp.IsStepMapContainsKey( "042")) {
+                Gen_TableHeader( writer);
+                Gen_TableLine( writer, "042");
+                writer.write( "</table>\n");
+                Gen_TableVoltageHeader(writer);
+                Gen_TableVoltageLine( writer, "042");
+                writer.write( "<br>\n</table>\n");
+            }
+        }
+
+        //3.3 Второй цикл обработки. Длинное плечо
+        bContinue &= ( theApp.GetCurrentStep() > 43);
+        if( bContinue) {
+            Gen_TableHeader( writer);
+            Gen_TableLine( writer, "043");
             writer.write( "</table>\n");
             Gen_TableVoltageHeader(writer);
-            Gen_TableVoltageLine( writer, "042");
+            Gen_TableVoltageLine( writer, "043");
+            writer.write( "<br>\n</table>\n");
         }
-            
-        if( theApp.IsStepMapContainsKey( "043")) {
-            //у нас были обработки длинная и короткая
-            
-            //3.3 обработка по коротким плечам
-            writer.write( "</table>\n<table>\n");
-            writer.write( " <tr>\n");
-            writer.write( "  <th width=\"120\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"100\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"500\" align=\"left\"></th>\n");
-            writer.write( " </tr>\n");
-            Gen_TableLine( writer, "043");
-
-            bContinue &= ( theApp.GetCurrentStep() > 44);
-            if( bContinue) {
-                //3.4 напряжения начало - конец
+        
+        //3.4 Второй цикл обработки. Короткие плечи
+        bContinue &= ( theApp.GetCurrentStep() > 44);
+        if( bContinue) {
+            if( theApp.IsStepMapContainsKey( "044")) {
+                Gen_TableHeader( writer);
+                Gen_TableLine( writer, "044");
                 writer.write( "</table>\n");
                 Gen_TableVoltageHeader(writer);
                 Gen_TableVoltageLine( writer, "044");
-            }
-            
-        }
-        
-        
-        
-        bContinue &= ( theApp.GetCurrentStep() > 45);
-        if( bContinue) {
-            //3.5 Второй цикл
-            writer.write( "</table>\n<table>\n");
-            writer.write( " <tr>\n");
-            writer.write( "  <th width=\"120\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"100\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"500\" align=\"left\"></th>\n");
-            writer.write( " </tr>\n");
-            Gen_TableLine( writer, "045");
-        }
-        
-        bContinue &= ( theApp.GetCurrentStep() > 46);
-        if( bContinue) {
-            //3.6 Второй цикл. по длинному плечу. напряжения
-            writer.write( "</table>\n");
-            Gen_TableVoltageHeader(writer);
-            Gen_TableVoltageLine( writer, "046");
-        }
-        
-        
-        if( theApp.IsStepMapContainsKey( "047")) {
-            //3.7 Второй цикл. по коротким плечам
-            writer.write( "</table>\n<table>\n");
-            writer.write( " <tr>\n");
-            writer.write( "  <th width=\"120\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"100\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"500\" align=\"left\"></th>\n");
-            writer.write( " </tr>\n");
-            Gen_TableLine( writer, "047");
-        
-            bContinue &= ( theApp.GetCurrentStep() > 48);
-            if( bContinue) {
-                //3.4 напряжения начало - конец
-                writer.write( "</table>\n");
-                Gen_TableVoltageHeader(writer);
-                Gen_TableVoltageLine( writer, "048");
+                writer.write( "<br>\n</table>\n");
             }
         }
         
         if( bContinue)
-            writer.write( "</table>\n\n<br>\n<!-- ** STEP4 ** -->\n");
+            writer.write( "\n<br>\n<!-- ** STEP4 ** -->\n");
     }
     
     public void Gen_Ch04( OutputStreamWriter writer) throws IOException {
@@ -665,111 +634,71 @@ public class ReportGenerator {
     
     public void Gen_Ch06( OutputStreamWriter writer) throws IOException {
         boolean bContinue = true;
-
+        boolean bOpenTable = false;
+        
         writer.write( "<P style=\"page-break-before: always\">\n");
         writer.write( "<H3>6. Тренировка катода</H3>\n");
 
-        //<table>
+        //6.1  1-ый цикл   выдержка
         Gen_TableHeader( writer);
-        
-        //6.1 выдержка
         Gen_TableLine( writer, "101");
+        bOpenTable = true;
         
-        //6.2 Первый цикл тренировки
-        bContinue &= ( theApp.GetCurrentStep() >= 102);
+        //6.2  1-ый цикл  тренировка
+        bContinue &= ( theApp.GetCurrentStep() > 102);
         if( bContinue) {
             Gen_TableLine( writer, "102");
+            writer.write( "</table>\n");
+            Gen_TableVoltageHeader(writer);
+            Gen_TableVoltageLine( writer, "102");
+            writer.write( "<br>\n</table>\n");
+            bOpenTable = false;
         }
         
-        //6.3 напряжения начало - конец
+        //6.3  2-ой цикл  выдержка
         bContinue &= ( theApp.GetCurrentStep() > 103);
         if( bContinue) {
-            writer.write( "</table>\n");
-            Gen_TableVoltageHeader( writer);
-            Gen_TableVoltageLine( writer, "103");
+            Gen_TableHeader( writer);
+            Gen_TableLine( writer, "103");
+            bOpenTable = true;
         }
         
-        
-        
-        //6.4 выдержка
-        bContinue &= ( theApp.GetCurrentStep() >= 104);
+        //6.4  2-ой цикл  тренировка
+        bContinue &= ( theApp.GetCurrentStep() > 104);
         if( bContinue) {
-            writer.write( "<table>\n");
-            writer.write( " <tr height=\"5\">\n");
-            writer.write( "  <th width=\"120\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"100\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"500\" align=\"left\"></th>\n");
-            writer.write( " </tr>\n");
-            
             Gen_TableLine( writer, "104");
-            
-            /*
-            TechProcessStepCommon info = theApp.GetStepInfo( "104");
-            if( info != null) {
-                writer.write( "</table>\n<br>\n<br>\n<table>\n <tr height=\"30\">\n");
-                writer.write( "  <td width=\"120\">" + Gen_NiceDate( info.GetStartDate()) + "</td>\n");
-                writer.write( "  <td width=\"100\">" + Gen_NiceTime( info.GetStartDate()) + "</td>\n");
-                writer.write( "  <td width=\"500\">" + info.GetStartReportTitle() + "</td>\n </tr>\n");
-            }
-            */
+            writer.write( "</table>\n");
+            Gen_TableVoltageHeader(writer);
+            Gen_TableVoltageLine( writer, "104");
+            writer.write( "<br>\n</table>\n");
+            bOpenTable = false;
         }
         
-        //6.5 Второй цикл обработки
-        bContinue &= ( theApp.GetCurrentStep() >= 105);
+        //6.5  3-ий цикл  выдержка
+        bContinue &= ( theApp.GetCurrentStep() > 105);
         if( bContinue) {
+            Gen_TableHeader( writer);
             Gen_TableLine( writer, "105");
+            bOpenTable = true;
         }
         
-        //6.6 напряжения начало - конец
+        //6.6  3-ий цикл  тренировка
         bContinue &= ( theApp.GetCurrentStep() > 106);
         if( bContinue) {
+            Gen_TableLine( writer, "106");
             writer.write( "</table>\n");
             Gen_TableVoltageHeader(writer);
             Gen_TableVoltageLine( writer, "106");
-        }
-        
-        
-        
-        //6.7 выдержка
-        bContinue &= ( theApp.GetCurrentStep() >= 107);
-        if( bContinue) {
-            writer.write( "<table>\n");
-            writer.write( " <tr height=\"5\">\n");
-            writer.write( "  <th width=\"120\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"100\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"500\" align=\"left\"></th>\n");
-            writer.write( " </tr>\n");
-            
-            Gen_TableLine( writer, "107");
-            
-            /*
-            TechProcessStepCommon info = theApp.GetStepInfo( "107");
-            if( info != null) {
-                writer.write( "</table>\n<br>\n<br>\n<table>\n <tr height=\"30\">\n");
-                writer.write( "  <td width=\"120\">" + Gen_NiceDate( info.GetStartDate()) + "</td>\n");
-                writer.write( "  <td width=\"100\">" + Gen_NiceTime( info.GetStartDate()) + "</td>\n");
-                writer.write( "  <td width=\"500\">" + info.GetStartReportTitle() + "</td>\n </tr>\n");
-            }
-            */
-        }
-        
-        //6.8 Третий цикл обработки
-        bContinue &= ( theApp.GetCurrentStep() >= 108);
-        if( bContinue) {
-            Gen_TableLine( writer, "108");
-        }
-        
-        //6.9 напряжения начало - конец
-        bContinue &= ( theApp.GetCurrentStep() > 109);
-        if( bContinue) {
-            writer.write( "</table>\n");
-            Gen_TableVoltageHeader(writer);
-            Gen_TableVoltageLine( writer, "109");
+            writer.write( "<br>\n</table>\n");
+            bOpenTable = false;
         }
         
         
         if( bContinue)
-            writer.write( "</table>\n<br>\n\n<!-- ** STEP7 ** -->\n");
+            if( bOpenTable)
+                writer.write( "</table>\n<br>\n\n<!-- ** STEP7 ** -->\n");
+            else
+                writer.write( "<br>\n\n<!-- ** STEP7 ** -->\n");
         
     }
     
@@ -877,70 +806,51 @@ public class ReportGenerator {
     
     public void Gen_Ch08( OutputStreamWriter writer) throws IOException {
         boolean bContinue = true;
-
+        boolean bOpenTable = false;
+        
         writer.write( "<P style=\"page-break-before: always\">\n");
         writer.write( "<H3>8. Тренировка в тренировочной смеси</H3>\n");
 
-        //<table>
+        //8.1  1-ый цикл   выдержка
         Gen_TableHeader( writer);
-        
-        //8.1 выдержка
         Gen_TableLine( writer, "141");
+        bOpenTable = true;
         
-        //8.2 Первый цикл тренировки
-        bContinue &= ( theApp.GetCurrentStep() >= 142);
+        //8.2  1-ый цикл  тренировка
+        bContinue &= ( theApp.GetCurrentStep() > 142);
         if( bContinue) {
             Gen_TableLine( writer, "142");
-        }
-        
-        //8.3 напряжения начало - конец
-        bContinue &= ( theApp.GetCurrentStep() > 143);
-        if( bContinue) {
-            writer.write( "</table>\n");
-            Gen_TableVoltageHeader( writer);
-            Gen_TableVoltageLine( writer, "143");
-        }
-        
-        
-        
-        //8.4 выдержка
-        bContinue &= ( theApp.GetCurrentStep() >= 144);
-        if( bContinue) {
-            
-            writer.write( "<table>\n");
-            writer.write( " <tr height=\"5\">\n");
-            writer.write( "  <th width=\"120\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"100\" align=\"left\"></th>\n");
-            writer.write( "  <th width=\"500\" align=\"left\"></th>\n");
-            writer.write( " </tr>\n");
-            
-            Gen_TableLine( writer, "144");
-        
-            /*TechProcessStepCommon info = theApp.GetStepInfo( "144");
-            if( info != null) {
-                writer.write( "</table>\n<br>\n<br>\n<table>\n <tr height=\"30\">\n");
-                writer.write( "  <td width=\"120\">" + Gen_NiceDate( info.GetStartDate()) + "</td>\n");
-                writer.write( "  <td width=\"100\">" + Gen_NiceTime( info.GetStartDate()) + "</td>\n");
-                writer.write( "  <td width=\"500\">" + info.GetStartReportTitle() + "</td>\n </tr>\n");
-            }*/
-        }
-        
-        //8.5 Второй цикл обработки
-        bContinue &= ( theApp.GetCurrentStep() >= 145);
-        if( bContinue) {
-            Gen_TableLine( writer, "145");
-        }
-        
-        //8.6 напряжения начало - конец
-        bContinue &= ( theApp.GetCurrentStep() > 146);
-        if( bContinue) {
             writer.write( "</table>\n");
             Gen_TableVoltageHeader(writer);
-            Gen_TableVoltageLine( writer, "146");
+            Gen_TableVoltageLine( writer, "142");
+            writer.write( "<br>\n</table>\n");
+            bOpenTable = false;
+        }
+        
+        //8.3  2-ой цикл   выдержка
+        bContinue &= ( theApp.GetCurrentStep() > 143);
+        if( bContinue) {
+            Gen_TableHeader( writer);
+            Gen_TableLine( writer, "143");
+            bOpenTable = true;
+        }
+                
+        //8.4  2-ой цикл  тренировка
+        bContinue &= ( theApp.GetCurrentStep() > 144);
+        if( bContinue) {
+            Gen_TableLine( writer, "144");
+            writer.write( "</table>\n");
+            Gen_TableVoltageHeader(writer);
+            Gen_TableVoltageLine( writer, "144");
+            writer.write( "<br>\n</table>\n");
+            bOpenTable = false;
         }
         
         if( bContinue)
-            writer.write( "</table>\n<br>\n\n<!-- ** STEP9 ** -->\n");
+            if( bOpenTable)
+                writer.write( "</table>\n<br>\n\n<!-- ** STEP9 ** -->\n");
+            else
+                writer.write( "<br>\n\n<!-- ** STEP9 ** -->\n");
     }
     
     public void Gen_Ch09( OutputStreamWriter writer) throws IOException {
@@ -1254,11 +1164,11 @@ public class ReportGenerator {
                 if( theApp.IsStepMapContainsKey( "041")) Gen_Ch03( streamWriter);
                 if( theApp.IsStepMapContainsKey( "062")) Gen_Ch04( streamWriter);
                 if( theApp.IsStepMapContainsKey( "082")) Gen_Ch05( streamWriter);
-                //if( theApp.IsStepMapContainsKey( "101")) Gen_Ch06( streamWriter);
-                //if( theApp.IsStepMapContainsKey( "121")) Gen_Ch07( streamWriter);
-                //if( theApp.IsStepMapContainsKey( "141")) Gen_Ch08( streamWriter);
-                //if( theApp.IsStepMapContainsKey( "161")) Gen_Ch09( streamWriter);
-                //if( theApp.IsStepMapContainsKey( "181")) Gen_Ch10( streamWriter);
+                if( theApp.IsStepMapContainsKey( "101")) Gen_Ch06( streamWriter);
+                if( theApp.IsStepMapContainsKey( "121")) Gen_Ch07( streamWriter);
+                if( theApp.IsStepMapContainsKey( "141")) Gen_Ch08( streamWriter);
+                if( theApp.IsStepMapContainsKey( "161")) Gen_Ch09( streamWriter);
+                if( theApp.IsStepMapContainsKey( "181")) Gen_Ch10( streamWriter);
 
                 Gen_Footer( streamWriter);
             }

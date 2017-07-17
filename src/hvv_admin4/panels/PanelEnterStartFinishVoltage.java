@@ -506,7 +506,6 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                 //мы обработали кислород-неоном второй цикл по длинному плечу (этап 3.3 = 043)
                 //надо отметить начало обработки кислород-неоном второго цикла по короткому и фактически остаться на этой же панели, перекрасившись
                 TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "043");
-                inf.SetStartDateAsCurrent();
                 inf.SetStartReportTitle( "2ой цикл. Обработка по длинному плечу.");
                 theApp.SaveStepInfo( "043", inf, false);
                 

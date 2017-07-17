@@ -53,7 +53,7 @@ public class TechProcessHvProcessInfo extends TechProcessStepCommon {
         if( GetStopDate() == null)
             strResult += "dtStop: NULL" + "\n";
         else
-            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStopDate()) +
+            strResult += "dtStop: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStopDate()) +
                          " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
 
         if( GetStopReportTitle() == null)
