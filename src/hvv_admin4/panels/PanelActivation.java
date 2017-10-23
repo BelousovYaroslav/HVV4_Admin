@@ -547,7 +547,7 @@ public class PanelActivation extends javax.swing.JPanel {
                     m_lstProgram.add( new TechProcessDegasationStepInfo(  5, 20));
                     m_lstProgram.add( new TechProcessDegasationStepInfo(  5, 25));
                     m_lstProgram.add( new TechProcessDegasationStepInfo(  5, 30));
-                    m_lstProgram.add( new TechProcessDegasationStepInfo(  5, 35));
+                    //m_lstProgram.add( new TechProcessDegasationStepInfo(  5, 35));
                     //m_lstProgram.add( new TechProcessDegasationStepInfo(  5, 40));
                 }
             break;
