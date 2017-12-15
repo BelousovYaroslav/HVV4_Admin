@@ -7,6 +7,7 @@ package hvv_admin4;
 
 import hvv_admin4.planner.HVV_AdminPlanner;
 import hvv_admin4.report.ReportGenerator;
+import hvv_admin4.state.HVV_StateKeeper;
 import hvv_admin4.steps.info.TechProcessStepCommon;
 import hvv_resources.HVV_Resources;
 import java.awt.Font;
@@ -47,6 +48,7 @@ public class HVV_Admin4 {
     
     public String m_strAdminStartDtm;
     public ReportGenerator m_ReportGenerator;
+    public HVV_StateKeeper m_pStateKeeper;
     
     private String m_strSerial;
     public String GetSerial() { return m_strSerial; }
@@ -93,8 +95,8 @@ public class HVV_Admin4 {
     public boolean IsStepMapContainsKey( String strStepName) { return m_mapSteps.containsKey( strStepName);}
     public void SaveStepInfo( String strStepName, TechProcessStepCommon info, boolean bSaveState) {
         m_mapSteps.put( strStepName, info);
-        //if( bSaveState)
-        //    m_pStateKeeper.SaveState();
+        if( bSaveState)
+            m_pStateKeeper.SaveState();
     }
     
     public TechProcessStepCommon GetStepInfo( String strStepName) {
@@ -237,13 +239,26 @@ public class HVV_Admin4 {
         
         m_bFailInMiddleFlag = false;
                 
-        m_mapSteps = new TreeMap();
+        m_mapSteps = new TreeMap();        
+    }
+    
+    public void start() {
         
-        /*
+        HVV_Admin4ArmSelect dlgArmSelect = new HVV_Admin4ArmSelect( null, true);
+
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
+        Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
+
+        dlgArmSelect.setLocation( ( rect.width - dlgArmSelect.getWidth()) / 2, ( rect.height - dlgArmSelect.getHeight()) / 2);
+        dlgArmSelect.setVisible( true);
+        
+        m_nArm = dlgArmSelect.GetSelectedArm();
+        
         m_pStateKeeper = new HVV_StateKeeper( this);
         if( m_pStateKeeper.CheckStateKeeperFileExistance()) {
             int nResponce = MessageBoxAskYesNo( "Обнаружен файл хранения состояния.\nВосстановить состояние предыдущего запуска?", "HVV_Admin");
-            if( nResponce == YES_OPTION) {
+            if( nResponce == JOptionPane.YES_OPTION) {
                 m_pStateKeeper.RestoreState();
                 if( m_pStateKeeper.m_bDropReadState == true) {
                     //2.1
@@ -302,14 +317,14 @@ public class HVV_Admin4 {
             //"чистый" запуск
             m_nCurrentProcessStep = 1;    
         }
-        */
+        
         m_nCurrentProcessStep = 1;
         
         m_bCurrentStepInProgress = false;
         m_dtTOend = null;
                 
         GregorianCalendar clndr = new GregorianCalendar();
-        clndr.setTime( new Date( System.currentTimeMillis() - 1000 * 60 * 60 * GetSettings().GetTimeZoneShift()));
+        clndr.setTime( new Date( System.currentTimeMillis() - 1000 * 60 * 60 * m_pSettings.GetTimeZoneShift()));
         
         m_strAdminStartDtm = String.format( "%02d.%02d.%02d.%02d.%02d.%02d",
                 clndr.get(Calendar.YEAR),
@@ -321,20 +336,13 @@ public class HVV_Admin4 {
         
         m_ReportGenerator = new ReportGenerator( this);
         m_ReportGenerator.Generate();
-    }
-    
-    public void start() {
         
-        HVV_Admin4ArmSelect dlgArmSelect = new HVV_Admin4ArmSelect( null, true);
-
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice defaultScreen = ge.getDefaultScreenDevice();
-        Rectangle rect = defaultScreen.getDefaultConfiguration().getBounds();
-
-        dlgArmSelect.setLocation( ( rect.width - dlgArmSelect.getWidth()) / 2, ( rect.height - dlgArmSelect.getHeight()) / 2);
-        dlgArmSelect.setVisible( true);
         
-        m_nArm = dlgArmSelect.GetSelectedArm();
+        
+        
+        
+        
+        
         
         m_pMainWnd = new HVV_Admin4MainFrame( this);
         
