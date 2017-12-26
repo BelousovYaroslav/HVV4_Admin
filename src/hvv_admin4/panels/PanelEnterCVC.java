@@ -344,7 +344,7 @@ public class PanelEnterCVC extends javax.swing.JPanel {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         
         TechProcessUacProcessInfo info = ( TechProcessUacProcessInfo)
-                theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+                theApp.GetCommonStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
         info.SetStopDateAsCurrent();
         //info.SetStopReportTitle( "");
         

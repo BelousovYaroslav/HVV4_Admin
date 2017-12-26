@@ -106,7 +106,7 @@ public class PanelTimer extends javax.swing.JPanel {
             break;
             case 43:
                 m_nTimerToShow = TIMER_DOWNTICK;
-                lblTitle.setText( "<html><u>3.3 Обработка O<sub>2</sub> - Ne<sub>20</sub>. Цикл 1. Короткое плечо</u></thml>");
+                lblTitle.setText( "<html><u>3.3 Обработка O<sub>2</sub> - Ne<sub>20</sub>. Цикл 1. Короткие плечи</u></thml>");
                 btnStart.setVisible( false);
                 lblStart.setVisible( false);
                 btnNext.setEnabled(  false);
@@ -132,7 +132,7 @@ public class PanelTimer extends javax.swing.JPanel {
             break;
             case 47:
                 m_nTimerToShow = TIMER_DOWNTICK;
-                lblTitle.setText( "<html><u>3.7 Обработка O<sub>2</sub> - Ne<sub>20</sub>. Цикл 2. Короткое плечо</u></thml>");
+                lblTitle.setText( "<html><u>3.7 Обработка O<sub>2</sub> - Ne<sub>20</sub>. Цикл 2. Короткие плечи</u></thml>");
                 btnStart.setVisible( false);
                 lblStart.setVisible( false);
                 btnNext.setEnabled(  false);
@@ -518,7 +518,7 @@ public class PanelTimer extends javax.swing.JPanel {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         m_pUpTickTimer.stop();
         
-        TechProcessStepCommon info = theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+        TechProcessStepCommon info = theApp.GetCommonStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
         if( info.GetStopDate() == null) {
             info.SetStopDateAsCurrent();
             switch( theApp.GetCurrentStep()) {
@@ -636,7 +636,7 @@ public class PanelTimer extends javax.swing.JPanel {
         switch( nNextStep) {
             case 63: //4.3 (то есть сейчас мы закончили 4.2 и готовы перейти к 4.3)
                 if( theApp.GetDtmTOEnd() == null)
-                    theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetStepInfo( "062").GetStopDate(), m_lDownTickTimer + 1);
+                    theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetCommonStepInfo( "062").GetStopDate(), m_lDownTickTimer + 1);
                 else
                     theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetDtmTOEnd(), m_lDownTickTimer + 1);
                 

@@ -380,7 +380,7 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
         //Мы рассчитали длительность термообезнаживания, надо запустить процесс
         m_tmrRefreshTimer.stop();
         
-        TechProcessStepCommon info = theApp.GetStepInfo( "061");
+        TechProcessStepCommon info = theApp.GetCommonStepInfo( "061");
         info.SetStopDateAsCurrent();
         info.SetStopReportTitle( "");
         

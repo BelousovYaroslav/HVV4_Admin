@@ -44,7 +44,7 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="000"/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="edtAnodeStop"/>
+          <ComponentRef name="edtTubuStart"/>
         </Property>
       </Properties>
       <Events>
@@ -88,7 +88,7 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="000"/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="edtTubuStart"/>
+          <ComponentRef name="edtTubuStop"/>
         </Property>
       </Properties>
       <Events>
@@ -167,7 +167,7 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="000"/>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="edtTubuStop"/>
+          <ComponentRef name="edtAnodeStop"/>
         </Property>
       </Properties>
       <Events>

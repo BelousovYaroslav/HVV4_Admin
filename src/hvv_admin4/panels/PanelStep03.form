@@ -386,7 +386,7 @@
     <Component class="javax.swing.JLabel" name="lbl_03_02_Title">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="3.2 &#x41e;&#x431;&#x440;&#x430;&#x431;&#x43e;&#x442;&#x43a;&#x430;. &#x426;&#x438;&#x43a;&#x43b; 1. &#x41a;&#x43e;&#x440;. &#x43f;&#x43b;&#x435;&#x447;&#x43e;"/>
+        <Property name="text" type="java.lang.String" value="3.2 &#x41e;&#x431;&#x440;&#x430;&#x431;&#x43e;&#x442;&#x43a;&#x430;. &#x426;&#x438;&#x43a;&#x43b; 1. &#x41a;&#x43e;&#x440;. &#x43f;&#x43b;&#x435;&#x447;&#x438;"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
             <LineBorder>
@@ -677,7 +677,7 @@
     <Component class="javax.swing.JLabel" name="lbl_03_04_Title">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="3.4 &#x41e;&#x431;&#x440;&#x430;&#x431;&#x43e;&#x442;&#x43a;&#x430;. &#x426;&#x438;&#x43a;&#x43b; 2. &#x41a;&#x43e;&#x440;. &#x43f;&#x43b;&#x435;&#x447;&#x43e;"/>
+        <Property name="text" type="java.lang.String" value="3.4 &#x41e;&#x431;&#x440;&#x430;&#x431;&#x43e;&#x442;&#x43a;&#x430;. &#x426;&#x438;&#x43a;&#x43b; 2. &#x41a;&#x43e;&#x440;. &#x43f;&#x43b;&#x435;&#x447;&#x438;"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
             <LineBorder>

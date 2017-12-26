@@ -6,9 +6,7 @@
 package hvv_admin4.panels;
 
 import hvv_admin4.HVV_Admin4;
-import hvv_admin4.HVV_Admin4Constants;
 import hvv_admin4.steps.info.TechProcessHvProcessInfo;
-import hvv_admin4.steps.info.TechProcessStepCommon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
@@ -193,7 +191,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         edtAnodeStart.setFont(new java.awt.Font("Cantarell", 0, 80)); // NOI18N
         edtAnodeStart.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         edtAnodeStart.setText("000");
-        edtAnodeStart.setNextFocusableComponent(edtAnodeStop);
+        edtAnodeStart.setNextFocusableComponent(edtTubuStart);
         edtAnodeStart.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 edtFocusGained(evt);
@@ -212,7 +210,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         edtAnodeStop.setFont(new java.awt.Font("Cantarell", 0, 80)); // NOI18N
         edtAnodeStop.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         edtAnodeStop.setText("000");
-        edtAnodeStop.setNextFocusableComponent(edtTubuStart);
+        edtAnodeStop.setNextFocusableComponent(edtTubuStop);
         edtAnodeStop.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 edtFocusGained(evt);
@@ -244,7 +242,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         edtTubuStart.setFont(new java.awt.Font("Cantarell", 0, 80)); // NOI18N
         edtTubuStart.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         edtTubuStart.setText("000");
-        edtTubuStart.setNextFocusableComponent(edtTubuStop);
+        edtTubuStart.setNextFocusableComponent(edtAnodeStop);
         edtTubuStart.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 edtFocusGained(evt);
@@ -298,7 +296,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         
-        TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+        TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetCommonStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
         info.SetStopDateAsCurrent();
         
         //начальное напряжение на аноде
@@ -389,7 +387,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             case 41:
                 //Обработка кислород-неоном. Первый цикл.
                 if( chkLongDischargeTrackFail.isSelected()) {
-                    //нам не удалось зажечь по длинным плечам - мы делали длинную обработку по коротким
+                    //нам не удалось зажечь по длинному плечу - мы делали длинную обработку по коротким
                     theApp.ProcessingStepsRemoveStep( "041");
                     info.SetStartReportTitle( "1ый цикл. Обработка по коротким плечам.");
                     info.SetStopReportTitle( "1ый цикл. Обработка по коротким плечам. Завершение.");
@@ -399,7 +397,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                     bMainPanel = true;
                 }
                 else {
-                    //нам удалось зажечь по длинным плечам - мы делали половинную обработку по длиному плечу
+                    //нам удалось зажечь по длинному плечу - мы делали половинную обработку по длиному плечу
                     info.SetStopReportTitle( "1ый цикл. Обработка по длинному плечу. Завершение.");
                     nNextStep = 42; bMainPanel = false;
                 }
@@ -414,7 +412,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             case 43:
                 //Обработка кислород-неоном. Второй цикл.
                 if( chkLongDischargeTrackFail.isSelected()) {
-                    //нам не удалось зажечь по длинным плечам - мы делали длинную обработку по коротким
+                    //нам не удалось зажечь по длинному плечу - мы делали длинную обработку по коротким
                     theApp.ProcessingStepsRemoveStep( "043");
                     info.SetStartReportTitle( "1ый цикл. Обработка по коротким плечам.");
                     info.SetStopReportTitle( "1ый цикл. Обработка по коротким плечам. Завершение.");
@@ -424,7 +422,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                     bMainPanel = true;
                 }
                 else {
-                    //нам удалось зажечь по длинным плечам - мы делали половинную обработку по длиному плечу
+                    //нам удалось зажечь по длинному плечу - мы делали половинную обработку по длиному плечу
                     info.SetStopReportTitle( "2ой цикл. Обработка по длинному плечу. Завершение.");
                     nNextStep = 44; bMainPanel = false;
                 }
@@ -472,9 +470,10 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             m_pTimer.stop();
         }
         
+        theApp.SetCurrentStep( nNextStep);
+        theApp.SetCurrentStepInProgress( false);
+            
         if( bMainPanel) {
-            theApp.SetCurrentStep( nNextStep);
-            theApp.SetCurrentStepInProgress( false);
         
             theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.Reposition();
             theApp.m_pMainWnd.m_pnlMain.m_pnlProcess.SetStates();
@@ -485,14 +484,11 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         }
         else {
             DropValues();
-            
-            theApp.SetCurrentStep( nNextStep);
-            theApp.SetCurrentStepInProgress( false);
-            
+    
             if( nNextStep == 42) {
                 //мы обработали кислород-неоном первый цикл по длинному плечу (этап 3.1 = 041)
                 //надо отметить начало обработки кислород-неоном первого цикла по короткому и фактически остаться на этой же панели, перекрасившись
-                TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "041");
+                TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) theApp.GetCommonStepInfo( "041");
                 inf.SetStartReportTitle( "1ый цикл. Обработка по длинному плечу.");
                 theApp.SaveStepInfo( "041", inf, false);
                 
@@ -505,7 +501,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             if( nNextStep == 44) {
                 //мы обработали кислород-неоном второй цикл по длинному плечу (этап 3.3 = 043)
                 //надо отметить начало обработки кислород-неоном второго цикла по короткому и фактически остаться на этой же панели, перекрасившись
-                TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) theApp.GetStepInfo( "043");
+                TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) theApp.GetCommonStepInfo( "043");
                 inf.SetStartReportTitle( "2ой цикл. Обработка по длинному плечу.");
                 theApp.SaveStepInfo( "043", inf, false);
                 

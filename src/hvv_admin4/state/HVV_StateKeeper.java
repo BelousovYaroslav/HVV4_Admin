@@ -6,6 +6,7 @@
 package hvv_admin4.state;
 
 import hvv_admin4.HVV_Admin4;
+import hvv_admin4.steps.info.TechProcessHvProcessInfo;
 import hvv_admin4.steps.info.TechProcessStepCommon;
 import java.io.File;
 import java.io.FileInputStream;
@@ -39,11 +40,11 @@ public class HVV_StateKeeper {
         m_bDropReadState = false;
     }
     
-    private void SaveStandardPoint( ObjectOutputStream oos, String strStep1) throws IOException {
+    private void SaveCommonPoint( ObjectOutputStream oos, String strStep1) throws IOException {
         
         oos.writeObject( strStep1);
         
-        TechProcessStepCommon info = theApp.GetStepInfo( strStep1);
+        TechProcessStepCommon info = theApp.GetCommonStepInfo( strStep1);
         if( info != null) {
             oos.writeObject( info.GetStartDate());
             oos.writeObject( info.GetStartReportTitle());
@@ -59,13 +60,54 @@ public class HVV_StateKeeper {
         }
     }
     
-    private TechProcessStepCommon ReadStandardPoint( ObjectInputStream ois) throws IOException {
+    private TechProcessStepCommon ReadCommonPoint( ObjectInputStream ois) throws IOException {
         
         TechProcessStepCommon info = new TechProcessStepCommon( theApp);
         
         try {    
             
             
+            info.SetStartDate( ( Date) ois.readObject());
+            info.SetStartReportTitle( ( String) ois.readObject());
+            
+            info.SetStopDate( ( Date) ois.readObject());
+            info.SetStopReportTitle( ( String) ois.readObject());
+            
+        } catch (ClassNotFoundException ex) {
+            logger.error( "ClassNotFoundException caught, при чтении state-файла", ex);
+        }
+        
+        return info;
+    }
+    
+    
+    private void SaveHvPoint( ObjectOutputStream oos, String strStep1) throws IOException {
+        
+        oos.writeObject( strStep1);
+        
+        TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetHvStepInfo( strStep1);
+        if( info != null) {
+            oos.writeObject( info.GetStartDate());
+            oos.writeObject( info.GetStartReportTitle());
+            oos.writeDouble( info.GetAnStart());
+            oos.writeDouble( info.GetTuStart());
+            
+            oos.writeObject( info.GetStopDate());
+            oos.writeObject( info.GetStopReportTitle());
+            oos.writeDouble( info.GetAnStop());
+            oos.writeDouble( info.GetTuStop());
+        }
+        else {
+            for( int i=0; i<8; i++)
+                oos.writeObject( null);
+        }
+    }
+    
+    private TechProcessHvProcessInfo ReadHvPoint( ObjectInputStream ois) throws IOException {
+        
+        TechProcessHvProcessInfo info = new TechProcessHvProcessInfo( theApp);
+        
+        try {
             info.SetStartDate( ( Date) ois.readObject());
             info.SetStartReportTitle( ( String) ois.readObject());
             
@@ -89,43 +131,34 @@ public class HVV_StateKeeper {
             //текущий шаг
             oos.writeInt( theApp.GetCurrentStep());
             
-            //1.   Установка и откачка прибора
-            //1.1  Подготовка прибора
+            //          1.   Установка и откачка прибора
+            //  001     1.1  Подготовка прибора
             oos.writeUTF( theApp.GetSerial());              //серийный номер прибора
             oos.writeInt( theApp.GetProcessedDeviceType()); //тип прибора (размер: МЛГ-СЛГ-БЛГ)
-            SaveStandardPoint( oos, "001");
+            SaveCommonPoint( oos, "001");
             
+            //          2. Обработка в среде кислорода
+            //  021     2.1 Первый цикл
+            //  022     2.2 Второй цикл
+            SaveHvPoint( oos, "021");
+            SaveHvPoint( oos, "022");
             
             //***STOPPED HERE
             
-            //2.1 Занесение информации об установленных приборах
-            //2.2 Предварительная откачка
-            //2.3 Проверка герметичности установки приборов
-            // ? 2.3.1 напуск азота
-            //2.4 Основная откачка
-            if( theApp.GetCurrentStep() >= 21) SaveStandardPoint( oos, "021");
-            if( theApp.GetCurrentStep() > 21) {
-                oos.writeObject( theApp.m_mapDevicePresence);
-                oos.writeObject( theApp.m_mapSerials);
-                oos.writeObject( theApp.m_mapDeviceGetter);
-            }
-            if( theApp.GetCurrentStep() >= 22) SaveStandardPoint( oos, "022");
-            if( theApp.GetCurrentStep() >= 23) SaveStandardPoint( oos, "023");
-            if( theApp.GetCurrentStep() >= 24) SaveStandardPoint( oos, "024");
+                        
             
-            
-            //41       3.1 Напуск кислорода в приборы
+            //  041     3.1 Напуск кислорода в приборы
             //42       3.2 Обработка. 1ый цикл.
             //43       3.3 Откачка кислорода
             //44       3.4 Напуск кислорода в приборы
             //45       3.5 Обработка. 2ой цикл.
             //46       3.6 Откачка кислорода
-            if( theApp.GetCurrentStep() >= 41) SaveStandardPoint( oos, "041");
-            if( theApp.GetCurrentStep() >= 42) SaveStandardPoint( oos, "042");
-            if( theApp.GetCurrentStep() >= 43) SaveStandardPoint( oos, "043");
-            if( theApp.GetCurrentStep() >= 44) SaveStandardPoint( oos, "044");
-            if( theApp.GetCurrentStep() >= 45) SaveStandardPoint( oos, "045");
-            if( theApp.GetCurrentStep() >= 46) SaveStandardPoint( oos, "046");
+            if( theApp.GetCurrentStep() >= 41) SaveCommonPoint( oos, "041");
+            if( theApp.GetCurrentStep() >= 42) SaveCommonPoint( oos, "042");
+            if( theApp.GetCurrentStep() >= 43) SaveCommonPoint( oos, "043");
+            if( theApp.GetCurrentStep() >= 44) SaveCommonPoint( oos, "044");
+            if( theApp.GetCurrentStep() >= 45) SaveCommonPoint( oos, "045");
+            if( theApp.GetCurrentStep() >= 46) SaveCommonPoint( oos, "046");
             
             
             //61       4.1 Напуск кислород-неона в приборы
@@ -135,13 +168,13 @@ public class HVV_StateKeeper {
             //65       4.5 Обработка. 2ой цикл.
             //66       4.6 Откачка газовой смеси
             //67       4.7 Переход на основную откачку
-            if( theApp.GetCurrentStep() >= 61) SaveStandardPoint( oos, "061");
-            if( theApp.GetCurrentStep() >= 62) SaveStandardPoint( oos, "062");
-            if( theApp.GetCurrentStep() >= 63) SaveStandardPoint( oos, "063");
-            if( theApp.GetCurrentStep() >= 64) SaveStandardPoint( oos, "064");
-            if( theApp.GetCurrentStep() >= 65) SaveStandardPoint( oos, "065");
-            if( theApp.GetCurrentStep() >= 66) SaveStandardPoint( oos, "066");
-            if( theApp.GetCurrentStep() >= 67) SaveStandardPoint( oos, "067");
+            if( theApp.GetCurrentStep() >= 61) SaveCommonPoint( oos, "061");
+            if( theApp.GetCurrentStep() >= 62) SaveCommonPoint( oos, "062");
+            if( theApp.GetCurrentStep() >= 63) SaveCommonPoint( oos, "063");
+            if( theApp.GetCurrentStep() >= 64) SaveCommonPoint( oos, "064");
+            if( theApp.GetCurrentStep() >= 65) SaveCommonPoint( oos, "065");
+            if( theApp.GetCurrentStep() >= 66) SaveCommonPoint( oos, "066");
+            if( theApp.GetCurrentStep() >= 67) SaveCommonPoint( oos, "067");
             
             
             //81    *  5.1 Установка печек
@@ -150,39 +183,40 @@ public class HVV_StateKeeper {
             //83    *  5.3 Снятие печек
             //84       5.4 Заполнение рабочей смесью
             //85       5.5 Выдержка
-            if( theApp.GetCurrentStep() >= 81) SaveStandardPoint( oos, "081");
-            if( theApp.GetCurrentStep() >= 82) SaveStandardPoint( oos, "082");
+            if( theApp.GetCurrentStep() >= 81) SaveCommonPoint( oos, "081");
+            if( theApp.GetCurrentStep() >= 82) SaveCommonPoint( oos, "082");
             if( theApp.GetCurrentStep() >= 83) {
-                SaveStandardPoint( oos, "082.1");
-                SaveStandardPoint( oos, "083");
+                SaveCommonPoint( oos, "082.1");
+                SaveCommonPoint( oos, "083");
             }
-            if( theApp.GetCurrentStep() >= 84) SaveStandardPoint( oos, "084");
-            if( theApp.GetCurrentStep() >= 85) SaveStandardPoint( oos, "085");
+            if( theApp.GetCurrentStep() >= 84) SaveCommonPoint( oos, "084");
+            if( theApp.GetCurrentStep() >= 85) SaveCommonPoint( oos, "085");
             
             
+            /*
             //101   *  6.1 Измерение ВАХ
             //102   *  6.2 Внесение пороговых токов
             //103   *  6.3 Предварительная оценка параметров приборов
             //104      6.4 Откачка рабочей смеси
-            if( theApp.GetCurrentStep() >= 101) SaveStandardPoint( oos, "101");
+            if( theApp.GetCurrentStep() >= 101) SaveCommonPoint( oos, "101");
             if( theApp.GetCurrentStep() > 101) {
                 oos.writeObject( theApp.m_mapStep6_1_1000mcA);
                 oos.writeObject( theApp.m_mapStep6_1_1100mcA);
                 oos.writeObject( theApp.m_mapStep6_1_1200mcA);
             }
-            if( theApp.GetCurrentStep() >= 102) SaveStandardPoint( oos, "102");
+            if( theApp.GetCurrentStep() >= 102) SaveCommonPoint( oos, "102");
             if( theApp.GetCurrentStep() > 102) {
                 oos.writeObject( theApp.m_mapStep6_2_LasThreshold);
                 oos.writeObject( theApp.m_mapStep6_2_ExtAn);
                 oos.writeObject( theApp.m_mapStep6_2_ExtTu);
             }
-            if( theApp.GetCurrentStep() >= 103) SaveStandardPoint( oos, "103");
+            if( theApp.GetCurrentStep() >= 103) SaveCommonPoint( oos, "103");
             if( theApp.GetCurrentStep() > 103) {
                 oos.writeObject( theApp.m_mapStep6_3_Comments);
                 oos.writeObject( theApp.m_mapStep6_3_Continue);
             }
-            if( theApp.GetCurrentStep() >= 104) SaveStandardPoint( oos, "104");
-            
+            if( theApp.GetCurrentStep() >= 104) SaveCommonPoint( oos, "104");
+            */
             
             //121      7.1 Напуск тренировочной смеси в приборы
             //122      7.2 Выдержка
@@ -197,25 +231,26 @@ public class HVV_StateKeeper {
             //131      7.11 Обработка. 3ий цикл.
             //132      7.12 Откачка тренировочной смеси
             //133      7.13 Переход на основную откачку
-            if( theApp.GetCurrentStep() >= 121) SaveStandardPoint( oos, "121");
-            if( theApp.GetCurrentStep() >= 122) SaveStandardPoint( oos, "122");
-            if( theApp.GetCurrentStep() >= 123) SaveStandardPoint( oos, "123");
-            if( theApp.GetCurrentStep() >= 124) SaveStandardPoint( oos, "124");
-            if( theApp.GetCurrentStep() >= 125) SaveStandardPoint( oos, "125");
-            if( theApp.GetCurrentStep() >= 126) SaveStandardPoint( oos, "126");
-            if( theApp.GetCurrentStep() >= 127) SaveStandardPoint( oos, "127");
-            if( theApp.GetCurrentStep() >= 128) SaveStandardPoint( oos, "128");
-            if( theApp.GetCurrentStep() >= 129) SaveStandardPoint( oos, "129");
-            if( theApp.GetCurrentStep() >= 130) SaveStandardPoint( oos, "130");
-            if( theApp.GetCurrentStep() >= 131) SaveStandardPoint( oos, "131");
-            if( theApp.GetCurrentStep() >= 132) SaveStandardPoint( oos, "132");
-            if( theApp.GetCurrentStep() >= 133) SaveStandardPoint( oos, "133");
+            if( theApp.GetCurrentStep() >= 121) SaveCommonPoint( oos, "121");
+            if( theApp.GetCurrentStep() >= 122) SaveCommonPoint( oos, "122");
+            if( theApp.GetCurrentStep() >= 123) SaveCommonPoint( oos, "123");
+            if( theApp.GetCurrentStep() >= 124) SaveCommonPoint( oos, "124");
+            if( theApp.GetCurrentStep() >= 125) SaveCommonPoint( oos, "125");
+            if( theApp.GetCurrentStep() >= 126) SaveCommonPoint( oos, "126");
+            if( theApp.GetCurrentStep() >= 127) SaveCommonPoint( oos, "127");
+            if( theApp.GetCurrentStep() >= 128) SaveCommonPoint( oos, "128");
+            if( theApp.GetCurrentStep() >= 129) SaveCommonPoint( oos, "129");
+            if( theApp.GetCurrentStep() >= 130) SaveCommonPoint( oos, "130");
+            if( theApp.GetCurrentStep() >= 131) SaveCommonPoint( oos, "131");
+            if( theApp.GetCurrentStep() >= 132) SaveCommonPoint( oos, "132");
+            if( theApp.GetCurrentStep() >= 133) SaveCommonPoint( oos, "133");
             
             
+            /*
             //141   *  8.1 Обезгаживание
             //142      8.2 Открытие геттера
             if( theApp.GetCurrentStep() >= 141) {
-                SaveStandardPoint( oos, "141");
+                SaveCommonPoint( oos, "141");
                 
                 oos.writeObject( theApp.m_mapDegassing.size());
                 Set keySet = theApp.m_mapDegassing.keySet();
@@ -244,7 +279,8 @@ public class HVV_StateKeeper {
                 }
                         
             }
-            if( theApp.GetCurrentStep() >= 142) SaveStandardPoint( oos, "142");
+            if( theApp.GetCurrentStep() >= 142) SaveCommonPoint( oos, "142");
+            */
             
             
             //161      9.1 Напуск тренировочной смеси в приборы
@@ -256,21 +292,21 @@ public class HVV_StateKeeper {
             //167      9.7 Обработка. 2ой цикл.
             //168      9.8 Откачка тренировочной смеси
             //169      9.9 Переход на основную откачку
-            if( theApp.GetCurrentStep() >= 161) SaveStandardPoint( oos, "161");
-            if( theApp.GetCurrentStep() >= 162) SaveStandardPoint( oos, "162");
-            if( theApp.GetCurrentStep() >= 163) SaveStandardPoint( oos, "163");
-            if( theApp.GetCurrentStep() >= 164) SaveStandardPoint( oos, "164");
-            if( theApp.GetCurrentStep() >= 165) SaveStandardPoint( oos, "165");
-            if( theApp.GetCurrentStep() >= 166) SaveStandardPoint( oos, "166");
-            if( theApp.GetCurrentStep() >= 167) SaveStandardPoint( oos, "167");
-            if( theApp.GetCurrentStep() >= 168) SaveStandardPoint( oos, "168");
-            if( theApp.GetCurrentStep() >= 169) SaveStandardPoint( oos, "169");
+            if( theApp.GetCurrentStep() >= 161) SaveCommonPoint( oos, "161");
+            if( theApp.GetCurrentStep() >= 162) SaveCommonPoint( oos, "162");
+            if( theApp.GetCurrentStep() >= 163) SaveCommonPoint( oos, "163");
+            if( theApp.GetCurrentStep() >= 164) SaveCommonPoint( oos, "164");
+            if( theApp.GetCurrentStep() >= 165) SaveCommonPoint( oos, "165");
+            if( theApp.GetCurrentStep() >= 166) SaveCommonPoint( oos, "166");
+            if( theApp.GetCurrentStep() >= 167) SaveCommonPoint( oos, "167");
+            if( theApp.GetCurrentStep() >= 168) SaveCommonPoint( oos, "168");
+            if( theApp.GetCurrentStep() >= 169) SaveCommonPoint( oos, "169");
             
-            
+            /*
             //181   *  10.1 Активация
             //182      10.2 Открытие геттера
             if( theApp.GetCurrentStep() >= 181) {
-                SaveStandardPoint( oos, "181");
+                SaveCommonPoint( oos, "181");
                 
                 //oos.writeObject( theApp.m_mapActivation);
                 oos.writeObject( theApp.m_mapActivation.size());
@@ -299,54 +335,56 @@ public class HVV_StateKeeper {
 
                 }
             }
-            if( theApp.GetCurrentStep() >= 182) SaveStandardPoint( oos, "182");
-            
+            if( theApp.GetCurrentStep() >= 182) SaveCommonPoint( oos, "182");
+            */
 
+            
+            /*
             //201      11.1 Заполнение рабочей смесью
             //202      11.2 Выдержка
             //203   *  11.3 Измерение ВАХ
             //204   *  11.4 Внесение пороговых токов
             //205   *  11.5 Оценка параметров приборов
             //206   *  11.6 Герметизация годных приборов
-            if( theApp.GetCurrentStep() >= 201) SaveStandardPoint( oos, "201");
-            if( theApp.GetCurrentStep() >= 202) SaveStandardPoint( oos, "202");
+            if( theApp.GetCurrentStep() >= 201) SaveCommonPoint( oos, "201");
+            if( theApp.GetCurrentStep() >= 202) SaveCommonPoint( oos, "202");
             
-            if( theApp.GetCurrentStep() >= 203) SaveStandardPoint( oos, "203");
+            if( theApp.GetCurrentStep() >= 203) SaveCommonPoint( oos, "203");
             if( theApp.GetCurrentStep() > 203) {
                 oos.writeObject( theApp.m_mapStep11_3_1000mcA);
                 oos.writeObject( theApp.m_mapStep11_3_1100mcA);
                 oos.writeObject( theApp.m_mapStep11_3_1200mcA);
             }
-            if( theApp.GetCurrentStep() >= 204) SaveStandardPoint( oos, "204");
+            if( theApp.GetCurrentStep() >= 204) SaveCommonPoint( oos, "204");
             if( theApp.GetCurrentStep() > 204) {
                 oos.writeObject( theApp.m_mapStep11_4_LasThreshold);
                 oos.writeObject( theApp.m_mapStep11_4_ExtAn);
                 oos.writeObject( theApp.m_mapStep11_4_ExtTu);
             }
-            if( theApp.GetCurrentStep() >= 205) SaveStandardPoint( oos, "205");
+            if( theApp.GetCurrentStep() >= 205) SaveCommonPoint( oos, "205");
             if( theApp.GetCurrentStep() > 205) {
                 oos.writeObject( theApp.m_mapStep11_5_Comments);
                 oos.writeObject( theApp.m_mapStep11_5_Continue);
             }
-            if( theApp.GetCurrentStep() >= 206) SaveStandardPoint( oos, "206");
-            
+            if( theApp.GetCurrentStep() >= 206) SaveCommonPoint( oos, "206");
+            */
             
             //221      12.1 Закрытие геттера
             //222      12.2 Напуск азота в приборы
             //223   *  12.3 Снятие непрошедших приборов
-            if( theApp.GetCurrentStep() >= 221) SaveStandardPoint( oos, "221");
-            if( theApp.GetCurrentStep() >= 222) SaveStandardPoint( oos, "222");
-            if( theApp.GetCurrentStep() >= 223) SaveStandardPoint( oos, "223");
+            if( theApp.GetCurrentStep() >= 221) SaveCommonPoint( oos, "221");
+            if( theApp.GetCurrentStep() >= 222) SaveCommonPoint( oos, "222");
+            if( theApp.GetCurrentStep() >= 223) SaveCommonPoint( oos, "223");
             
             //241      13.1 Bypass-откачка
             //242   *  13.2 Проверка герметичности (?? да  ?? нет)
             //      ?   13.2.1 Напуск азота
             //243      13.3 Основная откачка
             //244      13.4 Откачка смеси с геттера
-            if( theApp.GetCurrentStep() >= 241) SaveStandardPoint( oos, "241");
-            if( theApp.GetCurrentStep() >= 242) SaveStandardPoint( oos, "242");
-            if( theApp.GetCurrentStep() >= 243) SaveStandardPoint( oos, "243");
-            if( theApp.GetCurrentStep() >= 244) SaveStandardPoint( oos, "244");
+            if( theApp.GetCurrentStep() >= 241) SaveCommonPoint( oos, "241");
+            if( theApp.GetCurrentStep() >= 242) SaveCommonPoint( oos, "242");
+            if( theApp.GetCurrentStep() >= 243) SaveCommonPoint( oos, "243");
+            if( theApp.GetCurrentStep() >= 244) SaveCommonPoint( oos, "244");
             
             
             oos.close();
@@ -366,8 +404,10 @@ public class HVV_StateKeeper {
             //текущее состояние (этап)
             int nLastWrittenStep = ois.readInt();
             
+            
             String strStepNumber = "";
             boolean bContinue;
+            /*
             do {
                 if( strStepNumber.equals( "021")) {
                     theApp.m_mapDevicePresence = ( HashMap) ois.readObject();
@@ -476,24 +516,24 @@ public class HVV_StateKeeper {
                 int nAvailable = fis.available();
                 if( nAvailable > 0) {
                     strStepNumber = ( String) ois.readObject();
-                    theApp.SaveStepInfo( strStepNumber, ReadStandardPoint( ois), false);
+                    theApp.SaveStepInfo(strStepNumber, ReadCommonPoint( ois), false);
                 }
                 
                 nAvailable = fis.available();
                 bContinue = nAvailable != 0;
                 
             } while( bContinue);
+            */
             
             ois.close();
             fis.close();
             
             //Последний этап = strStepNumber
             //Закончен ли он?
-            boolean bEnded = !( theApp.GetStepInfo( strStepNumber).GetStopDate() == null);
+            boolean bEnded = !( theApp.GetCommonStepInfo( strStepNumber).GetStopDate() == null);
             
             String strMessage =
-                    "<html>Согласно файлу состояния, в предыдущем запуске,последним был этап " +
-                    theApp.HumanNameForStep( strStepNumber) +
+                    "<html>Согласно файлу состояния, в предыдущем запуске,последним был этап " + strStepNumber +
                     ", и он " + ( bEnded ? "был закончен" : "не был закончен");
             strMessage += ".<br><br>Какой выставить текущий этап?</html>";
             
@@ -506,14 +546,15 @@ public class HVV_StateKeeper {
             int nPotentialNextStep = theApp.GetCurrentStep();
 
             dlg.m_strLabel.setText( strMessage);
-            dlg.m_rad1.setText( theApp.HumanNameForStep( String.format("%03d", nLastWrittenStep)));
-            dlg.m_rad2.setText( theApp.HumanNameForStep( String.format("%03d", nPotentialNextStep)));
+            dlg.m_rad1.setText( String.format("%03d", nLastWrittenStep));
+            dlg.m_rad2.setText( String.format("%03d", nPotentialNextStep));
 
             dlg.setVisible( true);
             if( dlg.m_bDrop == false) {
                 if( dlg.m_rad1.isSelected()) {
                     theApp.SetCurrentStep( nLastWrittenStep);
 
+                    /*
                     if( "141".equals( strStepNumber)  ||    //мы сбились посередине обезгаживания - надо ещё отметить-подтвердить кого мы провели
                         "181".equals( strStepNumber)) {     //мы сбились посередине активации -     надо ещё отметить-подтвердить кого мы провели
                     
@@ -716,25 +757,23 @@ public class HVV_StateKeeper {
                         }
 
                     }
-                    
+                    */
                     
                     
                 }
                 else {
-                    TechProcessStepInfo info = theApp.GetStepInfo( String.format("%03d", nLastWrittenStep));
+                    TechProcessStepCommon info = theApp.GetCommonStepInfo( String.format("%03d", nLastWrittenStep));
                     info.SetStopDateAsCurrent();
                     info.SetStopReportTitle( "Этап отмечен как завершенный вручную, после перезапуска адм. модуля");
-                    info.SetStopP5( null);
-                    info.SetStopP6( null);
-                    info.SetStopP7( null);
 
                     theApp.SetCurrentStep( nPotentialNextStep);
                     
-                    info = new TechProcessStepInfo( theApp);
+                    info = new TechProcessStepCommon(theApp);
                     info.SetStartDateAsCurrent();
                     
                     String strTitle = null;
                     
+                    /*
                     //некоторые этапы надо отметить как начатые
                     switch( theApp.GetCurrentStep()) {
                         case 21:    strTitle = "Установка резонаторов (восст.)";  break;
@@ -762,8 +801,11 @@ public class HVV_StateKeeper {
                         info.SetStartP7( null);
                         theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
                     }
+                    */
+                    
                 }
 
+                /*
                 switch( theApp.GetCurrentStep()) {
                     case 21:    theApp.ShowDlg2_1();    break;
                     case 23:    theApp.ShowDlg2_3();    break;
@@ -782,6 +824,7 @@ public class HVV_StateKeeper {
                     case 223:   theApp.ShowDlg12_3();   break;
                     case 242:   theApp.ShowDlg13_2();    break;
                 }
+                */
             }
             else {
                 m_bDropReadState = true;

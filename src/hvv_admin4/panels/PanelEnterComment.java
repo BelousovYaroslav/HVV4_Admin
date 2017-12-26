@@ -130,7 +130,7 @@ public class PanelEnterComment extends javax.swing.JPanel {
 
     private void btnOkNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkNextActionPerformed
         
-        TechProcessCommentInfo info = ( TechProcessCommentInfo) theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+        TechProcessCommentInfo info = ( TechProcessCommentInfo) theApp.GetCommonStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
         info.m_strComment = edtComment.getText();
         info.SetStopDateAsCurrent();
         info.SetStopReportTitle( "");
@@ -163,7 +163,7 @@ public class PanelEnterComment extends javax.swing.JPanel {
     }//GEN-LAST:event_btnOkNextActionPerformed
 
     private void btnFailStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFailStopActionPerformed
-        TechProcessCommentInfo info = ( TechProcessCommentInfo) theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+        TechProcessCommentInfo info = ( TechProcessCommentInfo) theApp.GetCommonStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
         info.m_strComment = edtComment.getText();
         info.SetStopDateAsCurrent();
         info.SetStopReportTitle( "");

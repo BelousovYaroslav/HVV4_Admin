@@ -516,7 +516,7 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         
-        TechProcessGetterInfo info = ( TechProcessGetterInfo) theApp.GetStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+        TechProcessGetterInfo info = ( TechProcessGetterInfo) theApp.GetCommonStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
         info.SetStopDateAsCurrent();
         
         //4. Термообезгаживание

@@ -192,7 +192,7 @@ public class PanelStep03 extends TechProcessStepPanelTemplate {
         lbl_03_02_Time_start.setBounds(90, 60, 60, 25);
 
         lbl_03_02_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_03_02_Title.setText("3.2 Обработка. Цикл 1. Кор. плечо");
+        lbl_03_02_Title.setText("3.2 Обработка. Цикл 1. Кор. плечи");
         lbl_03_02_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_03_02_Title.setOpaque(true);
         add(lbl_03_02_Title);
@@ -283,7 +283,7 @@ public class PanelStep03 extends TechProcessStepPanelTemplate {
         lbl_03_04_Time_start.setBounds(90, 120, 60, 25);
 
         lbl_03_04_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_03_04_Title.setText("3.4 Обработка. Цикл 2. Кор. плечо");
+        lbl_03_04_Title.setText("3.4 Обработка. Цикл 2. Кор. плечи");
         lbl_03_04_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_03_04_Title.setOpaque(true);
         add(lbl_03_04_Title);
@@ -342,7 +342,7 @@ public class PanelStep03 extends TechProcessStepPanelTemplate {
         boolean bStop = false;
         
         if( theApp.IsStepMapContainsKey( "041")) {
-            TechProcessStepCommon info = theApp.GetStepInfo( "041");
+            TechProcessStepCommon info = theApp.GetCommonStepInfo( "041");
             
             if( info.GetStartDate() != null) {
                 lbl_03_00_Date_start.setText( theApp.strFormatDate( info.GetStartDate()));
@@ -352,7 +352,7 @@ public class PanelStep03 extends TechProcessStepPanelTemplate {
         }    
          
         if( theApp.IsStepMapContainsKey( "044")) {
-            TechProcessStepCommon info = theApp.GetStepInfo( "044");
+            TechProcessStepCommon info = theApp.GetCommonStepInfo( "044");
             if( info.GetStopDate() != null) {
                 lbl_03_00_Date_stop.setText( theApp.strFormatDate( info.GetStopDate()));
                 lbl_03_00_Time_stop.setText( theApp.strFormatTime( info.GetStopDate()));
@@ -361,7 +361,7 @@ public class PanelStep03 extends TechProcessStepPanelTemplate {
         }
         else {
             if( theApp.IsStepMapContainsKey( "043")) {
-                TechProcessStepCommon info = theApp.GetStepInfo( "043");
+                TechProcessStepCommon info = theApp.GetCommonStepInfo( "043");
                 if( info.GetStopDate() != null) {
                     lbl_03_00_Date_stop.setText( theApp.strFormatDate( info.GetStopDate()));
                     lbl_03_00_Time_stop.setText( theApp.strFormatTime( info.GetStopDate()));

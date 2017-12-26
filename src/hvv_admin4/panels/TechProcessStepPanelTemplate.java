@@ -38,7 +38,7 @@ public abstract class TechProcessStepPanelTemplate extends javax.swing.JPanel {
     public void FillHeaderStepDates( String strStepFirst, JLabel lbDtStart, JLabel lbTmStart, String strStepLast, JLabel lbDtStop, JLabel lbTmStop) {
         boolean bStart = false;
         if( theApp.IsStepMapContainsKey( strStepFirst)) {
-            TechProcessStepCommon info = theApp.GetStepInfo( strStepFirst);
+            TechProcessStepCommon info = theApp.GetCommonStepInfo( strStepFirst);
             
             if( info.GetStartDate() != null) {
                 lbDtStart.setText( theApp.strFormatDate( info.GetStartDate()));
@@ -55,7 +55,7 @@ public abstract class TechProcessStepPanelTemplate extends javax.swing.JPanel {
         
         boolean bStop = false;
         if( theApp.IsStepMapContainsKey( strStepLast)) {
-            TechProcessStepCommon info = theApp.GetStepInfo( strStepLast);
+            TechProcessStepCommon info = theApp.GetCommonStepInfo( strStepLast);
             
             if( info.GetStopDate() != null) {
                 lbDtStop.setText( theApp.strFormatDate( info.GetStopDate()));
@@ -75,7 +75,7 @@ public abstract class TechProcessStepPanelTemplate extends javax.swing.JPanel {
         boolean bStop = false;
         
         if( theApp.IsStepMapContainsKey( strStep)) {
-            TechProcessStepCommon info = theApp.GetStepInfo( strStep);
+            TechProcessStepCommon info = theApp.GetCommonStepInfo( strStep);
             
             if( info.GetStartDate() != null) {
                 lbDtStart.setText( theApp.strFormatDate( info.GetStartDate()));
@@ -156,7 +156,7 @@ public abstract class TechProcessStepPanelTemplate extends javax.swing.JPanel {
         //мы в процессе исполнения подэтапа XXX, переходим к следующему подэтапу XXX+1
         //theApp.m_pMainWnd.m_EmuTimer.stop();
         if( theApp.IsStepMapContainsKey( strCurrentStep)) {
-            TechProcessStepCommon info = theApp.GetStepInfo( strCurrentStep);
+            TechProcessStepCommon info = theApp.GetCommonStepInfo( strCurrentStep);
 
             info.SetStopDateAsCurrent();
             info.SetStopReportTitle( strCurrentStepStopTitle);

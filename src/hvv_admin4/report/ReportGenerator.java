@@ -43,7 +43,7 @@ public class ReportGenerator {
         theApp = app;
     }
     
-    public String Gen_NiceDate( Date dt) {
+    static public String Gen_NiceDate( Date dt) {
         String strResult;
                 
         GregorianCalendar clndr = new GregorianCalendar();
@@ -57,7 +57,7 @@ public class ReportGenerator {
         return strResult;
     }
     
-    public String Gen_NiceTime( Date tm) {
+    static public String Gen_NiceTime( Date tm) {
         String strResult;
                 
         GregorianCalendar clndr = new GregorianCalendar();
@@ -71,7 +71,7 @@ public class ReportGenerator {
         return strResult;
     }
     
-    public String Gen_NiceDoubleGen( Double dbl, boolean bPoint) {
+    static public String Gen_NiceDoubleGen( Double dbl, boolean bPoint) {
         String strResult;
     
         if( dbl.isNaN()) {
@@ -162,14 +162,14 @@ public class ReportGenerator {
         
         Date dtStart = theApp.GetLocalDate();
         if( theApp.IsStepMapContainsKey( "001")) {
-            TechProcessStepCommon info = theApp.GetStepInfo( "001");
+            TechProcessStepCommon info = theApp.GetCommonStepInfo( "001");
             if( info.GetStartDate() != null)
                 dtStart = info.GetStartDate();
         }
         
         Date dtFinish = null;
         if( theApp.IsStepMapContainsKey( "185")) {
-            TechProcessStepCommon info = theApp.GetStepInfo( "185");
+            TechProcessStepCommon info = theApp.GetCommonStepInfo( "185");
             if( info.GetStartDate() != null)
                 dtFinish = info.GetStartDate();
         }
@@ -237,7 +237,7 @@ public class ReportGenerator {
     
     public void Gen_TableLine( OutputStreamWriter writer, String strItemId) throws IOException {
         if( theApp.IsStepMapContainsKey( strItemId)) {
-            TechProcessStepCommon info = theApp.GetStepInfo( strItemId);
+            TechProcessStepCommon info = theApp.GetCommonStepInfo( strItemId);
         
             if( info.GetStartReportTitle() != null) {
                 writer.write( " <tr height=\"30\">\n");
@@ -277,7 +277,7 @@ public class ReportGenerator {
     
     public void Gen_TableVoltageLine( OutputStreamWriter writer, String strItemId) throws IOException {
         if( theApp.IsStepMapContainsKey(strItemId)) {
-            TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetStepInfo( strItemId);
+            TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetCommonStepInfo( strItemId);
         
             writer.write( " <tr height=\"30\">\n");
             writer.write( "  <td width=\"120\"></td>\n");
@@ -438,8 +438,8 @@ public class ReportGenerator {
             Gen_TableHeader( writer);
             
             //старт термообезгаживания
-            TechProcessStepCommon info = ( TechProcessStepCommon) theApp.GetStepInfo( "062");
-            TechProcessGetterInfo info2 = ( TechProcessGetterInfo) theApp.GetStepInfo( "063");
+            TechProcessStepCommon info = ( TechProcessStepCommon) theApp.GetCommonStepInfo( "062");
+            TechProcessGetterInfo info2 = ( TechProcessGetterInfo) theApp.GetCommonStepInfo( "063");
             
             if( info.GetStartReportTitle() != null) {
                 writer.write( " <tr height=\"30\">\n");
@@ -515,7 +515,7 @@ public class ReportGenerator {
         bContinue &= ( theApp.GetCurrentStep() > 81);
         if( bContinue) {
             //5.1 Определение пороговых токов генерации и погасания 
-            TechProcessIgenIextProcessInfo info = ( TechProcessIgenIextProcessInfo) theApp.GetStepInfo( "081");
+            TechProcessIgenIextProcessInfo info = ( TechProcessIgenIextProcessInfo) theApp.GetCommonStepInfo( "081");
             writer.write( "</table>\n<table>\n <tr height=\"30\">\n");
             writer.write( "  <td width=\"120\" align=\"left\">" + Gen_NiceDate( info.GetStartDate()) + "</td>\n");
             writer.write( "  <td width=\"100\" align=\"left\">" + Gen_NiceTime( info.GetStartDate()) + "</td>\n");
@@ -567,7 +567,7 @@ public class ReportGenerator {
         bContinue &= ( theApp.GetCurrentStep() > 82);
         if( bContinue) {
             //5.2 Снятие вольт-амперной характеристики
-            TechProcessUacProcessInfo info = ( TechProcessUacProcessInfo) theApp.GetStepInfo( "082");
+            TechProcessUacProcessInfo info = ( TechProcessUacProcessInfo) theApp.GetCommonStepInfo( "082");
             
             writer.write( "<table>\n <tr height=\"30\">\n");
             writer.write( "  <td width=\"120\" align=\"left\">" + Gen_NiceDate( info.GetStartDate()) + "</td>\n");
@@ -605,7 +605,7 @@ public class ReportGenerator {
         bContinue &= ( theApp.GetCurrentStep() > 83);
         if( bContinue) {
             //5.2 Внесение промежуточного комментария
-            TechProcessCommentInfo info = ( TechProcessCommentInfo) theApp.GetStepInfo( "083");
+            TechProcessCommentInfo info = ( TechProcessCommentInfo) theApp.GetCommonStepInfo( "083");
             writer.write( "<table>\n <tr height=\"30\">\n");
             writer.write( "  <td width=\"120\" align=\"left\">" + Gen_NiceDate( info.GetStartDate()) + "</td>\n");
             writer.write( "  <td width=\"100\" align=\"left\">" + Gen_NiceTime( info.GetStartDate()) + "</td>\n");
@@ -717,7 +717,7 @@ public class ReportGenerator {
             //7.1 начало обезгаживания
             //Gen_TableLine( writer, "121");
 
-            TechProcessGetterInfo info2 = (TechProcessGetterInfo ) theApp.GetStepInfo( "121");
+            TechProcessGetterInfo info2 = (TechProcessGetterInfo ) theApp.GetCommonStepInfo( "121");
             //выброс 4в
             if( info2 != null && info2.GetDtEffusion4v() != null) {
                 writer.write( " <tr height=\"30\">\n");
@@ -740,7 +740,7 @@ public class ReportGenerator {
         
         bContinue &= ( theApp.GetCurrentStep() > 122);
         if( bContinue) {
-            TechProcessHFInfo info = ( TechProcessHFInfo) theApp.GetStepInfo( "122");
+            TechProcessHFInfo info = ( TechProcessHFInfo) theApp.GetCommonStepInfo( "122");
                     
             writer.write( "</table>\n");
             writer.write( "<br>\n");
@@ -867,7 +867,7 @@ public class ReportGenerator {
             //9.1 начало активации
             //Gen_TableLine( writer, "161");
 
-            TechProcessGetterInfo info2 = (TechProcessGetterInfo ) theApp.GetStepInfo( "161");
+            TechProcessGetterInfo info2 = (TechProcessGetterInfo ) theApp.GetCommonStepInfo( "161");
             //выброс 4в
             if( info2 != null && info2.GetDtEffusion4v() != null) {
                 writer.write( " <tr height=\"30\">\n");
@@ -890,7 +890,7 @@ public class ReportGenerator {
         
         bContinue &= ( theApp.GetCurrentStep() > 162);
         if( bContinue) {
-            TechProcessHFInfo info = ( TechProcessHFInfo) theApp.GetStepInfo( "162");
+            TechProcessHFInfo info = ( TechProcessHFInfo) theApp.GetCommonStepInfo( "162");
 
             writer.write( "</table>\n");
             writer.write( "<br>\n");
@@ -973,7 +973,7 @@ public class ReportGenerator {
         //10.2 Определение пороговых токов генерации и погасания 
         bContinue &= ( theApp.GetCurrentStep() > 182);
         if( bContinue) {
-            TechProcessIgenIextProcessInfo info = ( TechProcessIgenIextProcessInfo) theApp.GetStepInfo( "182");
+            TechProcessIgenIextProcessInfo info = ( TechProcessIgenIextProcessInfo) theApp.GetCommonStepInfo( "182");
             
             Gen_TableLine( writer, "182");
             writer.write( "</table>\n<br>\n<table>\n <tr>\n");
@@ -1022,7 +1022,7 @@ public class ReportGenerator {
         //10.3 Снятие вольт-амперной характеристик
         bContinue &= ( theApp.GetCurrentStep() > 183);
         if( bContinue) {    
-            TechProcessUacProcessInfo info = ( TechProcessUacProcessInfo) theApp.GetStepInfo( "183");
+            TechProcessUacProcessInfo info = ( TechProcessUacProcessInfo) theApp.GetCommonStepInfo( "183");
             
             writer.write( "<table>\n <tr height=\"30\">\n");
             writer.write( "  <td width=\"120\" align=\"left\">" + Gen_NiceDate( info.GetStartDate()) + "</td>\n");
@@ -1060,7 +1060,7 @@ public class ReportGenerator {
         bContinue &= ( theApp.GetCurrentStep() > 184);
         if( bContinue) {
             //10.4 Внесение итогового комментария
-            TechProcessCommentInfo info = ( TechProcessCommentInfo) theApp.GetStepInfo( "184");
+            TechProcessCommentInfo info = ( TechProcessCommentInfo) theApp.GetCommonStepInfo( "184");
             writer.write( "<table>\n <tr height=\"30\">\n");
             writer.write( "  <td width=\"120\" align=\"left\">" + Gen_NiceDate( info.GetStartDate()) + "</td>\n");
             writer.write( "  <td width=\"100\" align=\"left\">" + Gen_NiceTime( info.GetStartDate()) + "</td>\n");
@@ -1076,7 +1076,7 @@ public class ReportGenerator {
         bContinue &= ( theApp.GetCurrentStep() > 185);
         if( bContinue) {
             //10.5 Завершение э/в обработки
-            TechProcessStepCommon info = ( TechProcessStepCommon) theApp.GetStepInfo( "185");
+            TechProcessStepCommon info = ( TechProcessStepCommon) theApp.GetCommonStepInfo( "185");
             writer.write( "<table>\n <tr height=\"30\">\n");
             writer.write( "  <td width=\"120\" align=\"left\">" + Gen_NiceDate( info.GetStartDate()) + "</td>\n");
             writer.write( "  <td width=\"100\" align=\"left\">" + Gen_NiceTime( info.GetStartDate()) + "</td>\n");

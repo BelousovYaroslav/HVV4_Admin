@@ -8,6 +8,7 @@ package hvv_admin4;
 import hvv_admin4.planner.HVV_AdminPlanner;
 import hvv_admin4.report.ReportGenerator;
 import hvv_admin4.state.HVV_StateKeeper;
+import hvv_admin4.steps.info.TechProcessHvProcessInfo;
 import hvv_admin4.steps.info.TechProcessStepCommon;
 import hvv_resources.HVV_Resources;
 import java.awt.Font;
@@ -86,7 +87,7 @@ public class HVV_Admin4 {
     public Date GetDtmTOEnd() { return m_dtTOend;}
     public void SetDtmTOEnd( Date dtVal) { m_dtTOend = dtVal;}
     
-    private final TreeMap m_mapSteps;
+    private TreeMap m_mapSteps;
     
     //SECRET BACKDOOR - used only in ReportGeneration
     public TreeMap SecretSteps() { return m_mapSteps;}
@@ -99,11 +100,20 @@ public class HVV_Admin4 {
             m_pStateKeeper.SaveState();
     }
     
-    public TechProcessStepCommon GetStepInfo( String strStepName) {
+    public TechProcessStepCommon GetCommonStepInfo( String strStepName) {
         TechProcessStepCommon ret = null;
         
         if( m_mapSteps.containsKey( strStepName))
             ret = ( TechProcessStepCommon) m_mapSteps.get( strStepName);
+        
+        return ret;
+    }
+    
+    public TechProcessHvProcessInfo GetHvStepInfo( String strStepName) {
+        TechProcessHvProcessInfo ret = null;
+        
+        if( m_mapSteps.containsKey( strStepName))
+            ret = ( TechProcessHvProcessInfo) m_mapSteps.get( strStepName);
         
         return ret;
     }
@@ -261,45 +271,7 @@ public class HVV_Admin4 {
             if( nResponce == JOptionPane.YES_OPTION) {
                 m_pStateKeeper.RestoreState();
                 if( m_pStateKeeper.m_bDropReadState == true) {
-                    //2.1
-                    m_mapSerials        = new HashMap( 8);
-                    m_mapDevicePresence = new HashMap( 8);
-                    m_mapDeviceGetter   = new HashMap( 8);
-
-                    //6.1
-                    m_mapStep6_1_1000mcA  = new HashMap( 8);
-                    m_mapStep6_1_1100mcA  = new HashMap( 8);
-                    m_mapStep6_1_1200mcA  = new HashMap( 8);
-
-                    //6.2
-                    m_mapStep6_2_LasThreshold = new HashMap( 8);
-                    m_mapStep6_2_ExtAn    = new HashMap( 8);
-                    m_mapStep6_2_ExtTu    = new HashMap( 8);
-
-                    //6.3
-                    m_mapStep6_3_Comments = new HashMap( 8);
-                    m_mapStep6_3_Continue = new HashMap( 8);
-
-                    //8.1
-                    m_mapDegassing      = new HashMap( 8);
-
-                    //10.1
-                    m_mapActivation     = new HashMap( 8);
-
-                    //11.3
-                    m_mapStep11_3_1000mcA = new HashMap( 8);
-                    m_mapStep11_3_1100mcA = new HashMap( 8);
-                    m_mapStep11_3_1200mcA = new HashMap( 8);
-
-                    //11.4
-                    m_mapStep11_4_LasThreshold = new HashMap( 8);
-                    m_mapStep11_4_ExtAn   = new HashMap( 8);
-                    m_mapStep11_4_ExtTu   = new HashMap( 8);
-
-                    //11.5
-                    m_mapStep11_5_Comments = new HashMap( 8);
-                    m_mapStep11_5_Continue = new HashMap( 8);
-        
+                    
                     m_mapSteps = new TreeMap();
         
                     m_nCurrentProcessStep = 1;
