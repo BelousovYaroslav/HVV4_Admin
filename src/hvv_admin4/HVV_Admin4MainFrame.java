@@ -62,7 +62,7 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
             if( !theApp.GetSerial().contains( "(м)"))
                 strTitle += " (м)";
         }
-        strTitle += ",     v 2017.07.17 11:45, (С) ФЛАВТ, 2017.";
+        strTitle += ",     v 2017.12.28 17:30, (С) ФЛАВТ, 2017.";
         setTitle( strTitle);
         
         m_pnlMain = new PanelMain( theApp);

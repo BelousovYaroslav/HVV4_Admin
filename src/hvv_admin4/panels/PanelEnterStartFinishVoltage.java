@@ -414,8 +414,8 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                 if( chkLongDischargeTrackFail.isSelected()) {
                     //нам не удалось зажечь по длинному плечу - мы делали длинную обработку по коротким
                     theApp.ProcessingStepsRemoveStep( "043");
-                    info.SetStartReportTitle( "1ый цикл. Обработка по коротким плечам.");
-                    info.SetStopReportTitle( "1ый цикл. Обработка по коротким плечам. Завершение.");
+                    info.SetStartReportTitle( "2ой цикл. Обработка по коротким плечам.");
+                    info.SetStopReportTitle( "2ой цикл. Обработка по коротким плечам. Завершение.");
                     
                     theApp.SetCurrentStep( 44);
                     nNextStep = 61;

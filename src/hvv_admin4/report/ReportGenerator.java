@@ -337,7 +337,7 @@ public class ReportGenerator {
         writer.write( "</table>\n");
         
         //2.2 Второй цил обработки
-        bContinue &= ( theApp.GetCurrentStep() >= 22);
+        bContinue &= ( theApp.GetCurrentStep() > 22);
         if( bContinue) {
             writer.write( "<table>\n");
             writer.write( " <tr>\n");
