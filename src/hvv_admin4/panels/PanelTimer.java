@@ -530,13 +530,13 @@ public class PanelTimer extends javax.swing.JPanel {
                         info.SetStartReportTitle( "1 цикл. Обработка по коротким плечам");
                     info.SetStopReportTitle( "Завершение обработки");
                 break;
-                case 43: info.SetStopReportTitle( "Завершение обработки"); break;
-                case 45:
+                case 42: info.SetStopReportTitle( "Завершение обработки"); break;
+                case 43:
                     if( chkLongShoulder.isSelected())
                         info.SetStartReportTitle( "2 цикл. Обработка по коротким плечам");
                     info.SetStopReportTitle( "Завершение обработки");
                 break;
-                case 47: info.SetStopReportTitle( "Завершение обработки"); break;
+                case 44: info.SetStopReportTitle( "Завершение обработки"); break;
                             
                 case 62: info.SetStopReportTitle( "Завершение термообезгаживания"); break;
                 case 64: info.SetStopReportTitle( "Завершение выдержки"); break;
