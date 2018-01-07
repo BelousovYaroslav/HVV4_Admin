@@ -6,6 +6,8 @@
 package hvv_admin4.steps.info;
 
 import hvv_admin4.HVV_Admin4;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 /**
  *
@@ -36,6 +38,14 @@ public class TechProcessIgenIextProcessInfo extends TechProcessStepCommon {
         
         m_dblT_Igen = 0.;
         m_dblT_Iext = 0.;
+    }
+    
+    public TechProcessIgenIextProcessInfo( HVV_Admin4 app, ObjectInputStream is) throws IOException, ClassNotFoundException {
+        super( app, is);
+        m_dblA_Iext = is.readDouble();
+        m_dblA_Igen = is.readDouble();
+        m_dblT_Iext = is.readDouble();
+        m_dblT_Igen = is.readDouble();
     }
     
     @Override
@@ -76,5 +86,14 @@ public class TechProcessIgenIextProcessInfo extends TechProcessStepCommon {
         strResult += "m_dblT_Iext: " + String.format(  "%.03f", m_dblT_Iext);
         
         return strResult;
+    }
+    
+    @Override
+    public void SaveItem( java.io.ObjectOutputStream out) throws IOException {
+        super.SaveItem( out);
+        out.writeDouble( m_dblA_Iext);
+        out.writeDouble( m_dblA_Igen);
+        out.writeDouble( m_dblT_Iext);
+        out.writeDouble( m_dblT_Igen);
     }
 }

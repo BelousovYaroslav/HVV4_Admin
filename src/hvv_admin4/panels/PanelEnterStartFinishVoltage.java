@@ -296,7 +296,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         
-        TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetCommonStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+        TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetCommonStep( String.format( "%03d", theApp.GetCurrentStep()));
         info.SetStopDateAsCurrent();
         
         //начальное напряжение на аноде
@@ -488,7 +488,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             if( nNextStep == 42) {
                 //мы обработали кислород-неоном первый цикл по длинному плечу (этап 3.1 = 041)
                 //надо отметить начало обработки кислород-неоном первого цикла по короткому и фактически остаться на этой же панели, перекрасившись
-                TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) theApp.GetCommonStepInfo( "041");
+                TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) theApp.GetCommonStep( "041");
                 inf.SetStartReportTitle( "1ый цикл. Обработка по длинному плечу.");
                 theApp.SaveStepInfo( "041", inf, false);
                 
@@ -501,7 +501,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             if( nNextStep == 44) {
                 //мы обработали кислород-неоном второй цикл по длинному плечу (этап 3.3 = 043)
                 //надо отметить начало обработки кислород-неоном второго цикла по короткому и фактически остаться на этой же панели, перекрасившись
-                TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) theApp.GetCommonStepInfo( "043");
+                TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) theApp.GetCommonStep( "043");
                 inf.SetStartReportTitle( "2ой цикл. Обработка по длинному плечу.");
                 theApp.SaveStepInfo( "043", inf, false);
                 

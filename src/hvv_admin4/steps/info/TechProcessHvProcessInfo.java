@@ -6,6 +6,8 @@
 package hvv_admin4.steps.info;
 
 import hvv_admin4.HVV_Admin4;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 /**
  *
@@ -32,6 +34,14 @@ public class TechProcessHvProcessInfo extends TechProcessStepCommon {
         m_dblVoltageAnStop  = 0.;
         m_dblVoltageTuStart = 0.;
         m_dblVoltageTuStop  = 0.;
+    }
+    
+    public TechProcessHvProcessInfo( HVV_Admin4 app, ObjectInputStream is) throws IOException, ClassNotFoundException {
+        super( app, is);
+        m_dblVoltageAnStart = is.readDouble();
+        m_dblVoltageTuStart = is.readDouble();
+        m_dblVoltageAnStop  = is.readDouble();
+        m_dblVoltageTuStop  = is.readDouble();
     }
     
     @Override
@@ -73,4 +83,13 @@ public class TechProcessHvProcessInfo extends TechProcessStepCommon {
         
         return strResult;
     }
+    
+    @Override
+    public void SaveItem( java.io.ObjectOutputStream out) throws IOException {
+        super.SaveItem( out);
+        out.writeDouble( m_dblVoltageAnStart);
+        out.writeDouble( m_dblVoltageTuStart);
+        out.writeDouble( m_dblVoltageAnStop);
+        out.writeDouble( m_dblVoltageTuStop);
+    }    
 }

@@ -8,6 +8,7 @@ package hvv_admin4;
 import hvv_admin4.planner.HVV_AdminPlanner;
 import hvv_admin4.report.ReportGenerator;
 import hvv_admin4.state.HVV_StateKeeper;
+import hvv_admin4.steps.info.TechProcessGetterInfo;
 import hvv_admin4.steps.info.TechProcessHvProcessInfo;
 import hvv_admin4.steps.info.TechProcessStepCommon;
 import hvv_resources.HVV_Resources;
@@ -15,12 +16,15 @@ import java.awt.Font;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TreeMap;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.UIManager;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -100,7 +104,7 @@ public class HVV_Admin4 {
             m_pStateKeeper.SaveState();
     }
     
-    public TechProcessStepCommon GetCommonStepInfo( String strStepName) {
+    public TechProcessStepCommon GetCommonStep( String strStepName) {
         TechProcessStepCommon ret = null;
         
         if( m_mapSteps.containsKey( strStepName))
@@ -109,7 +113,7 @@ public class HVV_Admin4 {
         return ret;
     }
     
-    public TechProcessHvProcessInfo GetHvStepInfo( String strStepName) {
+    public TechProcessHvProcessInfo GetHvStep( String strStepName) {
         TechProcessHvProcessInfo ret = null;
         
         if( m_mapSteps.containsKey( strStepName))
@@ -118,26 +122,14 @@ public class HVV_Admin4 {
         return ret;
     }
     
-    /*
-    private TreeMap m_mapVoltages;
-    public boolean IsVolatagesMapContainsKey( String strStepName) { return m_mapVoltages.containsKey( strStepName);}
-    public void SaveVoltageInfo( String strStepName, TechProcessHvProcessInfo info, boolean bSaveState) {
-        m_mapVoltages.put( strStepName, info);
-        //if( bSaveState)
-        //    m_pStateKeeper.SaveState();
-    }
-    
-    public TechProcessHvProcessInfo GetVoltageInfo( String strStepName) {
-        TechProcessHvProcessInfo ret = null;
+    public TechProcessGetterInfo GetGetterInfoStep( String strStepName) {
+        TechProcessGetterInfo ret = null;
         
-        if( m_mapVoltages.containsKey( strStepName))
-            ret = ( TechProcessHvProcessInfo) m_mapVoltages.get( strStepName);
+        if( m_mapSteps.containsKey( strStepName))
+            ret = ( TechProcessGetterInfo) m_mapSteps.get( strStepName);
         
         return ret;
     }
-    */
-    
-    
     
     public void NextCurrentStep() {
         switch( m_nCurrentProcessStep) {
@@ -160,71 +152,39 @@ public class HVV_Admin4 {
             case  63: m_nCurrentProcessStep =  64; break;  //4.3 Занесение данных о проведении процесса
             case  64: m_nCurrentProcessStep =  81; break;  //4.4 Заполнение рабочей смесью.Выдержка
     
-            //5. Термообезгаживание
-            case  81: m_nCurrentProcessStep =  82; break;  //5.1 Замеры параметров.ВАХ
-            case  82: m_nCurrentProcessStep =  83; break;  //5.2 Замеры параметров.Токи генерации
+            //5. Оценка параметров прибора
+            case  81: m_nCurrentProcessStep =  82; break;  //5.1 Замеры параметров.Токи генерации
+            case  82: m_nCurrentProcessStep =  83; break;  //5.2 Замеры параметров.ВАХ
             case  83: m_nCurrentProcessStep =  101; break; //5.3 Внесение комментариев
                 
-            /*
-            //6. Предварительная оценка параметров приборов
-            case 101: m_nCurrentProcessStep = 102; break;  //6.1 Внесение комментариев
-            case 102: m_nCurrentProcessStep = 103; break;  //6.2 Внесение пороговых токов
-            case 103: m_nCurrentProcessStep = 104; break;  //6.3 Измерение ВАХ
-            case 104: m_nCurrentProcessStep = 121; break;  //6.4 Откачка рабочей смеси
-
-            //7. Тренировка катода
-            case 121: m_nCurrentProcessStep = 122; break;  //7.1 Напуск тренировочной смеси в приборы
-            case 122: m_nCurrentProcessStep = 123; break;  //7.2 Выдержка
-            case 123: m_nCurrentProcessStep = 124; break;  //7.3 Обработка. 1ый цикл
-            case 124: m_nCurrentProcessStep = 125; break;  //7.4 Откачка тренировочной смеси
-            case 125: m_nCurrentProcessStep = 126; break;  //7.5 Напуск тренировочной смеси в приборы
-            case 126: m_nCurrentProcessStep = 127; break;  //7.6 Выдержка
-            case 127: m_nCurrentProcessStep = 128; break;  //7.7 Обработка. 2ой цикл
-            case 128: m_nCurrentProcessStep = 129; break;  //7.8 Откачка тренировочной смеси
-            case 129: m_nCurrentProcessStep = 130; break;  //7.9 Напуск тренировочной смеси
-            case 130: m_nCurrentProcessStep = 131; break;  //7.10 Выдержка
-            case 131: m_nCurrentProcessStep = 132; break;  //7.11 Обработка. 3ий цикл
-            case 132: m_nCurrentProcessStep = 133; break;  //7.12 Откачка тренировочной смеси
-            case 133: m_nCurrentProcessStep = 141; break;  //7.13 Переход на основную откачку
+            //6. Тренировка катода
+            case 101: m_nCurrentProcessStep = 102; break;  //6.1 Выдержка
+            case 102: m_nCurrentProcessStep = 103; break;  //6.2 Обработка первый цикл
+            case 103: m_nCurrentProcessStep = 104; break;  //6.3 Выдержка
+            case 104: m_nCurrentProcessStep = 105; break;  //6.4 Обработка второй цикл
+            case 105: m_nCurrentProcessStep = 106; break;  //6.5 Выдержка
+            case 106: m_nCurrentProcessStep = 121; break;  //6.6 Обработка третий цикл
                 
-            //8. Обезгаживание рабочих геттеров
-            case 141: m_nCurrentProcessStep = 142; break;  //8.1 Обезгаживание
-            case 142: m_nCurrentProcessStep = 161; break;  //8.2 Открытие геттера
+            //7. Обезгаживание рабочих геттеров
+            case 121: m_nCurrentProcessStep = 122; break;  //7.1 Подготовка технолог. геттера
+            case 122: m_nCurrentProcessStep = 141; break;  //7.2 Обезгаживание
+                
+            //8. Тренировка в тренировочной смеси
+            case 141: m_nCurrentProcessStep = 142; break;  //8.1 Выдержка
+            case 142: m_nCurrentProcessStep = 143; break;  //8.2 Тренировка первый цикл
+            case 143: m_nCurrentProcessStep = 144; break;  //8.3 Выдержка
+            case 144: m_nCurrentProcessStep = 161; break;  //8.4 Тренировка второй цикл
     
-            //9. Тренировка в тренировочной смеси
-            case 161: m_nCurrentProcessStep = 162; break;  //9.1 Напуск тренировочной смеси в приборы
-            case 162: m_nCurrentProcessStep = 163; break;  //9.2 Выдержка
-            case 163: m_nCurrentProcessStep = 164; break;  //9.3 Обработка. 1ый цикл.
-            case 164: m_nCurrentProcessStep = 165; break;  //9.4 Откачка тренировочной смеси
-            case 165: m_nCurrentProcessStep = 166; break;  //9.5 Напуск тренировочной смеси в приборы
-            case 166: m_nCurrentProcessStep = 167; break;  //9.6 Выдержка
-            case 167: m_nCurrentProcessStep = 168; break;  //9.7 Обработка. 2ой цикл.
-            case 168: m_nCurrentProcessStep = 169; break;  //9.8 Откачка тренировочной смеси
-            case 169: m_nCurrentProcessStep = 181; break;  //9.9 Переход на основную откачку
+            //9. Активация рабочих геттеров
+            case 161: m_nCurrentProcessStep = 162; break;  //9.1 Подготовка к активации
+            case 162: m_nCurrentProcessStep = 181; break;  //9.2 Активация
 
-            //10. Активация рабочих геттеров
-            case 181: m_nCurrentProcessStep = 182; break;  //10.1 Активация
-            case 182: m_nCurrentProcessStep = 201; break;  //10.2 Открытие геттера
-    
-            //11. Выходная оценка параметров приборов
-            case 201: m_nCurrentProcessStep = 202; break;  //11.1 Заполнение рабочей смесью
-            case 202: m_nCurrentProcessStep = 203; break;  //11.2 Выдержка
-            case 203: m_nCurrentProcessStep = 204; break;  //11.3 Внесение пороговых токов
-            case 204: m_nCurrentProcessStep = 205; break;  //11.4 Измерение ВАХ
-            case 205: m_nCurrentProcessStep = 206; break;  //11.5 Оценка параметров приборов
-            case 206: m_nCurrentProcessStep = 221; break;  //11.6 Герметизация годных приборов
-    
-            //12. Снятие непрошедших приборов (опционально)
-            case 221: m_nCurrentProcessStep = 222; break;  //12.1 Закрытие геттера
-            case 222: m_nCurrentProcessStep = 223; break;  //12.2 Напуск азота в приборы
-            case 223: m_nCurrentProcessStep = 241; break;  //12.3 Снятие непрошедших приборов
-
-            //13. Завершение технологического процесса
-            case 241: m_nCurrentProcessStep = 242; break;  //13.1 Bypass-откачка
-            case 242: m_nCurrentProcessStep = 243; break;  //13.2 Проверка герметичности (?? да  ?? нет)
-            case 243: m_nCurrentProcessStep = 244; break;  //13.3 Основная откачка
-            case 244: m_nCurrentProcessStep = 245; break;  //13.4 Откачка смеси с геттера
-                */
+            //10. Выходная оценка параметров
+            case 181: m_nCurrentProcessStep = 182; break;  //10.1 Выдержка
+            case 182: m_nCurrentProcessStep = 183; break;  //10.2 Замеры параметров. токи генерации
+            case 183: m_nCurrentProcessStep = 184; break;  //10.3 Замеры параметров. ВАХ
+            case 184: m_nCurrentProcessStep = 185; break;  //10.4 Итоговый комментарий
+                
         }
         m_bCurrentStepInProgress = false;
     }
@@ -278,6 +238,19 @@ public class HVV_Admin4 {
                 }
                 else {
                     //m_nCurrentProcessStep = 1;        //выставка этапа должна быть сделана раньше
+                    /*
+                    new Timer( 1000, new ActionListener() {
+
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            ( ( Timer) e.getSource()).stop();
+                            m_pMainWnd.m_pnlMain.m_pnlProcess.SetStates();
+                            m_pMainWnd.m_pnlMain.m_pnlProcess.Reposition();
+                            m_pMainWnd.m_pnlMain.ScrollActiveStepToCenter();
+                            m_pMainWnd.m_pnlMain.setVisible( true);
+                        }
+                    }).start();
+                    */
                 }
             }
             else {
@@ -290,7 +263,7 @@ public class HVV_Admin4 {
             m_nCurrentProcessStep = 1;    
         }
         
-        m_nCurrentProcessStep = 1;
+        //m_nCurrentProcessStep = 1;
         
         m_bCurrentStepInProgress = false;
         m_dtTOend = null;
@@ -364,7 +337,7 @@ public class HVV_Admin4 {
         String strlog4jPropertiesFile = strAMSrootEnvVar + "/etc/log4j.admin.properties";
         File file = new File( "", strlog4jPropertiesFile);
         */
-        File file = new File( strAMSrootEnvVar, "etc" + File.separator + "log4j.admin.properties");
+        File file = new File( strAMSrootEnvVar, "etc" + File.separator + "log4j.admin4.properties");
         if(!file.exists()) {
             System.out.println("It is not possible to load the given log4j properties file :" + file.getAbsolutePath());
             BasicConfigurator.configure();

@@ -6,6 +6,8 @@
 package hvv_admin4.steps.info;
 
 import hvv_admin4.HVV_Admin4;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 /**
  *
@@ -46,6 +48,16 @@ public class TechProcessUacProcessInfo extends TechProcessStepCommon {
         m_dblT_1200mcA = 0.;
     }
     
+    public TechProcessUacProcessInfo( HVV_Admin4 app, ObjectInputStream is) throws IOException, ClassNotFoundException {
+        super( app, is);
+        m_dblA_1000mcA = is.readDouble();
+        m_dblA_1100mcA = is.readDouble();
+        m_dblA_1200mcA = is.readDouble();
+        m_dblT_1000mcA = is.readDouble();
+        m_dblT_1100mcA = is.readDouble();
+        m_dblT_1200mcA = is.readDouble();
+    }
+    
     @Override
     public String toString() {
         String strResult = "\n";
@@ -84,5 +96,16 @@ public class TechProcessUacProcessInfo extends TechProcessStepCommon {
         strResult += "m_dblT_1200mcA: " + String.format( "%.03f", m_dblT_1200mcA);
         
         return strResult;
+    }
+    
+    @Override
+    public void SaveItem( java.io.ObjectOutputStream out) throws IOException {
+        super.SaveItem( out);
+        out.writeDouble( m_dblA_1000mcA);
+        out.writeDouble( m_dblA_1100mcA);
+        out.writeDouble( m_dblA_1200mcA);
+        out.writeDouble( m_dblT_1000mcA);
+        out.writeDouble( m_dblT_1100mcA);
+        out.writeDouble( m_dblT_1200mcA);
     }
 }

@@ -6,6 +6,8 @@
 package hvv_admin4.steps.info;
 
 import hvv_admin4.HVV_Admin4;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.LinkedList;
 
 /**
@@ -30,6 +32,13 @@ public class TechProcessHFInfo extends TechProcessStepCommon {
         m_nInductor = -1;
     }
     
+    public TechProcessHFInfo( HVV_Admin4 app, ObjectInputStream is) throws IOException, ClassNotFoundException {
+        super( app, is);
+        m_nGetter = is.readInt();
+        m_nInductor = is.readInt();
+        m_lstProgram = ( LinkedList) is.readObject();
+    }
+            
     @Override
     public String toString() {
         String strResult = "\n";
@@ -62,5 +71,13 @@ public class TechProcessHFInfo extends TechProcessStepCommon {
         strResult += "m_nInductor: " + m_nInductor;
         
         return strResult;
+    }
+    
+    @Override
+    public void SaveItem( java.io.ObjectOutputStream out) throws IOException {
+        super.SaveItem( out);
+        out.writeInt( m_nGetter);
+        out.writeInt( m_nInductor);
+        out.writeObject( m_lstProgram);
     }
 }

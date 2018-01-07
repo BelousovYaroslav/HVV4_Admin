@@ -342,17 +342,26 @@ public class PanelStep03 extends TechProcessStepPanelTemplate {
         boolean bStop = false;
         
         if( theApp.IsStepMapContainsKey( "041")) {
-            TechProcessStepCommon info = theApp.GetCommonStepInfo( "041");
+            TechProcessStepCommon info = theApp.GetCommonStep( "041");
             
             if( info.GetStartDate() != null) {
                 lbl_03_00_Date_start.setText( theApp.strFormatDate( info.GetStartDate()));
                 lbl_03_00_Time_start.setText( theApp.strFormatTime( info.GetStartDate()));
                 bStart = true;
             }
-        }    
+        }
+        else if( theApp.IsStepMapContainsKey( "042")) {
+            TechProcessStepCommon info = theApp.GetCommonStep( "042");
+            
+            if( info.GetStartDate() != null) {
+                lbl_03_00_Date_start.setText( theApp.strFormatDate( info.GetStartDate()));
+                lbl_03_00_Time_start.setText( theApp.strFormatTime( info.GetStartDate()));
+                bStart = true;
+            }
+        }
          
         if( theApp.IsStepMapContainsKey( "044")) {
-            TechProcessStepCommon info = theApp.GetCommonStepInfo( "044");
+            TechProcessStepCommon info = theApp.GetCommonStep( "044");
             if( info.GetStopDate() != null) {
                 lbl_03_00_Date_stop.setText( theApp.strFormatDate( info.GetStopDate()));
                 lbl_03_00_Time_stop.setText( theApp.strFormatTime( info.GetStopDate()));
@@ -361,7 +370,7 @@ public class PanelStep03 extends TechProcessStepPanelTemplate {
         }
         else {
             if( theApp.IsStepMapContainsKey( "043")) {
-                TechProcessStepCommon info = theApp.GetCommonStepInfo( "043");
+                TechProcessStepCommon info = theApp.GetCommonStep( "043");
                 if( info.GetStopDate() != null) {
                     lbl_03_00_Date_stop.setText( theApp.strFormatDate( info.GetStopDate()));
                     lbl_03_00_Time_stop.setText( theApp.strFormatTime( info.GetStopDate()));

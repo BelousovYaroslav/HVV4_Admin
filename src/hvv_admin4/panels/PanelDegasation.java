@@ -263,7 +263,7 @@ public class PanelDegasation extends javax.swing.JPanel {
             //мы нажали "далее"
             if( m_pnlProgress.m_nStep == m_lstProgram.size()) {
                 //мы нажали "далее" в плане перейти к следующему этапу процесса э/в обработки (к пункту 8.1)
-                TechProcessHFInfo info = ( TechProcessHFInfo) theApp.GetCommonStepInfo( "122");
+                TechProcessHFInfo info = ( TechProcessHFInfo) theApp.GetCommonStep( "122");
                 info.SetStopDateAsCurrent();
                 
                 if( radGetterType1.isSelected())

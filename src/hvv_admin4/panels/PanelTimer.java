@@ -518,7 +518,7 @@ public class PanelTimer extends javax.swing.JPanel {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         m_pUpTickTimer.stop();
         
-        TechProcessStepCommon info = theApp.GetCommonStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+        TechProcessStepCommon info = theApp.GetCommonStep( String.format( "%03d", theApp.GetCurrentStep()));
         if( info.GetStopDate() == null) {
             info.SetStopDateAsCurrent();
             switch( theApp.GetCurrentStep()) {
@@ -636,7 +636,7 @@ public class PanelTimer extends javax.swing.JPanel {
         switch( nNextStep) {
             case 63: //4.3 (то есть сейчас мы закончили 4.2 и готовы перейти к 4.3)
                 if( theApp.GetDtmTOEnd() == null)
-                    theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetCommonStepInfo( "062").GetStopDate(), m_lDownTickTimer + 1);
+                    theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetCommonStep( "062").GetStopDate(), m_lDownTickTimer + 1);
                 else
                     theApp.m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( theApp.GetDtmTOEnd(), m_lDownTickTimer + 1);
                 

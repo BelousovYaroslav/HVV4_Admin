@@ -126,7 +126,7 @@ public class HVV_AdminPlanner {
             if( theApp.GetCurrentStep() >= i * 20) {
                 String strStep = String.format( "%03d", i * 20 + 1);
                 if( theApp.IsStepMapContainsKey( strStep)) {
-                    TechProcessStepCommon info = ( TechProcessStepCommon) theApp.GetCommonStepInfo( strStep);
+                    TechProcessStepCommon info = ( TechProcessStepCommon) theApp.GetCommonStep( strStep);
                     if( info.GetStartDate() != null) {
                         dtPrev = dtCurr;
                         dtCurr = info.GetStartDate();

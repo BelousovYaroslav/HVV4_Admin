@@ -6,6 +6,9 @@
 package hvv_admin4.steps.info;
 
 import hvv_admin4.HVV_Admin4;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectStreamException;
 
 /**
  *
@@ -16,6 +19,11 @@ public class TechProcessCommentInfo extends TechProcessStepCommon {
     
     public TechProcessCommentInfo( HVV_Admin4 app) {
         super( app);
+    }
+    
+    public TechProcessCommentInfo( HVV_Admin4 app, ObjectInputStream is) throws IOException, ClassNotFoundException {
+        super( app, is);
+        m_strComment = is.readUTF();
     }
     
     @Override
@@ -51,5 +59,11 @@ public class TechProcessCommentInfo extends TechProcessStepCommon {
             strResult += "m_strComment: " + m_strComment + "\n";
         
         return strResult;
+    }
+    
+    @Override
+    public void SaveItem( java.io.ObjectOutputStream out) throws IOException {
+        super.SaveItem( out);
+        out.writeUTF( m_strComment);
     }
 }

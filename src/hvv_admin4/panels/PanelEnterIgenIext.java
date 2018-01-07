@@ -272,7 +272,7 @@ public class PanelEnterIgenIext extends javax.swing.JPanel {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         //отмечаем окончание внесения пороговых токов
         TechProcessIgenIextProcessInfo info = ( TechProcessIgenIextProcessInfo)
-                theApp.GetCommonStepInfo( String.format( "%03d", theApp.GetCurrentStep()));
+                theApp.GetCommonStep( String.format( "%03d", theApp.GetCurrentStep()));
         info.SetStopDateAsCurrent();
         //info.SetStopReportTitle( "");
         

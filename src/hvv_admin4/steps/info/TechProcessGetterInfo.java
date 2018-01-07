@@ -6,6 +6,8 @@
 package hvv_admin4.steps.info;
 
 import hvv_admin4.HVV_Admin4;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.Date;
 
 /**
@@ -14,10 +16,17 @@ import java.util.Date;
  */
 public class TechProcessGetterInfo extends TechProcessStepCommon {
     
-    
-
     public TechProcessGetterInfo(HVV_Admin4 app) {
         super(app);
+    }
+    
+    public TechProcessGetterInfo( HVV_Admin4 app, ObjectInputStream is) throws IOException, ClassNotFoundException {
+        super( app, is);
+        m_dtEffusion4v = ( Date) is.readObject();
+        m_dblEffusion4v = is.readDouble();
+        m_dtEffusion9v = ( Date) is.readObject();
+        m_dblEffusion9v = is.readDouble();
+        m_dtTurnOff9v = ( Date) is.readObject();
     }
     
     private Date m_dtEffusion4v;
@@ -93,5 +102,15 @@ public class TechProcessGetterInfo extends TechProcessStepCommon {
                          " " + theApp.m_ReportGenerator.Gen_NiceTime( m_dtTurnOff9v) + "\n";
         
         return strResult;
+    }
+    
+    @Override
+    public void SaveItem( java.io.ObjectOutputStream out) throws IOException {
+        super.SaveItem( out);
+        out.writeObject( m_dtEffusion4v);
+        out.writeDouble( m_dblEffusion4v);
+        out.writeObject( m_dtEffusion9v);
+        out.writeDouble( m_dblEffusion9v);
+        out.writeObject( m_dtTurnOff9v);
     }
 }

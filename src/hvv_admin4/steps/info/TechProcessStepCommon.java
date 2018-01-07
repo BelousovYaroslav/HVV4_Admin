@@ -7,7 +7,11 @@ package hvv_admin4.steps.info;
 
 import hvv_admin4.HVV_Admin4;
 import hvv_admin4.report.ReportGenerator;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,10 +44,17 @@ public class TechProcessStepCommon {
     
     
     public TechProcessStepCommon( HVV_Admin4 app) {
-        theApp = app;
-        
+        theApp = app;                
         m_strStartReportTitle = null;
         m_strStopReportTitle = null;
+    }
+    
+    public TechProcessStepCommon( HVV_Admin4 app, ObjectInputStream is)  throws IOException, ClassNotFoundException {
+        theApp = app;
+        m_dtStart               = ( Date) is.readObject();
+        m_strStartReportTitle   = ( String) is.readObject();
+        m_dtStop                = ( Date) is.readObject();
+        m_strStopReportTitle    = ( String) is.readObject();
     }
     
     @Override
@@ -75,5 +86,12 @@ public class TechProcessStepCommon {
         
         
         return strResult;
+    }
+    
+    public void SaveItem( java.io.ObjectOutputStream out) throws IOException {
+        out.writeObject( m_dtStart);
+        out.writeObject( m_strStartReportTitle);
+        out.writeObject( m_dtStop);
+        out.writeObject( m_strStopReportTitle);
     }
 }

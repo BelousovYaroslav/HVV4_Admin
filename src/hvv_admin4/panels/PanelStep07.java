@@ -227,7 +227,7 @@ public class PanelStep07 extends TechProcessStepPanelTemplate {
         boolean bStop = false;
         
         if( theApp.IsStepMapContainsKey( "121")) {
-            TechProcessStepCommon info = theApp.GetCommonStepInfo( "121");
+            TechProcessStepCommon info = theApp.GetCommonStep( "121");
             
             if( info.GetStartDate() != null) {
                 lbl_07_00_Date_start.setText( theApp.strFormatDate( info.GetStartDate()));
@@ -237,7 +237,7 @@ public class PanelStep07 extends TechProcessStepPanelTemplate {
         }
         
         if( theApp.IsStepMapContainsKey( "122")) {
-            TechProcessStepCommon info = theApp.GetCommonStepInfo( "122");    
+            TechProcessStepCommon info = theApp.GetCommonStep( "122");    
             if( info.GetStopDate() != null) {
                 lbl_07_00_Date_stop.setText( theApp.strFormatDate( info.GetStopDate()));
                 lbl_07_00_Time_stop.setText( theApp.strFormatTime( info.GetStopDate()));

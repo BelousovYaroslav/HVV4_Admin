@@ -433,22 +433,6 @@ public class HVV_Admin4Settings {
                         m_bUsePlanner = true;
                 }
                 
-                //<!-- длительность обработки кислородом (в секундах) -->
-                if( "processing.time.2".equals( name))  m_nProcessingTime_2 = Integer.parseInt( value);
-
-                //<!-- длительность обработки кислород-неоном (в секундах) -->
-                if( "processing.time.3".equals( name))  m_nProcessingTime_3 = Integer.parseInt( value);
-
-                //<!-- длительность тренировки катода (в секундах) -->
-                if( "processing.time.6".equals( name))  m_nProcessingTime_6 = Integer.parseInt( value);
-
-                //<!-- длительность тренировки втренировочной смеси (в секундах) -->
-                if( "processing.time.8".equals( name))  m_nProcessingTime_8 = Integer.parseInt( value);
- 
-
-                //<!-- время выдержки (в секундах) -->
-                if( "excerpt.time".equals( name))  m_nExcerptTime = Integer.parseInt( value);
-                
                 //<!--коэффициент пересчёта напряжений РМ1 -->
                 if( "Coeff.U.1000.ARM1".equals( name)) m_dblCoeffU1000_ARM1 = Double.parseDouble( value);
                 if( "Coeff.U.1100.ARM1".equals( name)) m_dblCoeffU1100_ARM1 = Double.parseDouble( value);

@@ -6,8 +6,12 @@
 package hvv_admin4.state;
 
 import hvv_admin4.HVV_Admin4;
+import hvv_admin4.steps.info.TechProcessCommentInfo;
+import hvv_admin4.steps.info.TechProcessGetterInfo;
 import hvv_admin4.steps.info.TechProcessHvProcessInfo;
+import hvv_admin4.steps.info.TechProcessIgenIextProcessInfo;
 import hvv_admin4.steps.info.TechProcessStepCommon;
+import hvv_admin4.steps.info.TechProcessUacProcessInfo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -15,9 +19,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.Map;
 import java.util.Set;
 import org.apache.log4j.Logger;
 
@@ -42,15 +45,14 @@ public class HVV_StateKeeper {
     
     private void SaveCommonPoint( ObjectOutputStream oos, String strStep1) throws IOException {
         
-        oos.writeObject( strStep1);
-        
-        TechProcessStepCommon info = theApp.GetCommonStepInfo( strStep1);
+        TechProcessStepCommon info = theApp.GetCommonStep( strStep1);
         if( info != null) {
             oos.writeObject( info.GetStartDate());
             oos.writeObject( info.GetStartReportTitle());
             
             oos.writeObject( info.GetStopDate());
-            oos.writeObject( info.GetStopReportTitle());        }
+            oos.writeObject( info.GetStopReportTitle());
+        }
         else {
             oos.writeObject( null);
             oos.writeObject( null);
@@ -63,10 +65,7 @@ public class HVV_StateKeeper {
     private TechProcessStepCommon ReadCommonPoint( ObjectInputStream ois) throws IOException {
         
         TechProcessStepCommon info = new TechProcessStepCommon( theApp);
-        
-        try {    
-            
-            
+        try {            
             info.SetStartDate( ( Date) ois.readObject());
             info.SetStartReportTitle( ( String) ois.readObject());
             
@@ -83,9 +82,7 @@ public class HVV_StateKeeper {
     
     private void SaveHvPoint( ObjectOutputStream oos, String strStep1) throws IOException {
         
-        oos.writeObject( strStep1);
-        
-        TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetHvStepInfo( strStep1);
+        TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetHvStep( strStep1);
         if( info != null) {
             oos.writeObject( info.GetStartDate());
             oos.writeObject( info.GetStartReportTitle());
@@ -106,13 +103,102 @@ public class HVV_StateKeeper {
     private TechProcessHvProcessInfo ReadHvPoint( ObjectInputStream ois) throws IOException {
         
         TechProcessHvProcessInfo info = new TechProcessHvProcessInfo( theApp);
-        
         try {
-            info.SetStartDate( ( Date) ois.readObject());
+            info.SetStartDate( ( Date)          ois.readObject());
             info.SetStartReportTitle( ( String) ois.readObject());
+            info.SetAnStart(                    ois.readDouble());
+            info.SetTuStart(                    ois.readDouble());
             
-            info.SetStopDate( ( Date) ois.readObject());
-            info.SetStopReportTitle( ( String) ois.readObject());
+            info.SetStopDate( ( Date)           ois.readObject());
+            info.SetStopReportTitle( ( String)  ois.readObject());
+            info.SetAnStop(                     ois.readDouble());
+            info.SetTuStop(                     ois.readDouble());
+            
+        } catch (ClassNotFoundException ex) {
+            logger.error( "ClassNotFoundException caught, при чтении state-файла", ex);
+        }
+        
+        return info;
+    }
+    
+    private void SaveGetterInfoPoint( ObjectOutputStream oos, String strStep1) throws IOException {
+        
+        TechProcessGetterInfo info = ( TechProcessGetterInfo) theApp.GetGetterInfoStep( strStep1);
+        if( info != null) {
+            oos.writeObject( info.GetStartDate());
+            oos.writeObject( info.GetStartReportTitle());
+            oos.writeObject( info.GetStopDate());
+            oos.writeObject( info.GetStopReportTitle());
+            
+            oos.writeObject( info.GetDtEffusion4v());
+            oos.writeDouble( info.GetDblEffusion4v());
+            oos.writeObject( info.GetDtEffusion9v());
+            oos.writeDouble( info.GetDblEffusion9v());
+            oos.writeObject( info.GetDtTurnOff9v());
+        }
+        else {
+            for( int i=0; i<8; i++)
+                oos.writeObject( null);
+        }
+    }
+    
+    private TechProcessGetterInfo ReadGetterInfoPoint( ObjectInputStream ois) throws IOException {
+        
+        TechProcessGetterInfo info = new TechProcessGetterInfo( theApp);
+        try {
+            info.SetStartDate( ( Date)          ois.readObject());
+            info.SetStartReportTitle( ( String) ois.readObject());
+            info.SetStopDate( ( Date)           ois.readObject());
+            info.SetStopReportTitle( ( String)  ois.readObject());
+            
+            info.SetDtEffusion4v( ( Date)       ois.readObject());
+            info.SetDblEffusion4v(              ois.readDouble());
+            info.SetDtEffusion9v( ( Date)       ois.readObject());
+            info.SetDblEffusion9v(              ois.readDouble());
+            info.SetDtTurnOff9v(( Date)         ois.readObject());
+            
+        } catch (ClassNotFoundException ex) {
+            logger.error( "ClassNotFoundException caught, при чтении state-файла", ex);
+        }
+        
+        return info;
+    }
+    
+    private void SaveIgenIextPoint( ObjectOutputStream oos, String strStep1) throws IOException {
+        
+        TechProcessGetterInfo info = ( TechProcessGetterInfo) theApp.GetGetterInfoStep( strStep1);
+        if( info != null) {
+            oos.writeObject( info.GetStartDate());
+            oos.writeObject( info.GetStartReportTitle());
+            oos.writeObject( info.GetStopDate());
+            oos.writeObject( info.GetStopReportTitle());
+            
+            oos.writeObject( info.GetDtEffusion4v());
+            oos.writeDouble( info.GetDblEffusion4v());
+            oos.writeObject( info.GetDtEffusion9v());
+            oos.writeDouble( info.GetDblEffusion9v());
+            oos.writeObject( info.GetDtTurnOff9v());
+        }
+        else {
+            for( int i=0; i<8; i++)
+                oos.writeObject( null);
+        }
+    }
+    
+    private TechProcessGetterInfo ReadIgenIextPoint( ObjectInputStream ois) throws IOException {
+        
+        TechProcessGetterInfo info = new TechProcessGetterInfo( theApp);
+        try {
+            info.SetStartDate( ( Date)          ois.readObject());
+            info.SetStartReportTitle( ( String) ois.readObject());
+            info.SetStopDate( ( Date)           ois.readObject());
+            info.SetStopReportTitle( ( String)  ois.readObject());
+            
+            info.SetDtEffusion4v( ( Date)       ois.readObject());
+            info.SetDblEffusion4v(              ois.readDouble());
+            info.SetDtEffusion9v( ( Date)       ois.readObject());
+            info.SetDblEffusion9v(              ois.readDouble());
+            info.SetDtTurnOff9v(( Date)         ois.readObject());
             
         } catch (ClassNotFoundException ex) {
             logger.error( "ClassNotFoundException caught, при чтении state-файла", ex);
@@ -128,264 +214,47 @@ public class HVV_StateKeeper {
             FileOutputStream fos = new FileOutputStream(  m_strStateKeepFileName);
             ObjectOutputStream oos = new ObjectOutputStream( fos);
             
-            //текущий шаг
-            oos.writeInt( theApp.GetCurrentStep());
-            
-            //          1.   Установка и откачка прибора
-            //  001     1.1  Подготовка прибора
+            oos.writeInt( theApp.GetCurrentStep());         //текущий шаг
             oos.writeUTF( theApp.GetSerial());              //серийный номер прибора
             oos.writeInt( theApp.GetProcessedDeviceType()); //тип прибора (размер: МЛГ-СЛГ-БЛГ)
-            SaveCommonPoint( oos, "001");
             
-            //          2. Обработка в среде кислорода
-            //  021     2.1 Первый цикл
-            //  022     2.2 Второй цикл
-            SaveHvPoint( oos, "021");
-            SaveHvPoint( oos, "022");
-            
-            //***STOPPED HERE
-            
-                        
-            
-            //  041     3.1 Напуск кислорода в приборы
-            //42       3.2 Обработка. 1ый цикл.
-            //43       3.3 Откачка кислорода
-            //44       3.4 Напуск кислорода в приборы
-            //45       3.5 Обработка. 2ой цикл.
-            //46       3.6 Откачка кислорода
-            if( theApp.GetCurrentStep() >= 41) SaveCommonPoint( oos, "041");
-            if( theApp.GetCurrentStep() >= 42) SaveCommonPoint( oos, "042");
-            if( theApp.GetCurrentStep() >= 43) SaveCommonPoint( oos, "043");
-            if( theApp.GetCurrentStep() >= 44) SaveCommonPoint( oos, "044");
-            if( theApp.GetCurrentStep() >= 45) SaveCommonPoint( oos, "045");
-            if( theApp.GetCurrentStep() >= 46) SaveCommonPoint( oos, "046");
-            
-            
-            //61       4.1 Напуск кислород-неона в приборы
-            //62       4.2 Обработка. 1ый цикл.
-            //63       4.3 Откачка газовой смеси
-            //64       4.4 Напуск кислород-неона в приборы
-            //65       4.5 Обработка. 2ой цикл.
-            //66       4.6 Откачка газовой смеси
-            //67       4.7 Переход на основную откачку
-            if( theApp.GetCurrentStep() >= 61) SaveCommonPoint( oos, "061");
-            if( theApp.GetCurrentStep() >= 62) SaveCommonPoint( oos, "062");
-            if( theApp.GetCurrentStep() >= 63) SaveCommonPoint( oos, "063");
-            if( theApp.GetCurrentStep() >= 64) SaveCommonPoint( oos, "064");
-            if( theApp.GetCurrentStep() >= 65) SaveCommonPoint( oos, "065");
-            if( theApp.GetCurrentStep() >= 66) SaveCommonPoint( oos, "066");
-            if( theApp.GetCurrentStep() >= 67) SaveCommonPoint( oos, "067");
-            
-            
-            //81    *  5.1 Установка печек
-            //82    *  5.2 Включение PID-регулирования печек
-            //82.1     5.2.1 Открытие геттера
-            //83    *  5.3 Снятие печек
-            //84       5.4 Заполнение рабочей смесью
-            //85       5.5 Выдержка
-            if( theApp.GetCurrentStep() >= 81) SaveCommonPoint( oos, "081");
-            if( theApp.GetCurrentStep() >= 82) SaveCommonPoint( oos, "082");
-            if( theApp.GetCurrentStep() >= 83) {
-                SaveCommonPoint( oos, "082.1");
-                SaveCommonPoint( oos, "083");
-            }
-            if( theApp.GetCurrentStep() >= 84) SaveCommonPoint( oos, "084");
-            if( theApp.GetCurrentStep() >= 85) SaveCommonPoint( oos, "085");
-            
-            
-            /*
-            //101   *  6.1 Измерение ВАХ
-            //102   *  6.2 Внесение пороговых токов
-            //103   *  6.3 Предварительная оценка параметров приборов
-            //104      6.4 Откачка рабочей смеси
-            if( theApp.GetCurrentStep() >= 101) SaveCommonPoint( oos, "101");
-            if( theApp.GetCurrentStep() > 101) {
-                oos.writeObject( theApp.m_mapStep6_1_1000mcA);
-                oos.writeObject( theApp.m_mapStep6_1_1100mcA);
-                oos.writeObject( theApp.m_mapStep6_1_1200mcA);
-            }
-            if( theApp.GetCurrentStep() >= 102) SaveCommonPoint( oos, "102");
-            if( theApp.GetCurrentStep() > 102) {
-                oos.writeObject( theApp.m_mapStep6_2_LasThreshold);
-                oos.writeObject( theApp.m_mapStep6_2_ExtAn);
-                oos.writeObject( theApp.m_mapStep6_2_ExtTu);
-            }
-            if( theApp.GetCurrentStep() >= 103) SaveCommonPoint( oos, "103");
-            if( theApp.GetCurrentStep() > 103) {
-                oos.writeObject( theApp.m_mapStep6_3_Comments);
-                oos.writeObject( theApp.m_mapStep6_3_Continue);
-            }
-            if( theApp.GetCurrentStep() >= 104) SaveCommonPoint( oos, "104");
-            */
-            
-            //121      7.1 Напуск тренировочной смеси в приборы
-            //122      7.2 Выдержка
-            //123      7.3 Обработка. 1ый цикл.
-            //124      7.4 Откачка тренировочной смеси
-            //125      7.5 Напуск тренировочной смеси в приборы
-            //126      7.6 Выдержка
-            //127      7.7 Обработка. 2ой цикл.
-            //128      7.8 Откачка тренировочной смеси
-            //129      7.9 Напуск тренировочной смеси в приборы
-            //130      7.10 Выдержка
-            //131      7.11 Обработка. 3ий цикл.
-            //132      7.12 Откачка тренировочной смеси
-            //133      7.13 Переход на основную откачку
-            if( theApp.GetCurrentStep() >= 121) SaveCommonPoint( oos, "121");
-            if( theApp.GetCurrentStep() >= 122) SaveCommonPoint( oos, "122");
-            if( theApp.GetCurrentStep() >= 123) SaveCommonPoint( oos, "123");
-            if( theApp.GetCurrentStep() >= 124) SaveCommonPoint( oos, "124");
-            if( theApp.GetCurrentStep() >= 125) SaveCommonPoint( oos, "125");
-            if( theApp.GetCurrentStep() >= 126) SaveCommonPoint( oos, "126");
-            if( theApp.GetCurrentStep() >= 127) SaveCommonPoint( oos, "127");
-            if( theApp.GetCurrentStep() >= 128) SaveCommonPoint( oos, "128");
-            if( theApp.GetCurrentStep() >= 129) SaveCommonPoint( oos, "129");
-            if( theApp.GetCurrentStep() >= 130) SaveCommonPoint( oos, "130");
-            if( theApp.GetCurrentStep() >= 131) SaveCommonPoint( oos, "131");
-            if( theApp.GetCurrentStep() >= 132) SaveCommonPoint( oos, "132");
-            if( theApp.GetCurrentStep() >= 133) SaveCommonPoint( oos, "133");
-            
-            
-            /*
-            //141   *  8.1 Обезгаживание
-            //142      8.2 Открытие геттера
-            if( theApp.GetCurrentStep() >= 141) {
-                SaveCommonPoint( oos, "141");
+            Set set = theApp.SecretSteps().entrySet();
+            Iterator it = set.iterator();
+            while( it.hasNext()) {
+                Map.Entry entry = (Map.Entry) it.next();
                 
-                oos.writeObject( theApp.m_mapDegassing.size());
-                Set keySet = theApp.m_mapDegassing.keySet();
-                Iterator it = keySet.iterator();
-                while( it.hasNext()) {
-                    int nKey = ( int) it.next();
-                    oos.writeObject( nKey);
-                    
-                    GettersActivationProgram dev = ( GettersActivationProgram) theApp.m_mapDegassing.get( nKey);
-                    oos.writeObject( dev.GetDtStart());
-                    oos.writeObject( dev.GetDtFinish());
-                    oos.writeObject( dev.GetGetter());
-                    oos.writeObject( dev.GetInductor());
-                    
-                    //oos.writeObject( dev.GetListSteps());
-                    oos.writeObject( dev.GetListSteps().size());
-                    for ( Object GetListStep : dev.GetListSteps()) {
-                        GettersActivationProgramStep step = ( GettersActivationProgramStep) GetListStep;
-                        oos.writeObject( step.GetDuration());
-                        oos.writeObject( step.GetPower());
-                        oos.writeObject( step.GetP5_start());
-                        oos.writeObject( step.GetP5_max());
-                        oos.writeObject( step.GetP5_last());
-                    }
+                String strKey = ( String) entry.getKey();
+                Object objValue = entry.getValue();
 
-                }
+                oos.writeUTF( strKey);
+                switch( strKey) {
+                    case "001":
+                    case "061":
+                    case "062":
+                    case "064":
+                        (( TechProcessStepCommon) objValue).SaveItem(oos); break;
+                    
+                    case "021":
+                    case "022":
+                    case "041":
+                    case "042":
+                    case "043":
+                    case "044":
+                        (( TechProcessHvProcessInfo) objValue).SaveItem(oos); break;
                         
-            }
-            if( theApp.GetCurrentStep() >= 142) SaveCommonPoint( oos, "142");
-            */
-            
-            
-            //161      9.1 Напуск тренировочной смеси в приборы
-            //162      9.2 Выдержка
-            //163      9.3 Обработка. 1ый цикл.
-            //164      9.4 Откачка тренировочной смеси
-            //165      9.5 Напуск тренировочной смеси в приборы
-            //166      9.6 Выдержка
-            //167      9.7 Обработка. 2ой цикл.
-            //168      9.8 Откачка тренировочной смеси
-            //169      9.9 Переход на основную откачку
-            if( theApp.GetCurrentStep() >= 161) SaveCommonPoint( oos, "161");
-            if( theApp.GetCurrentStep() >= 162) SaveCommonPoint( oos, "162");
-            if( theApp.GetCurrentStep() >= 163) SaveCommonPoint( oos, "163");
-            if( theApp.GetCurrentStep() >= 164) SaveCommonPoint( oos, "164");
-            if( theApp.GetCurrentStep() >= 165) SaveCommonPoint( oos, "165");
-            if( theApp.GetCurrentStep() >= 166) SaveCommonPoint( oos, "166");
-            if( theApp.GetCurrentStep() >= 167) SaveCommonPoint( oos, "167");
-            if( theApp.GetCurrentStep() >= 168) SaveCommonPoint( oos, "168");
-            if( theApp.GetCurrentStep() >= 169) SaveCommonPoint( oos, "169");
-            
-            /*
-            //181   *  10.1 Активация
-            //182      10.2 Открытие геттера
-            if( theApp.GetCurrentStep() >= 181) {
-                SaveCommonPoint( oos, "181");
-                
-                //oos.writeObject( theApp.m_mapActivation);
-                oos.writeObject( theApp.m_mapActivation.size());
-                Set keySet = theApp.m_mapActivation.keySet();
-                Iterator it = keySet.iterator();
-                while( it.hasNext()) {
-                    int nKey = ( int) it.next();
-                    oos.writeObject( nKey);
-                    
-                    GettersActivationProgram dev = ( GettersActivationProgram) theApp.m_mapActivation.get( nKey);
-                    oos.writeObject( dev.GetDtStart());
-                    oos.writeObject( dev.GetDtFinish());
-                    oos.writeObject( dev.GetGetter());
-                    oos.writeObject( dev.GetInductor());
-                    
-                    //oos.writeObject( dev.GetListSteps());
-                    oos.writeObject( dev.GetListSteps().size());
-                    for ( Object GetListStep : dev.GetListSteps()) {
-                        GettersActivationProgramStep step = ( GettersActivationProgramStep) GetListStep;
-                        oos.writeObject( step.GetDuration());
-                        oos.writeObject( step.GetPower());
-                        oos.writeObject( step.GetP5_start());
-                        oos.writeObject( step.GetP5_max());
-                        oos.writeObject( step.GetP5_last());
-                    }
-
+                    case "063":
+                        (( TechProcessGetterInfo) objValue).SaveItem(oos); break;
+                        
+                    case "081":
+                        (( TechProcessIgenIextProcessInfo) objValue).SaveItem(oos); break;
+                        
+                    case "082":
+                        (( TechProcessUacProcessInfo) objValue).SaveItem(oos); break;
+                        
+                    case "083":
+                        (( TechProcessCommentInfo) objValue).SaveItem(oos); break;
                 }
             }
-            if( theApp.GetCurrentStep() >= 182) SaveCommonPoint( oos, "182");
-            */
-
-            
-            /*
-            //201      11.1 Заполнение рабочей смесью
-            //202      11.2 Выдержка
-            //203   *  11.3 Измерение ВАХ
-            //204   *  11.4 Внесение пороговых токов
-            //205   *  11.5 Оценка параметров приборов
-            //206   *  11.6 Герметизация годных приборов
-            if( theApp.GetCurrentStep() >= 201) SaveCommonPoint( oos, "201");
-            if( theApp.GetCurrentStep() >= 202) SaveCommonPoint( oos, "202");
-            
-            if( theApp.GetCurrentStep() >= 203) SaveCommonPoint( oos, "203");
-            if( theApp.GetCurrentStep() > 203) {
-                oos.writeObject( theApp.m_mapStep11_3_1000mcA);
-                oos.writeObject( theApp.m_mapStep11_3_1100mcA);
-                oos.writeObject( theApp.m_mapStep11_3_1200mcA);
-            }
-            if( theApp.GetCurrentStep() >= 204) SaveCommonPoint( oos, "204");
-            if( theApp.GetCurrentStep() > 204) {
-                oos.writeObject( theApp.m_mapStep11_4_LasThreshold);
-                oos.writeObject( theApp.m_mapStep11_4_ExtAn);
-                oos.writeObject( theApp.m_mapStep11_4_ExtTu);
-            }
-            if( theApp.GetCurrentStep() >= 205) SaveCommonPoint( oos, "205");
-            if( theApp.GetCurrentStep() > 205) {
-                oos.writeObject( theApp.m_mapStep11_5_Comments);
-                oos.writeObject( theApp.m_mapStep11_5_Continue);
-            }
-            if( theApp.GetCurrentStep() >= 206) SaveCommonPoint( oos, "206");
-            */
-            
-            //221      12.1 Закрытие геттера
-            //222      12.2 Напуск азота в приборы
-            //223   *  12.3 Снятие непрошедших приборов
-            if( theApp.GetCurrentStep() >= 221) SaveCommonPoint( oos, "221");
-            if( theApp.GetCurrentStep() >= 222) SaveCommonPoint( oos, "222");
-            if( theApp.GetCurrentStep() >= 223) SaveCommonPoint( oos, "223");
-            
-            //241      13.1 Bypass-откачка
-            //242   *  13.2 Проверка герметичности (?? да  ?? нет)
-            //      ?   13.2.1 Напуск азота
-            //243      13.3 Основная откачка
-            //244      13.4 Откачка смеси с геттера
-            if( theApp.GetCurrentStep() >= 241) SaveCommonPoint( oos, "241");
-            if( theApp.GetCurrentStep() >= 242) SaveCommonPoint( oos, "242");
-            if( theApp.GetCurrentStep() >= 243) SaveCommonPoint( oos, "243");
-            if( theApp.GetCurrentStep() >= 244) SaveCommonPoint( oos, "244");
-            
             
             oos.close();
             fos.close();
@@ -401,136 +270,55 @@ public class HVV_StateKeeper {
             FileInputStream fis = new FileInputStream(  m_strStateKeepFileName);
             ObjectInputStream ois = new ObjectInputStream( fis);
             
-            //текущее состояние (этап)
-            int nLastWrittenStep = ois.readInt();
+            
+            int nLastWrittenStep = ois.readInt();   //текущее состояние (этап)
+            String strSerial = ois.readUTF();       //серийный номер прибора
+            int nDeviceType = ois.readInt();        //тип прибора (размер: МЛГ-СЛГ-БЛГ)
             
             
-            String strStepNumber = "";
+            String strStepNumber = String.format( "%03d", nLastWrittenStep);
             boolean bContinue;
-            /*
             do {
-                if( strStepNumber.equals( "021")) {
-                    theApp.m_mapDevicePresence = ( HashMap) ois.readObject();
-                    theApp.m_mapSerials = ( HashMap) ois.readObject();
-                    theApp.m_mapDeviceGetter = ( HashMap) ois.readObject();
-                }
-                
-                if( strStepNumber.equals( "101")) {
-                    theApp.m_mapStep6_1_1000mcA = ( HashMap) ois.readObject();
-                    theApp.m_mapStep6_1_1100mcA = ( HashMap) ois.readObject();
-                    theApp.m_mapStep6_1_1200mcA = ( HashMap) ois.readObject();
-                }
-                if( strStepNumber.equals( "102")) {
-                    theApp.m_mapStep6_2_LasThreshold = ( HashMap) ois.readObject();
-                    theApp.m_mapStep6_2_ExtAn = ( HashMap) ois.readObject();
-                    theApp.m_mapStep6_2_ExtTu = ( HashMap) ois.readObject();
-                }
-                if( strStepNumber.equals( "103")) {
-                    theApp.m_mapStep6_3_Comments = ( HashMap) ois.readObject();
-                    theApp.m_mapStep6_3_Continue = ( HashMap) ois.readObject();
-                }
-                
-                if( strStepNumber.equals( "141")) {
+                String strStep = ois.readUTF();
+                switch( strStep) {
+                    case "001":
+                    case "061":
+                    case "062":
+                    case "064":
+                        theApp.SecretSteps().put( strStep, new TechProcessStepCommon( theApp, ois)); break;
                     
-                    //theApp.m_mapDegassing = ( HashMap) ois.readObject();
-                    int nLen = ( int) ois.readObject();
-                    for( int i=0; i<nLen; i++) {
-                        int nKey = ( int) ois.readObject();
+                    case "021":
+                    case "022":
+                    case "041":
+                    case "042":
+                    case "043":
+                    case "044":
+                        theApp.SecretSteps().put( strStep, new TechProcessHvProcessInfo(theApp, ois)); break;
                         
-                        GettersActivationProgram dev = new GettersActivationProgram();
-                        dev.SetDtStart( ( Date) ois.readObject());
-                        dev.SetDtFinish( ( Date) ois.readObject());
-                        dev.SetGetter( ( int) ois.readObject());
-                        dev.SetInductor( ( int) ois.readObject());
+                    case "063":
+                        theApp.SecretSteps().put( strStep, new TechProcessGetterInfo(theApp, ois)); break;
                         
-                        LinkedList lstSteps = new LinkedList();
-                        int nStepsLen = ( int) ois.readObject();
-                        for( int j=0; j<nStepsLen; j++) {
-                            GettersActivationProgramStep step = new GettersActivationProgramStep();
-                            
-                            step.SetDuration( ( int) ois.readObject());
-                            step.SetPower( ( int) ois.readObject());
-                            step.SetP5_start( ( double) ois.readObject());
-                            step.SetP5_max( ( double) ois.readObject());
-                            step.SetP5_last( ( double) ois.readObject());
-                            
-                            lstSteps.add( step);
-                        }
-                        //dev.SetListSteps( ( LinkedList) ois.readObject());
-                        dev.SetListSteps( lstSteps);
+                    case "081":
+                        theApp.SecretSteps().put( strStep, new TechProcessIgenIextProcessInfo(theApp, ois)); break;
                         
+                    case "082":
+                        theApp.SecretSteps().put( strStep, new TechProcessUacProcessInfo(theApp, ois)); break;
                         
-                        theApp.m_mapDegassing.put( nKey, dev);
-                    }
-
+                    case "083":
+                        theApp.SecretSteps().put( strStep, new TechProcessCommentInfo(theApp, ois)); break;
+                    
                 }
-                
-                if( strStepNumber.equals( "181")) {
-                    //theApp.m_mapActivation = ( HashMap) ois.readObject();
-                    int nLen = ( int) ois.readObject();
-                    for( int i=0; i<nLen; i++) {
-                        int nKey = ( int) ois.readObject();
-                        
-                        GettersActivationProgram dev = new GettersActivationProgram();
-                        dev.SetDtStart( ( Date) ois.readObject());
-                        dev.SetDtFinish( ( Date) ois.readObject());
-                        dev.SetGetter( ( int) ois.readObject());
-                        dev.SetInductor( ( int) ois.readObject());
-                        
-                        LinkedList lstSteps = new LinkedList();
-                        int nStepsLen = ( int) ois.readObject();
-                        for( int j=0; j<nStepsLen; j++) {
-                            GettersActivationProgramStep step = new GettersActivationProgramStep();
-                            
-                            step.SetDuration( ( int) ois.readObject());
-                            step.SetPower( ( int) ois.readObject());
-                            step.SetP5_start( ( double) ois.readObject());
-                            step.SetP5_max( ( double) ois.readObject());
-                            step.SetP5_last( ( double) ois.readObject());
-                            
-                            lstSteps.add( step);
-                        }
-                        //dev.SetListSteps( ( LinkedList) ois.readObject());
-                        dev.SetListSteps( lstSteps);
-                        
-                        
-                        theApp.m_mapActivation.put( nKey, dev);
-                    }
-                }
-                
-                if( strStepNumber.equals( "203")) {
-                    theApp.m_mapStep11_3_1000mcA = ( HashMap) ois.readObject();
-                    theApp.m_mapStep11_3_1100mcA = ( HashMap) ois.readObject();
-                    theApp.m_mapStep11_3_1200mcA = ( HashMap) ois.readObject();
-                }
-                if( strStepNumber.equals( "204")) {
-                    theApp.m_mapStep11_4_LasThreshold = ( HashMap) ois.readObject();
-                    theApp.m_mapStep11_4_ExtAn = ( HashMap) ois.readObject();
-                    theApp.m_mapStep11_4_ExtTu = ( HashMap) ois.readObject();
-                }
-                if( strStepNumber.equals( "205")) {
-                    theApp.m_mapStep11_5_Comments = ( HashMap) ois.readObject();
-                    theApp.m_mapStep11_5_Continue = ( HashMap) ois.readObject();
-                }
-                
                 int nAvailable = fis.available();
-                if( nAvailable > 0) {
-                    strStepNumber = ( String) ois.readObject();
-                    theApp.SaveStepInfo(strStepNumber, ReadCommonPoint( ois), false);
-                }
-                
-                nAvailable = fis.available();
                 bContinue = nAvailable != 0;
                 
             } while( bContinue);
-            */
             
             ois.close();
             fis.close();
             
             //Последний этап = strStepNumber
             //Закончен ли он?
-            boolean bEnded = !( theApp.GetCommonStepInfo( strStepNumber).GetStopDate() == null);
+            boolean bEnded = !( theApp.GetCommonStep( strStepNumber).GetStopDate() == null);
             
             String strMessage =
                     "<html>Согласно файлу состояния, в предыдущем запуске,последним был этап " + strStepNumber +
@@ -551,218 +339,15 @@ public class HVV_StateKeeper {
 
             dlg.setVisible( true);
             if( dlg.m_bDrop == false) {
-                if( dlg.m_rad1.isSelected()) {
+                theApp.SetSerial( strSerial);
+                theApp.SetProcessedDeviceType( nDeviceType);
+                
+                if( dlg.m_rad1.isSelected()) {                    
                     theApp.SetCurrentStep( nLastWrittenStep);
-
-                    /*
-                    if( "141".equals( strStepNumber)  ||    //мы сбились посередине обезгаживания - надо ещё отметить-подтвердить кого мы провели
-                        "181".equals( strStepNumber)) {     //мы сбились посередине активации -     надо ещё отметить-подтвердить кого мы провели
-                    
-                        HashMap mapToModify = null;
-                        
-                        PrevStateRestoreDlgDegasation dlg2;
-                        if( "141".equals( strStepNumber)) {
-                            mapToModify = theApp.m_mapDegassing;
-                            dlg2 = new PrevStateRestoreDlgDegasation( null, true, true, theApp);
-                        }
-                        else { 
-                            mapToModify = theApp.m_mapActivation;
-                            dlg2 = new PrevStateRestoreDlgDegasation( null, true, false, theApp);
-                        }
-                        
-                        dlg2.setVisible( true);
-                        
-                        //DEVICE1
-                        if( dlg2.m_chkDev1.isSelected()) {
-                           if( mapToModify.containsKey( HVV_AdminConstants.DEVICE1)) {
-                               //DEV1 отмечен что проведён и инфа есть - всё ок
-                           }
-                           else {
-                               //DEV1 отмечен что проведён а инфы нет - создадим
-                               GettersActivationProgram st = new GettersActivationProgram();
-                               st.SetDtStart( theApp.GetLocalDate());
-                               st.SetDtFinish( theApp.GetLocalDate());
-                               mapToModify.put( HVV_AdminConstants.DEVICE1, st);
-                           }
-                        }
-                        else {
-                            if( mapToModify.containsKey( HVV_AdminConstants.DEVICE1)) {
-                               //DEV1 отмечен что не проведён, а инфа есть - удалим
-                                mapToModify.remove( HVV_AdminConstants.DEVICE1);
-                           }
-                           else {
-                               //DEV1 отмечен что не проведён, и инфы нет - всё ок
-                           }
-                        }
-                        
-                        //DEVICE2
-                        if( dlg2.m_chkDev2.isSelected()) {
-                           if( mapToModify.containsKey( HVV_AdminConstants.DEVICE2)) {
-                               //DEV2 отмечен что проведён и инфа есть - всё ок
-                           }
-                           else {
-                               //DEV2 отмечен что проведён а инфы нет - создадим
-                               GettersActivationProgram st = new GettersActivationProgram();
-                               st.SetDtStart( theApp.GetLocalDate());
-                               st.SetDtFinish( theApp.GetLocalDate());
-                               mapToModify.put( HVV_AdminConstants.DEVICE2, st);
-                           }
-                        }
-                        else {
-                            if( mapToModify.containsKey( HVV_AdminConstants.DEVICE2)) {
-                               //DEV2 отмечен что не проведён, а инфа есть - удалим
-                                mapToModify.remove( HVV_AdminConstants.DEVICE2);
-                           }
-                           else {
-                               //DEV2 отмечен что не проведён, и инфы нет - всё ок
-                           }
-                        }
-                        
-                        //DEVICE3
-                        if( dlg2.m_chkDev3.isSelected()) {
-                           if( mapToModify.containsKey( HVV_AdminConstants.DEVICE3)) {
-                               //DEV3 отмечен что проведён и инфа есть - всё ок
-                           }
-                           else {
-                               //DEV3 отмечен что проведён а инфы нет - создадим
-                               GettersActivationProgram st = new GettersActivationProgram();
-                               st.SetDtStart( theApp.GetLocalDate());
-                               st.SetDtFinish( theApp.GetLocalDate());
-                               mapToModify.put( HVV_AdminConstants.DEVICE3, st);
-                           }
-                        }
-                        else {
-                            if( mapToModify.containsKey( HVV_AdminConstants.DEVICE3)) {
-                               //DEV3 отмечен что не проведён, а инфа есть - удалим
-                                mapToModify.remove( HVV_AdminConstants.DEVICE3);
-                           }
-                           else {
-                               //DEV3 отмечен что не проведён, и инфы нет - всё ок
-                           }
-                        }
-                        
-                        //DEVICE4
-                        if( dlg2.m_chkDev4.isSelected()) {
-                           if( mapToModify.containsKey( HVV_AdminConstants.DEVICE4)) {
-                               //DEV4 отмечен что проведён и инфа есть - всё ок
-                           }
-                           else {
-                               //DEV4 отмечен что проведён а инфы нет - создадим
-                               GettersActivationProgram st = new GettersActivationProgram();
-                               st.SetDtStart( theApp.GetLocalDate());
-                               st.SetDtFinish( theApp.GetLocalDate());
-                               mapToModify.put( HVV_AdminConstants.DEVICE4, st);
-                           }
-                        }
-                        else {
-                            if( mapToModify.containsKey( HVV_AdminConstants.DEVICE4)) {
-                               //DEV4 отмечен что не проведён, а инфа есть - удалим
-                                mapToModify.remove( HVV_AdminConstants.DEVICE4);
-                           }
-                           else {
-                               //DEV4 отмечен что не проведён, и инфы нет - всё ок
-                           }
-                        }
-                        
-                        //DEVICE5
-                        if( dlg2.m_chkDev5.isSelected()) {
-                           if( mapToModify.containsKey( HVV_AdminConstants.DEVICE5)) {
-                               //DEV5 отмечен что проведён и инфа есть - всё ок
-                           }
-                           else {
-                               //DEV5 отмечен что проведён а инфы нет - создадим
-                               GettersActivationProgram st = new GettersActivationProgram();
-                               st.SetDtStart( theApp.GetLocalDate());
-                               st.SetDtFinish( theApp.GetLocalDate());
-                               mapToModify.put( HVV_AdminConstants.DEVICE5, st);
-                           }
-                        }
-                        else {
-                            if( mapToModify.containsKey( HVV_AdminConstants.DEVICE5)) {
-                               //DEV5 отмечен что не проведён, а инфа есть - удалим
-                                mapToModify.remove( HVV_AdminConstants.DEVICE5);
-                           }
-                           else {
-                               //DEV5 отмечен что не проведён, и инфы нет - всё ок
-                           }
-                        }
-                        
-                        //DEVICE6
-                        if( dlg2.m_chkDev6.isSelected()) {
-                           if( mapToModify.containsKey( HVV_AdminConstants.DEVICE6)) {
-                               //DEV6 отмечен что проведён и инфа есть - всё ок
-                           }
-                           else {
-                               //DEV6 отмечен что проведён а инфы нет - создадим
-                               GettersActivationProgram st = new GettersActivationProgram();
-                               st.SetDtStart( theApp.GetLocalDate());
-                               st.SetDtFinish( theApp.GetLocalDate());
-                               mapToModify.put( HVV_AdminConstants.DEVICE6, st);
-                           }
-                        }
-                        else {
-                            if( mapToModify.containsKey( HVV_AdminConstants.DEVICE6)) {
-                                //DEV6 отмечен что не проведён, а инфа есть - удалим
-                                mapToModify.remove( HVV_AdminConstants.DEVICE6);
-                           }
-                           else {
-                               //DEV6 отмечен что не проведён, и инфы нет - всё ок
-                           }
-                        }
-                        
-                        //DEVICE7
-                        if( dlg2.m_chkDev7.isSelected()) {
-                           if( mapToModify.containsKey( HVV_AdminConstants.DEVICE7)) {
-                               //DEV7 отмечен что проведён и инфа есть - всё ок
-                           }
-                           else {
-                               //DEV7 отмечен что проведён а инфы нет - создадим
-                               GettersActivationProgram st = new GettersActivationProgram();
-                               st.SetDtStart( theApp.GetLocalDate());
-                               st.SetDtFinish( theApp.GetLocalDate());
-                               mapToModify.put( HVV_AdminConstants.DEVICE7, st);
-                           }
-                        }
-                        else {
-                            if( mapToModify.containsKey( HVV_AdminConstants.DEVICE7)) {
-                               //DEV7 отмечен что не проведён, а инфа есть - удалим
-                                mapToModify.remove( HVV_AdminConstants.DEVICE7);
-                           }
-                           else {
-                               //DEV7 отмечен что не проведён, и инфы нет - всё ок
-                           }
-                        }
-                        
-                        //DEVICE8
-                        if( dlg2.m_chkDev8.isSelected()) {
-                           if( mapToModify.containsKey( HVV_AdminConstants.DEVICE8)) {
-                               //DEV8 отмечен что проведён и инфа есть - всё ок
-                           }
-                           else {
-                               //DEV8 отмечен что проведён а инфы нет - создадим
-                               GettersActivationProgram st = new GettersActivationProgram();
-                               st.SetDtStart( theApp.GetLocalDate());
-                               st.SetDtFinish( theApp.GetLocalDate());
-                               mapToModify.put( HVV_AdminConstants.DEVICE8, st);
-                           }
-                        }
-                        else {
-                            if( mapToModify.containsKey( HVV_AdminConstants.DEVICE8)) {
-                               //DEV8 отмечен что не проведён, а инфа есть - удалим
-                                mapToModify.remove( HVV_AdminConstants.DEVICE8);
-                           }
-                           else {
-                               //DEV8 отмечен что не проведён, и инфы нет - всё ок
-                           }
-                        }
-
-                    }
-                    */
-                    
-                    
+                    theApp.SecretSteps().remove( String.format("%03d", nLastWrittenStep));
                 }
                 else {
-                    TechProcessStepCommon info = theApp.GetCommonStepInfo( String.format("%03d", nLastWrittenStep));
+                    TechProcessStepCommon info = theApp.GetCommonStep( String.format("%03d", nLastWrittenStep));
                     info.SetStopDateAsCurrent();
                     info.SetStopReportTitle( "Этап отмечен как завершенный вручную, после перезапуска адм. модуля");
 
@@ -770,39 +355,6 @@ public class HVV_StateKeeper {
                     
                     info = new TechProcessStepCommon(theApp);
                     info.SetStartDateAsCurrent();
-                    
-                    String strTitle = null;
-                    
-                    /*
-                    //некоторые этапы надо отметить как начатые
-                    switch( theApp.GetCurrentStep()) {
-                        case 21:    strTitle = "Установка резонаторов (восст.)";  break;
-                        case 23:    strTitle = "Проверка герметичности установки приборов (восст.)";  break;
-                        case 81:    strTitle = "Установка печек (восст.)";  break;
-                        case 82:    strTitle = "Старт термообезгаживания (восст.)";  break;
-                        case 83:    strTitle = "Снятие печек (восст.)";  break;
-                        case 101:   strTitle = "Снятие вольт-маперной характеристики анодов (восст.)";  break;
-                        case 102:   strTitle = "Замеры порогов генерации и погасания (восст.)";  break;
-                        case 103:   strTitle = "Внесение промежуточных комментариев (восст.)";  break;
-                        case 141:   strTitle = "Начало процесса обезгаживания (восст.)";  break;
-                        case 181:   strTitle = "Начало процесса активации (восст.)";  break;
-                        case 203:   strTitle = "Измерение ВАХ (восст.)";  break;
-                        case 204:   strTitle = "Замеры порогов генерации и погасания (восст.)";  break;
-                        case 205:   strTitle = "Внесение финальных комментариев (восст.)";  break;
-                        case 206:   strTitle = "Начало герметизации годных приборов (восст.)";  break;
-                        case 223:   strTitle = "Старт снятия непрошедших приборов (восст.)";  break;
-                        case 242:   strTitle = "Проверка герметичности установки заглушек (восст.)";  break;
-                    }
-                    
-                    if( strTitle != null) {
-                        info.SetStartReportTitle( strTitle);
-                        info.SetStartP5( null);
-                        info.SetStartP6( null);
-                        info.SetStartP7( null);
-                        theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
-                    }
-                    */
-                    
                 }
 
                 /*

@@ -309,7 +309,7 @@ public class PanelActivation extends javax.swing.JPanel {
                 if( m_pnlProgress.m_nStep == m_lstProgram.size()) {
                     //конец программы
                     
-                    TechProcessHFInfo info = ( TechProcessHFInfo) theApp.GetCommonStepInfo( "162");
+                    TechProcessHFInfo info = ( TechProcessHFInfo) theApp.GetCommonStep( "162");
                     info.SetStopDateAsCurrent();
                     
                     if( radGetterType1.isSelected())

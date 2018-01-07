@@ -81,7 +81,7 @@ public class PanelImpermeability extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        TechProcessStepCommon info = theApp.GetCommonStepInfo( "001");
+        TechProcessStepCommon info = theApp.GetCommonStep( "001");
         info.SetStopDateAsCurrent();
         info.SetStopReportTitle( "Подтверждение герметичности установки");
         
