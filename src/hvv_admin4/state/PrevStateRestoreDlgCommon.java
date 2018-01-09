@@ -53,12 +53,12 @@ public class PrevStateRestoreDlgCommon extends javax.swing.JDialog {
         m_rad1.setSelected(true);
         m_rad1.setText("jRadioButton1");
         getContentPane().add(m_rad1);
-        m_rad1.setBounds(10, 100, 380, 23);
+        m_rad1.setBounds(10, 100, 380, 22);
 
         buttonGroup1.add(m_rad2);
         m_rad2.setText("jRadioButton2");
         getContentPane().add(m_rad2);
-        m_rad2.setBounds(10, 130, 380, 23);
+        m_rad2.setBounds(10, 130, 380, 22);
 
         btnDrop.setText("Сбросить");
         btnDrop.addActionListener(new java.awt.event.ActionListener() {

@@ -50,6 +50,9 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Восстановление этапа обработки O2-Ne20");
+        setPreferredSize(new java.awt.Dimension(400, 550));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         lblStepStartedDtm.setText("<html>... и по рассчётам должен был бы закончиться 2018.09.01 17:00</html>");
@@ -75,12 +78,12 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("В начале");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(120, 120, 130, 15);
+        jLabel2.setBounds(120, 120, 130, 16);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("В конце");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(260, 120, 130, 15);
+        jLabel3.setBounds(260, 120, 130, 16);
 
         jLabel4.setText("<html>U<sub>на анод</sub></html>");
         getContentPane().add(jLabel4);
@@ -101,12 +104,12 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("В начале");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(120, 300, 130, 15);
+        jLabel6.setBounds(120, 300, 130, 16);
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("В конце");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(260, 300, 130, 15);
+        jLabel7.setBounds(260, 300, 130, 16);
 
         jLabel8.setText("<html>U<sub>на анод</sub></html>");
         getContentPane().add(jLabel8);
@@ -115,14 +118,14 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("обработка по коротким плечам");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(10, 280, 380, 15);
+        jLabel9.setBounds(10, 280, 380, 16);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("обработка по длинному плечу");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(11, 100, 380, 15);
+        jLabel10.setBounds(11, 100, 380, 16);
 
-        jButton1.setText("Продолжить");
+        jButton1.setLabel("Подтвердить и продолжить");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

@@ -14,7 +14,8 @@ public class RestoreHvStep extends javax.swing.JDialog {
     /**
      * Creates new form RestoreHvStep
      */
-    public RestoreHvStep() {
+    public RestoreHvStep(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -37,8 +38,12 @@ public class RestoreHvStep extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Восстановление этапа обработки O2 ");
+        setPreferredSize(new java.awt.Dimension(400, 400));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         lblStepStartedDtm.setText("<html>... и по рассчётам должен был бы закончиться 2018.09.01 17:00</html>");
@@ -64,19 +69,32 @@ public class RestoreHvStep extends javax.swing.JDialog {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("В начале");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(120, 110, 130, 15);
+        jLabel2.setBounds(120, 110, 130, 16);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("В конце");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(260, 110, 130, 15);
+        jLabel3.setBounds(260, 110, 130, 16);
 
         jLabel4.setText("<html>U<sub>на анод</sub></html>");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(10, 130, 100, 60);
 
+        jButton1.setLabel("Подтвердить и продолжить");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(10, 270, 380, 50);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,15 +123,23 @@ public class RestoreHvStep extends javax.swing.JDialog {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RestoreHvStep().setVisible(true);
+                RestoreHvStep dialog = new RestoreHvStep(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

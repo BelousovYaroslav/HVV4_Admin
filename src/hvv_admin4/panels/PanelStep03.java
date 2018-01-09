@@ -331,7 +331,12 @@ public class PanelStep03 extends TechProcessStepPanelTemplate {
     }//GEN-LAST:event_btn_03_03_StartActionPerformed
 
     private void btn_03_02_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_03_02_StartActionPerformed
-        // TODO add your handling code here:
+        theApp.SetCurrentStep( 42);
+        theApp.SetCurrentStepInProgress( false);
+        
+        theApp.m_pMainWnd.m_pnlPuffMessage.Init();
+        theApp.m_pMainWnd.m_pnlPuffMessage.setVisible( true);
+        theApp.m_pMainWnd.m_pnlMain.setVisible( false);
     }//GEN-LAST:event_btn_03_02_StartActionPerformed
 
 

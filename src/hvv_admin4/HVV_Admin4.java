@@ -206,6 +206,7 @@ public class HVV_Admin4 {
         
         m_nArm = -1;
         m_nProcessedDeviceType = -1;
+        m_strSerial = null;
         
         m_bFailInMiddleFlag = false;
                 
@@ -231,26 +232,15 @@ public class HVV_Admin4 {
             if( nResponce == JOptionPane.YES_OPTION) {
                 m_pStateKeeper.RestoreState();
                 if( m_pStateKeeper.m_bDropReadState == true) {
-                    
+                    //файл восстановления был, мы его попросили восстановить, но, увидев, отказались
+                    m_strSerial = null;
+                    m_nProcessedDeviceType = -1;
                     m_mapSteps = new TreeMap();
-        
                     m_nCurrentProcessStep = 1;
                 }
                 else {
+                    //файл восстановления был, и мы его восстановили
                     //m_nCurrentProcessStep = 1;        //выставка этапа должна быть сделана раньше
-                    /*
-                    new Timer( 1000, new ActionListener() {
-
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                            ( ( Timer) e.getSource()).stop();
-                            m_pMainWnd.m_pnlMain.m_pnlProcess.SetStates();
-                            m_pMainWnd.m_pnlMain.m_pnlProcess.Reposition();
-                            m_pMainWnd.m_pnlMain.ScrollActiveStepToCenter();
-                            m_pMainWnd.m_pnlMain.setVisible( true);
-                        }
-                    }).start();
-                    */
                 }
             }
             else {
@@ -282,16 +272,7 @@ public class HVV_Admin4 {
         m_ReportGenerator = new ReportGenerator( this);
         m_ReportGenerator.Generate();
         
-        
-        
-        
-        
-        
-        
-        
         m_pMainWnd = new HVV_Admin4MainFrame( this);
-        
-        
         
         java.awt.EventQueue.invokeLater( new Runnable() {
             public void run() {

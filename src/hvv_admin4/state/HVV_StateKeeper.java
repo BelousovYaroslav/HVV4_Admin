@@ -347,19 +347,23 @@ public class HVV_StateKeeper {
                     theApp.SecretSteps().remove( String.format("%03d", nLastWrittenStep));
                 }
                 else {
+                    /*
                     TechProcessStepCommon info = theApp.GetCommonStep( String.format("%03d", nLastWrittenStep));
                     info.SetStopDateAsCurrent();
                     info.SetStopReportTitle( "Этап отмечен как завершенный вручную, после перезапуска адм. модуля");
-
+                    */
+                    
                     theApp.SetCurrentStep( nPotentialNextStep);
                     
-                    info = new TechProcessStepCommon(theApp);
+                    /*
+                    TechProcessStepCommon info = new TechProcessStepCommon(theApp);
                     info.SetStartDateAsCurrent();
+                    */
                 }
 
                 /*
                 switch( theApp.GetCurrentStep()) {
-                    case 21:    theApp.ShowDlg2_1();    break;
+                    case 42:    theApp.ShowDlg2_1();    break;
                     case 23:    theApp.ShowDlg2_3();    break;
                     case 81:    theApp.ShowDlg5_1();    break;
                     case 82:    theApp.ShowDlg5_2();    break;
@@ -374,7 +378,7 @@ public class HVV_StateKeeper {
                     case 205:   theApp.ShowDlg11_5();   break;
                     case 206:   theApp.ShowDlg11_6();   break;
                     case 223:   theApp.ShowDlg12_3();   break;
-                    case 242:   theApp.ShowDlg13_2();    break;
+                    case 242:   theApp.ShowDlg13_2();    break;    
                 }
                 */
             }
