@@ -5,17 +5,47 @@
  */
 package hvv_admin4.state;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import javax.swing.Timer;
+
 /**
  *
  * @author yaroslav
  */
 public class RestoreHvStep1 extends javax.swing.JDialog {
 
+    final private GregorianCalendar m_gdtmDtmStopActual;
+    final private GregorianCalendar m_gdtmDtmParam1;
+    final private GregorianCalendar m_gdtmDtmParam2;
+    final private GregorianCalendar m_gdtmDtmParam3;
     /**
      * Creates new form RestoreHvStep
      */
     public RestoreHvStep1() {
         initComponents();
+        
+        jScrollPane1.setVisible( false);
+        
+        edtValueParam1.setVisible( false);
+        edtValueParam2.setVisible( false);
+        edtValueParam3.setVisible( false);
+        
+        m_gdtmDtmStopActual = new GregorianCalendar( 2018, 1, 10, 22, 0);
+        m_gdtmDtmParam1 = new GregorianCalendar( 2018, 1, 10, 22, 0);
+        m_gdtmDtmParam2 = new GregorianCalendar( 2018, 1, 10, 22, 0);
+        m_gdtmDtmParam3 = new GregorianCalendar( 2018, 1, 10, 22, 0);
+        
+        new Timer( 100, new ActionListener() {
+
+            @Override
+            public void actionPerformed( ActionEvent e) {
+                ( ( Timer) e.getSource()).stop();
+                updateData();
+            }
+        }).start();
     }
 
     /**
@@ -27,120 +57,499 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblStepStartedDtm = new javax.swing.JLabel();
-        lblStepStartedDtm1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        lblTitleMain = new javax.swing.JLabel();
+        lblStepTitle = new javax.swing.JLabel();
+        lblStepStartDtmTitle = new javax.swing.JLabel();
+        lblStepStartDtmValue = new javax.swing.JLabel();
+        lblStepStopDtmCalcTitle = new javax.swing.JLabel();
+        lblStepStopDtmCalcValue = new javax.swing.JLabel();
+        lblStepStopDtmActTitle = new javax.swing.JLabel();
+        lblDtmStopActDay = new javax.swing.JLabel();
+        lblDtmStopAct_p1 = new javax.swing.JLabel();
+        lblDtmStopActMon = new javax.swing.JLabel();
+        lblDtmStopAct_p2 = new javax.swing.JLabel();
+        lblDtmStopActYear = new javax.swing.JLabel();
+        lblDtmStopActHou = new javax.swing.JLabel();
+        lblDtmStopAct_p3 = new javax.swing.JLabel();
+        lblDtmStopActMin = new javax.swing.JLabel();
+        lblTitleStepParam1 = new javax.swing.JLabel();
+        edtValueParam1 = new javax.swing.JTextField();
+        lblDtmValueDayParam1 = new javax.swing.JLabel();
+        lblP1Param1 = new javax.swing.JLabel();
+        lblDtmValueMonParam1 = new javax.swing.JLabel();
+        lblP2Param1 = new javax.swing.JLabel();
+        lblDtmValueYearParam1 = new javax.swing.JLabel();
+        lblDtmValueHouParam1 = new javax.swing.JLabel();
+        lblP3Param1 = new javax.swing.JLabel();
+        lblDtmValueMinParam1 = new javax.swing.JLabel();
+        lblTitleStepParam2 = new javax.swing.JLabel();
+        edtValueParam2 = new javax.swing.JTextField();
+        lblDtmValueDayParam2 = new javax.swing.JLabel();
+        lblP1Param2 = new javax.swing.JLabel();
+        lblDtmValueMonParam2 = new javax.swing.JLabel();
+        lblP2Param2 = new javax.swing.JLabel();
+        lblDtmValueYearParam2 = new javax.swing.JLabel();
+        lblDtmValueHouParam2 = new javax.swing.JLabel();
+        lblP3Param2 = new javax.swing.JLabel();
+        lblDtmValueMinParam2 = new javax.swing.JLabel();
+        lblTitleStepParam3 = new javax.swing.JLabel();
+        edtValueParam3 = new javax.swing.JTextField();
+        lblDtmValueDayParam3 = new javax.swing.JLabel();
+        lblP1Param3 = new javax.swing.JLabel();
+        lblDtmValueMonParam3 = new javax.swing.JLabel();
+        lblP2Param3 = new javax.swing.JLabel();
+        lblDtmValueYearParam3 = new javax.swing.JLabel();
+        lblDtmValueHouParam3 = new javax.swing.JLabel();
+        lblP3Param3 = new javax.swing.JLabel();
+        lblDtmValueMinParam3 = new javax.swing.JLabel();
+        edtValueParam4 = new javax.swing.JTextField();
+        lblTitleStepParam4 = new javax.swing.JLabel();
+        edtValueParam5 = new javax.swing.JTextField();
+        lblTitleStepParam5 = new javax.swing.JLabel();
+        edtValueParam6 = new javax.swing.JTextField();
+        lblTitleStepParam6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Восстановление этапа обработки O2-Ne20");
-        setPreferredSize(new java.awt.Dimension(400, 550));
+        setPreferredSize(new java.awt.Dimension(400, 700));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        lblStepStartedDtm.setText("<html>... и по рассчётам должен был бы закончиться 2018.09.01 17:00</html>");
-        getContentPane().add(lblStepStartedDtm);
-        lblStepStartedDtm.setBounds(10, 50, 380, 40);
+        lblTitleMain.setText("Последний этап отмеченный в файле восстановления:");
+        getContentPane().add(lblTitleMain);
+        lblTitleMain.setBounds(10, 20, 380, 20);
 
-        lblStepStartedDtm1.setText("<html>Этап \"3.1 Обработка в среде О2-Ne20. 2ой цикл.\" был начат 2018.01.09 16:30</html>");
-        getContentPane().add(lblStepStartedDtm1);
-        lblStepStartedDtm1.setBounds(10, 10, 380, 40);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(120, 210, 130, 60);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(120, 140, 130, 60);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(260, 140, 130, 60);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(260, 210, 130, 60);
+        lblStepTitle.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
+        lblStepTitle.setText("3.1 Обработка в среде О2-Ne20. 2ой цикл.");
+        lblStepTitle.setToolTipText("");
+        getContentPane().add(lblStepTitle);
+        lblStepTitle.setBounds(10, 40, 380, 20);
 
-        jLabel1.setText("<html>U<sub>на штенгеле</sub></html>");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 210, 100, 60);
+        lblStepStartDtmTitle.setText("Дата-время начала:");
+        getContentPane().add(lblStepStartDtmTitle);
+        lblStepStartDtmTitle.setBounds(10, 70, 380, 20);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("В начале");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(120, 120, 130, 16);
+        lblStepStartDtmValue.setText("10.01.2018 17:00");
+        getContentPane().add(lblStepStartDtmValue);
+        lblStepStartDtmValue.setBounds(10, 90, 380, 20);
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("В конце");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(260, 120, 130, 16);
+        lblStepStopDtmCalcTitle.setText("Предположительное время завершения:");
+        getContentPane().add(lblStepStopDtmCalcTitle);
+        lblStepStopDtmCalcTitle.setBounds(10, 120, 380, 20);
 
-        jLabel4.setText("<html>U<sub>на анод</sub></html>");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 140, 100, 60);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(120, 390, 130, 60);
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(120, 320, 130, 60);
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(260, 320, 130, 60);
-        getContentPane().add(jTextField8);
-        jTextField8.setBounds(260, 390, 130, 60);
+        lblStepStopDtmCalcValue.setText("10.01.2018 17:30");
+        getContentPane().add(lblStepStopDtmCalcValue);
+        lblStepStopDtmCalcValue.setBounds(10, 140, 380, 20);
 
-        jLabel5.setText("<html>U<sub>на штенгеле</sub></html>");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 390, 100, 60);
+        lblStepStopDtmActTitle.setText("Фактическое время завершения:");
+        getContentPane().add(lblStepStopDtmActTitle);
+        lblStepStopDtmActTitle.setBounds(10, 190, 380, 20);
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("В начале");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(120, 300, 130, 16);
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("В конце");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(260, 300, 130, 16);
-
-        jLabel8.setText("<html>U<sub>на анод</sub></html>");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(10, 320, 100, 60);
-
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("обработка по коротким плечам");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(10, 280, 380, 16);
-
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("обработка по длинному плечу");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(11, 100, 380, 16);
-
-        jButton1.setLabel("Подтвердить и продолжить");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        lblDtmStopActDay.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmStopActDay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmStopActDay.setText("10");
+        lblDtmStopActDay.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
             }
         });
+        getContentPane().add(lblDtmStopActDay);
+        lblDtmStopActDay.setBounds(10, 210, 50, 30);
+
+        lblDtmStopAct_p1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmStopAct_p1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmStopAct_p1.setText(".");
+        getContentPane().add(lblDtmStopAct_p1);
+        lblDtmStopAct_p1.setBounds(60, 210, 10, 30);
+
+        lblDtmStopActMon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmStopActMon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmStopActMon.setText("01");
+        lblDtmStopActMon.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmStopActMon);
+        lblDtmStopActMon.setBounds(70, 210, 50, 30);
+
+        lblDtmStopAct_p2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmStopAct_p2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmStopAct_p2.setText(".");
+        getContentPane().add(lblDtmStopAct_p2);
+        lblDtmStopAct_p2.setBounds(120, 210, 10, 30);
+
+        lblDtmStopActYear.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmStopActYear.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmStopActYear.setText("2018");
+        lblDtmStopActYear.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmStopActYear);
+        lblDtmStopActYear.setBounds(130, 210, 80, 30);
+
+        lblDtmStopActHou.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmStopActHou.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmStopActHou.setText("17");
+        lblDtmStopActHou.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmStopActHou);
+        lblDtmStopActHou.setBounds(250, 210, 50, 30);
+
+        lblDtmStopAct_p3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmStopAct_p3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmStopAct_p3.setText(":");
+        getContentPane().add(lblDtmStopAct_p3);
+        lblDtmStopAct_p3.setBounds(300, 210, 10, 30);
+
+        lblDtmStopActMin.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmStopActMin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmStopActMin.setText("30");
+        lblDtmStopActMin.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmStopActMin);
+        lblDtmStopActMin.setBounds(310, 210, 50, 30);
+
+        lblTitleStepParam1.setText("Параметр 1");
+        getContentPane().add(lblTitleStepParam1);
+        lblTitleStepParam1.setBounds(10, 260, 380, 30);
+        getContentPane().add(edtValueParam1);
+        edtValueParam1.setBounds(10, 290, 380, 30);
+
+        lblDtmValueDayParam1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueDayParam1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueDayParam1.setText("10");
+        lblDtmValueDayParam1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueDayParam1);
+        lblDtmValueDayParam1.setBounds(10, 290, 50, 30);
+
+        lblP1Param1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblP1Param1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblP1Param1.setText(".");
+        getContentPane().add(lblP1Param1);
+        lblP1Param1.setBounds(60, 290, 10, 30);
+
+        lblDtmValueMonParam1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueMonParam1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueMonParam1.setText("01");
+        lblDtmValueMonParam1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueMonParam1);
+        lblDtmValueMonParam1.setBounds(70, 290, 50, 30);
+
+        lblP2Param1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblP2Param1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblP2Param1.setText(".");
+        getContentPane().add(lblP2Param1);
+        lblP2Param1.setBounds(120, 290, 10, 30);
+
+        lblDtmValueYearParam1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueYearParam1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueYearParam1.setText("2018");
+        lblDtmValueYearParam1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueYearParam1);
+        lblDtmValueYearParam1.setBounds(130, 290, 80, 30);
+
+        lblDtmValueHouParam1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueHouParam1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueHouParam1.setText("17");
+        lblDtmValueHouParam1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueHouParam1);
+        lblDtmValueHouParam1.setBounds(250, 290, 50, 30);
+
+        lblP3Param1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblP3Param1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblP3Param1.setText(":");
+        getContentPane().add(lblP3Param1);
+        lblP3Param1.setBounds(300, 290, 10, 30);
+
+        lblDtmValueMinParam1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueMinParam1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueMinParam1.setText("30");
+        lblDtmValueMinParam1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueMinParam1);
+        lblDtmValueMinParam1.setBounds(310, 290, 50, 30);
+
+        lblTitleStepParam2.setText("Параметр 2");
+        getContentPane().add(lblTitleStepParam2);
+        lblTitleStepParam2.setBounds(10, 320, 380, 30);
+        getContentPane().add(edtValueParam2);
+        edtValueParam2.setBounds(10, 350, 380, 30);
+
+        lblDtmValueDayParam2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueDayParam2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueDayParam2.setText("10");
+        lblDtmValueDayParam2.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueDayParam2);
+        lblDtmValueDayParam2.setBounds(10, 350, 50, 30);
+
+        lblP1Param2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblP1Param2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblP1Param2.setText(".");
+        getContentPane().add(lblP1Param2);
+        lblP1Param2.setBounds(60, 350, 10, 30);
+
+        lblDtmValueMonParam2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueMonParam2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueMonParam2.setText("01");
+        lblDtmValueMonParam2.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueMonParam2);
+        lblDtmValueMonParam2.setBounds(70, 350, 50, 30);
+
+        lblP2Param2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblP2Param2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblP2Param2.setText(".");
+        getContentPane().add(lblP2Param2);
+        lblP2Param2.setBounds(120, 350, 10, 30);
+
+        lblDtmValueYearParam2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueYearParam2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueYearParam2.setText("2018");
+        lblDtmValueYearParam2.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueYearParam2);
+        lblDtmValueYearParam2.setBounds(130, 350, 80, 30);
+
+        lblDtmValueHouParam2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueHouParam2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueHouParam2.setText("17");
+        lblDtmValueHouParam2.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueHouParam2);
+        lblDtmValueHouParam2.setBounds(250, 350, 50, 30);
+
+        lblP3Param2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblP3Param2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblP3Param2.setText(":");
+        getContentPane().add(lblP3Param2);
+        lblP3Param2.setBounds(300, 350, 10, 30);
+
+        lblDtmValueMinParam2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueMinParam2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueMinParam2.setText("30");
+        lblDtmValueMinParam2.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueMinParam2);
+        lblDtmValueMinParam2.setBounds(310, 350, 50, 30);
+
+        lblTitleStepParam3.setText("Параметр 3");
+        getContentPane().add(lblTitleStepParam3);
+        lblTitleStepParam3.setBounds(10, 380, 380, 30);
+        getContentPane().add(edtValueParam3);
+        edtValueParam3.setBounds(10, 410, 380, 30);
+
+        lblDtmValueDayParam3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueDayParam3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueDayParam3.setText("10");
+        lblDtmValueDayParam3.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueDayParam3);
+        lblDtmValueDayParam3.setBounds(10, 410, 50, 30);
+
+        lblP1Param3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblP1Param3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblP1Param3.setText(".");
+        getContentPane().add(lblP1Param3);
+        lblP1Param3.setBounds(60, 410, 10, 30);
+
+        lblDtmValueMonParam3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueMonParam3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueMonParam3.setText("01");
+        lblDtmValueMonParam3.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueMonParam3);
+        lblDtmValueMonParam3.setBounds(70, 410, 50, 30);
+
+        lblP2Param3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblP2Param3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblP2Param3.setText(".");
+        getContentPane().add(lblP2Param3);
+        lblP2Param3.setBounds(120, 410, 10, 30);
+
+        lblDtmValueYearParam3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueYearParam3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueYearParam3.setText("2018");
+        lblDtmValueYearParam3.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueYearParam3);
+        lblDtmValueYearParam3.setBounds(130, 410, 80, 30);
+
+        lblDtmValueHouParam3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueHouParam3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueHouParam3.setText("17");
+        lblDtmValueHouParam3.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueHouParam3);
+        lblDtmValueHouParam3.setBounds(250, 410, 50, 30);
+
+        lblP3Param3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblP3Param3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblP3Param3.setText(":");
+        getContentPane().add(lblP3Param3);
+        lblP3Param3.setBounds(300, 410, 10, 30);
+
+        lblDtmValueMinParam3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblDtmValueMinParam3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDtmValueMinParam3.setText("30");
+        lblDtmValueMinParam3.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                lblDtmMouseWheelMoved(evt);
+            }
+        });
+        getContentPane().add(lblDtmValueMinParam3);
+        lblDtmValueMinParam3.setBounds(310, 410, 50, 30);
+        getContentPane().add(edtValueParam4);
+        edtValueParam4.setBounds(10, 470, 380, 30);
+
+        lblTitleStepParam4.setText("Параметр 4");
+        getContentPane().add(lblTitleStepParam4);
+        lblTitleStepParam4.setBounds(10, 440, 380, 30);
+        getContentPane().add(edtValueParam5);
+        edtValueParam5.setBounds(10, 530, 380, 30);
+
+        lblTitleStepParam5.setText("Параметр 5");
+        getContentPane().add(lblTitleStepParam5);
+        lblTitleStepParam5.setBounds(10, 500, 380, 30);
+        getContentPane().add(edtValueParam6);
+        edtValueParam6.setBounds(10, 590, 380, 30);
+
+        lblTitleStepParam6.setText("Параметр 6");
+        getContentPane().add(lblTitleStepParam6);
+        lblTitleStepParam6.setBounds(10, 560, 380, 30);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(10, 292, 410, 40);
+
+        jButton1.setText("Подтвердить и продолжить");
         getContentPane().add(jButton1);
-        jButton1.setBounds(10, 470, 380, 30);
+        jButton1.setBounds(10, 630, 380, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void lblDtmMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_lblDtmMouseWheelMoved
+        int nSection = GregorianCalendar.SECOND;
+        GregorianCalendar clndrToChange = null;
+        
+        if( evt.getSource().hashCode() == lblDtmStopActDay.hashCode())  { clndrToChange = m_gdtmDtmStopActual; nSection = GregorianCalendar.DAY_OF_MONTH; }
+        if( evt.getSource().hashCode() == lblDtmStopActMon.hashCode())  { clndrToChange = m_gdtmDtmStopActual; nSection = GregorianCalendar.MONTH; }
+        if( evt.getSource().hashCode() == lblDtmStopActYear.hashCode()) { clndrToChange = m_gdtmDtmStopActual; nSection = GregorianCalendar.YEAR; }
+        if( evt.getSource().hashCode() == lblDtmStopActHou.hashCode())  { clndrToChange = m_gdtmDtmStopActual; nSection = GregorianCalendar.HOUR_OF_DAY; }
+        if( evt.getSource().hashCode() == lblDtmStopActMin.hashCode())  { clndrToChange = m_gdtmDtmStopActual; nSection = GregorianCalendar.MINUTE; }
+        
+        if( evt.getSource().hashCode() == lblDtmValueDayParam1.hashCode())  { clndrToChange = m_gdtmDtmParam1; nSection = GregorianCalendar.DAY_OF_MONTH; }
+        if( evt.getSource().hashCode() == lblDtmValueMonParam1.hashCode())  { clndrToChange = m_gdtmDtmParam1; nSection = GregorianCalendar.MONTH; }
+        if( evt.getSource().hashCode() == lblDtmValueYearParam1.hashCode()) { clndrToChange = m_gdtmDtmParam1; nSection = GregorianCalendar.YEAR; }
+        if( evt.getSource().hashCode() == lblDtmValueHouParam1.hashCode())  { clndrToChange = m_gdtmDtmParam1; nSection = GregorianCalendar.HOUR_OF_DAY; }
+        if( evt.getSource().hashCode() == lblDtmValueMinParam1.hashCode())  { clndrToChange = m_gdtmDtmParam1; nSection = GregorianCalendar.MINUTE; }
+        
+        if( evt.getSource().hashCode() == lblDtmValueDayParam2.hashCode())  { clndrToChange = m_gdtmDtmParam2; nSection = GregorianCalendar.DAY_OF_MONTH; }
+        if( evt.getSource().hashCode() == lblDtmValueMonParam2.hashCode())  { clndrToChange = m_gdtmDtmParam2; nSection = GregorianCalendar.MONTH; }
+        if( evt.getSource().hashCode() == lblDtmValueYearParam2.hashCode()) { clndrToChange = m_gdtmDtmParam2; nSection = GregorianCalendar.YEAR; }
+        if( evt.getSource().hashCode() == lblDtmValueHouParam2.hashCode())  { clndrToChange = m_gdtmDtmParam2; nSection = GregorianCalendar.HOUR_OF_DAY; }
+        if( evt.getSource().hashCode() == lblDtmValueMinParam2.hashCode())  { clndrToChange = m_gdtmDtmParam2; nSection = GregorianCalendar.MINUTE; }
+        
+        if( evt.getSource().hashCode() == lblDtmValueDayParam3.hashCode())  { clndrToChange = m_gdtmDtmParam3; nSection = GregorianCalendar.DAY_OF_MONTH; }
+        if( evt.getSource().hashCode() == lblDtmValueMonParam3.hashCode())  { clndrToChange = m_gdtmDtmParam3; nSection = GregorianCalendar.MONTH; }
+        if( evt.getSource().hashCode() == lblDtmValueYearParam3.hashCode()) { clndrToChange = m_gdtmDtmParam3; nSection = GregorianCalendar.YEAR; }
+        if( evt.getSource().hashCode() == lblDtmValueHouParam3.hashCode())  { clndrToChange = m_gdtmDtmParam3; nSection = GregorianCalendar.HOUR_OF_DAY; }
+        if( evt.getSource().hashCode() == lblDtmValueMinParam3.hashCode())  { clndrToChange = m_gdtmDtmParam3; nSection = GregorianCalendar.MINUTE; }
+        
+        if( clndrToChange != null) {
+            clndrToChange.add( nSection, -1 * evt.getWheelRotation());
+            updateData();
+        }
+    }//GEN-LAST:event_lblDtmMouseWheelMoved
 
+    public void updateData() {
+        lblDtmStopActDay.setText( ( m_gdtmDtmStopActual.get( Calendar.DAY_OF_MONTH) < 10 ? "0" : "")  + m_gdtmDtmStopActual.get( Calendar.DAY_OF_MONTH));
+        lblDtmStopActMon.setText( ( m_gdtmDtmStopActual.get( Calendar.MONTH) < 10 ? "0" : "")       + m_gdtmDtmStopActual.get( Calendar.MONTH));
+        lblDtmStopActYear.setText( ( m_gdtmDtmStopActual.get( Calendar.YEAR) < 10 ? "0" : "")       + m_gdtmDtmStopActual.get( Calendar.YEAR));
+        lblDtmStopActHou.setText( ( m_gdtmDtmStopActual.get( Calendar.HOUR_OF_DAY) < 10 ? "0" : "") + m_gdtmDtmStopActual.get( Calendar.HOUR_OF_DAY));
+        lblDtmStopActMin.setText( ( m_gdtmDtmStopActual.get( Calendar.MINUTE) < 10 ? "0" : "")      + m_gdtmDtmStopActual.get( Calendar.MINUTE));
+        
+        lblDtmValueDayParam1.setText( ( m_gdtmDtmParam1.get( Calendar.DAY_OF_MONTH) < 10 ? "0" : "")  + m_gdtmDtmParam1.get( Calendar.DAY_OF_MONTH));
+        lblDtmValueMonParam1.setText( ( m_gdtmDtmParam1.get( Calendar.MONTH) < 10 ? "0" : "")       + m_gdtmDtmParam1.get( Calendar.MONTH));
+        lblDtmValueYearParam1.setText( ( m_gdtmDtmParam1.get( Calendar.YEAR) < 10 ? "0" : "")       + m_gdtmDtmParam1.get( Calendar.YEAR));
+        lblDtmValueHouParam1.setText( ( m_gdtmDtmParam1.get( Calendar.HOUR_OF_DAY) < 10 ? "0" : "") + m_gdtmDtmParam1.get( Calendar.HOUR_OF_DAY));
+        lblDtmValueMinParam1.setText( ( m_gdtmDtmParam1.get( Calendar.MINUTE) < 10 ? "0" : "")      + m_gdtmDtmParam1.get( Calendar.MINUTE));
+        
+        lblDtmValueDayParam2.setText( ( m_gdtmDtmParam2.get( Calendar.DAY_OF_MONTH) < 10 ? "0" : "")  + m_gdtmDtmParam2.get( Calendar.DAY_OF_MONTH));
+        lblDtmValueMonParam2.setText( ( m_gdtmDtmParam2.get( Calendar.MONTH) < 10 ? "0" : "")       + m_gdtmDtmParam2.get( Calendar.MONTH));
+        lblDtmValueYearParam2.setText( ( m_gdtmDtmParam2.get( Calendar.YEAR) < 10 ? "0" : "")       + m_gdtmDtmParam2.get( Calendar.YEAR));
+        lblDtmValueHouParam2.setText( ( m_gdtmDtmParam2.get( Calendar.HOUR_OF_DAY) < 10 ? "0" : "") + m_gdtmDtmParam2.get( Calendar.HOUR_OF_DAY));
+        lblDtmValueMinParam2.setText( ( m_gdtmDtmParam2.get( Calendar.MINUTE) < 10 ? "0" : "")      + m_gdtmDtmParam2.get( Calendar.MINUTE));
+        
+        lblDtmValueDayParam3.setText( ( m_gdtmDtmParam3.get( Calendar.DAY_OF_MONTH) < 10 ? "0" : "")  + m_gdtmDtmParam3.get( Calendar.DAY_OF_MONTH));
+        lblDtmValueMonParam3.setText( ( m_gdtmDtmParam3.get( Calendar.MONTH) < 10 ? "0" : "")       + m_gdtmDtmParam3.get( Calendar.MONTH));
+        lblDtmValueYearParam3.setText( ( m_gdtmDtmParam3.get( Calendar.YEAR) < 10 ? "0" : "")       + m_gdtmDtmParam3.get( Calendar.YEAR));
+        lblDtmValueHouParam3.setText( ( m_gdtmDtmParam3.get( Calendar.HOUR_OF_DAY) < 10 ? "0" : "") + m_gdtmDtmParam3.get( Calendar.HOUR_OF_DAY));
+        lblDtmValueMinParam3.setText( ( m_gdtmDtmParam3.get( Calendar.MINUTE) < 10 ? "0" : "")      + m_gdtmDtmParam3.get( Calendar.MINUTE));
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -169,6 +578,8 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
 
+        
+                
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -178,26 +589,59 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField edtValueParam1;
+    private javax.swing.JTextField edtValueParam2;
+    private javax.swing.JTextField edtValueParam3;
+    private javax.swing.JTextField edtValueParam4;
+    private javax.swing.JTextField edtValueParam5;
+    private javax.swing.JTextField edtValueParam6;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JLabel lblStepStartedDtm;
-    private javax.swing.JLabel lblStepStartedDtm1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblDtmStopActDay;
+    private javax.swing.JLabel lblDtmStopActHou;
+    private javax.swing.JLabel lblDtmStopActMin;
+    private javax.swing.JLabel lblDtmStopActMon;
+    private javax.swing.JLabel lblDtmStopActYear;
+    private javax.swing.JLabel lblDtmStopAct_p1;
+    private javax.swing.JLabel lblDtmStopAct_p2;
+    private javax.swing.JLabel lblDtmStopAct_p3;
+    private javax.swing.JLabel lblDtmValueDayParam1;
+    private javax.swing.JLabel lblDtmValueDayParam2;
+    private javax.swing.JLabel lblDtmValueDayParam3;
+    private javax.swing.JLabel lblDtmValueHouParam1;
+    private javax.swing.JLabel lblDtmValueHouParam2;
+    private javax.swing.JLabel lblDtmValueHouParam3;
+    private javax.swing.JLabel lblDtmValueMinParam1;
+    private javax.swing.JLabel lblDtmValueMinParam2;
+    private javax.swing.JLabel lblDtmValueMinParam3;
+    private javax.swing.JLabel lblDtmValueMonParam1;
+    private javax.swing.JLabel lblDtmValueMonParam2;
+    private javax.swing.JLabel lblDtmValueMonParam3;
+    private javax.swing.JLabel lblDtmValueYearParam1;
+    private javax.swing.JLabel lblDtmValueYearParam2;
+    private javax.swing.JLabel lblDtmValueYearParam3;
+    private javax.swing.JLabel lblP1Param1;
+    private javax.swing.JLabel lblP1Param2;
+    private javax.swing.JLabel lblP1Param3;
+    private javax.swing.JLabel lblP2Param1;
+    private javax.swing.JLabel lblP2Param2;
+    private javax.swing.JLabel lblP2Param3;
+    private javax.swing.JLabel lblP3Param1;
+    private javax.swing.JLabel lblP3Param2;
+    private javax.swing.JLabel lblP3Param3;
+    private javax.swing.JLabel lblStepStartDtmTitle;
+    private javax.swing.JLabel lblStepStartDtmValue;
+    private javax.swing.JLabel lblStepStopDtmActTitle;
+    private javax.swing.JLabel lblStepStopDtmCalcTitle;
+    private javax.swing.JLabel lblStepStopDtmCalcValue;
+    private javax.swing.JLabel lblStepTitle;
+    private javax.swing.JLabel lblTitleMain;
+    private javax.swing.JLabel lblTitleStepParam1;
+    private javax.swing.JLabel lblTitleStepParam2;
+    private javax.swing.JLabel lblTitleStepParam3;
+    private javax.swing.JLabel lblTitleStepParam4;
+    private javax.swing.JLabel lblTitleStepParam5;
+    private javax.swing.JLabel lblTitleStepParam6;
     // End of variables declaration//GEN-END:variables
 }

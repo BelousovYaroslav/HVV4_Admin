@@ -72,6 +72,23 @@ public class HVV_Admin4 {
     private final Font m_fontBold;
     public Font GetBoldFont() { return m_fontBold; }
     
+    private final HVV_AdminStepNames m_pStepNames;
+    public String GetStepName( int nId) {
+        String result = null;
+        if( m_pStepNames.m_mapSteps.containsKey( String.format( "%03d", nId))) {
+            ItemStepNames st = ( ItemStepNames) m_pStepNames.m_mapSteps.get( String.format( "%03d", nId));
+            result = st.GetName();
+        }
+        return result;
+    }
+    public String GetStepNameWithNum( int nId) {
+        String result = null;
+        if( m_pStepNames.m_mapSteps.containsKey( String.format( "%03d", nId))) {
+            ItemStepNames st = ( ItemStepNames) m_pStepNames.m_mapSteps.get( String.format( "%03d", nId));
+            result = st.GetNum() + " " + st.GetName();
+        }
+        return result;
+    }
     
     private boolean m_bCurrentStepInProgress;
     public boolean IsCurrentStepInProgress() { return m_bCurrentStepInProgress; }
@@ -194,6 +211,9 @@ public class HVV_Admin4 {
         
         //SETTINGS
         m_pSettings = new HVV_Admin4Settings( m_strAMSrootEnvVar);
+        
+        //STEP NAMES
+        m_pStepNames = new HVV_AdminStepNames( m_strAMSrootEnvVar);
         
         //PLANNER
         m_pPlanner = new HVV_AdminPlanner( this);

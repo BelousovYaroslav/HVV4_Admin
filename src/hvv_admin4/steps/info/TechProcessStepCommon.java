@@ -20,6 +20,9 @@ import java.util.logging.Logger;
 public class TechProcessStepCommon {
     HVV_Admin4 theApp;
     
+    private boolean m_bRestoredAfterFail;
+    public void SetRestoredAfterFailFlag( boolean bVal) { m_bRestoredAfterFail = bVal;}
+    
     //START
     private Date m_dtStart;
     public Date GetStartDate() { return m_dtStart;}
@@ -47,6 +50,7 @@ public class TechProcessStepCommon {
         theApp = app;                
         m_strStartReportTitle = null;
         m_strStopReportTitle = null;
+        m_bRestoredAfterFail = false;
     }
     
     public TechProcessStepCommon( HVV_Admin4 app, ObjectInputStream is)  throws IOException, ClassNotFoundException {
@@ -55,6 +59,7 @@ public class TechProcessStepCommon {
         m_strStartReportTitle   = ( String) is.readObject();
         m_dtStop                = ( Date) is.readObject();
         m_strStopReportTitle    = ( String) is.readObject();
+        m_bRestoredAfterFail = false;
     }
     
     @Override
