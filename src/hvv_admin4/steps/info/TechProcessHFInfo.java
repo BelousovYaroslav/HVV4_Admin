@@ -6,6 +6,7 @@
 package hvv_admin4.steps.info;
 
 import hvv_admin4.HVV_Admin4;
+import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.LinkedList;
@@ -25,15 +26,15 @@ public class TechProcessHFInfo extends TechProcessStepCommon {
     public int GetInductor() { return m_nInductor; }
     public void SetInductor( int nInductor) { m_nInductor = nInductor; }
     
-    public TechProcessHFInfo( HVV_Admin4 app) {
-        super( app);
+    public TechProcessHFInfo() {
+        super();
         
         m_nGetter = -1;
         m_nInductor = -1;
     }
     
-    public TechProcessHFInfo( HVV_Admin4 app, ObjectInputStream is) throws IOException, ClassNotFoundException {
-        super( app, is);
+    public TechProcessHFInfo( ObjectInputStream is) throws IOException, ClassNotFoundException {
+        super( is);
         m_nGetter = is.readInt();
         m_nInductor = is.readInt();
         m_lstProgram = ( LinkedList) is.readObject();
@@ -46,8 +47,8 @@ public class TechProcessHFInfo extends TechProcessStepCommon {
         if( GetStartDate() == null)
             strResult += "dtStart: NULL" + "\n";
         else
-            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStartDate()) +
-                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStartDate()) + "\n";
+            strResult += "dtStart: " + ReportGenerator.Gen_NiceDate(GetStartDate()) +
+                         " " + ReportGenerator.Gen_NiceTime(GetStartDate()) + "\n";
         
         if( GetStartReportTitle() == null)
             strResult += "strStart: NULL" + "\n";
@@ -58,8 +59,8 @@ public class TechProcessHFInfo extends TechProcessStepCommon {
         if( GetStopDate() == null)
             strResult += "dtStop: NULL" + "\n";
         else
-            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStopDate()) +
-                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
+            strResult += "dtStart: " + ReportGenerator.Gen_NiceDate(GetStopDate()) +
+                         " " + ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
 
         if( GetStopReportTitle() == null)
             strResult += "strStop: NULL" + "\n";

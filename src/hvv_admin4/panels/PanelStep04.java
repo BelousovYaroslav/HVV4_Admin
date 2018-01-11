@@ -307,8 +307,8 @@ public class PanelStep04 extends TechProcessStepPanelTemplate {
     private void btn_04_01_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_04_01_StartActionPerformed
         theApp.SetCurrentStep( 61);
         
-        TechProcessStepCommon info = new TechProcessStepCommon( theApp);
-        info.SetStartDateAsCurrent();
+        TechProcessStepCommon info = new TechProcessStepCommon();
+        info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info.SetStartReportTitle( "Рассчёт времени проведения термообезгаживания");
         theApp.SaveStepInfo( "061", info, true);
         

@@ -297,7 +297,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         
         TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetCommonStep( String.format( "%03d", theApp.GetCurrentStep()));
-        info.SetStopDateAsCurrent();
+        info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         
         //начальное напряжение на аноде
         Double dblValue = 0.;
@@ -492,8 +492,8 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                 inf.SetStartReportTitle( "1ый цикл. Обработка по длинному плечу.");
                 theApp.SaveStepInfo( "041", inf, false);
                 
-                TechProcessHvProcessInfo infhv = new TechProcessHvProcessInfo( theApp);
-                infhv.SetStartDateAsCurrent();
+                TechProcessHvProcessInfo infhv = new TechProcessHvProcessInfo();
+                infhv.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 infhv.SetStartReportTitle( "1ый цикл. Обработка по коротким плечам.");
                 theApp.SaveStepInfo( "042", infhv, false);
             }
@@ -505,8 +505,8 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
                 inf.SetStartReportTitle( "2ой цикл. Обработка по длинному плечу.");
                 theApp.SaveStepInfo( "043", inf, false);
                 
-                TechProcessHvProcessInfo infhv = new TechProcessHvProcessInfo( theApp);
-                infhv.SetStartDateAsCurrent();
+                TechProcessHvProcessInfo infhv = new TechProcessHvProcessInfo();
+                infhv.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 infhv.SetStartReportTitle( "2ой цикл. Обработка по коротким плечам.");
                 theApp.SaveStepInfo( "044", infhv, false);
             }

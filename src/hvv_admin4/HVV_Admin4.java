@@ -246,6 +246,8 @@ public class HVV_Admin4 {
         
         m_nArm = dlgArmSelect.GetSelectedArm();
         
+        m_dtTOend = null;
+        
         m_pStateKeeper = new HVV_StateKeeper( this);
         if( m_pStateKeeper.CheckStateKeeperFileExistance()) {
             int nResponce = MessageBoxAskYesNo( "Обнаружен файл хранения состояния.\nВосстановить состояние предыдущего запуска?", "HVV_Admin");
@@ -276,7 +278,7 @@ public class HVV_Admin4 {
         //m_nCurrentProcessStep = 1;
         
         m_bCurrentStepInProgress = false;
-        m_dtTOend = null;
+        
                 
         GregorianCalendar clndr = new GregorianCalendar();
         clndr.setTime( new Date( System.currentTimeMillis() - 1000 * 60 * 60 * m_pSettings.GetTimeZoneShift()));

@@ -102,8 +102,8 @@ public class PanelMessage extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed
-        TechProcessStepCommon info = new TechProcessStepCommon( theApp);
-        info.SetStartDateAsCurrent();
+        TechProcessStepCommon info = new TechProcessStepCommon();
+        info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info.SetStartReportTitle( "Завершение процесса э/в обработки");
         theApp.SaveStepInfo( "185", info, false);
         

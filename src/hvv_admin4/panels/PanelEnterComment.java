@@ -132,7 +132,7 @@ public class PanelEnterComment extends javax.swing.JPanel {
         
         TechProcessCommentInfo info = ( TechProcessCommentInfo) theApp.GetCommonStep( String.format( "%03d", theApp.GetCurrentStep()));
         info.m_strComment = edtComment.getText();
-        info.SetStopDateAsCurrent();
+        info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info.SetStopReportTitle( "");
         
         switch( theApp.GetCurrentStep()) {
@@ -165,7 +165,7 @@ public class PanelEnterComment extends javax.swing.JPanel {
     private void btnFailStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFailStopActionPerformed
         TechProcessCommentInfo info = ( TechProcessCommentInfo) theApp.GetCommonStep( String.format( "%03d", theApp.GetCurrentStep()));
         info.m_strComment = edtComment.getText();
-        info.SetStopDateAsCurrent();
+        info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info.SetStopReportTitle( "");
         
         theApp.SetFailInMiddleFlag( true);

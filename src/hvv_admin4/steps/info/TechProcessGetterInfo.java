@@ -6,6 +6,7 @@
 package hvv_admin4.steps.info;
 
 import hvv_admin4.HVV_Admin4;
+import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Date;
@@ -16,12 +17,12 @@ import java.util.Date;
  */
 public class TechProcessGetterInfo extends TechProcessStepCommon {
     
-    public TechProcessGetterInfo(HVV_Admin4 app) {
-        super(app);
+    public TechProcessGetterInfo() {
+        super();
     }
     
-    public TechProcessGetterInfo( HVV_Admin4 app, ObjectInputStream is) throws IOException, ClassNotFoundException {
-        super( app, is);
+    public TechProcessGetterInfo( ObjectInputStream is) throws IOException, ClassNotFoundException {
+        super( is);
         m_dtEffusion4v = ( Date) is.readObject();
         m_dblEffusion4v = is.readDouble();
         m_dtEffusion9v = ( Date) is.readObject();
@@ -56,8 +57,8 @@ public class TechProcessGetterInfo extends TechProcessStepCommon {
         if( GetStartDate() == null)
             strResult += "dtStart: NULL" + "\n";
         else
-            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStartDate()) +
-                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStartDate()) + "\n";
+            strResult += "dtStart: " + ReportGenerator.Gen_NiceDate(GetStartDate()) +
+                         " " + ReportGenerator.Gen_NiceTime(GetStartDate()) + "\n";
         
         if( GetStartReportTitle() == null)
             strResult += "strStart: NULL" + "\n";
@@ -68,8 +69,8 @@ public class TechProcessGetterInfo extends TechProcessStepCommon {
         if( GetStopDate() == null)
             strResult += "dtStop: NULL" + "\n";
         else
-            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceDate(GetStopDate()) +
-                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
+            strResult += "dtStart: " + ReportGenerator.Gen_NiceDate(GetStopDate()) +
+                         " " + ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
         
         if( GetStopReportTitle() == null)
             strResult += "strStop: NULL" + "\n";
@@ -80,8 +81,8 @@ public class TechProcessGetterInfo extends TechProcessStepCommon {
         if( m_dtEffusion4v == null)
             strResult += "m_dtEffusion4v: NULL" + "\n";
         else
-            strResult += "m_dtEffusion4v: " + theApp.m_ReportGenerator.Gen_NiceDate( m_dtEffusion4v) +
-                         " " + theApp.m_ReportGenerator.Gen_NiceTime( m_dtEffusion4v) + "\n";
+            strResult += "m_dtEffusion4v: " + ReportGenerator.Gen_NiceDate( m_dtEffusion4v) +
+                         " " + ReportGenerator.Gen_NiceTime( m_dtEffusion4v) + "\n";
         
         strResult += "m_dblEffusion4v: " + String.format( "%.03f", m_dblEffusion4v);
         
@@ -89,8 +90,8 @@ public class TechProcessGetterInfo extends TechProcessStepCommon {
         if( m_dtEffusion9v == null)
             strResult += "m_dtEffusion9v: NULL" + "\n";
         else
-            strResult += "m_dtEffusion9v: " + theApp.m_ReportGenerator.Gen_NiceDate( m_dtEffusion9v) +
-                         " " + theApp.m_ReportGenerator.Gen_NiceTime( m_dtEffusion9v) + "\n";
+            strResult += "m_dtEffusion9v: " + ReportGenerator.Gen_NiceDate( m_dtEffusion9v) +
+                         " " + ReportGenerator.Gen_NiceTime( m_dtEffusion9v) + "\n";
         
         strResult += "m_dblEffusion9v: " + String.format( "%.03f", m_dblEffusion9v);
         
@@ -98,8 +99,8 @@ public class TechProcessGetterInfo extends TechProcessStepCommon {
         if( m_dtTurnOff9v == null)
             strResult += "m_dtTurnOff9v: NULL" + "\n";
         else
-            strResult += "m_dtTurnOff9v: " + theApp.m_ReportGenerator.Gen_NiceDate( m_dtTurnOff9v) +
-                         " " + theApp.m_ReportGenerator.Gen_NiceTime( m_dtTurnOff9v) + "\n";
+            strResult += "m_dtTurnOff9v: " + ReportGenerator.Gen_NiceDate( m_dtTurnOff9v) +
+                         " " + ReportGenerator.Gen_NiceTime( m_dtTurnOff9v) + "\n";
         
         return strResult;
     }

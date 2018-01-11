@@ -345,7 +345,7 @@ public class PanelEnterCVC extends javax.swing.JPanel {
         
         TechProcessUacProcessInfo info = ( TechProcessUacProcessInfo)
                 theApp.GetCommonStep( String.format( "%03d", theApp.GetCurrentStep()));
-        info.SetStopDateAsCurrent();
+        info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         //info.SetStopReportTitle( "");
         
         try {
@@ -370,8 +370,8 @@ public class PanelEnterCVC extends javax.swing.JPanel {
         theApp.SetCurrentStep( theApp.GetCurrentStep() + 1);
         
         
-        TechProcessCommentInfo info2 = new TechProcessCommentInfo( theApp);
-        info2.SetStartDateAsCurrent();
+        TechProcessCommentInfo info2 = new TechProcessCommentInfo();
+        info2.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         if( theApp.GetCurrentStep() == 83)
             info2.SetStartReportTitle( "Промежуточный комментарий");
         else

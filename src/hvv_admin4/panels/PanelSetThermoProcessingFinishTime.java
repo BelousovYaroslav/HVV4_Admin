@@ -35,8 +35,8 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
         
         updateData();
         
-        TechProcessStepCommon info = new TechProcessStepCommon( theApp);
-        info.SetStartDateAsCurrent();
+        TechProcessStepCommon info = new TechProcessStepCommon();
+        info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info.SetStartReportTitle( "Рассчёт времени окончания термообезгаживания");
         theApp.SaveStepInfo( String.format( "061", theApp.GetCurrentStep()), info, true);
         
@@ -381,7 +381,7 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
         m_tmrRefreshTimer.stop();
         
         TechProcessStepCommon info = theApp.GetCommonStep( "061");
-        info.SetStopDateAsCurrent();
+        info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info.SetStopReportTitle( "");
         
         theApp.SetCurrentStep( 62);

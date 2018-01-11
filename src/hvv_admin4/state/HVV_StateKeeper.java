@@ -22,6 +22,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import javax.swing.JOptionPane;
+import javax.swing.plaf.OptionPaneUI;
 import org.apache.log4j.Logger;
 
 /**
@@ -64,7 +66,7 @@ public class HVV_StateKeeper {
     
     private TechProcessStepCommon ReadCommonPoint( ObjectInputStream ois) throws IOException {
         
-        TechProcessStepCommon info = new TechProcessStepCommon( theApp);
+        TechProcessStepCommon info = new TechProcessStepCommon();
         try {            
             info.SetStartDate( ( Date) ois.readObject());
             info.SetStartReportTitle( ( String) ois.readObject());
@@ -102,7 +104,7 @@ public class HVV_StateKeeper {
     
     private TechProcessHvProcessInfo ReadHvPoint( ObjectInputStream ois) throws IOException {
         
-        TechProcessHvProcessInfo info = new TechProcessHvProcessInfo( theApp);
+        TechProcessHvProcessInfo info = new TechProcessHvProcessInfo();
         try {
             info.SetStartDate( ( Date)          ois.readObject());
             info.SetStartReportTitle( ( String) ois.readObject());
@@ -144,7 +146,7 @@ public class HVV_StateKeeper {
     
     private TechProcessGetterInfo ReadGetterInfoPoint( ObjectInputStream ois) throws IOException {
         
-        TechProcessGetterInfo info = new TechProcessGetterInfo( theApp);
+        TechProcessGetterInfo info = new TechProcessGetterInfo();
         try {
             info.SetStartDate( ( Date)          ois.readObject());
             info.SetStartReportTitle( ( String) ois.readObject());
@@ -187,7 +189,7 @@ public class HVV_StateKeeper {
     
     private TechProcessGetterInfo ReadIgenIextPoint( ObjectInputStream ois) throws IOException {
         
-        TechProcessGetterInfo info = new TechProcessGetterInfo( theApp);
+        TechProcessGetterInfo info = new TechProcessGetterInfo();
         try {
             info.SetStartDate( ( Date)          ois.readObject());
             info.SetStartReportTitle( ( String) ois.readObject());
@@ -217,6 +219,12 @@ public class HVV_StateKeeper {
             oos.writeInt( theApp.GetCurrentStep());         //текущий шаг
             oos.writeUTF( theApp.GetSerial());              //серийный номер прибора
             oos.writeInt( theApp.GetProcessedDeviceType()); //тип прибора (размер: МЛГ-СЛГ-БЛГ)
+            
+            //дата завершения ТО
+            if( theApp.GetDtmTOEnd() == null) 
+                oos.writeObject( new Date( 1,1,1900));
+            else
+                oos.writeObject( theApp.GetDtmTOEnd());         
             
             Set set = theApp.SecretSteps().entrySet();
             Iterator it = set.iterator();
@@ -271,21 +279,28 @@ public class HVV_StateKeeper {
             ObjectInputStream ois = new ObjectInputStream( fis);
             
             
-            int nLastWrittenStep = ois.readInt();   //текущее состояние (этап)
-            String strSerial = ois.readUTF();       //серийный номер прибора
-            int nDeviceType = ois.readInt();        //тип прибора (размер: МЛГ-СЛГ-БЛГ)
+            int nLastWrittenStep = ois.readInt();           //текущее состояние (этап)
+            String strSerial = ois.readUTF();               //серийный номер прибора
+            int nDeviceType = ois.readInt();                //тип прибора (размер: МЛГ-СЛГ-БЛГ)
             
+            //дата завершения ТО
+            Date dt = ( Date) ois.readObject();
+            if( dt.getYear() != 1900)
+                theApp.SetDtmTOEnd( dt);
+            else
+                theApp.SetDtmTOEnd( null);
             
             String strStepNumber = String.format( "%03d", nLastWrittenStep);
             boolean bContinue;
+            String strStep;
             do {
-                String strStep = ois.readUTF();
+                strStep = ois.readUTF();
                 switch( strStep) {
                     case "001":
                     case "061":
                     case "062":
                     case "064":
-                        theApp.SecretSteps().put( strStep, new TechProcessStepCommon( theApp, ois)); break;
+                        theApp.SecretSteps().put( strStep, new TechProcessStepCommon( ois)); break;
                     
                     case "021":
                     case "022":
@@ -293,19 +308,19 @@ public class HVV_StateKeeper {
                     case "042":
                     case "043":
                     case "044":
-                        theApp.SecretSteps().put( strStep, new TechProcessHvProcessInfo(theApp, ois)); break;
+                        theApp.SecretSteps().put( strStep, new TechProcessHvProcessInfo( ois)); break;
                         
                     case "063":
-                        theApp.SecretSteps().put( strStep, new TechProcessGetterInfo(theApp, ois)); break;
+                        theApp.SecretSteps().put( strStep, new TechProcessGetterInfo( ois)); break;
                         
                     case "081":
-                        theApp.SecretSteps().put( strStep, new TechProcessIgenIextProcessInfo(theApp, ois)); break;
+                        theApp.SecretSteps().put( strStep, new TechProcessIgenIextProcessInfo( ois)); break;
                         
                     case "082":
-                        theApp.SecretSteps().put( strStep, new TechProcessUacProcessInfo(theApp, ois)); break;
+                        theApp.SecretSteps().put( strStep, new TechProcessUacProcessInfo( ois)); break;
                         
                     case "083":
-                        theApp.SecretSteps().put( strStep, new TechProcessCommentInfo(theApp, ois)); break;
+                        theApp.SecretSteps().put( strStep, new TechProcessCommentInfo( ois)); break;
                     
                 }
                 int nAvailable = fis.available();
@@ -316,51 +331,101 @@ public class HVV_StateKeeper {
             ois.close();
             fis.close();
             
-            //Последний этап = strStepNumber
-            //Закончен ли он?
-            boolean bEnded = !( theApp.GetCommonStep( strStepNumber).GetStopDate() == null);
-            
-            String strMessage =
-                    "<html>Согласно файлу состояния, в предыдущем запуске,последним был этап " + strStepNumber +
-                    ", и он " + ( bEnded ? "был закончен" : "не был закончен");
-            strMessage += ".<br><br>Какой выставить текущий этап?</html>";
-            
-            
-            //обычное сбитие, предлагаем текущий или следущий этапы
-            PrevStateRestoreDlgCommon dlg = new PrevStateRestoreDlgCommon( null, true);
+            boolean bDrop = false;
+            switch( strStepNumber) {
+                case "000": break;
+                case "001": break;
+                    
+                case "021":
+                case "022":
+                case "042":
+                case "044": {
+                    TechProcessHvProcessInfo stepInfo = ( TechProcessHvProcessInfo) theApp.GetHvStep( strStepNumber);
+                    RestoreHvStep1 dlg = new RestoreHvStep1();
+                    dlg.configureAsHv( theApp.GetStepNameWithNum( new Integer( strStepNumber)), stepInfo, theApp.GetSettings().GetProcessingTime_2());
+                    dlg.setVisible( true);
+                    
+                    bDrop = dlg.m_bDrop;
+                    if( !bDrop) {
+                        stepInfo.SetStopDate( dlg.m_gdtmDtmStopActual.getTime());
+                        stepInfo.SetAnStart( new Double( dlg.edtValueParam1.getText()));
+                        stepInfo.SetTuStart( new Double( dlg.edtValueParam2.getText()));
+                        stepInfo.SetAnStop(  new Double( dlg.edtValueParam3.getText()));
+                        stepInfo.SetTuStop(  new Double( dlg.edtValueParam4.getText()));
+                    }
+                }
+                break;
+                    
+                case "041":
+                case "043": {
+                    if( theApp.MessageBoxAskYesNo( "Удалось ли зажечь прибор по длинному плечу?", "HVV_Admin4") == JOptionPane.YES_OPTION) {
+                        
+                    }
+                    else {
+                        //т.е. тут нужно зафиксировать двойной по длительности процесс обработки по коротким плечам
+                        TechProcessHvProcessInfo stepInfo = ( TechProcessHvProcessInfo) theApp.GetHvStep( strStepNumber);
+                        RestoreHvStep1 dlg = new RestoreHvStep1();
+                        dlg.configureAsHv( theApp.GetStepNameWithNum( new Integer( strStepNumber)), stepInfo, theApp.GetSettings().GetProcessingTime_2());
+                        dlg.setVisible( true);
 
+                        bDrop = dlg.m_bDrop;
+                        if( !bDrop) {
+                            stepInfo.SetStopDate( dlg.m_gdtmDtmStopActual.getTime());
+                            stepInfo.SetAnStart( new Double( dlg.edtValueParam1.getText()));
+                            stepInfo.SetTuStart( new Double( dlg.edtValueParam2.getText()));
+                            stepInfo.SetAnStop(  new Double( dlg.edtValueParam3.getText()));
+                            stepInfo.SetTuStop(  new Double( dlg.edtValueParam4.getText()));
+                        }
+                        
+                        theApp.SecretSteps().remove( strStepNumber);
+                        if( strStepNumber.equals( "041")) nLastWrittenStep = 42;
+                        if( strStepNumber.equals( "043")) nLastWrittenStep = 44;
+                        theApp.SaveStepInfo( String.format( "%03d", nLastWrittenStep), stepInfo, false);
+                    }
+                }
+                break;
+                    
+                case "061": break;
+                case "062": break;
+                case "063": break;
+                case "064": break;
+                    
+                case "081": break;
+                case "082": break;
+                    
+                case "101": break;
+                case "102": break;
+                case "103": break;
+                case "104": break;
+                case "105": break;
+                case "106": break;
+                
+                case "121": break;
+                case "122": break;
+                
+                case "141": break;
+                case "142": break;
+                case "143": break;
+                case "144": break;
+                    
+                case "161": break;
+                case "162": break;
+                    
+                case "181": break;
+                case "182": break;
+                case "183": break;
+                case "184": break;
+            }
+            
             theApp.SetCurrentStep( nLastWrittenStep);
             theApp.NextCurrentStep();
             int nPotentialNextStep = theApp.GetCurrentStep();
 
-            dlg.m_strLabel.setText( strMessage);
-            dlg.m_rad1.setText( String.format("%03d", nLastWrittenStep));
-            dlg.m_rad2.setText( String.format("%03d", nPotentialNextStep));
-
-            dlg.setVisible( true);
-            if( dlg.m_bDrop == false) {
+            if( bDrop == false) {
                 theApp.SetSerial( strSerial);
                 theApp.SetProcessedDeviceType( nDeviceType);
-                
-                if( dlg.m_rad1.isSelected()) {                    
-                    theApp.SetCurrentStep( nLastWrittenStep);
-                    theApp.SecretSteps().remove( String.format("%03d", nLastWrittenStep));
-                }
-                else {
-                    /*
-                    TechProcessStepCommon info = theApp.GetCommonStep( String.format("%03d", nLastWrittenStep));
-                    info.SetStopDateAsCurrent();
-                    info.SetStopReportTitle( "Этап отмечен как завершенный вручную, после перезапуска адм. модуля");
-                    */
+                theApp.SetCurrentStep( nPotentialNextStep);
                     
-                    theApp.SetCurrentStep( nPotentialNextStep);
-                    
-                    /*
-                    TechProcessStepCommon info = new TechProcessStepCommon(theApp);
-                    info.SetStartDateAsCurrent();
-                    */
-                }
-
                 /*
                 switch( theApp.GetCurrentStep()) {
                     case 42:    theApp.ShowDlg2_1();    break;

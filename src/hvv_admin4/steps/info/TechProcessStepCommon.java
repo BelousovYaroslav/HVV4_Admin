@@ -10,16 +10,12 @@ import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author yaroslav
  */
 public class TechProcessStepCommon {
-    HVV_Admin4 theApp;
-    
     private boolean m_bRestoredAfterFail;
     public void SetRestoredAfterFailFlag( boolean bVal) { m_bRestoredAfterFail = bVal;}
     
@@ -27,7 +23,7 @@ public class TechProcessStepCommon {
     private Date m_dtStart;
     public Date GetStartDate() { return m_dtStart;}
     public void SetStartDate( Date dt) { m_dtStart = dt;}
-    public void SetStartDateAsCurrent() { m_dtStart = theApp.GetLocalDate();}
+    public void SetStartDateAsCurrent( int nHourShift) { m_dtStart = GetLocalDate( nHourShift);}
     
     private String m_strStartReportTitle;
     public String GetStartReportTitle() { return m_strStartReportTitle;}
@@ -38,7 +34,7 @@ public class TechProcessStepCommon {
     private Date m_dtStop;
     public Date GetStopDate() { return m_dtStop;}
     public void SetStopDate( Date dt) { m_dtStop = dt;}
-    public void SetStopDateAsCurrent() { m_dtStop = theApp.GetLocalDate();}
+    public void SetStopDateAsCurrent( int nHourShift) { m_dtStop = GetLocalDate( nHourShift);}
     
     private String m_strStopReportTitle;
     public String GetStopReportTitle() { return m_strStopReportTitle;}
@@ -46,15 +42,13 @@ public class TechProcessStepCommon {
     
     
     
-    public TechProcessStepCommon( HVV_Admin4 app) {
-        theApp = app;                
+    public TechProcessStepCommon() {
         m_strStartReportTitle = null;
         m_strStopReportTitle = null;
         m_bRestoredAfterFail = false;
     }
     
-    public TechProcessStepCommon( HVV_Admin4 app, ObjectInputStream is)  throws IOException, ClassNotFoundException {
-        theApp = app;
+    public TechProcessStepCommon( ObjectInputStream is)  throws IOException, ClassNotFoundException {
         m_dtStart               = ( Date) is.readObject();
         m_strStartReportTitle   = ( String) is.readObject();
         m_dtStop                = ( Date) is.readObject();
@@ -98,5 +92,9 @@ public class TechProcessStepCommon {
         out.writeObject( m_strStartReportTitle);
         out.writeObject( m_dtStop);
         out.writeObject( m_strStopReportTitle);
+    }
+    
+    public Date GetLocalDate( int nShiftHour) {
+        return new Date( System.currentTimeMillis() - 1000 * 60 * 60 * nShiftHour);
     }
 }

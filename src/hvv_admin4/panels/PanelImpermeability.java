@@ -82,7 +82,7 @@ public class PanelImpermeability extends javax.swing.JPanel {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         TechProcessStepCommon info = theApp.GetCommonStep( "001");
-        info.SetStopDateAsCurrent();
+        info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info.SetStopReportTitle( "Подтверждение герметичности установки");
         
         theApp.SetCurrentStep( 21);

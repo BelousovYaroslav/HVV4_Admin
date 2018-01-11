@@ -203,8 +203,8 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             case 22:    //2.2 Обработка O2. второй цикл
                 if( theApp.IsCurrentStepInProgress()) {
                     
-                    TechProcessHvProcessInfo info = new TechProcessHvProcessInfo( theApp);
-                    info.SetStartDateAsCurrent();
+                    TechProcessHvProcessInfo info = new TechProcessHvProcessInfo();
+                    info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                     if( theApp.GetCurrentStep() == 21) info.SetStartReportTitle( "Старт первого цикла обработки");
                     if( theApp.GetCurrentStep() == 22) info.SetStartReportTitle( "Старт второго цикла обработки");
                     theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
@@ -230,8 +230,8 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             case 43:    //3.3 O2-Ne20. Обработка. 2oй цикл.
                 if( theApp.IsCurrentStepInProgress()) {
                     
-                    TechProcessHvProcessInfo info = new TechProcessHvProcessInfo( theApp);
-                    info.SetStartDateAsCurrent();
+                    TechProcessHvProcessInfo info = new TechProcessHvProcessInfo();
+                    info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                     if( theApp.GetCurrentStep() == 41) info.SetStartReportTitle( "1 цикл. Обработка по длинному плечу");
                     if( theApp.GetCurrentStep() == 43) info.SetStartReportTitle( "2 цикл. Обработка по длинному плечу");
                     theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
@@ -258,8 +258,8 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             
             case 64:    //4.4 Заполнение рабочей смесью. выжержка
             {
-                TechProcessStepCommon info = new TechProcessStepCommon( theApp);
-                info.SetStartDateAsCurrent();
+                TechProcessStepCommon info = new TechProcessStepCommon();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 info.SetStartReportTitle( "Старт выдержки");
                 theApp.SaveStepInfo( "064", info, true);
         
@@ -275,8 +275,8 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             case 103:   //6.3 Тренировка катода. 2ой цикл. выдержка
             case 105:   //6.5 Тренировка катода. 3ий цикл. выдержка
             {
-                TechProcessStepCommon info = new TechProcessStepCommon( theApp);
-                info.SetStartDateAsCurrent();
+                TechProcessStepCommon info = new TechProcessStepCommon();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 info.SetStartReportTitle( "Старт выдержки");
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
         
@@ -294,8 +294,8 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             case 104:   //6.4 Тренировка катода. 2ой цикл
             case 106:   //6.6 Тренировка катода. 3ий цикл
             {
-                TechProcessHvProcessInfo info = new TechProcessHvProcessInfo( theApp);
-                info.SetStartDateAsCurrent();
+                TechProcessHvProcessInfo info = new TechProcessHvProcessInfo();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 info.SetStartReportTitle( "Старт " + ( 1 + ( theApp.GetCurrentStep() - 102) / 2) + "-го цикла тренировки");
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
 
@@ -317,8 +317,8 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             case 141:   //8.1 Выдержка тренировочной смеси
             case 143:   //8.3 Выдержка тренировочной смеси
             {
-                TechProcessStepCommon info = new TechProcessStepCommon( theApp);
-                info.SetStartDateAsCurrent();
+                TechProcessStepCommon info = new TechProcessStepCommon();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 info.SetStartReportTitle( "Старт выдержки");
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
         
@@ -335,8 +335,8 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             case 142:   //8.2 Тренировка в тренировочной смеси. 1ый цикл.
             case 144:   //8.4 Тренировка в тренировочной смеси. 2ой цикл.
             {
-                TechProcessHvProcessInfo info = new TechProcessHvProcessInfo( theApp);
-                info.SetStartDateAsCurrent();
+                TechProcessHvProcessInfo info = new TechProcessHvProcessInfo();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 info.SetStartReportTitle( "Старт " + ( 1 + ( theApp.GetCurrentStep() - 142) / 2) + "-го цикла тренировки");
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
 
@@ -358,8 +358,8 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             
             case 181:   //10.1 Выдержка
             {
-                TechProcessStepCommon info = new TechProcessStepCommon( theApp);
-                info.SetStartDateAsCurrent();
+                TechProcessStepCommon info = new TechProcessStepCommon();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 info.SetStartReportTitle( "Старт выдержки");
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
         

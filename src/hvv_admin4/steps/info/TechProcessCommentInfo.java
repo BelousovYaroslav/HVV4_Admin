@@ -6,9 +6,9 @@
 package hvv_admin4.steps.info;
 
 import hvv_admin4.HVV_Admin4;
+import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectStreamException;
 
 /**
  *
@@ -17,12 +17,12 @@ import java.io.ObjectStreamException;
 public class TechProcessCommentInfo extends TechProcessStepCommon {
     public String m_strComment;
     
-    public TechProcessCommentInfo( HVV_Admin4 app) {
-        super( app);
+    public TechProcessCommentInfo() {
+        super();
     }
     
-    public TechProcessCommentInfo( HVV_Admin4 app, ObjectInputStream is) throws IOException, ClassNotFoundException {
-        super( app, is);
+    public TechProcessCommentInfo( ObjectInputStream is) throws IOException, ClassNotFoundException {
+        super( is);
         m_strComment = is.readUTF();
     }
     
@@ -33,8 +33,8 @@ public class TechProcessCommentInfo extends TechProcessStepCommon {
         if( GetStartDate() == null)
             strResult += "dtStart: NULL" + "\n";
         else
-            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceTime(GetStartDate()) +
-                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStartDate()) + "\n";
+            strResult += "dtStart: " + ReportGenerator.Gen_NiceTime(GetStartDate()) +
+                         " " + ReportGenerator.Gen_NiceTime(GetStartDate()) + "\n";
         
         if( GetStartReportTitle() == null)
             strResult += "strStart: NULL" + "\n";
@@ -45,8 +45,8 @@ public class TechProcessCommentInfo extends TechProcessStepCommon {
         if( GetStopDate() == null)
             strResult += "dtStop: NULL" + "\n";
         else
-            strResult += "dtStart: " + theApp.m_ReportGenerator.Gen_NiceTime(GetStopDate()) +
-                         " " + theApp.m_ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
+            strResult += "dtStart: " + ReportGenerator.Gen_NiceTime(GetStopDate()) +
+                         " " + ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
         
         if( GetStopReportTitle() == null)
             strResult += "strStop: NULL" + "\n";

@@ -135,8 +135,8 @@ public abstract class TechProcessStepPanelTemplate extends javax.swing.JPanel {
                                                 JCheckBox chkNextStep, Logger logger, boolean bLastSubStep) {
         
         //мы начинаем процесс
-        TechProcessStepCommon info = new TechProcessStepCommon( theApp);
-        info.SetStartDateAsCurrent();
+        TechProcessStepCommon info = new TechProcessStepCommon();
+        info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info.SetStartReportTitle( strCurrentStepStartTitle);
 
         theApp.SaveStepInfo( strCurrentStep, info, true);
@@ -158,15 +158,15 @@ public abstract class TechProcessStepPanelTemplate extends javax.swing.JPanel {
         if( theApp.IsStepMapContainsKey( strCurrentStep)) {
             TechProcessStepCommon info = theApp.GetCommonStep( strCurrentStep);
 
-            info.SetStopDateAsCurrent();
+            info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
             info.SetStopReportTitle( strCurrentStepStopTitle);
 
             theApp.NextCurrentStep();
 
             if( chkNextStep != null && chkNextStep.isSelected()) {
-                info = new TechProcessStepCommon( theApp);
+                info = new TechProcessStepCommon();
                 
-                info.SetStartDateAsCurrent();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 info.SetStartReportTitle( strNextStepStartTitle);
 
                 theApp.SaveStepInfo( strNextStep, info, true);

@@ -201,8 +201,8 @@ public class PanelStep09 extends TechProcessStepPanelTemplate {
     }//GEN-LAST:event_lbl_09_00_IcoStepMouseClicked
 
     private void btn_09_01_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_09_01_StartActionPerformed
-        TechProcessStepCommon info = new TechProcessGetterInfo( theApp);
-        info.SetStartDateAsCurrent();
+        TechProcessStepCommon info = new TechProcessGetterInfo();
+        info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info.SetStartReportTitle( "Начало процесса активации");
         theApp.SaveStepInfo( "161", info, true);
         

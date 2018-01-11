@@ -5,9 +5,12 @@
  */
 package hvv_admin4.state;
 
+import hvv_admin4.report.ReportGenerator;
+import hvv_admin4.steps.info.TechProcessHvProcessInfo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.swing.Timer;
 
@@ -17,17 +20,21 @@ import javax.swing.Timer;
  */
 public class RestoreHvStep1 extends javax.swing.JDialog {
 
-    final private GregorianCalendar m_gdtmDtmStopActual;
-    final private GregorianCalendar m_gdtmDtmParam1;
-    final private GregorianCalendar m_gdtmDtmParam2;
-    final private GregorianCalendar m_gdtmDtmParam3;
+    final public GregorianCalendar m_gdtmDtmStopActual;
+    final public GregorianCalendar m_gdtmDtmParam1;
+    final public GregorianCalendar m_gdtmDtmParam2;
+    final public GregorianCalendar m_gdtmDtmParam3;
+    
+    boolean m_bDrop;
+    
     /**
      * Creates new form RestoreHvStep
      */
+    
     public RestoreHvStep1() {
         initComponents();
         
-        jScrollPane1.setVisible( false);
+        paneBlob.setVisible( false);
         
         edtValueParam1.setVisible( false);
         edtValueParam2.setVisible( false);
@@ -38,14 +45,32 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         m_gdtmDtmParam2 = new GregorianCalendar( 2018, 1, 10, 22, 0);
         m_gdtmDtmParam3 = new GregorianCalendar( 2018, 1, 10, 22, 0);
         
+        /*
         new Timer( 100, new ActionListener() {
 
             @Override
             public void actionPerformed( ActionEvent e) {
                 ( ( Timer) e.getSource()).stop();
                 updateData();
+                
+                //configureAsMessage();
+                TechProcessHvProcessInfo info = new TechProcessHvProcessInfo();
+                info.SetStartDateAsCurrent( 1);
+                info.SetStartReportTitle( "START_REPORT_TITLE");
+                info.SetStopDateAsCurrent( 0);
+                info.SetStopReportTitle( "STOP_REPORT_TITLE");
+                info.SetAnStart( 1.);
+                info.SetTuStart( 2.);
+                info.SetAnStop(  3.);
+                info.SetTuStop(  4.);
+                configureAsHv( "FAKE_STEP_NAME", info, 300);
+                //configureAsGetterInfo();
+                //configureAsIgenIext();
+                
             }
         }).start();
+        */
+        m_bDrop = true;
     }
 
     /**
@@ -108,13 +133,15 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         lblTitleStepParam5 = new javax.swing.JLabel();
         edtValueParam6 = new javax.swing.JTextField();
         lblTitleStepParam6 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        paneBlob = new javax.swing.JScrollPane();
+        txtBlob = new javax.swing.JTextArea();
+        btnOk = new javax.swing.JButton();
+        btnDrop = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Восстановление этапа обработки O2-Ne20");
-        setPreferredSize(new java.awt.Dimension(400, 700));
+        setTitle("Восстановление этапа");
+        setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        setPreferredSize(new java.awt.Dimension(400, 750));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -122,7 +149,6 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         getContentPane().add(lblTitleMain);
         lblTitleMain.setBounds(10, 20, 380, 20);
 
-        lblStepTitle.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         lblStepTitle.setText("3.1 Обработка в среде О2-Ne20. 2ой цикл.");
         lblStepTitle.setToolTipText("");
         getContentPane().add(lblStepTitle);
@@ -223,7 +249,7 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
 
         lblTitleStepParam1.setText("Параметр 1");
         getContentPane().add(lblTitleStepParam1);
-        lblTitleStepParam1.setBounds(10, 260, 380, 30);
+        lblTitleStepParam1.setBounds(10, 270, 380, 20);
         getContentPane().add(edtValueParam1);
         edtValueParam1.setBounds(10, 290, 380, 30);
 
@@ -302,7 +328,7 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
 
         lblTitleStepParam2.setText("Параметр 2");
         getContentPane().add(lblTitleStepParam2);
-        lblTitleStepParam2.setBounds(10, 320, 380, 30);
+        lblTitleStepParam2.setBounds(10, 330, 380, 20);
         getContentPane().add(edtValueParam2);
         edtValueParam2.setBounds(10, 350, 380, 30);
 
@@ -381,7 +407,7 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
 
         lblTitleStepParam3.setText("Параметр 3");
         getContentPane().add(lblTitleStepParam3);
-        lblTitleStepParam3.setBounds(10, 380, 380, 30);
+        lblTitleStepParam3.setBounds(10, 390, 380, 20);
         getContentPane().add(edtValueParam3);
         edtValueParam3.setBounds(10, 410, 380, 30);
 
@@ -462,34 +488,243 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
 
         lblTitleStepParam4.setText("Параметр 4");
         getContentPane().add(lblTitleStepParam4);
-        lblTitleStepParam4.setBounds(10, 440, 380, 30);
+        lblTitleStepParam4.setBounds(10, 450, 380, 20);
         getContentPane().add(edtValueParam5);
         edtValueParam5.setBounds(10, 530, 380, 30);
 
         lblTitleStepParam5.setText("Параметр 5");
         getContentPane().add(lblTitleStepParam5);
-        lblTitleStepParam5.setBounds(10, 500, 380, 30);
+        lblTitleStepParam5.setBounds(10, 510, 380, 20);
         getContentPane().add(edtValueParam6);
         edtValueParam6.setBounds(10, 590, 380, 30);
 
         lblTitleStepParam6.setText("Параметр 6");
         getContentPane().add(lblTitleStepParam6);
-        lblTitleStepParam6.setBounds(10, 560, 380, 30);
+        lblTitleStepParam6.setBounds(10, 570, 380, 20);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtBlob.setColumns(20);
+        txtBlob.setRows(5);
+        paneBlob.setViewportView(txtBlob);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 292, 410, 40);
+        getContentPane().add(paneBlob);
+        paneBlob.setBounds(170, 292, 220, 330);
 
-        jButton1.setText("Подтвердить и продолжить");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(10, 630, 380, 40);
+        btnOk.setText("Подтвердить и продолжить");
+        btnOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOkActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnOk);
+        btnOk.setBounds(10, 630, 380, 40);
+
+        btnDrop.setText("Отменить восстановление");
+        btnDrop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDropActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDrop);
+        btnDrop.setBounds(10, 680, 380, 40);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void configureAsIgenIext() {
+        
+        lblStepStopDtmCalcTitle.setVisible( false);
+        lblStepStopDtmCalcValue.setVisible( false);
+        
+        lblStepStopDtmActTitle.setVisible( false);
+        lblDtmStopActDay.setVisible( false);        lblDtmStopAct_p1.setVisible( false);
+        lblDtmStopActMon.setVisible( false);        lblDtmStopAct_p2.setVisible( false);
+        lblDtmStopActYear.setVisible( false);
+        
+        lblDtmStopActHou.setVisible( false);        lblDtmStopAct_p3.setVisible( false);
+        lblDtmStopActMin.setVisible( false);
+        
+        lblTitleStepParam1.setText( "<html>Ток пропадания генерации на аноде</html>");
+        lblDtmValueDayParam1.setVisible( false);    lblP1Param1.setVisible( false);
+        lblDtmValueMonParam1.setVisible( false);    lblP2Param1.setVisible( false);
+        lblDtmValueYearParam1.setVisible( false);
+        lblDtmValueHouParam1.setVisible( false);    lblP3Param1.setVisible( false);
+        lblDtmValueMinParam1.setVisible( false);
+        edtValueParam1.setVisible( true);
+        
+        
+        lblTitleStepParam2.setText( "<html>Ток пропадания генерации на штенгеле</sub></html>");
+        lblDtmValueDayParam2.setVisible( false);    lblP1Param2.setVisible( false);
+        lblDtmValueMonParam2.setVisible( false);    lblP2Param2.setVisible( false);
+        lblDtmValueYearParam2.setVisible( false);
+        lblDtmValueHouParam2.setVisible( false);    lblP3Param2.setVisible( false);
+        lblDtmValueMinParam2.setVisible( false);
+        edtValueParam2.setVisible( true);
+        
+        
+        lblTitleStepParam3.setText( "<html>Ток погасания лазера на аноде</html>");
+        edtValueParam3.setVisible( true);
+        
+        lblTitleStepParam4.setText( "<html>Ток погасания лазера на штенгеле</html>");
+        edtValueParam4.setVisible( true);
+        
+        lblTitleStepParam5.setVisible( false);
+        edtValueParam5.setVisible( false);
+        
+        lblTitleStepParam6.setVisible( false);
+        edtValueParam6.setVisible( false);
+        
+        paneBlob.setVisible( false);
+    }
+    
+    public void configureAsGetterInfo() {
+        lblTitleStepParam1.setText( "<html>Время выброса с геттера при напряжении 4v</sub></html>");
+        lblDtmValueDayParam1.setVisible( true);    lblP1Param1.setVisible( true);
+        lblDtmValueMonParam1.setVisible( true);    lblP2Param1.setVisible( true);
+        lblDtmValueYearParam1.setVisible( true);
+        lblDtmValueHouParam1.setVisible( true);    lblP3Param1.setVisible( true);
+        lblDtmValueMinParam1.setVisible( true);
+        edtValueParam1.setVisible( false);
+        
+        
+        lblTitleStepParam2.setText( "<html>Время выброса с геттера при напряжении 9v</sub></html>");
+        lblDtmValueDayParam2.setVisible( true);    lblP1Param2.setVisible( true);
+        lblDtmValueMonParam2.setVisible( true);    lblP2Param2.setVisible( true);
+        lblDtmValueYearParam2.setVisible( true);
+        lblDtmValueHouParam2.setVisible( true);    lblP3Param2.setVisible( true);
+        lblDtmValueMinParam2.setVisible( true);
+        edtValueParam2.setVisible( false);
+        
+        
+        lblTitleStepParam3.setText( "<html>Время отключения напряжения 9v</sub></html>");
+        lblDtmValueDayParam3.setVisible( true);    lblP1Param2.setVisible( true);
+        lblDtmValueMonParam3.setVisible( true);    lblP2Param2.setVisible( true);
+        lblDtmValueYearParam3.setVisible( true);
+        lblDtmValueHouParam3.setVisible( true);    lblP3Param2.setVisible( true);
+        lblDtmValueMinParam3.setVisible( true);
+        edtValueParam3.setVisible( false);
+        
+        lblTitleStepParam4.setText( "<html>Величина выброса с геттера при напряжении 4v</html>");
+        edtValueParam4.setVisible( true);
+        
+        lblTitleStepParam5.setText( "<html>Величина выброса с геттера при напряжении 9v</html>");
+        edtValueParam5.setVisible( true);
+        
+        lblTitleStepParam6.setVisible( false);
+        edtValueParam6.setVisible( false);
+        
+        paneBlob.setVisible( false);
+    }
+    
+    public void configureAsHv( String strStepTitle, TechProcessHvProcessInfo info, int nCalcedDuration) {
+        lblStepTitle.setText( strStepTitle);
+        
+        lblStepStartDtmValue.setText( ReportGenerator.Gen_NiceDate( info.GetStartDate()) + " " +
+                                        ReportGenerator.Gen_NiceTime( info.GetStartDate()));
+        Date dt_calced = info.GetStartDate();
+        dt_calced.setTime( dt_calced.getTime() + nCalcedDuration * 1000);
+        lblStepStopDtmCalcValue.setText( ReportGenerator.Gen_NiceDate(dt_calced) + " " +
+                                            ReportGenerator.Gen_NiceTime( dt_calced));
+        m_gdtmDtmStopActual.setTime( dt_calced);
+        
+        lblTitleStepParam1.setText( "<html>Начало обработки. U<sub>на аноде</sub></html>");
+        lblDtmValueDayParam1.setVisible( false);    lblP1Param1.setVisible( false);
+        lblDtmValueMonParam1.setVisible( false);    lblP2Param1.setVisible( false);
+        lblDtmValueYearParam1.setVisible( false);
+        lblDtmValueHouParam1.setVisible( false);    lblP3Param1.setVisible( false);
+        lblDtmValueMinParam1.setVisible( false);
+        edtValueParam1.setVisible( true);
+        edtValueParam1.setText( String.format( "%.0f", info.GetAnStart()));
+        
+        lblTitleStepParam2.setText( "<html>Начало обработки. U<sub>на штенгеле</sub></html>");
+        lblDtmValueDayParam2.setVisible( false);    lblP1Param2.setVisible( false);
+        lblDtmValueMonParam2.setVisible( false);    lblP2Param2.setVisible( false);
+        lblDtmValueYearParam2.setVisible( false);
+        lblDtmValueHouParam2.setVisible( false);    lblP3Param2.setVisible( false);
+        lblDtmValueMinParam2.setVisible( false);
+        edtValueParam2.setVisible( true);
+        edtValueParam2.setText( String.format( "%.0f", info.GetTuStart()));
+        
+        lblTitleStepParam3.setText( "<html>Конец обработки. U<sub>на аноде</sub></html>");
+        edtValueParam3.setVisible( true);
+        edtValueParam3.setText( String.format( "%.0f", info.GetAnStop()));
+        
+        lblTitleStepParam4.setText( "<html>Конец обработки. U<sub>на штенгеле</sub></html>");
+        edtValueParam4.setVisible( true);
+        edtValueParam4.setText( String.format( "%.0f", info.GetTuStop()));
+        
+        lblTitleStepParam5.setVisible( false);
+        edtValueParam5.setVisible( false);
+        
+        lblTitleStepParam6.setVisible( false);
+        edtValueParam6.setVisible( false);
+        
+        paneBlob.setVisible( false);
+        
+        updateData();
+        /*
+        new Timer( 1000, new ActionListener() {
+
+            @Override
+            public void actionPerformed( ActionEvent e) {
+                ( ( Timer) e.getSource()).stop();
+                updateData();
+                System.out.println(">>FUCK?");
+                System.out.println( e);
+            }
+        }).start();
+        */
+    }
+    
+    public void configureAsMessage() {
+        lblStepStopDtmCalcTitle.setVisible( false);
+        lblStepStopDtmCalcValue.setVisible( false);
+        
+        lblStepStopDtmActTitle.setVisible( false);
+        lblDtmStopActDay.setVisible( false);        lblDtmStopAct_p1.setVisible( false);
+        lblDtmStopActMon.setVisible( false);        lblDtmStopAct_p2.setVisible( false);
+        lblDtmStopActYear.setVisible( false);
+        
+        lblDtmStopActHou.setVisible( false);        lblDtmStopAct_p3.setVisible( false);
+        lblDtmStopActMin.setVisible( false);
+        
+        lblDtmValueDayParam1.setVisible( false);    lblP1Param1.setVisible( false);
+        lblDtmValueMonParam1.setVisible( false);    lblP2Param1.setVisible( false);
+        lblDtmValueYearParam1.setVisible( false);
+        lblDtmValueHouParam1.setVisible( false);    lblP3Param1.setVisible( false);
+        lblDtmValueMinParam1.setVisible( false);
+        
+        edtValueParam1.setVisible( false);
+        
+        lblTitleStepParam2.setVisible( false);
+        lblDtmValueDayParam2.setVisible( false);    lblP1Param2.setVisible( false);
+        lblDtmValueMonParam2.setVisible( false);    lblP2Param2.setVisible( false);
+        lblDtmValueYearParam2.setVisible( false);
+        lblDtmValueHouParam2.setVisible( false);    lblP3Param2.setVisible( false);
+        lblDtmValueMinParam2.setVisible( false);
+        
+        edtValueParam2.setVisible( false);
+        
+        
+        lblTitleStepParam3.setVisible( false);
+        lblDtmValueDayParam3.setVisible( false);    lblP1Param3.setVisible( false);
+        lblDtmValueMonParam3.setVisible( false);    lblP2Param3.setVisible( false);
+        lblDtmValueYearParam3.setVisible( false);
+        lblDtmValueHouParam3.setVisible( false);    lblP3Param3.setVisible( false);
+        lblDtmValueMinParam3.setVisible( false);
+        
+        edtValueParam3.setVisible( false);
+        
+        
+        lblTitleStepParam4.setVisible( false);
+        edtValueParam4.setVisible( false);
+        lblTitleStepParam5.setVisible( false);
+        edtValueParam5.setVisible( false);
+        lblTitleStepParam6.setVisible( false);
+        edtValueParam6.setVisible( false);
+        
+        paneBlob.setVisible( true);
+    }
+    
     private void lblDtmMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_lblDtmMouseWheelMoved
         int nSection = GregorianCalendar.SECOND;
         GregorianCalendar clndrToChange = null;
@@ -524,27 +759,37 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_lblDtmMouseWheelMoved
 
+    private void btnDropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDropActionPerformed
+        m_bDrop = true;
+        dispose();
+    }//GEN-LAST:event_btnDropActionPerformed
+
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+        m_bDrop = false;
+        dispose();
+    }//GEN-LAST:event_btnOkActionPerformed
+
     public void updateData() {
         lblDtmStopActDay.setText( ( m_gdtmDtmStopActual.get( Calendar.DAY_OF_MONTH) < 10 ? "0" : "")  + m_gdtmDtmStopActual.get( Calendar.DAY_OF_MONTH));
-        lblDtmStopActMon.setText( ( m_gdtmDtmStopActual.get( Calendar.MONTH) < 10 ? "0" : "")       + m_gdtmDtmStopActual.get( Calendar.MONTH));
+        lblDtmStopActMon.setText( ( ( m_gdtmDtmStopActual.get( Calendar.MONTH) + 1) < 10 ? "0" : "")       + ( m_gdtmDtmStopActual.get( Calendar.MONTH) + 1));
         lblDtmStopActYear.setText( ( m_gdtmDtmStopActual.get( Calendar.YEAR) < 10 ? "0" : "")       + m_gdtmDtmStopActual.get( Calendar.YEAR));
         lblDtmStopActHou.setText( ( m_gdtmDtmStopActual.get( Calendar.HOUR_OF_DAY) < 10 ? "0" : "") + m_gdtmDtmStopActual.get( Calendar.HOUR_OF_DAY));
         lblDtmStopActMin.setText( ( m_gdtmDtmStopActual.get( Calendar.MINUTE) < 10 ? "0" : "")      + m_gdtmDtmStopActual.get( Calendar.MINUTE));
         
         lblDtmValueDayParam1.setText( ( m_gdtmDtmParam1.get( Calendar.DAY_OF_MONTH) < 10 ? "0" : "")  + m_gdtmDtmParam1.get( Calendar.DAY_OF_MONTH));
-        lblDtmValueMonParam1.setText( ( m_gdtmDtmParam1.get( Calendar.MONTH) < 10 ? "0" : "")       + m_gdtmDtmParam1.get( Calendar.MONTH));
+        lblDtmValueMonParam1.setText( ( ( m_gdtmDtmParam1.get( Calendar.MONTH) + 1) < 10 ? "0" : "")       + ( m_gdtmDtmParam1.get( Calendar.MONTH) + 1));
         lblDtmValueYearParam1.setText( ( m_gdtmDtmParam1.get( Calendar.YEAR) < 10 ? "0" : "")       + m_gdtmDtmParam1.get( Calendar.YEAR));
         lblDtmValueHouParam1.setText( ( m_gdtmDtmParam1.get( Calendar.HOUR_OF_DAY) < 10 ? "0" : "") + m_gdtmDtmParam1.get( Calendar.HOUR_OF_DAY));
         lblDtmValueMinParam1.setText( ( m_gdtmDtmParam1.get( Calendar.MINUTE) < 10 ? "0" : "")      + m_gdtmDtmParam1.get( Calendar.MINUTE));
         
         lblDtmValueDayParam2.setText( ( m_gdtmDtmParam2.get( Calendar.DAY_OF_MONTH) < 10 ? "0" : "")  + m_gdtmDtmParam2.get( Calendar.DAY_OF_MONTH));
-        lblDtmValueMonParam2.setText( ( m_gdtmDtmParam2.get( Calendar.MONTH) < 10 ? "0" : "")       + m_gdtmDtmParam2.get( Calendar.MONTH));
+        lblDtmValueMonParam2.setText( ( ( m_gdtmDtmParam2.get( Calendar.MONTH) + 1) < 10 ? "0" : "")       + ( m_gdtmDtmParam2.get( Calendar.MONTH) + 1));
         lblDtmValueYearParam2.setText( ( m_gdtmDtmParam2.get( Calendar.YEAR) < 10 ? "0" : "")       + m_gdtmDtmParam2.get( Calendar.YEAR));
         lblDtmValueHouParam2.setText( ( m_gdtmDtmParam2.get( Calendar.HOUR_OF_DAY) < 10 ? "0" : "") + m_gdtmDtmParam2.get( Calendar.HOUR_OF_DAY));
         lblDtmValueMinParam2.setText( ( m_gdtmDtmParam2.get( Calendar.MINUTE) < 10 ? "0" : "")      + m_gdtmDtmParam2.get( Calendar.MINUTE));
         
         lblDtmValueDayParam3.setText( ( m_gdtmDtmParam3.get( Calendar.DAY_OF_MONTH) < 10 ? "0" : "")  + m_gdtmDtmParam3.get( Calendar.DAY_OF_MONTH));
-        lblDtmValueMonParam3.setText( ( m_gdtmDtmParam3.get( Calendar.MONTH) < 10 ? "0" : "")       + m_gdtmDtmParam3.get( Calendar.MONTH));
+        lblDtmValueMonParam3.setText( ( ( m_gdtmDtmParam3.get( Calendar.MONTH) + 1) < 10 ? "0" : "")       + ( m_gdtmDtmParam3.get( Calendar.MONTH) + 1));
         lblDtmValueYearParam3.setText( ( m_gdtmDtmParam3.get( Calendar.YEAR) < 10 ? "0" : "")       + m_gdtmDtmParam3.get( Calendar.YEAR));
         lblDtmValueHouParam3.setText( ( m_gdtmDtmParam3.get( Calendar.HOUR_OF_DAY) < 10 ? "0" : "") + m_gdtmDtmParam3.get( Calendar.HOUR_OF_DAY));
         lblDtmValueMinParam3.setText( ( m_gdtmDtmParam3.get( Calendar.MINUTE) < 10 ? "0" : "")      + m_gdtmDtmParam3.get( Calendar.MINUTE));
@@ -589,15 +834,14 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField edtValueParam1;
-    private javax.swing.JTextField edtValueParam2;
-    private javax.swing.JTextField edtValueParam3;
-    private javax.swing.JTextField edtValueParam4;
-    private javax.swing.JTextField edtValueParam5;
-    private javax.swing.JTextField edtValueParam6;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton btnDrop;
+    private javax.swing.JButton btnOk;
+    public javax.swing.JTextField edtValueParam1;
+    public javax.swing.JTextField edtValueParam2;
+    public javax.swing.JTextField edtValueParam3;
+    public javax.swing.JTextField edtValueParam4;
+    public javax.swing.JTextField edtValueParam5;
+    public javax.swing.JTextField edtValueParam6;
     private javax.swing.JLabel lblDtmStopActDay;
     private javax.swing.JLabel lblDtmStopActHou;
     private javax.swing.JLabel lblDtmStopActMin;
@@ -643,5 +887,7 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
     private javax.swing.JLabel lblTitleStepParam4;
     private javax.swing.JLabel lblTitleStepParam5;
     private javax.swing.JLabel lblTitleStepParam6;
+    public javax.swing.JScrollPane paneBlob;
+    public javax.swing.JTextArea txtBlob;
     // End of variables declaration//GEN-END:variables
 }

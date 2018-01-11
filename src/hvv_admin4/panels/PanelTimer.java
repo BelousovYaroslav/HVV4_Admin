@@ -11,7 +11,6 @@ import hvv_admin4.steps.info.TechProcessGetterInfo;
 import hvv_admin4.steps.info.TechProcessHvProcessInfo;
 import hvv_admin4.steps.info.TechProcessIgenIextProcessInfo;
 import hvv_admin4.steps.info.TechProcessStepCommon;
-import hvv_admin4.steps.info.TechProcessUacProcessInfo;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -258,7 +257,7 @@ public class PanelTimer extends javax.swing.JPanel {
     
     public void StartTimer( long nSeconds, long lUpTickTimerInitialValue) {
         //мы начинаем процесс
-        TechProcessStepCommon info = new TechProcessStepCommon( theApp);
+        TechProcessStepCommon info = new TechProcessStepCommon();
         
         switch( theApp.GetCurrentStep()) {
             case 21: break;
@@ -271,50 +270,50 @@ public class PanelTimer extends javax.swing.JPanel {
                 
             case 62:
                 info.SetStartReportTitle( "Старт термообезгаживания");
-                info.SetStartDateAsCurrent();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
             break;
             case 64:
                 info.SetStartReportTitle( "Старт выдержки рабочей смеси");
-                info.SetStartDateAsCurrent();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
             break;
                 
             case 101:
                 info.SetStartReportTitle( "Старт выдержки тренировочной смеси");
-                info.SetStartDateAsCurrent();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
             break;
             case 102: break;
             case 104:
                 info.SetStartReportTitle( "Старт выдержки тренировочной смеси");
-                info.SetStartDateAsCurrent();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
             break;
             case 105: break;
             case 107:
                 info.SetStartReportTitle( "Старт выдержки тренировочной смеси");
-                info.SetStartDateAsCurrent();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
             break;
             case 108: break;
             
             case 141:
                 info.SetStartReportTitle( "Старт выдержки тренировочной смеси");
-                info.SetStartDateAsCurrent();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
             break;
             case 142: break;
             case 144:
                 info.SetStartReportTitle( "Старт выдержки тренировочной смеси");
-                info.SetStartDateAsCurrent();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
             break;
             case 145: break;
                 
             case 181:
                 info.SetStartReportTitle( "Старт выдержки рабочей смеси");
-                info.SetStartDateAsCurrent();
+                info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);
             break;
         }
@@ -363,9 +362,9 @@ public class PanelTimer extends javax.swing.JPanel {
                 
                 if( theApp.GetCurrentStep() == 62 && m_lDownTickTimer == 60 * 90) {
                     //для этапа термообезгаживания за полтора часа переходим на экран ввода геттер инфо
-                    TechProcessGetterInfo info = new TechProcessGetterInfo( theApp);
+                    TechProcessGetterInfo info = new TechProcessGetterInfo();
                     info.SetStartReportTitle( "");
-                    info.SetStartDateAsCurrent();
+                    info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                     theApp.SetCurrentStep( 63);
                     theApp.SaveStepInfo( "063", info, true);
         
@@ -520,7 +519,7 @@ public class PanelTimer extends javax.swing.JPanel {
         
         TechProcessStepCommon info = theApp.GetCommonStep( String.format( "%03d", theApp.GetCurrentStep()));
         if( info.GetStopDate() == null) {
-            info.SetStopDateAsCurrent();
+            info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
             switch( theApp.GetCurrentStep()) {
                 case 21: info.SetStopReportTitle( "Завершение обработки"); break;
                 case 23: info.SetStopReportTitle( "Завершение обработки"); break;
@@ -557,7 +556,7 @@ public class PanelTimer extends javax.swing.JPanel {
             }
         }
         
-        info = new TechProcessHvProcessInfo( theApp);
+        info = new TechProcessHvProcessInfo();
         int nNextStep = 0;
         switch( theApp.GetCurrentStep()) {
             case 21: /*2.1*/
@@ -571,50 +570,50 @@ public class PanelTimer extends javax.swing.JPanel {
             case 47: /*3.7*/ info.SetStartReportTitle( ""); nNextStep = 48; break;
                 
             case 62: /*4.2 Термообезгаживание - переход к вводу информации о геттере*/
-                info = new TechProcessGetterInfo( theApp);
+                info = new TechProcessGetterInfo();
                 info.SetStartReportTitle( "");
                 nNextStep = 63;
             break;
             case 64: /*4.4 Выдержка - переход к промежуточной оценке параметров*/
-                info = new TechProcessIgenIextProcessInfo( theApp);
+                info = new TechProcessIgenIextProcessInfo();
                 info.SetStartReportTitle( "Определение пороговых токов генерации и погасания");
                 nNextStep = 81;
             break;
                 
                 
             case 101: /*6.1*/
-                info = new TechProcessStepCommon( theApp);
+                info = new TechProcessStepCommon();
                 info.SetStartReportTitle( null);
                 nNextStep = 102;
             break;
             
             case 103: /*6.3*/
-                info = new TechProcessStepCommon( theApp);
+                info = new TechProcessStepCommon();
                 info.SetStartReportTitle( null);
                 nNextStep = 104;
             break;
             
             case 105: /*6.5*/
-                info = new TechProcessStepCommon( theApp);
+                info = new TechProcessStepCommon();
                 info.SetStartReportTitle( null);
                 nNextStep = 106;
             break;
 
                 
             case 141: /*8.1*/
-                info = new TechProcessStepCommon( theApp);
+                info = new TechProcessStepCommon();
                 info.SetStartReportTitle( null);
                 nNextStep = 142;
             break;
             case 142: /*8.2*/ info.SetStartReportTitle( ""); nNextStep = 143; break;
             case 143: /*8.3*/
-                info = new TechProcessStepCommon( theApp);
+                info = new TechProcessStepCommon();
                 info.SetStartReportTitle( null);
                 nNextStep = 144; break;
             case 144: /*8.4*/ info.SetStartReportTitle( ""); nNextStep = 161; break;
                 
             case 181: /*10.1 Выдержка - переход к финишному замеру параметров*/
-                info = new TechProcessIgenIextProcessInfo( theApp);
+                info = new TechProcessIgenIextProcessInfo();
                 info.SetStartReportTitle( "Определение пороговых токов генерации и погасания");
                 nNextStep = 182;
             break;
@@ -624,7 +623,7 @@ public class PanelTimer extends javax.swing.JPanel {
                 nNextStep = 182;
             break;*/
         }
-        info.SetStartDateAsCurrent();
+        info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
 
         theApp.SetCurrentStep( nNextStep);
         theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info, true);

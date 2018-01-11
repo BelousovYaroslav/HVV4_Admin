@@ -8,7 +8,6 @@ package hvv_admin4.panels;
 import hvv_admin4.HVV_Admin4;
 import hvv_admin4.HVV_Admin4Constants;
 import hvv_admin4.dialogs.DlgBigStopWatch;
-import static hvv_admin4.panels.PanelDegasation.logger;
 import hvv_admin4.steps.info.TechProcessDegasationStepInfo;
 import hvv_admin4.steps.info.TechProcessHFInfo;
 import java.awt.GraphicsDevice;
@@ -280,8 +279,8 @@ public class PanelActivation extends javax.swing.JPanel {
         if( m_pnlProgress.m_nStep == -1) {
             //мы нажали "старт"
             
-            TechProcessHFInfo info = new TechProcessHFInfo( theApp);
-            info.SetStartDateAsCurrent();
+            TechProcessHFInfo info = new TechProcessHFInfo();
+            info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
             theApp.SaveStepInfo( "162", info, true);
             
             lblGetterType.setEnabled( false);
@@ -310,7 +309,7 @@ public class PanelActivation extends javax.swing.JPanel {
                     //конец программы
                     
                     TechProcessHFInfo info = ( TechProcessHFInfo) theApp.GetCommonStep( "162");
-                    info.SetStopDateAsCurrent();
+                    info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                     
                     if( radGetterType1.isSelected())
                     info.SetGetter( HVV_Admin4Constants.GETTER1);

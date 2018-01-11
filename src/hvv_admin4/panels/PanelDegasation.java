@@ -236,8 +236,8 @@ public class PanelDegasation extends javax.swing.JPanel {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         if( m_pnlProgress.m_nStep == -1) {
             //мы нажали "старт"
-            TechProcessHFInfo info = new TechProcessHFInfo( theApp);
-            info.SetStartDateAsCurrent();
+            TechProcessHFInfo info = new TechProcessHFInfo();
+            info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
             theApp.SaveStepInfo( "122", info, true);
             
             lblGetterType.setEnabled( false);
@@ -264,7 +264,7 @@ public class PanelDegasation extends javax.swing.JPanel {
             if( m_pnlProgress.m_nStep == m_lstProgram.size()) {
                 //мы нажали "далее" в плане перейти к следующему этапу процесса э/в обработки (к пункту 8.1)
                 TechProcessHFInfo info = ( TechProcessHFInfo) theApp.GetCommonStep( "122");
-                info.SetStopDateAsCurrent();
+                info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 
                 if( radGetterType1.isSelected())
                     info.SetGetter( HVV_Admin4Constants.GETTER1);

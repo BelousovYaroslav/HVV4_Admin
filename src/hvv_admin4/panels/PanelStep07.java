@@ -202,8 +202,8 @@ public class PanelStep07 extends TechProcessStepPanelTemplate {
     }//GEN-LAST:event_lbl_07_00_IcoStepMouseClicked
 
     private void btn_07_01_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_07_01_StartActionPerformed
-        TechProcessStepCommon info = new TechProcessGetterInfo( theApp);
-        info.SetStartDateAsCurrent();
+        TechProcessStepCommon info = new TechProcessGetterInfo();
+        info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info.SetStartReportTitle( "Начало процесса обезгаживания");
         theApp.SaveStepInfo( "121", info, true);
         

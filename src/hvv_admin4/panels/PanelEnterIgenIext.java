@@ -273,7 +273,7 @@ public class PanelEnterIgenIext extends javax.swing.JPanel {
         //отмечаем окончание внесения пороговых токов
         TechProcessIgenIextProcessInfo info = ( TechProcessIgenIextProcessInfo)
                 theApp.GetCommonStep( String.format( "%03d", theApp.GetCurrentStep()));
-        info.SetStopDateAsCurrent();
+        info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         //info.SetStopReportTitle( "");
         
         
@@ -315,8 +315,8 @@ public class PanelEnterIgenIext extends javax.swing.JPanel {
         
         theApp.m_ReportGenerator.Generate();
         
-        TechProcessUacProcessInfo info2 = new TechProcessUacProcessInfo( theApp);
-        info2.SetStartDateAsCurrent();
+        TechProcessUacProcessInfo info2 = new TechProcessUacProcessInfo();
+        info2.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info2.SetStartReportTitle( "Снятие вольт-амперной характеристики");
         theApp.SaveStepInfo( String.format( "%03d", theApp.GetCurrentStep()), info2, true);
         

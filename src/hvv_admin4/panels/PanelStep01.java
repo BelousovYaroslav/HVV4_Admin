@@ -157,8 +157,8 @@ public class PanelStep01 extends TechProcessStepPanelTemplate {
 
 
         //мы начинаем процесс
-        TechProcessStepCommon info = new TechProcessStepCommon( theApp);
-        info.SetStartDateAsCurrent();
+        TechProcessStepCommon info = new TechProcessStepCommon();
+        info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
         info.SetStartReportTitle( "Установка и откачка приборов");
         theApp.SaveStepInfo( "001", info, true);
         theApp.SetCurrentStep( 1);
