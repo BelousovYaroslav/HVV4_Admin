@@ -16,15 +16,12 @@ import java.awt.Font;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TreeMap;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
 import javax.swing.UIManager;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -295,6 +292,37 @@ public class HVV_Admin4 {
         m_ReportGenerator.Generate();
         
         m_pMainWnd = new HVV_Admin4MainFrame( this);
+        
+        if( m_nCurrentProcessStep != 1) {
+            switch( m_nCurrentProcessStep) {
+                case 62:
+                    //мы сломались на этапе ввода даты завершения ТО (rare)
+                    //включаем таймер
+                    m_pMainWnd.m_pnlMain.setVisible( false);
+                    m_pMainWnd.m_pnlStopWatch.Init();
+                    m_pMainWnd.m_pnlStopWatch.setVisible( true);
+
+                    if( GetSettings().GetDebugShortenThermoProcessing()) {
+                        //DEBUG
+                        m_pMainWnd.m_pnlStopWatch.StartTimer( ( long) 5410, 0);
+                    }
+                    else {
+                        //GOOD
+                        Date dtNow = GetLocalDate();
+                        long nSpan = ( long) ( Math.ceil( ( GetDtmTOEnd().getTime() - dtNow.getTime()) / 1000. / 60. / 10.)) * 10;
+                        m_pMainWnd.m_pnlStopWatch.StartTimer( nSpan * 60, 0);
+                    }
+                break;
+                    
+                case 63:
+                    //мы сломались на этапе ТО
+                    //подразумевается что выждали нужное время и теперь готовы вводить информацию GetterInfo
+                    m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( GetCommonStep( "062").GetStopDate(), 1);
+                    m_pMainWnd.m_pnlEnterGetterInfo.setVisible( true);
+                    SetCurrentStepInProgress( true);
+                break;
+            }
+        }
         
         java.awt.EventQueue.invokeLater( new Runnable() {
             public void run() {

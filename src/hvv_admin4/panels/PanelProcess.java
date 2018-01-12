@@ -89,8 +89,11 @@ public class PanelProcess extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Timer t = ( Timer) e.getSource();
-                t.stop();
-                Reposition();
+                if( theApp.m_pMainWnd != null)
+                    if( theApp.m_pMainWnd.m_pnlMain != null) {
+                        t.stop();
+                        Reposition();
+                    }
             }
         }).start();
     }

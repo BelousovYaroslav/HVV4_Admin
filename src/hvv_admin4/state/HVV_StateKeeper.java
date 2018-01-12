@@ -339,7 +339,12 @@ public class HVV_StateKeeper {
                 case "021":
                 case "022":
                 case "042":
-                case "044": {
+                case "044":
+                case "102":
+                case "104":
+                case "106":
+                case "142":
+                case "144": {
                     TechProcessHvProcessInfo stepInfo = ( TechProcessHvProcessInfo) theApp.GetHvStep( strStepNumber);
                     RestoreHvStep1 dlg = new RestoreHvStep1();
                     dlg.configureAsHv( theApp.GetStepNameWithNum( new Integer( strStepNumber)), stepInfo, theApp.GetSettings().GetProcessingTime_2());
@@ -385,33 +390,51 @@ public class HVV_StateKeeper {
                 }
                 break;
                     
-                case "061": break;
-                case "062": break;
-                case "063": break;
-                case "064": break;
+                case "061": {
+                    TechProcessStepCommon stepInfo = ( TechProcessStepCommon) theApp.GetCommonStep( strStepNumber);
+                    RestoreHvStep1 dlg = new RestoreHvStep1();
+                    dlg.configureAsCalcToFinishDtm(theApp.GetStepNameWithNum( new Integer( strStepNumber)), stepInfo, theApp.GetLocalDate());
+                    dlg.setVisible( true);
                     
+                    bDrop = dlg.m_bDrop;
+                    if( !bDrop) {
+                        stepInfo.SetStopDateAsCurrent(nDeviceType);
+                        theApp.SetDtmTOEnd( dlg.m_gdtmDtmParam1.getTime());
+                    }
+                }
+                break;
+                    
+                case "064":
+                case "101":
+                case "103":
+                case "105":
+                case "141":
+                case "143":
+                case "181": {
+                    TechProcessStepCommon stepInfo = ( TechProcessStepCommon) theApp.GetCommonStep( strStepNumber);
+                    RestoreHvStep1 dlg = new RestoreHvStep1();
+                    dlg.configureAsCommon( theApp.GetStepNameWithNum( new Integer( strStepNumber)), stepInfo, theApp.GetSettings().GetExcerptTime());
+                    dlg.setVisible( true);
+                    
+                    bDrop = dlg.m_bDrop;
+                    if( !bDrop) {
+                        stepInfo.SetStopDate( dlg.m_gdtmDtmStopActual.getTime());
+                    }
+                }
+                break;
+                    
+                case "062":
+                    //а ничего делать не надо - всё само выстроится под известно dtmTOEnd
+                break;
+                    
+                case "063": break;                    
                 case "081": break;
                 case "082": break;
-                    
-                case "101": break;
-                case "102": break;
-                case "103": break;
-                case "104": break;
-                case "105": break;
-                case "106": break;
-                
                 case "121": break;
                 case "122": break;
-                
-                case "141": break;
-                case "142": break;
-                case "143": break;
-                case "144": break;
-                    
                 case "161": break;
                 case "162": break;
                     
-                case "181": break;
                 case "182": break;
                 case "183": break;
                 case "184": break;
@@ -426,26 +449,8 @@ public class HVV_StateKeeper {
                 theApp.SetProcessedDeviceType( nDeviceType);
                 theApp.SetCurrentStep( nPotentialNextStep);
                     
-                /*
-                switch( theApp.GetCurrentStep()) {
-                    case 42:    theApp.ShowDlg2_1();    break;
-                    case 23:    theApp.ShowDlg2_3();    break;
-                    case 81:    theApp.ShowDlg5_1();    break;
-                    case 82:    theApp.ShowDlg5_2();    break;
-                    case 83:    theApp.ShowDlg5_3();    break;
-                    case 101:   theApp.ShowDlg6_1A();   break;
-                    case 102:   theApp.ShowDlg6_2();    break;
-                    case 103:   theApp.ShowDlg6_3();    break;
-                    case 141:   theApp.ShowDlg8( 2000);     break;
-                    case 181:   theApp.ShowDlg10( 2000);    break;
-                    case 203:   theApp.ShowDlg11_3A();  break;
-                    case 204:   theApp.ShowDlg11_4();   break;
-                    case 205:   theApp.ShowDlg11_5();   break;
-                    case 206:   theApp.ShowDlg11_6();   break;
-                    case 223:   theApp.ShowDlg12_3();   break;
-                    case 242:   theApp.ShowDlg13_2();    break;    
-                }
-                */
+                //выставка нужного экрана будет в app'e HVV_Admin4
+                
             }
             else {
                 m_bDropReadState = true;

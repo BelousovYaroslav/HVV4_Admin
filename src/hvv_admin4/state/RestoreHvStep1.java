@@ -7,12 +7,10 @@ package hvv_admin4.state;
 
 import hvv_admin4.report.ReportGenerator;
 import hvv_admin4.steps.info.TechProcessHvProcessInfo;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import hvv_admin4.steps.info.TechProcessStepCommon;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import javax.swing.Timer;
 
 /**
  *
@@ -507,7 +505,7 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         paneBlob.setViewportView(txtBlob);
 
         getContentPane().add(paneBlob);
-        paneBlob.setBounds(170, 292, 220, 330);
+        paneBlob.setBounds(10, 292, 380, 330);
 
         btnOk.setText("Подтвердить и продолжить");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
@@ -530,40 +528,62 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void setVisibleDtmFieldsStopDateTime( boolean bVisible) {
+        lblDtmStopActDay.setVisible( bVisible);        lblDtmStopAct_p1.setVisible( bVisible);
+        lblDtmStopActMon.setVisible( bVisible);        lblDtmStopAct_p2.setVisible( bVisible);
+        lblDtmStopActYear.setVisible( bVisible);
+        lblDtmStopActHou.setVisible( bVisible);        lblDtmStopAct_p3.setVisible( bVisible);
+        lblDtmStopActMin.setVisible( bVisible);
+    }
+    
+    private void setVisibleDtmFieldsParam1( boolean bVisible) {
+        lblDtmValueDayParam1.setVisible( bVisible);    lblP1Param1.setVisible( bVisible);
+        lblDtmValueMonParam1.setVisible( bVisible);    lblP2Param1.setVisible( bVisible);
+        lblDtmValueYearParam1.setVisible( bVisible);
+        lblDtmValueHouParam1.setVisible( bVisible);    lblP3Param1.setVisible( bVisible);
+        lblDtmValueMinParam1.setVisible( bVisible);
+    }
+    
+    private void setVisibleDtmFieldsParam2( boolean bVisible) {
+        lblDtmValueDayParam2.setVisible( bVisible);    lblP1Param2.setVisible( bVisible);
+        lblDtmValueMonParam2.setVisible( bVisible);    lblP2Param2.setVisible( bVisible);
+        lblDtmValueYearParam2.setVisible( bVisible);
+        lblDtmValueHouParam2.setVisible( bVisible);    lblP3Param2.setVisible( bVisible);
+        lblDtmValueMinParam2.setVisible( bVisible);
+    }
+    
+    private void setVisibleDtmFieldsParam3( boolean bVisible) {
+        lblDtmValueDayParam3.setVisible( bVisible);    lblP1Param3.setVisible( bVisible);
+        lblDtmValueMonParam3.setVisible( bVisible);    lblP2Param3.setVisible( bVisible);
+        lblDtmValueYearParam3.setVisible( bVisible);
+        lblDtmValueHouParam3.setVisible( bVisible);    lblP3Param3.setVisible( bVisible);
+        lblDtmValueMinParam3.setVisible( bVisible);
+    }
+    
     public void configureAsIgenIext() {
         
         lblStepStopDtmCalcTitle.setVisible( false);
         lblStepStopDtmCalcValue.setVisible( false);
         
         lblStepStopDtmActTitle.setVisible( false);
-        lblDtmStopActDay.setVisible( false);        lblDtmStopAct_p1.setVisible( false);
-        lblDtmStopActMon.setVisible( false);        lblDtmStopAct_p2.setVisible( false);
-        lblDtmStopActYear.setVisible( false);
+        setVisibleDtmFieldsStopDateTime( false);
         
-        lblDtmStopActHou.setVisible( false);        lblDtmStopAct_p3.setVisible( false);
-        lblDtmStopActMin.setVisible( false);
-        
+        lblTitleStepParam1.setVisible( true);
         lblTitleStepParam1.setText( "<html>Ток пропадания генерации на аноде</html>");
-        lblDtmValueDayParam1.setVisible( false);    lblP1Param1.setVisible( false);
-        lblDtmValueMonParam1.setVisible( false);    lblP2Param1.setVisible( false);
-        lblDtmValueYearParam1.setVisible( false);
-        lblDtmValueHouParam1.setVisible( false);    lblP3Param1.setVisible( false);
-        lblDtmValueMinParam1.setVisible( false);
+        setVisibleDtmFieldsParam1( false);
         edtValueParam1.setVisible( true);
         
-        
+        lblTitleStepParam2.setVisible( true);
         lblTitleStepParam2.setText( "<html>Ток пропадания генерации на штенгеле</sub></html>");
-        lblDtmValueDayParam2.setVisible( false);    lblP1Param2.setVisible( false);
-        lblDtmValueMonParam2.setVisible( false);    lblP2Param2.setVisible( false);
-        lblDtmValueYearParam2.setVisible( false);
-        lblDtmValueHouParam2.setVisible( false);    lblP3Param2.setVisible( false);
-        lblDtmValueMinParam2.setVisible( false);
+        setVisibleDtmFieldsParam2( false);
         edtValueParam2.setVisible( true);
         
-        
+        lblTitleStepParam3.setVisible( true);
         lblTitleStepParam3.setText( "<html>Ток погасания лазера на аноде</html>");
+        setVisibleDtmFieldsParam3( false);
         edtValueParam3.setVisible( true);
         
+        lblTitleStepParam4.setVisible( true);
         lblTitleStepParam4.setText( "<html>Ток погасания лазера на штенгеле</html>");
         edtValueParam4.setVisible( true);
         
@@ -576,38 +596,60 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         paneBlob.setVisible( false);
     }
     
-    public void configureAsGetterInfo() {
+    public void configureAsGetterInfo1() {
+        lblTitleStepParam1.setVisible( true);
         lblTitleStepParam1.setText( "<html>Время выброса с геттера при напряжении 4v</sub></html>");
-        lblDtmValueDayParam1.setVisible( true);    lblP1Param1.setVisible( true);
-        lblDtmValueMonParam1.setVisible( true);    lblP2Param1.setVisible( true);
-        lblDtmValueYearParam1.setVisible( true);
-        lblDtmValueHouParam1.setVisible( true);    lblP3Param1.setVisible( true);
-        lblDtmValueMinParam1.setVisible( true);
+        setVisibleDtmFieldsParam1( true);
         edtValueParam1.setVisible( false);
         
         
+        lblTitleStepParam2.setVisible( true);
         lblTitleStepParam2.setText( "<html>Время выброса с геттера при напряжении 9v</sub></html>");
-        lblDtmValueDayParam2.setVisible( true);    lblP1Param2.setVisible( true);
-        lblDtmValueMonParam2.setVisible( true);    lblP2Param2.setVisible( true);
-        lblDtmValueYearParam2.setVisible( true);
-        lblDtmValueHouParam2.setVisible( true);    lblP3Param2.setVisible( true);
-        lblDtmValueMinParam2.setVisible( true);
+        setVisibleDtmFieldsParam2( true);
         edtValueParam2.setVisible( false);
         
         
+        lblTitleStepParam3.setVisible( true);
         lblTitleStepParam3.setText( "<html>Время отключения напряжения 9v</sub></html>");
-        lblDtmValueDayParam3.setVisible( true);    lblP1Param2.setVisible( true);
-        lblDtmValueMonParam3.setVisible( true);    lblP2Param2.setVisible( true);
-        lblDtmValueYearParam3.setVisible( true);
-        lblDtmValueHouParam3.setVisible( true);    lblP3Param2.setVisible( true);
-        lblDtmValueMinParam3.setVisible( true);
+        setVisibleDtmFieldsParam3( true);
         edtValueParam3.setVisible( false);
         
+        lblTitleStepParam4.setVisible( true);
         lblTitleStepParam4.setText( "<html>Величина выброса с геттера при напряжении 4v</html>");
         edtValueParam4.setVisible( true);
         
+        lblTitleStepParam5.setVisible( true);
         lblTitleStepParam5.setText( "<html>Величина выброса с геттера при напряжении 9v</html>");
         edtValueParam5.setVisible( true);
+        
+        lblTitleStepParam6.setVisible( false);
+        edtValueParam6.setVisible( false);
+        
+        paneBlob.setVisible( false);
+    }
+    
+    public void configureAsGetterInfo2() {
+        lblTitleStepParam1.setVisible( true);
+        lblTitleStepParam1.setText( "<html>Время выброса с геттера при напряжении 4v</sub></html>");
+        setVisibleDtmFieldsParam1( true);
+        edtValueParam1.setVisible( false);
+        
+        lblTitleStepParam2.setVisible( true);
+        lblTitleStepParam2.setText( "<html>Время выброса с геттера при напряжении 9v</sub></html>");
+        setVisibleDtmFieldsParam2( true);
+        edtValueParam2.setVisible( false);
+        
+        lblTitleStepParam3.setVisible( true);
+        lblTitleStepParam3.setText( "<html>Величина выброса с геттера при напряжении 4v</html>");
+        setVisibleDtmFieldsParam3( false);
+        edtValueParam3.setVisible( true);
+        
+        lblTitleStepParam4.setVisible( true);
+        lblTitleStepParam4.setText( "<html>Величина выброса с геттера при напряжении 9v</html>");
+        edtValueParam4.setVisible( true);
+        
+        lblTitleStepParam5.setVisible( false);
+        edtValueParam5.setVisible( false);
         
         lblTitleStepParam6.setVisible( false);
         edtValueParam6.setVisible( false);
@@ -626,28 +668,28 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
                                             ReportGenerator.Gen_NiceTime( dt_calced));
         m_gdtmDtmStopActual.setTime( dt_calced);
         
+        lblTitleStepParam1.setVisible( true);
         lblTitleStepParam1.setText( "<html>Начало обработки. U<sub>на аноде</sub></html>");
-        lblDtmValueDayParam1.setVisible( false);    lblP1Param1.setVisible( false);
-        lblDtmValueMonParam1.setVisible( false);    lblP2Param1.setVisible( false);
-        lblDtmValueYearParam1.setVisible( false);
-        lblDtmValueHouParam1.setVisible( false);    lblP3Param1.setVisible( false);
-        lblDtmValueMinParam1.setVisible( false);
+        setVisibleDtmFieldsParam1( false);
         edtValueParam1.setVisible( true);
         edtValueParam1.setText( String.format( "%.0f", info.GetAnStart()));
         
+        
+        lblTitleStepParam2.setVisible( true);
         lblTitleStepParam2.setText( "<html>Начало обработки. U<sub>на штенгеле</sub></html>");
-        lblDtmValueDayParam2.setVisible( false);    lblP1Param2.setVisible( false);
-        lblDtmValueMonParam2.setVisible( false);    lblP2Param2.setVisible( false);
-        lblDtmValueYearParam2.setVisible( false);
-        lblDtmValueHouParam2.setVisible( false);    lblP3Param2.setVisible( false);
-        lblDtmValueMinParam2.setVisible( false);
+        setVisibleDtmFieldsParam2( false);
         edtValueParam2.setVisible( true);
         edtValueParam2.setText( String.format( "%.0f", info.GetTuStart()));
         
+        
+        lblTitleStepParam3.setVisible( true);
         lblTitleStepParam3.setText( "<html>Конец обработки. U<sub>на аноде</sub></html>");
+        setVisibleDtmFieldsParam3( false);
         edtValueParam3.setVisible( true);
         edtValueParam3.setText( String.format( "%.0f", info.GetAnStop()));
         
+        
+        lblTitleStepParam4.setVisible( true);
         lblTitleStepParam4.setText( "<html>Конец обработки. U<sub>на штенгеле</sub></html>");
         edtValueParam4.setVisible( true);
         edtValueParam4.setText( String.format( "%.0f", info.GetTuStop()));
@@ -675,50 +717,117 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         */
     }
     
-    public void configureAsMessage() {
-        lblStepStopDtmCalcTitle.setVisible( false);
-        lblStepStopDtmCalcValue.setVisible( false);
+    public void configureAsCommon( String strStepTitle, TechProcessStepCommon info, int nCalcedDuration) {
+        lblStepTitle.setText( strStepTitle);
         
-        lblStepStopDtmActTitle.setVisible( false);
-        lblDtmStopActDay.setVisible( false);        lblDtmStopAct_p1.setVisible( false);
-        lblDtmStopActMon.setVisible( false);        lblDtmStopAct_p2.setVisible( false);
-        lblDtmStopActYear.setVisible( false);
+        lblStepStartDtmValue.setText( ReportGenerator.Gen_NiceDate( info.GetStartDate()) + " " +
+                                        ReportGenerator.Gen_NiceTime( info.GetStartDate()));
+        Date dt_calced = info.GetStartDate();
+        dt_calced.setTime( dt_calced.getTime() + nCalcedDuration * 1000);
+        lblStepStopDtmCalcValue.setText( ReportGenerator.Gen_NiceDate(dt_calced) + " " +
+                                            ReportGenerator.Gen_NiceTime( dt_calced));
+        m_gdtmDtmStopActual.setTime( dt_calced);
         
-        lblDtmStopActHou.setVisible( false);        lblDtmStopAct_p3.setVisible( false);
-        lblDtmStopActMin.setVisible( false);
-        
-        lblDtmValueDayParam1.setVisible( false);    lblP1Param1.setVisible( false);
-        lblDtmValueMonParam1.setVisible( false);    lblP2Param1.setVisible( false);
-        lblDtmValueYearParam1.setVisible( false);
-        lblDtmValueHouParam1.setVisible( false);    lblP3Param1.setVisible( false);
-        lblDtmValueMinParam1.setVisible( false);
-        
+        lblTitleStepParam1.setVisible( false);
+        setVisibleDtmFieldsParam1( false);
         edtValueParam1.setVisible( false);
         
-        lblTitleStepParam2.setVisible( false);
-        lblDtmValueDayParam2.setVisible( false);    lblP1Param2.setVisible( false);
-        lblDtmValueMonParam2.setVisible( false);    lblP2Param2.setVisible( false);
-        lblDtmValueYearParam2.setVisible( false);
-        lblDtmValueHouParam2.setVisible( false);    lblP3Param2.setVisible( false);
-        lblDtmValueMinParam2.setVisible( false);
         
+        lblTitleStepParam2.setVisible( false);
+        setVisibleDtmFieldsParam2( false);
         edtValueParam2.setVisible( false);
         
         
         lblTitleStepParam3.setVisible( false);
-        lblDtmValueDayParam3.setVisible( false);    lblP1Param3.setVisible( false);
-        lblDtmValueMonParam3.setVisible( false);    lblP2Param3.setVisible( false);
-        lblDtmValueYearParam3.setVisible( false);
-        lblDtmValueHouParam3.setVisible( false);    lblP3Param3.setVisible( false);
-        lblDtmValueMinParam3.setVisible( false);
-        
+        setVisibleDtmFieldsParam3( false);
         edtValueParam3.setVisible( false);
         
         
         lblTitleStepParam4.setVisible( false);
         edtValueParam4.setVisible( false);
+        
+        
         lblTitleStepParam5.setVisible( false);
         edtValueParam5.setVisible( false);
+        
+        
+        lblTitleStepParam6.setVisible( false);
+        edtValueParam6.setVisible( false);
+        
+        paneBlob.setVisible( false);
+        
+        updateData();
+    }
+    
+    public void configureAsCalcToFinishDtm( String strStepTitle, TechProcessStepCommon info, Date dtNow) {
+        lblStepTitle.setText( strStepTitle);
+        
+        lblStepStartDtmValue.setText( ReportGenerator.Gen_NiceDate( info.GetStartDate()) + " " +
+                                        ReportGenerator.Gen_NiceTime( info.GetStartDate()));
+        
+        lblStepStopDtmCalcValue.setText( ReportGenerator.Gen_NiceDate( dtNow) + " " +
+                                            ReportGenerator.Gen_NiceTime( dtNow));
+        m_gdtmDtmStopActual.setTime( dtNow);
+        
+        m_gdtmDtmParam1.setTime( dtNow);
+        m_gdtmDtmParam1.add( Calendar.HOUR, 25);
+        
+        
+        lblTitleStepParam1.setVisible( true);
+        lblTitleStepParam1.setText( "Дата-время завершения термообезгаживания");
+        setVisibleDtmFieldsParam1( true);
+        edtValueParam1.setVisible( false);
+        
+        
+        lblTitleStepParam2.setVisible( false);
+        setVisibleDtmFieldsParam2( false);
+        edtValueParam2.setVisible( false);
+        
+        
+        lblTitleStepParam3.setVisible( false);
+        setVisibleDtmFieldsParam3( false);
+        edtValueParam3.setVisible( false);
+        
+        
+        lblTitleStepParam4.setVisible( false);
+        edtValueParam4.setVisible( false);
+        
+        
+        lblTitleStepParam5.setVisible( false);
+        edtValueParam5.setVisible( false);
+        
+        
+        lblTitleStepParam6.setVisible( false);
+        edtValueParam6.setVisible( false);
+        
+        paneBlob.setVisible( false);
+        
+        updateData();
+    }
+    
+    public void configureAsMessage() {
+        lblStepStopDtmCalcTitle.setVisible( false);
+        lblStepStopDtmCalcValue.setVisible( false);     
+        setVisibleDtmFieldsStopDateTime( false);
+
+        lblTitleStepParam1.setVisible( false);
+        setVisibleDtmFieldsParam1( false);
+        edtValueParam1.setVisible( false);
+        
+        lblTitleStepParam2.setVisible( false);
+        setVisibleDtmFieldsParam2(false);
+        edtValueParam2.setVisible( false);
+                
+        lblTitleStepParam3.setVisible( false);
+        setVisibleDtmFieldsParam3( false);
+        edtValueParam3.setVisible( false);
+                
+        lblTitleStepParam4.setVisible( false);
+        edtValueParam4.setVisible( false);
+        
+        lblTitleStepParam5.setVisible( false);
+        edtValueParam5.setVisible( false);
+        
         lblTitleStepParam6.setVisible( false);
         edtValueParam6.setVisible( false);
         
