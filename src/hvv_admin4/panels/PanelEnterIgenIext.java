@@ -309,8 +309,8 @@ public class PanelEnterIgenIext extends javax.swing.JPanel {
             return;
         }
         
-        //5.1  = 81  -->  5.2  = 82
-        //10.1 = 181 -->  10.2 = 182
+        // 5.1 = 81  -->   5.2 = 82
+        //10.2 = 182 -->  10.3 = 183
         theApp.SetCurrentStep( theApp.GetCurrentStep() + 1);
         
         theApp.m_ReportGenerator.Generate();

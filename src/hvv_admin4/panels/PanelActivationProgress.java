@@ -7,12 +7,10 @@ package hvv_admin4.panels;
 
 import hvv_admin4.HVV_Admin4;
 import hvv_admin4.HVV_Admin4Constants;
-import hvv_admin4.planner.PlannerItem;
 import hvv_admin4.steps.info.TechProcessDegasationStepInfo;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
