@@ -364,6 +364,20 @@ public class HVV_StateKeeper {
                 case "041":
                 case "043": {
                     if( theApp.MessageBoxAskYesNo( "Удалось ли зажечь прибор по длинному плечу?", "HVV_Admin4") == JOptionPane.YES_OPTION) {
+                        //т.е. тут нужно зафиксировать обычный по длительности процесс обработки по длинному плечу и перейти к обычному по коротким
+                        TechProcessHvProcessInfo stepInfo = ( TechProcessHvProcessInfo) theApp.GetHvStep( strStepNumber);
+                        RestoreHvStep1 dlg = new RestoreHvStep1();
+                        dlg.configureAsHv( theApp.GetStepNameWithNum( new Integer( strStepNumber)), stepInfo, theApp.GetSettings().GetProcessingTime_2());
+                        dlg.setVisible( true);
+
+                        bDrop = dlg.m_bDrop;
+                        if( !bDrop) {
+                            stepInfo.SetStopDate( dlg.m_gdtmDtmStopActual.getTime());
+                            stepInfo.SetAnStart( new Double( dlg.edtValueParam1.getText()));
+                            stepInfo.SetTuStart( new Double( dlg.edtValueParam2.getText()));
+                            stepInfo.SetAnStop(  new Double( dlg.edtValueParam3.getText()));
+                            stepInfo.SetTuStop(  new Double( dlg.edtValueParam4.getText()));
+                        }
                         
                     }
                     else {
@@ -442,15 +456,11 @@ public class HVV_StateKeeper {
             
             theApp.SetCurrentStep( nLastWrittenStep);
             theApp.NextCurrentStep();
-            int nPotentialNextStep = theApp.GetCurrentStep();
 
             if( bDrop == false) {
                 theApp.SetSerial( strSerial);
-                theApp.SetProcessedDeviceType( nDeviceType);
-                theApp.SetCurrentStep( nPotentialNextStep);
-                    
+                theApp.SetProcessedDeviceType( nDeviceType);                    
                 //выставка нужного экрана будет в app'e HVV_Admin4
-                
             }
             else {
                 m_bDropReadState = true;

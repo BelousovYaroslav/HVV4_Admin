@@ -84,6 +84,8 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         lblStepTitle = new javax.swing.JLabel();
         lblStepStartDtmTitle = new javax.swing.JLabel();
         lblStepStartDtmValue = new javax.swing.JLabel();
+        lblStepStopDtmTitle = new javax.swing.JLabel();
+        lblStepStopDtmValue = new javax.swing.JLabel();
         lblStepStopDtmCalcTitle = new javax.swing.JLabel();
         lblStepStopDtmCalcValue = new javax.swing.JLabel();
         lblStepStopDtmActTitle = new javax.swing.JLabel();
@@ -154,11 +156,19 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
 
         lblStepStartDtmTitle.setText("Дата-время начала:");
         getContentPane().add(lblStepStartDtmTitle);
-        lblStepStartDtmTitle.setBounds(10, 70, 380, 20);
+        lblStepStartDtmTitle.setBounds(10, 70, 180, 20);
 
         lblStepStartDtmValue.setText("10.01.2018 17:00");
         getContentPane().add(lblStepStartDtmValue);
-        lblStepStartDtmValue.setBounds(10, 90, 380, 20);
+        lblStepStartDtmValue.setBounds(10, 90, 180, 20);
+
+        lblStepStopDtmTitle.setText("Дата-время завершения:");
+        getContentPane().add(lblStepStopDtmTitle);
+        lblStepStopDtmTitle.setBounds(200, 70, 180, 20);
+
+        lblStepStopDtmValue.setText("10.01.2018 17:00");
+        getContentPane().add(lblStepStopDtmValue);
+        lblStepStopDtmValue.setBounds(200, 90, 180, 20);
 
         lblStepStopDtmCalcTitle.setText("Предположительное время завершения:");
         getContentPane().add(lblStepStopDtmCalcTitle);
@@ -560,7 +570,8 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         lblDtmValueMinParam3.setVisible( bVisible);
     }
     
-    public void configureAsIgenIext() {
+    public void configureAsIgenIext( String strStepTitle) {
+        lblStepTitle.setText( strStepTitle);
         
         lblStepStopDtmCalcTitle.setVisible( false);
         lblStepStopDtmCalcValue.setVisible( false);
@@ -596,7 +607,9 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         paneBlob.setVisible( false);
     }
     
-    public void configureAsGetterInfo1() {
+    public void configureAsGetterInfo1( String strStepTitle) {
+        lblStepTitle.setText( strStepTitle);
+        
         lblTitleStepParam1.setVisible( true);
         lblTitleStepParam1.setText( "<html>Время выброса с геттера при напряжении 4v</sub></html>");
         setVisibleDtmFieldsParam1( true);
@@ -628,7 +641,9 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         paneBlob.setVisible( false);
     }
     
-    public void configureAsGetterInfo2() {
+    public void configureAsGetterInfo2( String strStepTitle) {
+        lblStepTitle.setText( strStepTitle);
+        
         lblTitleStepParam1.setVisible( true);
         lblTitleStepParam1.setText( "<html>Время выброса с геттера при напряжении 4v</sub></html>");
         setVisibleDtmFieldsParam1( true);
@@ -805,7 +820,9 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
         updateData();
     }
     
-    public void configureAsMessage() {
+    public void configureAsMessage( String strStepTitle) {
+        lblStepTitle.setText( strStepTitle);
+        
         lblStepStopDtmCalcTitle.setVisible( false);
         lblStepStopDtmCalcValue.setVisible( false);     
         setVisibleDtmFieldsStopDateTime( false);
@@ -988,6 +1005,8 @@ public class RestoreHvStep1 extends javax.swing.JDialog {
     private javax.swing.JLabel lblStepStopDtmActTitle;
     private javax.swing.JLabel lblStepStopDtmCalcTitle;
     private javax.swing.JLabel lblStepStopDtmCalcValue;
+    private javax.swing.JLabel lblStepStopDtmTitle;
+    private javax.swing.JLabel lblStepStopDtmValue;
     private javax.swing.JLabel lblStepTitle;
     private javax.swing.JLabel lblTitleMain;
     private javax.swing.JLabel lblTitleStepParam1;

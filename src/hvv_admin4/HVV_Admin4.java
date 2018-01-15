@@ -295,6 +295,26 @@ public class HVV_Admin4 {
         
         if( m_nCurrentProcessStep != 1) {
             switch( m_nCurrentProcessStep) {
+                case 42:
+                case 44:
+                    //мы сломались на этапе O2=Ne20 на длинном плече. его доделали. хотим делать короткое
+                    m_pMainWnd.m_pnlMain.setVisible( false);
+                    m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
+                    m_pMainWnd.m_pnlEnterHvVoltage.Init();
+                    
+                    TechProcessHvProcessInfo inf = ( TechProcessHvProcessInfo) GetCommonStep( "041");
+                    inf.SetStartReportTitle( "1ый цикл. Обработка по длинному плечу.");
+                    SaveStepInfo( "041", inf, false);
+                
+                    TechProcessHvProcessInfo infhv = new TechProcessHvProcessInfo();
+                    infhv.SetStartDateAsCurrent( GetSettings().GetTimeZoneShift());
+                    infhv.SetStartReportTitle( "1ый цикл. Обработка по коротким плечам.");
+                    SaveStepInfo( "042", infhv, false);
+                
+                    m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( GetSettings().GetProcessingTime_3());
+                    
+                break;
+                    
                 case 62:
                     //мы сломались на этапе ввода даты завершения ТО (rare)
                     //включаем таймер
