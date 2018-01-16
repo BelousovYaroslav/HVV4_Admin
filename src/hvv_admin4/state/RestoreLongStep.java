@@ -216,10 +216,13 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnPMaxStep20 = new javax.swing.JSpinner();
         spnPMaxStep21 = new javax.swing.JSpinner();
         spnPMaxStep22 = new javax.swing.JSpinner();
+        lblSelectSubStepTitle1 = new javax.swing.JLabel();
+        lblSelectSubStepTitle2 = new javax.swing.JLabel();
+        lblSelectSubStepTitle3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Восстановление этапа обработки O2 ");
-        setPreferredSize(new java.awt.Dimension(400, 800));
+        setPreferredSize(new java.awt.Dimension(640, 480));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -261,968 +264,984 @@ public class RestoreLongStep extends javax.swing.JDialog {
         lblSelectSubStepTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblSelectSubStepTitle.setText("Выберите текущий этап:");
         getContentPane().add(lblSelectSubStepTitle);
-        lblSelectSubStepTitle.setBounds(20, 90, 770, 20);
+        lblSelectSubStepTitle.setBounds(20, 80, 610, 20);
 
         btnGroupStepSelection.add(radStep01);
         radStep01.setSelected(true);
         radStep01.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep01);
-        radStep01.setBounds(10, 110, 30, 20);
+        radStep01.setBounds(10, 140, 30, 20);
 
         edtDurationStep01.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep01);
-        edtDurationStep01.setBounds(40, 110, 40, 20);
+        edtDurationStep01.setBounds(40, 140, 30, 20);
 
         edtPowerStep01.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep01);
-        edtPowerStep01.setBounds(80, 110, 40, 20);
+        edtPowerStep01.setBounds(70, 140, 30, 20);
 
         edtPMaxStep01.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep01.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep01);
-        edtPMaxStep01.setBounds(120, 110, 40, 20);
+        edtPMaxStep01.setBounds(100, 140, 40, 20);
 
         lblPMaxStep01.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblPMaxStep01.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPMaxStep01.setText("·10");
         lblPMaxStep01.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(lblPMaxStep01);
-        lblPMaxStep01.setBounds(160, 110, 40, 20);
+        lblPMaxStep01.setBounds(140, 140, 30, 20);
 
         spnPMaxStep01.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep01.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep01);
-        spnPMaxStep01.setBounds(200, 110, 40, 24);
+        spnPMaxStep01.setBounds(170, 140, 40, 18);
 
         btnGroupStepSelection.add(radStep02);
         radStep02.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep02);
-        radStep02.setBounds(10, 130, 30, 20);
+        radStep02.setBounds(10, 160, 30, 20);
 
         edtDuratonStep02.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDuratonStep02.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDuratonStep02);
-        edtDuratonStep02.setBounds(40, 130, 40, 20);
+        edtDuratonStep02.setBounds(40, 160, 30, 20);
 
         edtPowerStep02.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep02.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep02);
-        edtPowerStep02.setBounds(80, 130, 40, 20);
+        edtPowerStep02.setBounds(70, 160, 30, 20);
 
         edtPMaxStep02.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep02.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep02);
-        edtPMaxStep02.setBounds(120, 130, 40, 20);
+        edtPMaxStep02.setBounds(100, 160, 40, 20);
 
         lblPmaxStep02.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblPmaxStep02.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPmaxStep02.setText("·10");
         lblPmaxStep02.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(lblPmaxStep02);
-        lblPmaxStep02.setBounds(160, 130, 40, 20);
+        lblPmaxStep02.setBounds(140, 160, 30, 20);
 
         spnPMaxStep02.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep02.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep02);
-        spnPMaxStep02.setBounds(200, 130, 40, 24);
+        spnPMaxStep02.setBounds(170, 160, 40, 18);
 
         btnGroupStepSelection.add(radStep03);
         radStep03.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep03);
-        radStep03.setBounds(10, 150, 30, 20);
+        radStep03.setBounds(10, 180, 30, 20);
 
         edtDurationStep03.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep03.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep03);
-        edtDurationStep03.setBounds(40, 150, 40, 20);
+        edtDurationStep03.setBounds(40, 180, 30, 20);
 
         edtPowerStep03.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep03.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep03);
-        edtPowerStep03.setBounds(80, 150, 40, 20);
+        edtPowerStep03.setBounds(70, 180, 30, 20);
 
         edtPMaxStep03.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep03.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep03);
-        edtPMaxStep03.setBounds(120, 150, 40, 20);
+        edtPMaxStep03.setBounds(100, 180, 40, 20);
 
         lblPmaxStep03.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblPmaxStep03.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPmaxStep03.setText("·10");
         lblPmaxStep03.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(lblPmaxStep03);
-        lblPmaxStep03.setBounds(160, 150, 40, 20);
+        lblPmaxStep03.setBounds(140, 180, 30, 20);
 
         spnPMaxStep03.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep03.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep03);
-        spnPMaxStep03.setBounds(200, 150, 40, 24);
+        spnPMaxStep03.setBounds(170, 180, 40, 18);
 
         btnGroupStepSelection.add(radStep04);
         radStep04.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep04);
-        radStep04.setBounds(10, 170, 30, 20);
+        radStep04.setBounds(10, 200, 30, 20);
 
         edtDurationStep04.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep04.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep04);
-        edtDurationStep04.setBounds(40, 170, 40, 20);
+        edtDurationStep04.setBounds(40, 200, 30, 20);
 
         edtPowerStep04.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep04.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep04);
-        edtPowerStep04.setBounds(80, 170, 40, 20);
+        edtPowerStep04.setBounds(70, 200, 30, 20);
 
         edtPMaxStep04.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep04.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep04);
-        edtPMaxStep04.setBounds(120, 170, 40, 20);
+        edtPMaxStep04.setBounds(100, 200, 40, 20);
 
         lblPmaxStep04.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblPmaxStep04.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPmaxStep04.setText("·10");
         lblPmaxStep04.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(lblPmaxStep04);
-        lblPmaxStep04.setBounds(160, 170, 40, 20);
+        lblPmaxStep04.setBounds(140, 200, 30, 20);
 
         spnPMaxStep04.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep04.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep04);
-        spnPMaxStep04.setBounds(200, 170, 40, 24);
+        spnPMaxStep04.setBounds(170, 200, 40, 18);
 
         btnGroupStepSelection.add(radStep05);
         radStep05.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep05);
-        radStep05.setBounds(10, 190, 30, 20);
+        radStep05.setBounds(10, 220, 30, 20);
 
         edtDurationStep05.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep05.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep05);
-        edtDurationStep05.setBounds(40, 190, 40, 20);
+        edtDurationStep05.setBounds(40, 220, 30, 20);
 
         edtPowerStep05.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep05.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep05);
-        edtPowerStep05.setBounds(80, 190, 40, 20);
+        edtPowerStep05.setBounds(70, 220, 30, 20);
 
         edtPMaxStep05.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep05.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep05);
-        edtPMaxStep05.setBounds(120, 190, 40, 20);
+        edtPMaxStep05.setBounds(100, 220, 40, 20);
 
         lblPmaxStep05.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblPmaxStep05.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPmaxStep05.setText("5");
         lblPmaxStep05.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(lblPmaxStep05);
-        lblPmaxStep05.setBounds(160, 190, 40, 20);
+        lblPmaxStep05.setBounds(140, 220, 30, 20);
 
         spnPMaxStep05.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep05.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep05);
-        spnPMaxStep05.setBounds(200, 190, 40, 24);
+        spnPMaxStep05.setBounds(170, 220, 40, 18);
 
         btnGroupStepSelection.add(radStep06);
         radStep06.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep06);
-        radStep06.setBounds(10, 210, 30, 20);
+        radStep06.setBounds(10, 240, 30, 20);
 
         edtDurationStep06.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep06.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep06);
-        edtDurationStep06.setBounds(40, 210, 40, 20);
+        edtDurationStep06.setBounds(40, 240, 30, 20);
 
         edtPowerStep06.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep06.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep06);
-        edtPowerStep06.setBounds(80, 210, 40, 20);
+        edtPowerStep06.setBounds(70, 240, 30, 20);
 
         edtPMaxStep06.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep06.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep06);
-        edtPMaxStep06.setBounds(120, 210, 40, 20);
+        edtPMaxStep06.setBounds(100, 240, 40, 20);
 
         lblPmaxStep06.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblPmaxStep06.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPmaxStep06.setText("·10");
         lblPmaxStep06.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(lblPmaxStep06);
-        lblPmaxStep06.setBounds(160, 210, 40, 20);
+        lblPmaxStep06.setBounds(140, 240, 30, 20);
 
         spnPMaxStep06.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep06.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep06);
-        spnPMaxStep06.setBounds(200, 210, 40, 24);
+        spnPMaxStep06.setBounds(170, 240, 40, 18);
 
         btnGroupStepSelection.add(radStep07);
         radStep07.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep07);
-        radStep07.setBounds(10, 230, 30, 20);
+        radStep07.setBounds(10, 260, 30, 20);
 
         edtDuratonStep07.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDuratonStep07.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDuratonStep07);
-        edtDuratonStep07.setBounds(40, 230, 40, 20);
+        edtDuratonStep07.setBounds(40, 260, 30, 20);
 
         edtPowerStep07.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep07.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep07);
-        edtPowerStep07.setBounds(80, 230, 40, 20);
+        edtPowerStep07.setBounds(70, 260, 30, 20);
 
         edtPMaxStep07.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep07.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep07);
-        edtPMaxStep07.setBounds(120, 230, 40, 20);
+        edtPMaxStep07.setBounds(100, 260, 40, 20);
 
         lblPmaxStep07.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblPmaxStep07.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPmaxStep07.setText("·10");
         lblPmaxStep07.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(lblPmaxStep07);
-        lblPmaxStep07.setBounds(160, 230, 40, 20);
+        lblPmaxStep07.setBounds(140, 260, 30, 20);
 
         spnPMaxStep07.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep07.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep07);
-        spnPMaxStep07.setBounds(200, 230, 40, 24);
+        spnPMaxStep07.setBounds(170, 260, 40, 18);
 
         btnGroupStepSelection.add(radStep08);
         radStep08.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep08);
-        radStep08.setBounds(10, 250, 30, 20);
+        radStep08.setBounds(10, 280, 30, 20);
 
         edtDurationStep08.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep08.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep08);
-        edtDurationStep08.setBounds(40, 250, 40, 20);
+        edtDurationStep08.setBounds(40, 280, 30, 20);
 
         edtPowerStep08.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep08.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep08);
-        edtPowerStep08.setBounds(80, 250, 40, 20);
+        edtPowerStep08.setBounds(70, 280, 30, 20);
 
         edtPMaxStep08.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep08.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep08);
-        edtPMaxStep08.setBounds(120, 250, 40, 20);
+        edtPMaxStep08.setBounds(100, 280, 40, 20);
 
         lblPmaxStep08.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblPmaxStep08.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPmaxStep08.setText("·10");
         lblPmaxStep08.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(lblPmaxStep08);
-        lblPmaxStep08.setBounds(160, 250, 40, 20);
+        lblPmaxStep08.setBounds(140, 280, 30, 20);
 
         spnPMaxStep08.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep08.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep08);
-        spnPMaxStep08.setBounds(200, 250, 40, 24);
+        spnPMaxStep08.setBounds(170, 280, 40, 18);
 
         btnGroupStepSelection.add(radStep09);
         radStep09.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep09);
-        radStep09.setBounds(10, 270, 30, 20);
+        radStep09.setBounds(10, 300, 30, 20);
 
         edtDurationStep09.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep09.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep09);
-        edtDurationStep09.setBounds(40, 270, 40, 20);
+        edtDurationStep09.setBounds(40, 300, 30, 20);
 
         edtPowerStep09.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep09.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep09);
-        edtPowerStep09.setBounds(80, 270, 40, 20);
+        edtPowerStep09.setBounds(70, 300, 30, 20);
 
         edtPMaxStep09.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep09.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep09);
-        edtPMaxStep09.setBounds(120, 270, 40, 20);
+        edtPMaxStep09.setBounds(100, 300, 40, 20);
 
         lblPmaxStep09.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblPmaxStep09.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPmaxStep09.setText("·10");
         lblPmaxStep09.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(lblPmaxStep09);
-        lblPmaxStep09.setBounds(160, 270, 40, 20);
+        lblPmaxStep09.setBounds(140, 300, 30, 20);
 
         spnPMaxStep09.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep09.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep09);
-        spnPMaxStep09.setBounds(200, 270, 40, 24);
+        spnPMaxStep09.setBounds(170, 300, 40, 18);
 
         btnGroupStepSelection.add(radStep10);
         radStep10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep10);
-        radStep10.setBounds(10, 290, 30, 20);
+        radStep10.setBounds(10, 320, 30, 20);
 
         edtDurationStep10.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep10);
-        edtDurationStep10.setBounds(40, 290, 40, 20);
+        edtDurationStep10.setBounds(40, 320, 30, 20);
 
         edtPowerStep10.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep10);
-        edtPowerStep10.setBounds(80, 290, 40, 20);
+        edtPowerStep10.setBounds(70, 320, 30, 20);
 
         edtPMaxStep10.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep10);
-        edtPMaxStep10.setBounds(120, 290, 40, 20);
+        edtPMaxStep10.setBounds(100, 320, 40, 20);
 
         lblPmaxStep10.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblPmaxStep10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPmaxStep10.setText("10");
         lblPmaxStep10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(lblPmaxStep10);
-        lblPmaxStep10.setBounds(160, 290, 40, 20);
+        lblPmaxStep10.setBounds(140, 320, 30, 20);
 
         spnPMaxStep10.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep10.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep10);
-        spnPMaxStep10.setBounds(200, 290, 40, 24);
+        spnPMaxStep10.setBounds(170, 320, 40, 18);
 
         btnGroupStepSelection.add(radStep11);
         radStep11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep11);
-        radStep11.setBounds(270, 110, 30, 20);
+        radStep11.setBounds(220, 140, 30, 20);
 
         btnGroupStepSelection.add(radStep12);
         radStep12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep12);
-        radStep12.setBounds(270, 130, 30, 20);
+        radStep12.setBounds(220, 160, 30, 20);
 
         btnGroupStepSelection.add(radStep13);
         radStep13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep13);
-        radStep13.setBounds(270, 150, 30, 20);
+        radStep13.setBounds(220, 180, 30, 20);
 
         btnGroupStepSelection.add(radStep14);
         radStep14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep14);
-        radStep14.setBounds(270, 170, 30, 20);
+        radStep14.setBounds(220, 200, 30, 20);
 
         btnGroupStepSelection.add(radStep15);
         radStep15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep15);
-        radStep15.setBounds(270, 190, 30, 20);
+        radStep15.setBounds(220, 220, 30, 20);
 
         btnGroupStepSelection.add(radStep16);
         radStep16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep16);
-        radStep16.setBounds(270, 210, 30, 20);
+        radStep16.setBounds(220, 240, 30, 20);
 
         btnGroupStepSelection.add(radStep17);
         radStep17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep17);
-        radStep17.setBounds(270, 230, 30, 20);
+        radStep17.setBounds(220, 260, 30, 20);
 
         btnGroupStepSelection.add(radStep18);
         radStep18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep18);
-        radStep18.setBounds(270, 250, 30, 20);
+        radStep18.setBounds(220, 280, 30, 20);
 
         btnGroupStepSelection.add(radStep19);
         radStep19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep19);
-        radStep19.setBounds(270, 270, 30, 20);
+        radStep19.setBounds(220, 300, 30, 20);
 
         btnGroupStepSelection.add(radStep20);
         radStep20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep20);
-        radStep20.setBounds(270, 290, 30, 20);
+        radStep20.setBounds(220, 320, 30, 20);
 
         btnGroupStepSelection.add(radStep21);
         radStep21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep21);
-        radStep21.setBounds(530, 110, 30, 20);
+        radStep21.setBounds(430, 140, 30, 20);
 
         btnGroupStepSelection.add(radStep22);
         radStep22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep22);
-        radStep22.setBounds(530, 130, 30, 20);
+        radStep22.setBounds(430, 160, 30, 20);
 
         btnGroupStepSelection.add(radStep23);
         radStep23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep23);
-        radStep23.setBounds(530, 150, 30, 20);
+        radStep23.setBounds(430, 180, 30, 20);
 
         btnGroupStepSelection.add(radStep24);
         radStep24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep24);
-        radStep24.setBounds(530, 170, 30, 20);
+        radStep24.setBounds(430, 200, 30, 20);
 
         btnGroupStepSelection.add(radStep25);
         radStep25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep25);
-        radStep25.setBounds(530, 190, 30, 20);
+        radStep25.setBounds(430, 220, 30, 20);
 
         btnGroupStepSelection.add(radStep26);
         radStep26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep26);
-        radStep26.setBounds(530, 210, 30, 20);
+        radStep26.setBounds(430, 240, 30, 20);
 
         btnGroupStepSelection.add(radStep27);
         radStep27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep27);
-        radStep27.setBounds(530, 230, 30, 20);
+        radStep27.setBounds(430, 260, 30, 20);
 
         btnGroupStepSelection.add(radStep28);
         radStep28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep28);
-        radStep28.setBounds(530, 250, 30, 20);
+        radStep28.setBounds(430, 280, 30, 20);
 
         btnGroupStepSelection.add(radStep29);
         radStep29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep29);
-        radStep29.setBounds(530, 270, 30, 20);
+        radStep29.setBounds(430, 300, 30, 20);
 
         btnGroupStepSelection.add(radStep30);
         radStep30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(radStep30);
-        radStep30.setBounds(530, 290, 30, 20);
+        radStep30.setBounds(430, 320, 30, 20);
 
         jLabel220.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel220.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel220.setText("·10");
         jLabel220.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel220);
-        jLabel220.setBounds(420, 130, 40, 20);
+        jLabel220.setBounds(350, 160, 30, 20);
 
         jLabel221.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel221.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel221.setText("·10");
         jLabel221.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel221);
-        jLabel221.setBounds(420, 110, 40, 20);
+        jLabel221.setBounds(350, 140, 30, 20);
 
         jLabel222.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel222.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel222.setText("·10");
         jLabel222.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel222);
-        jLabel222.setBounds(420, 170, 40, 20);
+        jLabel222.setBounds(350, 200, 30, 20);
 
         jLabel223.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel223.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel223.setText("·10");
         jLabel223.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel223);
-        jLabel223.setBounds(420, 150, 40, 20);
+        jLabel223.setBounds(350, 180, 30, 20);
 
         jLabel224.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel224.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel224.setText("·10");
         jLabel224.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel224);
-        jLabel224.setBounds(420, 210, 40, 20);
+        jLabel224.setBounds(350, 240, 30, 20);
 
         jLabel225.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel225.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel225.setText("15");
         jLabel225.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel225);
-        jLabel225.setBounds(420, 190, 40, 20);
+        jLabel225.setBounds(350, 220, 30, 20);
 
         jLabel242.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel242.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel242.setText("·10");
         jLabel242.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel242);
-        jLabel242.setBounds(420, 250, 40, 20);
+        jLabel242.setBounds(350, 280, 30, 20);
 
         jLabel243.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel243.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel243.setText("·10");
         jLabel243.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel243);
-        jLabel243.setBounds(420, 230, 40, 20);
+        jLabel243.setBounds(350, 260, 30, 20);
 
         jLabel244.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel244.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel244.setText("20");
         jLabel244.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel244);
-        jLabel244.setBounds(420, 290, 40, 20);
+        jLabel244.setBounds(350, 320, 30, 20);
 
         jLabel245.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel245.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel245.setText("·10");
         jLabel245.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel245);
-        jLabel245.setBounds(420, 270, 40, 20);
+        jLabel245.setBounds(350, 300, 30, 20);
 
         jLabel246.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel246.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel246.setText("·10");
         jLabel246.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel246);
-        jLabel246.setBounds(680, 130, 40, 20);
+        jLabel246.setBounds(560, 160, 30, 20);
 
         jLabel247.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel247.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel247.setText("·10");
         jLabel247.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel247);
-        jLabel247.setBounds(680, 110, 40, 20);
+        jLabel247.setBounds(560, 140, 30, 20);
 
         jLabel248.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel248.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel248.setText("·10");
         jLabel248.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel248);
-        jLabel248.setBounds(680, 170, 40, 20);
+        jLabel248.setBounds(560, 200, 30, 20);
 
         jLabel249.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel249.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel249.setText("·10");
         jLabel249.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel249);
-        jLabel249.setBounds(680, 150, 40, 20);
+        jLabel249.setBounds(560, 180, 30, 20);
 
         jLabel250.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel250.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel250.setText("·10");
         jLabel250.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel250);
-        jLabel250.setBounds(680, 210, 40, 20);
+        jLabel250.setBounds(560, 240, 30, 20);
 
         jLabel251.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel251.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel251.setText("25");
         jLabel251.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel251);
-        jLabel251.setBounds(680, 190, 40, 20);
+        jLabel251.setBounds(560, 220, 30, 20);
 
         jLabel252.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel252.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel252.setText("·10");
         jLabel252.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel252);
-        jLabel252.setBounds(680, 250, 40, 20);
+        jLabel252.setBounds(560, 280, 30, 20);
 
         jLabel253.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel253.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel253.setText("·10");
         jLabel253.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel253);
-        jLabel253.setBounds(680, 230, 40, 20);
+        jLabel253.setBounds(560, 260, 30, 20);
 
         jLabel254.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel254.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel254.setText("30");
         jLabel254.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel254);
-        jLabel254.setBounds(680, 290, 40, 20);
+        jLabel254.setBounds(560, 320, 30, 20);
 
         jLabel255.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         jLabel255.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel255.setText("·10");
         jLabel255.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(jLabel255);
-        jLabel255.setBounds(680, 270, 40, 20);
+        jLabel255.setBounds(560, 300, 30, 20);
 
         edtDurationStep11.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep11);
-        edtDurationStep11.setBounds(300, 110, 40, 20);
+        edtDurationStep11.setBounds(250, 140, 30, 20);
 
         edtPowerStep11.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep11);
-        edtPowerStep11.setBounds(340, 110, 40, 20);
+        edtPowerStep11.setBounds(280, 140, 30, 20);
 
         edtPMaxStep11.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep11.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep11);
-        edtPMaxStep11.setBounds(380, 110, 40, 20);
+        edtPMaxStep11.setBounds(310, 140, 40, 20);
 
         edtDuratonStep12.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDuratonStep12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDuratonStep12);
-        edtDuratonStep12.setBounds(300, 130, 40, 20);
+        edtDuratonStep12.setBounds(250, 160, 30, 20);
 
         edtPowerStep12.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep12);
-        edtPowerStep12.setBounds(340, 130, 40, 20);
+        edtPowerStep12.setBounds(280, 160, 30, 20);
 
         edtPMaxStep12.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep12);
-        edtPMaxStep12.setBounds(380, 130, 40, 20);
+        edtPMaxStep12.setBounds(310, 160, 40, 20);
 
         edtDurationStep13.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep13);
-        edtDurationStep13.setBounds(300, 150, 40, 20);
+        edtDurationStep13.setBounds(250, 180, 30, 20);
 
         edtPowerStep13.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep13);
-        edtPowerStep13.setBounds(340, 150, 40, 20);
+        edtPowerStep13.setBounds(280, 180, 30, 20);
 
         edtPMaxStep13.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep13);
-        edtPMaxStep13.setBounds(380, 150, 40, 20);
+        edtPMaxStep13.setBounds(310, 180, 40, 20);
 
         edtDurationStep14.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep14);
-        edtDurationStep14.setBounds(300, 170, 40, 20);
+        edtDurationStep14.setBounds(250, 200, 30, 20);
 
         edtPowerStep14.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep14);
-        edtPowerStep14.setBounds(340, 170, 40, 20);
+        edtPowerStep14.setBounds(280, 200, 30, 20);
 
         edtPMaxStep14.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep14);
-        edtPMaxStep14.setBounds(380, 170, 40, 20);
+        edtPMaxStep14.setBounds(310, 200, 40, 20);
 
         edtDurationStep15.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep15);
-        edtDurationStep15.setBounds(300, 190, 40, 20);
+        edtDurationStep15.setBounds(250, 220, 30, 20);
 
         edtPowerStep15.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep15);
-        edtPowerStep15.setBounds(340, 190, 40, 20);
+        edtPowerStep15.setBounds(280, 220, 30, 20);
 
         edtPMaxStep15.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep15);
-        edtPMaxStep15.setBounds(380, 190, 40, 20);
+        edtPMaxStep15.setBounds(310, 220, 40, 20);
 
         edtDurationStep16.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep16);
-        edtDurationStep16.setBounds(300, 210, 40, 20);
+        edtDurationStep16.setBounds(250, 240, 30, 20);
 
         edtPowerStep16.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep16);
-        edtPowerStep16.setBounds(340, 210, 40, 20);
+        edtPowerStep16.setBounds(280, 240, 30, 20);
 
         edtPMaxStep16.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep16.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep16);
-        edtPMaxStep16.setBounds(380, 210, 40, 20);
+        edtPMaxStep16.setBounds(310, 240, 40, 20);
 
         edtDuratonStep17.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDuratonStep17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDuratonStep17);
-        edtDuratonStep17.setBounds(300, 230, 40, 20);
+        edtDuratonStep17.setBounds(250, 260, 30, 20);
 
         edtPowerStep17.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep17);
-        edtPowerStep17.setBounds(340, 230, 40, 20);
+        edtPowerStep17.setBounds(280, 260, 30, 20);
 
         edtPMaxStep17.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep17);
-        edtPMaxStep17.setBounds(380, 230, 40, 20);
+        edtPMaxStep17.setBounds(310, 260, 40, 20);
 
         edtDurationStep18.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep18);
-        edtDurationStep18.setBounds(300, 250, 40, 20);
+        edtDurationStep18.setBounds(250, 280, 30, 20);
 
         edtPowerStep18.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep18);
-        edtPowerStep18.setBounds(340, 250, 40, 20);
+        edtPowerStep18.setBounds(280, 280, 30, 20);
 
         edtPMaxStep18.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep18);
-        edtPMaxStep18.setBounds(380, 250, 40, 20);
+        edtPMaxStep18.setBounds(310, 280, 40, 20);
 
         edtDurationStep19.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep19);
-        edtDurationStep19.setBounds(300, 270, 40, 20);
+        edtDurationStep19.setBounds(250, 300, 30, 20);
 
         edtPowerStep19.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep19);
-        edtPowerStep19.setBounds(340, 270, 40, 20);
+        edtPowerStep19.setBounds(280, 300, 30, 20);
 
         edtPMaxStep19.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep19);
-        edtPMaxStep19.setBounds(380, 270, 40, 20);
+        edtPMaxStep19.setBounds(310, 300, 40, 20);
 
         edtDurationStep20.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep20);
-        edtDurationStep20.setBounds(300, 290, 40, 20);
+        edtDurationStep20.setBounds(250, 320, 30, 20);
 
         edtPowerStep20.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep20);
-        edtPowerStep20.setBounds(340, 290, 40, 20);
+        edtPowerStep20.setBounds(280, 320, 30, 20);
 
         edtPMaxStep20.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep20);
-        edtPMaxStep20.setBounds(380, 290, 40, 20);
+        edtPMaxStep20.setBounds(310, 320, 40, 20);
 
         spnPMaxStep2.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep2.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep2);
-        spnPMaxStep2.setBounds(460, 110, 40, 24);
+        spnPMaxStep2.setBounds(380, 140, 40, 18);
 
         spnPMaxStep3.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep3.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep3);
-        spnPMaxStep3.setBounds(460, 130, 40, 24);
+        spnPMaxStep3.setBounds(380, 160, 40, 18);
 
         spnPMaxStep4.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep4.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep4);
-        spnPMaxStep4.setBounds(460, 150, 40, 24);
+        spnPMaxStep4.setBounds(380, 180, 40, 18);
 
         spnPMaxStep5.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep5.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep5);
-        spnPMaxStep5.setBounds(460, 170, 40, 24);
+        spnPMaxStep5.setBounds(380, 200, 40, 18);
 
         spnPMaxStep6.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep6.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep6);
-        spnPMaxStep6.setBounds(460, 190, 40, 24);
+        spnPMaxStep6.setBounds(380, 220, 40, 18);
 
         spnPMaxStep7.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep7.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep7);
-        spnPMaxStep7.setBounds(460, 210, 40, 24);
+        spnPMaxStep7.setBounds(380, 240, 40, 18);
 
         spnPMaxStep8.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep8.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep8);
-        spnPMaxStep8.setBounds(460, 230, 40, 24);
+        spnPMaxStep8.setBounds(380, 260, 40, 18);
 
         spnPMaxStep9.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep9.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep9);
-        spnPMaxStep9.setBounds(460, 250, 40, 24);
+        spnPMaxStep9.setBounds(380, 280, 40, 18);
 
         spnPMaxStep11.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep11.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep11);
-        spnPMaxStep11.setBounds(460, 270, 40, 24);
+        spnPMaxStep11.setBounds(380, 300, 40, 18);
 
         spnPMaxStep12.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep12.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep12);
-        spnPMaxStep12.setBounds(460, 290, 40, 24);
+        spnPMaxStep12.setBounds(380, 320, 40, 18);
 
         edtDurationStep12.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep12.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep12);
-        edtDurationStep12.setBounds(560, 110, 40, 20);
+        edtDurationStep12.setBounds(460, 140, 30, 20);
 
         edtPowerStep21.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep21);
-        edtPowerStep21.setBounds(600, 110, 40, 20);
+        edtPowerStep21.setBounds(490, 140, 30, 20);
 
         edtPMaxStep21.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep21);
-        edtPMaxStep21.setBounds(640, 110, 40, 20);
+        edtPMaxStep21.setBounds(520, 140, 40, 20);
 
         edtDuratonStep13.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDuratonStep13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDuratonStep13);
-        edtDuratonStep13.setBounds(560, 130, 40, 20);
+        edtDuratonStep13.setBounds(460, 160, 30, 20);
 
         edtPowerStep22.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep22);
-        edtPowerStep22.setBounds(600, 130, 40, 20);
+        edtPowerStep22.setBounds(490, 160, 30, 20);
 
         edtPMaxStep22.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep22);
-        edtPMaxStep22.setBounds(640, 130, 40, 20);
+        edtPMaxStep22.setBounds(520, 160, 40, 20);
 
         edtDurationStep17.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep17.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep17);
-        edtDurationStep17.setBounds(560, 150, 40, 20);
+        edtDurationStep17.setBounds(460, 180, 30, 20);
 
         edtPowerStep23.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep23);
-        edtPowerStep23.setBounds(600, 150, 40, 20);
+        edtPowerStep23.setBounds(490, 180, 30, 20);
 
         edtPMaxStep23.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep23);
-        edtPMaxStep23.setBounds(640, 150, 40, 20);
+        edtPMaxStep23.setBounds(520, 180, 40, 20);
 
         edtDurationStep21.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep21);
-        edtDurationStep21.setBounds(560, 170, 40, 20);
+        edtDurationStep21.setBounds(460, 200, 30, 20);
 
         edtPowerStep24.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep24);
-        edtPowerStep24.setBounds(600, 170, 40, 20);
+        edtPowerStep24.setBounds(490, 200, 30, 20);
 
         edtPMaxStep24.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep24);
-        edtPMaxStep24.setBounds(640, 170, 40, 20);
+        edtPMaxStep24.setBounds(520, 200, 40, 20);
 
         edtDurationStep22.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep22.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep22);
-        edtDurationStep22.setBounds(560, 190, 40, 20);
+        edtDurationStep22.setBounds(460, 220, 30, 20);
 
         edtPowerStep25.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep25);
-        edtPowerStep25.setBounds(600, 190, 40, 20);
+        edtPowerStep25.setBounds(490, 220, 30, 20);
 
         edtPMaxStep25.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep25);
-        edtPMaxStep25.setBounds(640, 190, 40, 20);
+        edtPMaxStep25.setBounds(520, 220, 40, 20);
 
         edtDurationStep23.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep23.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep23);
-        edtDurationStep23.setBounds(560, 210, 40, 20);
+        edtDurationStep23.setBounds(460, 240, 30, 20);
 
         edtPowerStep26.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep26);
-        edtPowerStep26.setBounds(600, 210, 40, 20);
+        edtPowerStep26.setBounds(490, 240, 30, 20);
 
         edtPMaxStep26.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep26);
-        edtPMaxStep26.setBounds(640, 210, 40, 20);
+        edtPMaxStep26.setBounds(520, 240, 40, 20);
 
         edtDuratonStep18.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDuratonStep18.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDuratonStep18);
-        edtDuratonStep18.setBounds(560, 230, 40, 20);
+        edtDuratonStep18.setBounds(460, 260, 30, 20);
 
         edtPowerStep27.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep27.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep27);
-        edtPowerStep27.setBounds(600, 230, 40, 20);
+        edtPowerStep27.setBounds(490, 260, 30, 20);
 
         edtPMaxStep27.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep27.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep27);
-        edtPMaxStep27.setBounds(640, 230, 40, 20);
+        edtPMaxStep27.setBounds(520, 260, 40, 20);
 
         edtDurationStep24.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep24);
-        edtDurationStep24.setBounds(560, 250, 40, 20);
+        edtDurationStep24.setBounds(460, 280, 30, 20);
 
         edtPowerStep28.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep28.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep28);
-        edtPowerStep28.setBounds(600, 250, 40, 20);
+        edtPowerStep28.setBounds(490, 280, 30, 20);
 
         edtPMaxStep28.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep28.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep28);
-        edtPMaxStep28.setBounds(640, 250, 40, 20);
+        edtPMaxStep28.setBounds(520, 280, 40, 20);
 
         edtDurationStep25.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep25);
-        edtDurationStep25.setBounds(560, 270, 40, 20);
+        edtDurationStep25.setBounds(460, 300, 30, 20);
 
         edtPowerStep29.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep29.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep29);
-        edtPowerStep29.setBounds(600, 270, 40, 20);
+        edtPowerStep29.setBounds(490, 300, 30, 20);
 
         edtPMaxStep29.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep29.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep29);
-        edtPMaxStep29.setBounds(640, 270, 40, 20);
+        edtPMaxStep29.setBounds(520, 300, 40, 20);
 
         edtDurationStep26.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtDurationStep26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtDurationStep26);
-        edtDurationStep26.setBounds(560, 290, 40, 20);
+        edtDurationStep26.setBounds(460, 320, 30, 20);
 
         edtPowerStep30.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPowerStep30.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPowerStep30);
-        edtPowerStep30.setBounds(600, 290, 40, 20);
+        edtPowerStep30.setBounds(490, 320, 30, 20);
 
         edtPMaxStep30.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         edtPMaxStep30.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(edtPMaxStep30);
-        edtPMaxStep30.setBounds(640, 290, 40, 20);
+        edtPMaxStep30.setBounds(520, 320, 40, 20);
 
         spnPMaxStep13.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep13.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep13);
-        spnPMaxStep13.setBounds(720, 110, 40, 24);
+        spnPMaxStep13.setBounds(590, 140, 40, 18);
 
         spnPMaxStep14.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep14.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep14);
-        spnPMaxStep14.setBounds(720, 130, 40, 24);
+        spnPMaxStep14.setBounds(590, 160, 40, 18);
 
         spnPMaxStep15.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep15.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep15);
-        spnPMaxStep15.setBounds(720, 150, 40, 24);
+        spnPMaxStep15.setBounds(590, 180, 40, 18);
 
         spnPMaxStep16.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep16.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep16);
-        spnPMaxStep16.setBounds(720, 170, 40, 24);
+        spnPMaxStep16.setBounds(590, 200, 40, 18);
 
         spnPMaxStep17.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep17.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep17);
-        spnPMaxStep17.setBounds(720, 190, 40, 24);
+        spnPMaxStep17.setBounds(590, 220, 40, 18);
 
         spnPMaxStep18.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep18.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep18);
-        spnPMaxStep18.setBounds(720, 210, 40, 24);
+        spnPMaxStep18.setBounds(590, 240, 40, 18);
 
         spnPMaxStep19.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep19.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep19);
-        spnPMaxStep19.setBounds(720, 230, 40, 24);
+        spnPMaxStep19.setBounds(590, 260, 40, 18);
 
         spnPMaxStep20.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep20.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep20);
-        spnPMaxStep20.setBounds(720, 250, 40, 24);
+        spnPMaxStep20.setBounds(590, 280, 40, 18);
 
         spnPMaxStep21.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep21.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep21);
-        spnPMaxStep21.setBounds(720, 270, 40, 24);
+        spnPMaxStep21.setBounds(590, 300, 40, 18);
 
         spnPMaxStep22.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         spnPMaxStep22.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         getContentPane().add(spnPMaxStep22);
-        spnPMaxStep22.setBounds(720, 290, 40, 24);
+        spnPMaxStep22.setBounds(590, 320, 40, 18);
+
+        lblSelectSubStepTitle1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblSelectSubStepTitle1.setText("Возрастание мощностей:");
+        lblSelectSubStepTitle1.setToolTipText("");
+        getContentPane().add(lblSelectSubStepTitle1);
+        lblSelectSubStepTitle1.setBounds(20, 120, 190, 20);
+
+        lblSelectSubStepTitle2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblSelectSubStepTitle2.setText("Спадание мощности::");
+        getContentPane().add(lblSelectSubStepTitle2);
+        lblSelectSubStepTitle2.setBounds(440, 120, 190, 20);
+
+        lblSelectSubStepTitle3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblSelectSubStepTitle3.setText("Середина активации:");
+        getContentPane().add(lblSelectSubStepTitle3);
+        lblSelectSubStepTitle3.setBounds(230, 120, 190, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1400,6 +1419,9 @@ public class RestoreLongStep extends javax.swing.JDialog {
     private javax.swing.JLabel lblPmaxStep10;
     private javax.swing.JLabel lblSelectInductorType;
     private javax.swing.JLabel lblSelectSubStepTitle;
+    private javax.swing.JLabel lblSelectSubStepTitle1;
+    private javax.swing.JLabel lblSelectSubStepTitle2;
+    private javax.swing.JLabel lblSelectSubStepTitle3;
     private javax.swing.JLabel lblStepTitle;
     private javax.swing.JRadioButton radInd1;
     private javax.swing.JRadioButton radInd2;
