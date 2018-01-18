@@ -8,6 +8,7 @@ package hvv_admin4.state;
 import hvv_admin4.HVV_Admin4;
 import hvv_admin4.steps.info.TechProcessCommentInfo;
 import hvv_admin4.steps.info.TechProcessGetterInfo;
+import hvv_admin4.steps.info.TechProcessHFInfo;
 import hvv_admin4.steps.info.TechProcessHvProcessInfo;
 import hvv_admin4.steps.info.TechProcessIgenIextProcessInfo;
 import hvv_admin4.steps.info.TechProcessStepCommon;
@@ -240,6 +241,12 @@ public class HVV_StateKeeper {
                     case "061":
                     case "062":
                     case "064":
+                    case "101":
+                    case "103":
+                    case "105":
+                    case "141":
+                    case "143":
+                    case "181":
                         (( TechProcessStepCommon) objValue).SaveItem(oos); break;
                     
                     case "021":
@@ -248,19 +255,33 @@ public class HVV_StateKeeper {
                     case "042":
                     case "043":
                     case "044":
+                    case "102":
+                    case "104":
+                    case "106":
+                    case "142":
+                    case "144":
                         (( TechProcessHvProcessInfo) objValue).SaveItem(oos); break;
                         
                     case "063":
+                    case "121":
+                    case "161":
                         (( TechProcessGetterInfo) objValue).SaveItem(oos); break;
                         
                     case "081":
+                    case "182":
                         (( TechProcessIgenIextProcessInfo) objValue).SaveItem(oos); break;
                         
                     case "082":
+                    case "183":
                         (( TechProcessUacProcessInfo) objValue).SaveItem(oos); break;
                         
                     case "083":
+                    case "184":
                         (( TechProcessCommentInfo) objValue).SaveItem(oos); break;
+                        
+                    case "122":
+                    case "162":
+                        (( TechProcessHFInfo ) objValue).SaveItem(oos); break;
                 }
             }
             
@@ -300,6 +321,13 @@ public class HVV_StateKeeper {
                     case "061":
                     case "062":
                     case "064":
+                    case "101":
+                    case "103":
+                    case "105":
+                    case "141":
+                    case "143":
+                    case "181":
+
                         theApp.SecretSteps().put( strStep, new TechProcessStepCommon( ois)); break;
                     
                     case "021":
@@ -308,20 +336,33 @@ public class HVV_StateKeeper {
                     case "042":
                     case "043":
                     case "044":
+                    case "102":
+                    case "104":
+                    case "106":
+                    case "142":
+                    case "144":
                         theApp.SecretSteps().put( strStep, new TechProcessHvProcessInfo( ois)); break;
                         
                     case "063":
+                    case "121":
+                    case "161":
                         theApp.SecretSteps().put( strStep, new TechProcessGetterInfo( ois)); break;
                         
                     case "081":
+                    case "182":
                         theApp.SecretSteps().put( strStep, new TechProcessIgenIextProcessInfo( ois)); break;
                         
                     case "082":
+                    case "183":
                         theApp.SecretSteps().put( strStep, new TechProcessUacProcessInfo( ois)); break;
                         
                     case "083":
+                    case "184":
                         theApp.SecretSteps().put( strStep, new TechProcessCommentInfo( ois)); break;
                     
+                    case "122":
+                    case "162":
+                        theApp.SecretSteps().put( strStep, new TechProcessHFInfo( ois)); break;
                 }
                 int nAvailable = fis.available();
                 bContinue = nAvailable != 0;
@@ -332,6 +373,8 @@ public class HVV_StateKeeper {
             fis.close();
             
             boolean bDrop = false;
+            
+            boolean bNext = true;
             switch( strStepNumber) {
                 case "000": break;
                 case "001": break;
@@ -438,10 +481,12 @@ public class HVV_StateKeeper {
                 break;
                     
                 case "062":
-                    //а ничего делать не надо - всё само выстроится под известно dtmTOEnd
+                case "063":
+                    //а ничего делать не надо - всё само выстроится под известное dtmTOEnd
+                    bNext = false;
                 break;
                     
-                case "063": break;                    
+                                    
                 case "081": break;
                 case "082": break;
                 case "121": break;
@@ -455,7 +500,8 @@ public class HVV_StateKeeper {
             }
             
             theApp.SetCurrentStep( nLastWrittenStep);
-            theApp.NextCurrentStep();
+            if( bNext)
+                theApp.NextCurrentStep();
 
             if( bDrop == false) {
                 theApp.SetSerial( strSerial);

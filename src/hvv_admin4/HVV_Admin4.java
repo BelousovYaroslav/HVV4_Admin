@@ -296,7 +296,7 @@ public class HVV_Admin4 {
         if( m_nCurrentProcessStep != 1) {
             switch( m_nCurrentProcessStep) {
                 case 42:
-                case 44:
+                case 44: {
                     //мы сломались на этапе O2=Ne20 на длинном плече. его доделали. хотим делать короткое
                     m_pMainWnd.m_pnlMain.setVisible( false);
                     m_pMainWnd.m_pnlEnterHvVoltage.setVisible( true);
@@ -312,11 +312,11 @@ public class HVV_Admin4 {
                     SaveStepInfo( "042", infhv, false);
                 
                     m_pMainWnd.m_pnlEnterHvVoltage.StartTimer( GetSettings().GetProcessingTime_3());
-                    
+                }
                 break;
                     
                 case 62:
-                    //мы сломались на этапе ввода даты завершения ТО (rare)
+                    //мы сломались во время ТО (таймер)
                     //включаем таймер
                     m_pMainWnd.m_pnlMain.setVisible( false);
                     m_pMainWnd.m_pnlStopWatch.Init();
@@ -334,12 +334,18 @@ public class HVV_Admin4 {
                     }
                 break;
                     
-                case 63:
-                    //мы сломались на этапе ТО
+                case 63: {
+                    //мы сломались на этапе ТО (ввод данных)
                     //подразумевается что выждали нужное время и теперь готовы вводить информацию GetterInfo
-                    m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( GetCommonStep( "062").GetStopDate(), 1);
+                    TechProcessStepCommon inf = ( TechProcessStepCommon) GetCommonStep( "062");
+                    
+                    Date dtMomentA = new Date( GetDtmTOEnd().getTime() - 540000);
+                    inf.SetStopDate( dtMomentA);
+                    m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( dtMomentA, 1);
                     m_pMainWnd.m_pnlEnterGetterInfo.setVisible( true);
                     SetCurrentStepInProgress( true);
+                    m_pMainWnd.m_pnlMain.setVisible( false);
+                }
                 break;
             }
         }
