@@ -5,7 +5,6 @@
  */
 package hvv_admin4.steps.info;
 
-import hvv_admin4.HVV_Admin4;
 import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -19,6 +18,7 @@ public class TechProcessCommentInfo extends TechProcessStepCommon {
     
     public TechProcessCommentInfo() {
         super();
+        m_strComment = "";
     }
     
     public TechProcessCommentInfo( ObjectInputStream is) throws IOException, ClassNotFoundException {

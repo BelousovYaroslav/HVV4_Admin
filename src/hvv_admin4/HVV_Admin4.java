@@ -8,9 +8,12 @@ package hvv_admin4;
 import hvv_admin4.planner.HVV_AdminPlanner;
 import hvv_admin4.report.ReportGenerator;
 import hvv_admin4.state.HVV_StateKeeper;
+import hvv_admin4.steps.info.TechProcessCommentInfo;
 import hvv_admin4.steps.info.TechProcessGetterInfo;
 import hvv_admin4.steps.info.TechProcessHvProcessInfo;
+import hvv_admin4.steps.info.TechProcessIgenIextProcessInfo;
 import hvv_admin4.steps.info.TechProcessStepCommon;
+import hvv_admin4.steps.info.TechProcessUacProcessInfo;
 import hvv_resources.HVV_Resources;
 import java.awt.Font;
 import java.awt.GraphicsDevice;
@@ -315,6 +318,13 @@ public class HVV_Admin4 {
                 }
                 break;
                     
+                case 61:
+                    //мы сломались во время рассчёта времени ТО
+                    m_pMainWnd.m_pnlMain.setVisible( false);
+                    m_pMainWnd.m_pnlSetThermoProcessingFinishTime.initOnStart();
+                    m_pMainWnd.m_pnlSetThermoProcessingFinishTime.setVisible( true);
+                break;
+                    
                 case 62:
                     //мы сломались во время ТО (таймер)
                     //включаем таймер
@@ -347,7 +357,60 @@ public class HVV_Admin4 {
                     m_pMainWnd.m_pnlMain.setVisible( false);
                 }
                 break;
+                    
+                case 81: {
+                    //мы сломались на этапе выдержки рабочей смеси перед промежуточным контролем (доделали, восстановили, т.е. готовы к проведению промежуточного контроля
+                    //или
+                    //в процессе ввода информации о токах
+                    //идём на экран ввода IgenIext
+                    TechProcessIgenIextProcessInfo info2 = ( TechProcessIgenIextProcessInfo) m_mapSteps.get( "081");
+                    m_pMainWnd.m_pnlMain.setVisible( false);
+                    m_pMainWnd.m_pnlEnterIgenIext.InitComponentsOnStart();
+                    if( info2.Get_Iext_A() != 0.)
+                        m_pMainWnd.m_pnlEnterIgenIext.edtIextA.setText(
+                                                    String.format( "%.2f", info2.Get_Iext_A()));
+                    if( info2.Get_Iext_T() != 0.)
+                        m_pMainWnd.m_pnlEnterIgenIext.edtIextT.setText(
+                                                    String.format( "%.2f", info2.Get_Iext_T()));
+                    if( info2.Get_Igen_A()!= 0.)
+                        m_pMainWnd.m_pnlEnterIgenIext.edtIgenA.setText(
+                                                    String.format( "%.2f", info2.Get_Igen_A()));
+                    if( info2.Get_Igen_T() != 0.)
+                        m_pMainWnd.m_pnlEnterIgenIext.edtIgenT.setText(
+                                                    String.format( "%.2f", info2.Get_Igen_T()));
+                    
+                    m_pMainWnd.m_pnlEnterIgenIext.setVisible( true);
+                    SetCurrentStepInProgress( true);
+                }
+                break;
+                    
+                case 82: {
+                    //мы сломались на этапе ввода информации о ВАХ
+                    TechProcessUacProcessInfo info3 = new TechProcessUacProcessInfo();
+                    info3.SetStartReportTitle( "Снятие вольт-амперной характеристики");
+                    info3.SetStartDateAsCurrent( GetSettings().GetTimeZoneShift());
+                    SaveStepInfo( "082", info3, false);
+        
+                    m_pMainWnd.m_pnlMain.setVisible( false);
+                    m_pMainWnd.m_pnlEnterCVC.InitComponentsOnStart();
+                    m_pMainWnd.m_pnlEnterCVC.setVisible( true);
+                    SetCurrentStepInProgress( true);
+                }
+                break;
+                    
+                case 83: {
+                    //мы сломались на этапе ввода промежуточного комментария
+                    m_pMainWnd.m_pnlMain.setVisible( false);
+                    m_pMainWnd.m_pnlEnterComment.InitComponentsOnStart();
+                    m_pMainWnd.m_pnlEnterComment.setVisible( true);
+                    SetCurrentStepInProgress( true);
+                }
+                break;
             }
+            
+            m_pMainWnd.m_pnlMain.m_pnlProcess.Reposition();
+            m_pMainWnd.m_pnlMain.m_pnlProcess.SetStates();
+            m_pMainWnd.m_pnlMain.ScrollActiveStepToCenter();
         }
         
         java.awt.EventQueue.invokeLater( new Runnable() {

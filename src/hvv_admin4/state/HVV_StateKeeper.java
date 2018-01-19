@@ -448,6 +448,10 @@ public class HVV_StateKeeper {
                 break;
                     
                 case "061": {
+                    //а ничего делать не надо - всё само выстроится под известное dtmTOEnd
+                    bNext = false;
+                    
+                    /*
                     TechProcessStepCommon stepInfo = ( TechProcessStepCommon) theApp.GetCommonStep( strStepNumber);
                     RestoreHvStep1 dlg = new RestoreHvStep1();
                     dlg.configureAsCalcToFinishDtm(theApp.GetStepNameWithNum( new Integer( strStepNumber)), stepInfo, theApp.GetLocalDate());
@@ -458,10 +462,11 @@ public class HVV_StateKeeper {
                         stepInfo.SetStopDateAsCurrent(nDeviceType);
                         theApp.SetDtmTOEnd( dlg.m_gdtmDtmParam1.getTime());
                     }
+                    */
                 }
                 break;
                     
-                case "064":
+                
                 case "101":
                 case "103":
                 case "105":
@@ -479,16 +484,46 @@ public class HVV_StateKeeper {
                     }
                 }
                 break;
+                
+                
                     
                 case "062":
                 case "063":
                     //а ничего делать не надо - всё само выстроится под известное dtmTOEnd
                     bNext = false;
                 break;
+                
+                case "064": {
+                    TechProcessStepCommon stepInfo = ( TechProcessStepCommon) theApp.GetCommonStep( strStepNumber);
+                    RestoreHvStep1 dlg = new RestoreHvStep1();
+                    dlg.configureAsCommon( theApp.GetStepNameWithNum( new Integer( strStepNumber)), stepInfo, theApp.GetSettings().GetExcerptTime());
+                    dlg.setVisible( true);
                     
+                    bDrop = dlg.m_bDrop;
+                    if( !bDrop) {
+                        stepInfo.SetStopDate( dlg.m_gdtmDtmStopActual.getTime());
+                    }
+                    
+                    TechProcessIgenIextProcessInfo info2 = new TechProcessIgenIextProcessInfo();
+                    info2.SetStartReportTitle( "Определение пороговых токов генерации и погасания");
+                    info2.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
+                    theApp.SaveStepInfo( "081", info2, false);
+                }
+                break;
                                     
-                case "081": break;
-                case "082": break;
+                case "081":
+                case "082":
+                    bNext = false;
+                break;
+                
+                    
+                case "083": {
+                    TechProcessStepCommon stepInfo = ( TechProcessStepCommon) theApp.GetCommonStep( "083");
+                    bNext = ( stepInfo.GetStopDate() != null);
+                }
+                break;
+                    
+                    
                 case "121": break;
                 case "122": break;
                 case "161": break;
