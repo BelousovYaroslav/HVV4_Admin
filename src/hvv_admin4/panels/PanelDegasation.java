@@ -234,9 +234,33 @@ public class PanelDegasation extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        JTextField [] m_StepsPM = { m_pnlProgress.edtStep1MaxPressure,  m_pnlProgress.edtStep2MaxPressure,
+                                    m_pnlProgress.edtStep3MaxPressure,  m_pnlProgress.edtStep4MaxPressure,
+                                    m_pnlProgress.edtStep5MaxPressure,  m_pnlProgress.edtStep6MaxPressure,
+                                    m_pnlProgress.edtStep7MaxPressure,  m_pnlProgress.edtStep8MaxPressure,
+                                    m_pnlProgress.edtStep9MaxPressure,  m_pnlProgress.edtStep10MaxPressure,
+                                    m_pnlProgress.edtStep11MaxPressure, m_pnlProgress.edtStep12MaxPressure,
+                                    m_pnlProgress.edtStep13MaxPressure, m_pnlProgress.edtStep14MaxPressure,
+                                    m_pnlProgress.edtStep15MaxPressure, m_pnlProgress.edtStep16MaxPressure,
+                                    m_pnlProgress.edtStep17MaxPressure};
+
+        JSpinner [] m_StepsPE   = { m_pnlProgress.spnStep1MaxPressureExp,  m_pnlProgress.spnStep2MaxPressureExp,
+                                    m_pnlProgress.spnStep3MaxPressureExp,  m_pnlProgress.spnStep4MaxPressureExp,
+                                    m_pnlProgress.spnStep5MaxPressureExp,  m_pnlProgress.spnStep6MaxPressureExp,
+                                    m_pnlProgress.spnStep7MaxPressureExp,  m_pnlProgress.spnStep8MaxPressureExp,
+                                    m_pnlProgress.spnStep9MaxPressureExp,  m_pnlProgress.spnStep10MaxPressureExp,
+                                    m_pnlProgress.spnStep11MaxPressureExp, m_pnlProgress.spnStep12MaxPressureExp,
+                                    m_pnlProgress.spnStep13MaxPressureExp, m_pnlProgress.spnStep14MaxPressureExp,
+                                    m_pnlProgress.spnStep15MaxPressureExp, m_pnlProgress.spnStep16MaxPressureExp, 
+                                    m_pnlProgress.spnStep17MaxPressureExp};
+
+        TechProcessHFInfo info;
+                
         if( m_pnlProgress.m_nStep == -1) {
             //мы нажали "старт"
-            TechProcessHFInfo info = new TechProcessHFInfo();
+            info = new TechProcessHFInfo();
+            info.m_lstProgram = new LinkedList();
+            
             info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
             theApp.SaveStepInfo( "122", info, true);
             
@@ -248,6 +272,16 @@ public class PanelDegasation extends javax.swing.JPanel {
             radInductorType1.setEnabled( false);
             radInductorType2.setEnabled( false);
             
+            if( radGetterType1.isSelected())
+                info.SetGetter( HVV_Admin4Constants.GETTER1);
+            else
+                info.SetGetter( HVV_Admin4Constants.GETTER2);
+
+            if( radInductorType1.isSelected())
+                info.SetGetter( HVV_Admin4Constants.INDUCTOR_TYPE1);
+            else
+                info.SetGetter( HVV_Admin4Constants.INDUCTOR_TYPE2);
+                
             m_pnlProgress.m_nStep = 0;
             if( theApp.GetSettings().GetDebugShortenProgTimes())
                 m_pnlProgress.m_nStepSecondsLeft = ( ( TechProcessDegasationStepInfo) m_lstProgram.getFirst()).GetDuration() * 5;
@@ -260,67 +294,45 @@ public class PanelDegasation extends javax.swing.JPanel {
             btnNext.setEnabled( false);
         }
         else {
+            
             //мы нажали "далее"
+            
+            //перезаполняем сверху вниз лесенку этапов программы обезгаживания и давлений выбросов
+            info = ( TechProcessHFInfo) theApp.GetCommonStep( "122");
+            info.m_lstProgram.clear();
+            
+            Iterator it = m_lstProgram.iterator();
+            for( int i=0; i<m_lstProgram.size(); i++) {
+                TechProcessDegasationStepInfo step = ( TechProcessDegasationStepInfo) it.next();
+                    
+                if( m_StepsPM[i].getText().isEmpty() == false) {
+                    try {
+                        String str = m_StepsPM[i].getText();
+                        str = str.replace( ',', '.');
+                        double dbl = new Double( str);
+                        Integer nExp = ( Integer) m_StepsPE[i].getValue();
+                        dbl = dbl * Math.pow( 10, new Double( nExp));
+                        step.SetMaxPressure(dbl);
+
+                    } catch( NumberFormatException ex) {
+                        logger.info( "NumberFormatException caught!", ex);
+                    }
+                }                    
+
+                info.m_lstProgram.addLast( step);
+            }
+
+            //сохраняем 
+            theApp.SaveStepInfo( "122", info, true);
+            
+            
             if( m_pnlProgress.m_nStep == m_lstProgram.size()) {
                 //мы нажали "далее" в плане перейти к следующему этапу процесса э/в обработки (к пункту 8.1)
-                TechProcessHFInfo info = ( TechProcessHFInfo) theApp.GetCommonStep( "122");
+                
                 info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
                 
-                if( radGetterType1.isSelected())
-                    info.SetGetter( HVV_Admin4Constants.GETTER1);
-                else
-                    info.SetGetter( HVV_Admin4Constants.GETTER2);
-                
-                if( radInductorType1.isSelected())
-                    info.SetGetter( HVV_Admin4Constants.INDUCTOR_TYPE1);
-                else
-                    info.SetGetter( HVV_Admin4Constants.INDUCTOR_TYPE2);
-                
-                info.m_lstProgram = new LinkedList();
                 
                 
-                JTextField [] m_StepsPM = { m_pnlProgress.edtStep1MaxPressure,  m_pnlProgress.edtStep2MaxPressure,
-                                            m_pnlProgress.edtStep3MaxPressure,  m_pnlProgress.edtStep4MaxPressure,
-                                            m_pnlProgress.edtStep5MaxPressure,  m_pnlProgress.edtStep6MaxPressure,
-                                            m_pnlProgress.edtStep7MaxPressure,  m_pnlProgress.edtStep8MaxPressure,
-                                            m_pnlProgress.edtStep9MaxPressure,  m_pnlProgress.edtStep10MaxPressure,
-                                            m_pnlProgress.edtStep11MaxPressure, m_pnlProgress.edtStep12MaxPressure,
-                                            m_pnlProgress.edtStep13MaxPressure, m_pnlProgress.edtStep14MaxPressure,
-                                            m_pnlProgress.edtStep15MaxPressure, m_pnlProgress.edtStep16MaxPressure,
-                                            m_pnlProgress.edtStep17MaxPressure};
-
-
-
-                JSpinner [] m_StepsPE   = { m_pnlProgress.spnStep1MaxPressureExp,  m_pnlProgress.spnStep2MaxPressureExp,
-                                            m_pnlProgress.spnStep3MaxPressureExp,  m_pnlProgress.spnStep4MaxPressureExp,
-                                            m_pnlProgress.spnStep5MaxPressureExp,  m_pnlProgress.spnStep6MaxPressureExp,
-                                            m_pnlProgress.spnStep7MaxPressureExp,  m_pnlProgress.spnStep8MaxPressureExp,
-                                            m_pnlProgress.spnStep9MaxPressureExp,  m_pnlProgress.spnStep10MaxPressureExp,
-                                            m_pnlProgress.spnStep11MaxPressureExp, m_pnlProgress.spnStep12MaxPressureExp,
-                                            m_pnlProgress.spnStep13MaxPressureExp, m_pnlProgress.spnStep14MaxPressureExp,
-                                            m_pnlProgress.spnStep15MaxPressureExp, m_pnlProgress.spnStep16MaxPressureExp, 
-                                            m_pnlProgress.spnStep17MaxPressureExp};
-                    
-                Iterator it = m_lstProgram.iterator();
-                for( int i=0; i<m_lstProgram.size(); i++) {
-                    TechProcessDegasationStepInfo step = ( TechProcessDegasationStepInfo) it.next();
-                    
-                    if( m_StepsPM[i].getText().isEmpty() == false) {
-                        try {
-                            String str = m_StepsPM[i].getText();
-                            str = str.replace( ',', '.');
-                            double dbl = new Double( str);
-                            Integer nExp = ( Integer) m_StepsPE[i].getValue();
-                            dbl = dbl * Math.pow( 10, new Double( nExp));
-                            step.SetMaxPressure(dbl);
-                            
-                        } catch( NumberFormatException ex) {
-                            logger.info( "NumberFormatException caught!", ex);
-                        }
-                    }                    
-                    
-                    info.m_lstProgram.addLast( step);
-                }
                 
                 m_dlgBigStopWatch.dispose();
                 
@@ -338,13 +350,16 @@ public class PanelDegasation extends javax.swing.JPanel {
             }
             else {
                 //мы нажали "далее" в плане перейти к следующему этапу программы обезгаживания
-                TechProcessDegasationStepInfo info = ( TechProcessDegasationStepInfo) m_lstProgram.get( m_pnlProgress.m_nStep);
+                TechProcessDegasationStepInfo infoInner = ( TechProcessDegasationStepInfo) m_lstProgram.get( m_pnlProgress.m_nStep);
+                
                 if( theApp.GetSettings().GetDebugShortenProgTimes() == true)
-                    m_pnlProgress.m_nStepSecondsLeft = info.GetDuration() * 5;
+                    m_pnlProgress.m_nStepSecondsLeft = infoInner.GetDuration() * 5;
                 else
-                    m_pnlProgress.m_nStepSecondsLeft = info.GetDuration() * 60;
+                    m_pnlProgress.m_nStepSecondsLeft = infoInner.GetDuration() * 60;
                 m_pnlProgress.m_nFlashSeconds = 4;
                 btnNext.setEnabled( false);
+                                
+                
             }
             
         }

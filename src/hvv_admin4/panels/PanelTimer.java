@@ -582,23 +582,11 @@ public class PanelTimer extends javax.swing.JPanel {
                 
                 
             case 101: /*6.1*/
-                info = new TechProcessStepCommon();
-                info.SetStartReportTitle( null);
-                nNextStep = 102;
-            break;
-            
             case 103: /*6.3*/
-                info = new TechProcessStepCommon();
-                info.SetStartReportTitle( null);
-                nNextStep = 104;
-            break;
-            
             case 105: /*6.5*/
-                info = new TechProcessStepCommon();
                 info.SetStartReportTitle( null);
-                nNextStep = 106;
+                nNextStep = theApp.GetCurrentStep() + 1;
             break;
-
                 
             case 141: /*8.1*/
                 info = new TechProcessStepCommon();

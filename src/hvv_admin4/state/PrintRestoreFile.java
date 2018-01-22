@@ -30,8 +30,8 @@ public class PrintRestoreFile {
         ObjectInputStream ois = new ObjectInputStream( fis);
             
             
-        int nLastWrittenStep = ois.readInt();           //текущее состояние (этап)
-        System.out.println( "nLastWrittenStep=" + nLastWrittenStep);
+        int nLastCurrentStep = ois.readInt();           //текущее состояние (этап)
+        System.out.println( "nLastCurrentStep=" + nLastCurrentStep);
         
         String strSerial = ois.readUTF();               //серийный номер прибора
         System.out.println( "Serial=" + strSerial);
