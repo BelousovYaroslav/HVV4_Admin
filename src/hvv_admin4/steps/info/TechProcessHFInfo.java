@@ -9,6 +9,7 @@ import hvv_admin4.HVV_Admin4;
 import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -67,10 +68,18 @@ public class TechProcessHFInfo extends TechProcessStepCommon {
         else
             strResult += "strStop: " + GetStopReportTitle() + "\n";
         
-        strResult += "m_nGetter: " + m_nGetter;
+        strResult += "m_nGetter: " + m_nGetter + "\n";
         
-        strResult += "m_nInductor: " + m_nInductor;
+        strResult += "m_nInductor: " + m_nInductor + "\n";
         
+        Iterator it = m_lstProgram.iterator();
+        while( it.hasNext()) {
+            TechProcessDegasationStepInfo step = ( TechProcessDegasationStepInfo) it.next();
+            strResult += "D:" + step.GetDuration() + "  P:" + step.GetPower() + "%  ";
+            if( !Double.isNaN( step.GetMaxPressure()))
+                strResult += String.format( ("%.2e"), step.GetMaxPressure());               
+        }
+        strResult += "\n";
         return strResult;
     }
     

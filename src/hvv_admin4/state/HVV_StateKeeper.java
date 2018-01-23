@@ -375,6 +375,9 @@ public class HVV_StateKeeper {
             boolean bDrop = false;
             
             boolean bNext = true;
+            
+            boolean bCurrentStepInProgress = false;
+            
             switch( strStepNumber) {
                 case "000": break;
                 case "001": break;
@@ -401,6 +404,7 @@ public class HVV_StateKeeper {
                         stepInfo.SetAnStop(  new Double( dlg.edtValueParam3.getText()));
                         stepInfo.SetTuStop(  new Double( dlg.edtValueParam4.getText()));
                     }
+                    stepInfo.SetRestoredAfterFailFlag( true);
                 }
                 break;
                     
@@ -421,7 +425,7 @@ public class HVV_StateKeeper {
                             stepInfo.SetAnStop(  new Double( dlg.edtValueParam3.getText()));
                             stepInfo.SetTuStop(  new Double( dlg.edtValueParam4.getText()));
                         }
-                        
+                        stepInfo.SetRestoredAfterFailFlag( true);
                     }
                     else {
                         //т.е. тут нужно зафиксировать двойной по длительности процесс обработки по коротким плечам
@@ -438,6 +442,7 @@ public class HVV_StateKeeper {
                             stepInfo.SetAnStop(  new Double( dlg.edtValueParam3.getText()));
                             stepInfo.SetTuStop(  new Double( dlg.edtValueParam4.getText()));
                         }
+                        stepInfo.SetRestoredAfterFailFlag( true);
                         
                         theApp.SecretSteps().remove( strStepNumber);
                         if( strStepNumber.equals( "041")) nLastWrittenStep = 42;
@@ -481,6 +486,7 @@ public class HVV_StateKeeper {
                     bDrop = dlg.m_bDrop;
                     if( !bDrop) {
                         stepInfo.SetStopDate( dlg.m_gdtmDtmStopActual.getTime());
+                        stepInfo.SetRestoredAfterFailFlag( true);
                     }
                 }
                 break;
@@ -507,6 +513,7 @@ public class HVV_StateKeeper {
                     TechProcessIgenIextProcessInfo info2 = new TechProcessIgenIextProcessInfo();
                     info2.SetStartReportTitle( "Определение пороговых токов генерации и погасания");
                     info2.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
+                    info2.SetRestoredAfterFailFlag( true);
                     theApp.SaveStepInfo( "081", info2, false);
                 }
                 break;
@@ -518,14 +525,26 @@ public class HVV_StateKeeper {
                 
                     
                 case "083": {
-                    TechProcessStepCommon stepInfo = ( TechProcessStepCommon) theApp.GetCommonStep( "083");
+                    TechProcessStepCommon stepInfo = theApp.GetCommonStep( "083");
+                    stepInfo.SetRestoredAfterFailFlag( true);
                     bNext = ( stepInfo.GetStopDate() != null);
                 }
                 break;
                     
                     
-                case "121": break;
-                case "122": break;
+                case "121":
+                    bNext = false;
+                    bCurrentStepInProgress = true;
+                break;
+                    
+                case "122": {
+                    TechProcessHFInfo step = ( TechProcessHFInfo) theApp.GetCommonStep( "122");
+                    RestoreLongStep dlg = new RestoreLongStep();
+                    dlg.initAsDegasation(step);
+                    bNext = false;
+                }
+                break;
+                    
                 case "161": break;
                 case "162": break;
                     
@@ -534,7 +553,10 @@ public class HVV_StateKeeper {
                 case "184": break;
             }
             
+                    
             theApp.SetCurrentStep( nLastWrittenStep);
+            theApp.SetCurrentStepInProgress( bCurrentStepInProgress);
+            
             if( bNext)
                 theApp.NextCurrentStep();
 

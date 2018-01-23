@@ -69,7 +69,7 @@ public class TechProcessGetterInfo extends TechProcessStepCommon {
         if( GetStopDate() == null)
             strResult += "dtStop: NULL" + "\n";
         else
-            strResult += "dtStart: " + ReportGenerator.Gen_NiceDate(GetStopDate()) +
+            strResult += "dtStop: " + ReportGenerator.Gen_NiceDate(GetStopDate()) +
                          " " + ReportGenerator.Gen_NiceTime(GetStopDate()) + "\n";
         
         if( GetStopReportTitle() == null)
@@ -84,7 +84,7 @@ public class TechProcessGetterInfo extends TechProcessStepCommon {
             strResult += "m_dtEffusion4v: " + ReportGenerator.Gen_NiceDate( m_dtEffusion4v) +
                          " " + ReportGenerator.Gen_NiceTime( m_dtEffusion4v) + "\n";
         
-        strResult += "m_dblEffusion4v: " + String.format( "%.03f", m_dblEffusion4v);
+        strResult += "m_dblEffusion4v: " + String.format( "%.03f\n", m_dblEffusion4v);
         
         //9v
         if( m_dtEffusion9v == null)
@@ -93,7 +93,7 @@ public class TechProcessGetterInfo extends TechProcessStepCommon {
             strResult += "m_dtEffusion9v: " + ReportGenerator.Gen_NiceDate( m_dtEffusion9v) +
                          " " + ReportGenerator.Gen_NiceTime( m_dtEffusion9v) + "\n";
         
-        strResult += "m_dblEffusion9v: " + String.format( "%.03f", m_dblEffusion9v);
+        strResult += "m_dblEffusion9v: " + String.format( "%.03f\n", m_dblEffusion9v);
         
         //dt9off
         if( m_dtTurnOff9v == null)

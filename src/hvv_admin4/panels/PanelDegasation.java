@@ -17,7 +17,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
 import java.util.LinkedList;
-import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.Timer;
@@ -36,6 +35,7 @@ public class PanelDegasation extends javax.swing.JPanel {
     
     /**
      * Creates new form PanelProcess
+     * @param app Main application pointer
      */
     public PanelDegasation( HVV_Admin4 app) {
         theApp = app;
@@ -262,8 +262,7 @@ public class PanelDegasation extends javax.swing.JPanel {
             info.m_lstProgram = new LinkedList();
             
             info.SetStartDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
-            theApp.SaveStepInfo( "122", info, true);
-            
+
             lblGetterType.setEnabled( false);
             radGetterType1.setEnabled( false);
             radGetterType2.setEnabled( false);
@@ -281,7 +280,9 @@ public class PanelDegasation extends javax.swing.JPanel {
                 info.SetGetter( HVV_Admin4Constants.INDUCTOR_TYPE1);
             else
                 info.SetGetter( HVV_Admin4Constants.INDUCTOR_TYPE2);
-                
+
+            theApp.SaveStepInfo( "122", info, true);
+                        
             m_pnlProgress.m_nStep = 0;
             if( theApp.GetSettings().GetDebugShortenProgTimes())
                 m_pnlProgress.m_nStepSecondsLeft = ( ( TechProcessDegasationStepInfo) m_lstProgram.getFirst()).GetDuration() * 5;
@@ -328,12 +329,7 @@ public class PanelDegasation extends javax.swing.JPanel {
             
             if( m_pnlProgress.m_nStep == m_lstProgram.size()) {
                 //мы нажали "далее" в плане перейти к следующему этапу процесса э/в обработки (к пункту 8.1)
-                
                 info.SetStopDateAsCurrent( theApp.GetSettings().GetTimeZoneShift());
-                
-                
-                
-                
                 m_dlgBigStopWatch.dispose();
                 
                 theApp.SaveStepInfo( "122", info, true);
@@ -356,10 +352,9 @@ public class PanelDegasation extends javax.swing.JPanel {
                     m_pnlProgress.m_nStepSecondsLeft = infoInner.GetDuration() * 5;
                 else
                     m_pnlProgress.m_nStepSecondsLeft = infoInner.GetDuration() * 60;
+                
                 m_pnlProgress.m_nFlashSeconds = 4;
                 btnNext.setEnabled( false);
-                                
-                
             }
             
         }

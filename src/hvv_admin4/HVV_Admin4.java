@@ -259,25 +259,29 @@ public class HVV_Admin4 {
                     m_nProcessedDeviceType = -1;
                     m_mapSteps = new TreeMap();
                     m_nCurrentProcessStep = 1;
+                    m_bCurrentStepInProgress = false;
                 }
                 else {
                     //файл восстановления был, и мы его восстановили
                     //m_nCurrentProcessStep = 1;        //выставка этапа должна быть сделана раньше
+                    //m_bCurrentStepInProgress = false;
                 }
             }
             else {
                 //файл состояния был, но мы отказываемся от него
                 m_nCurrentProcessStep = 1;
+                m_bCurrentStepInProgress = false;
             }
         }
         else {
             //"чистый" запуск
-            m_nCurrentProcessStep = 1;    
+            m_nCurrentProcessStep = 1;
+            m_bCurrentStepInProgress = false;
         }
         
         //m_nCurrentProcessStep = 1;
         
-        m_bCurrentStepInProgress = false;
+        
         
                 
         GregorianCalendar clndr = new GregorianCalendar();
@@ -406,6 +410,18 @@ public class HVV_Admin4 {
                     SetCurrentStepInProgress( true);
                 }
                 break;
+                    
+                case 121:
+                    if( IsCurrentStepInProgress()) {
+                        //мы сломались на этапе ввода информации о геттере при подготовке к обезгаживанию
+                        TechProcessStepCommon inf = ( TechProcessStepCommon) GetCommonStep( "121");
+                        m_pMainWnd.m_pnlEnterGetterInfo.InitOnStart( inf.GetStartDate(), 1);
+                        m_pMainWnd.m_pnlEnterGetterInfo.setVisible( true);
+                        SetCurrentStepInProgress( true);
+                        m_pMainWnd.m_pnlMain.setVisible( false);
+                    }
+                break;
+                
             }
             
             m_pMainWnd.m_pnlMain.m_pnlProcess.Reposition();
