@@ -277,9 +277,9 @@ public class PanelDegasation extends javax.swing.JPanel {
                 info.SetGetter( HVV_Admin4Constants.GETTER2);
 
             if( radInductorType1.isSelected())
-                info.SetGetter( HVV_Admin4Constants.INDUCTOR_TYPE1);
+                info.SetInductor(HVV_Admin4Constants.INDUCTOR_TYPE1);
             else
-                info.SetGetter( HVV_Admin4Constants.INDUCTOR_TYPE2);
+                info.SetInductor( HVV_Admin4Constants.INDUCTOR_TYPE2);
 
             theApp.SaveStepInfo( "122", info, true);
                         

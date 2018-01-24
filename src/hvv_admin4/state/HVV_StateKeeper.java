@@ -410,7 +410,7 @@ public class HVV_StateKeeper {
                     
                 case "041":
                 case "043": {
-                    if( theApp.MessageBoxAskYesNo( "Удалось ли зажечь прибор по длинному плечу?", "HVV_Admin4") == JOptionPane.YES_OPTION) {
+                    if( HVV_Admin4.MessageBoxAskYesNo( "Удалось ли зажечь прибор по длинному плечу?", "HVV_Admin4") == JOptionPane.YES_OPTION) {
                         //т.е. тут нужно зафиксировать обычный по длительности процесс обработки по длинному плечу и перейти к обычному по коротким
                         TechProcessHvProcessInfo stepInfo = ( TechProcessHvProcessInfo) theApp.GetHvStep( strStepNumber);
                         RestoreHvStep1 dlg = new RestoreHvStep1();
@@ -479,14 +479,19 @@ public class HVV_StateKeeper {
                 case "143":
                 case "181": {
                     TechProcessStepCommon stepInfo = ( TechProcessStepCommon) theApp.GetCommonStep( strStepNumber);
-                    RestoreHvStep1 dlg = new RestoreHvStep1();
-                    dlg.configureAsCommon( theApp.GetStepNameWithNum( new Integer( strStepNumber)), stepInfo, theApp.GetSettings().GetExcerptTime());
-                    dlg.setVisible( true);
-                    
-                    bDrop = dlg.m_bDrop;
-                    if( !bDrop) {
-                        stepInfo.SetStopDate( dlg.m_gdtmDtmStopActual.getTime());
-                        stepInfo.SetRestoredAfterFailFlag( true);
+                    if( stepInfo != null) {
+                        RestoreHvStep1 dlg = new RestoreHvStep1();
+                        dlg.configureAsCommon( theApp.GetStepNameWithNum( new Integer( strStepNumber)), stepInfo, theApp.GetSettings().GetExcerptTime());
+                        dlg.setVisible( true);
+
+                        bDrop = dlg.m_bDrop;
+                        if( !bDrop) {
+                            stepInfo.SetStopDate( dlg.m_gdtmDtmStopActual.getTime());
+                            stepInfo.SetRestoredAfterFailFlag( true);
+                        }
+                    }
+                    else {
+                        bNext = false;
                     }
                 }
                 break;
@@ -540,7 +545,8 @@ public class HVV_StateKeeper {
                 case "122": {
                     TechProcessHFInfo step = ( TechProcessHFInfo) theApp.GetCommonStep( "122");
                     RestoreLongStep dlg = new RestoreLongStep();
-                    dlg.initAsDegasation(step);
+                    dlg.initAsDegasation(step, nDeviceType);
+                    dlg.setVisible( true);
                     bNext = false;
                 }
                 break;

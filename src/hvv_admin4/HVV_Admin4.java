@@ -404,8 +404,9 @@ public class HVV_Admin4 {
                     
                 case 83: {
                     //мы сломались на этапе ввода промежуточного комментария
+                    TechProcessCommentInfo info3 = new TechProcessCommentInfo();
                     m_pMainWnd.m_pnlMain.setVisible( false);
-                    m_pMainWnd.m_pnlEnterComment.InitComponentsOnStart();
+                    m_pMainWnd.m_pnlEnterComment.InitComponentsOnStart( info3.m_strComment);
                     m_pMainWnd.m_pnlEnterComment.setVisible( true);
                     SetCurrentStepInProgress( true);
                 }

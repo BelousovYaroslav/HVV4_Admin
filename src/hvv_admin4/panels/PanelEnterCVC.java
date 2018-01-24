@@ -382,7 +382,7 @@ public class PanelEnterCVC extends javax.swing.JPanel {
         
         theApp.SetCurrentStepInProgress( true);
         
-        theApp.m_pMainWnd.m_pnlEnterComment.InitComponentsOnStart();
+        theApp.m_pMainWnd.m_pnlEnterComment.InitComponentsOnStart( null);
         theApp.m_pMainWnd.m_pnlEnterComment.setVisible( true);
 
         theApp.m_pMainWnd.m_pnlEnterCVC.setVisible( false);

@@ -31,7 +31,7 @@ public class PanelEnterComment extends javax.swing.JPanel {
         
     }
 
-    public void InitComponentsOnStart() {
+    public void InitComponentsOnStart( String strComment) {
         switch( theApp.GetCurrentStep()) {
             case 82:
                 lblTitle.setText( "<html><u>5.2 Внесение промежуточных комментариев.</u></html>");
@@ -45,6 +45,10 @@ public class PanelEnterComment extends javax.swing.JPanel {
                 btnFailStop.setVisible( false);
                 btnOkNext.setSize( btnOkNext.getSize().width, btnOkNext.getHeight()+ btnFailStop.getHeight() + 10);
             break;
+        }
+        
+        if( strComment != null) {
+            edtComment.setText( strComment);
         }
         
         btnOkNext.setEnabled( false);
@@ -158,6 +162,7 @@ public class PanelEnterComment extends javax.swing.JPanel {
             break;
         }
         
+        theApp.m_pStateKeeper.SaveState();
         theApp.m_ReportGenerator.Generate();
         
     }//GEN-LAST:event_btnOkNextActionPerformed

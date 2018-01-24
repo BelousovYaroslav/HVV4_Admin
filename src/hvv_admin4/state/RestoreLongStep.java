@@ -5,6 +5,7 @@
  */
 package hvv_admin4.state;
 
+import hvv_admin4.HVV_Admin4Constants;
 import hvv_admin4.steps.info.TechProcessDegasationStepInfo;
 import hvv_admin4.steps.info.TechProcessHFInfo;
 import java.util.Iterator;
@@ -40,11 +41,11 @@ public class RestoreLongStep extends javax.swing.JDialog {
         btnGroupStepSelection = new javax.swing.ButtonGroup();
         lblStepTitle = new javax.swing.JLabel();
         lblSelectInductorType = new javax.swing.JLabel();
+        radGet1 = new javax.swing.JRadioButton();
+        radGet2 = new javax.swing.JRadioButton();
+        lblSelectInductorType1 = new javax.swing.JLabel();
         radInd1 = new javax.swing.JRadioButton();
         radInd2 = new javax.swing.JRadioButton();
-        lblSelectInductorType1 = new javax.swing.JLabel();
-        radInd3 = new javax.swing.JRadioButton();
-        radInd4 = new javax.swing.JRadioButton();
         lblSelectSubStepTitle = new javax.swing.JLabel();
         lblRiseTitle = new javax.swing.JLabel();
         lblMiddleTitle = new javax.swing.JLabel();
@@ -233,6 +234,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Восстановление этапа обработки O2 ");
+        setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         setPreferredSize(new java.awt.Dimension(640, 480));
         setResizable(false);
         getContentPane().setLayout(null);
@@ -246,43 +248,44 @@ public class RestoreLongStep extends javax.swing.JDialog {
         getContentPane().add(lblSelectInductorType);
         lblSelectInductorType.setBounds(10, 50, 140, 30);
 
-        btnGroupGetterType.add(radInd1);
-        radInd1.setText("1");
-        radInd1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
-        radInd1.setBorderPainted(true);
-        radInd1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(radInd1);
-        radInd1.setBounds(150, 50, 70, 30);
+        btnGroupGetterType.add(radGet1);
+        radGet1.setSelected(true);
+        radGet1.setText("1");
+        radGet1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
+        radGet1.setBorderPainted(true);
+        radGet1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(radGet1);
+        radGet1.setBounds(150, 50, 70, 30);
 
-        btnGroupGetterType.add(radInd2);
-        radInd2.setText("2");
-        radInd2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
-        radInd2.setBorderPainted(true);
-        radInd2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(radInd2);
-        radInd2.setBounds(220, 50, 70, 30);
+        btnGroupGetterType.add(radGet2);
+        radGet2.setText("2");
+        radGet2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
+        radGet2.setBorderPainted(true);
+        radGet2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(radGet2);
+        radGet2.setBounds(220, 50, 70, 30);
 
         lblSelectInductorType1.setText("<html>Тип индуктора:</html>");
         lblSelectInductorType1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         getContentPane().add(lblSelectInductorType1);
         lblSelectInductorType1.setBounds(10, 90, 140, 30);
 
-        btnGroupInductorType.add(radInd3);
-        radInd3.setSelected(true);
-        radInd3.setText("1");
-        radInd3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
-        radInd3.setBorderPainted(true);
-        radInd3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(radInd3);
-        radInd3.setBounds(150, 90, 70, 30);
+        btnGroupInductorType.add(radInd1);
+        radInd1.setSelected(true);
+        radInd1.setText("1");
+        radInd1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
+        radInd1.setBorderPainted(true);
+        radInd1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(radInd1);
+        radInd1.setBounds(150, 90, 70, 30);
 
-        btnGroupInductorType.add(radInd4);
-        radInd4.setText("2");
-        radInd4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
-        radInd4.setBorderPainted(true);
-        radInd4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(radInd4);
-        radInd4.setBounds(220, 90, 70, 30);
+        btnGroupInductorType.add(radInd2);
+        radInd2.setText("2");
+        radInd2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
+        radInd2.setBorderPainted(true);
+        radInd2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(radInd2);
+        radInd2.setBounds(220, 90, 70, 30);
 
         lblSelectSubStepTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblSelectSubStepTitle.setText("Выберите текущий этап:");
@@ -342,7 +345,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnRMP01.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnRMP01.setEnabled(false);
         getContentPane().add(spnRMP01);
-        spnRMP01.setBounds(170, 180, 40, 18);
+        spnRMP01.setBounds(170, 180, 40, 24);
 
         btnGroupStepSelection.add(radR02);
         radR02.setEnabled(false);
@@ -380,7 +383,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnRMP02.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnRMP02.setEnabled(false);
         getContentPane().add(spnRMP02);
-        spnRMP02.setBounds(170, 200, 40, 18);
+        spnRMP02.setBounds(170, 200, 40, 24);
 
         btnGroupStepSelection.add(radR03);
         radR03.setEnabled(false);
@@ -418,7 +421,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnRMP03.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnRMP03.setEnabled(false);
         getContentPane().add(spnRMP03);
-        spnRMP03.setBounds(170, 220, 40, 18);
+        spnRMP03.setBounds(170, 220, 40, 24);
 
         btnGroupStepSelection.add(radR04);
         radR04.setEnabled(false);
@@ -456,7 +459,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnRMP04.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnRMP04.setEnabled(false);
         getContentPane().add(spnRMP04);
-        spnRMP04.setBounds(170, 240, 40, 18);
+        spnRMP04.setBounds(170, 240, 40, 24);
 
         btnGroupStepSelection.add(radR05);
         radR05.setEnabled(false);
@@ -494,7 +497,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnRMP05.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnRMP05.setEnabled(false);
         getContentPane().add(spnRMP05);
-        spnRMP05.setBounds(170, 260, 40, 18);
+        spnRMP05.setBounds(170, 260, 40, 24);
 
         btnGroupStepSelection.add(radR06);
         radR06.setEnabled(false);
@@ -532,7 +535,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnRMP06.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnRMP06.setEnabled(false);
         getContentPane().add(spnRMP06);
-        spnRMP06.setBounds(170, 280, 40, 18);
+        spnRMP06.setBounds(170, 280, 40, 24);
 
         btnGroupStepSelection.add(radR07);
         radR07.setEnabled(false);
@@ -570,7 +573,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnRMP07.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnRMP07.setEnabled(false);
         getContentPane().add(spnRMP07);
-        spnRMP07.setBounds(170, 300, 40, 18);
+        spnRMP07.setBounds(170, 300, 40, 24);
 
         btnGroupStepSelection.add(radR08);
         radR08.setEnabled(false);
@@ -608,7 +611,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnRMP08.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnRMP08.setEnabled(false);
         getContentPane().add(spnRMP08);
-        spnRMP08.setBounds(170, 320, 40, 18);
+        spnRMP08.setBounds(170, 320, 40, 24);
 
         btnGroupStepSelection.add(radR09);
         radR09.setEnabled(false);
@@ -646,7 +649,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnRMP09.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnRMP09.setEnabled(false);
         getContentPane().add(spnRMP09);
-        spnRMP09.setBounds(170, 340, 40, 18);
+        spnRMP09.setBounds(170, 340, 40, 24);
 
         btnGroupStepSelection.add(radR10);
         radR10.setEnabled(false);
@@ -684,7 +687,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnRMP10.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnRMP10.setEnabled(false);
         getContentPane().add(spnRMP10);
-        spnRMP10.setBounds(170, 360, 40, 18);
+        spnRMP10.setBounds(170, 360, 40, 24);
 
         btnGroupStepSelection.add(radM01);
         radM01.setEnabled(false);
@@ -722,7 +725,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnMMP01.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnMMP01.setEnabled(false);
         getContentPane().add(spnMMP01);
-        spnMMP01.setBounds(380, 180, 40, 18);
+        spnMMP01.setBounds(380, 180, 40, 24);
 
         btnGroupStepSelection.add(radM02);
         radM02.setEnabled(false);
@@ -760,7 +763,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnMMP02.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnMMP02.setEnabled(false);
         getContentPane().add(spnMMP02);
-        spnMMP02.setBounds(380, 200, 40, 18);
+        spnMMP02.setBounds(380, 200, 40, 24);
 
         btnGroupStepSelection.add(radM03);
         radM03.setEnabled(false);
@@ -798,7 +801,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnMMP03.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnMMP03.setEnabled(false);
         getContentPane().add(spnMMP03);
-        spnMMP03.setBounds(380, 220, 40, 18);
+        spnMMP03.setBounds(380, 220, 40, 24);
 
         btnGroupStepSelection.add(radM04);
         radM04.setEnabled(false);
@@ -836,7 +839,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnMMP04.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnMMP04.setEnabled(false);
         getContentPane().add(spnMMP04);
-        spnMMP04.setBounds(380, 240, 40, 18);
+        spnMMP04.setBounds(380, 240, 40, 24);
 
         btnGroupStepSelection.add(radM05);
         radM05.setEnabled(false);
@@ -874,7 +877,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnMMP05.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnMMP05.setEnabled(false);
         getContentPane().add(spnMMP05);
-        spnMMP05.setBounds(380, 260, 40, 18);
+        spnMMP05.setBounds(380, 260, 40, 24);
 
         btnGroupStepSelection.add(radM06);
         radM06.setEnabled(false);
@@ -912,7 +915,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnMMP06.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnMMP06.setEnabled(false);
         getContentPane().add(spnMMP06);
-        spnMMP06.setBounds(380, 280, 40, 18);
+        spnMMP06.setBounds(380, 280, 40, 24);
 
         btnGroupStepSelection.add(radM07);
         radM07.setEnabled(false);
@@ -950,7 +953,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnMMP07.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnMMP07.setEnabled(false);
         getContentPane().add(spnMMP07);
-        spnMMP07.setBounds(380, 300, 40, 18);
+        spnMMP07.setBounds(380, 300, 40, 24);
 
         btnGroupStepSelection.add(radM08);
         radM08.setEnabled(false);
@@ -988,7 +991,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnMMP08.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnMMP08.setEnabled(false);
         getContentPane().add(spnMMP08);
-        spnMMP08.setBounds(380, 320, 40, 18);
+        spnMMP08.setBounds(380, 320, 40, 24);
 
         btnGroupStepSelection.add(radM09);
         radM09.setEnabled(false);
@@ -1026,7 +1029,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnMMP09.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnMMP09.setEnabled(false);
         getContentPane().add(spnMMP09);
-        spnMMP09.setBounds(380, 340, 40, 18);
+        spnMMP09.setBounds(380, 340, 40, 24);
 
         btnGroupStepSelection.add(radM10);
         radM10.setEnabled(false);
@@ -1064,7 +1067,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnMMP10.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnMMP10.setEnabled(false);
         getContentPane().add(spnMMP10);
-        spnMMP10.setBounds(380, 360, 40, 18);
+        spnMMP10.setBounds(380, 360, 40, 24);
 
         btnGroupStepSelection.add(radF01);
         radF01.setEnabled(false);
@@ -1102,7 +1105,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnFMP01.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnFMP01.setEnabled(false);
         getContentPane().add(spnFMP01);
-        spnFMP01.setBounds(590, 180, 40, 18);
+        spnFMP01.setBounds(590, 180, 40, 24);
 
         btnGroupStepSelection.add(radF02);
         radF02.setEnabled(false);
@@ -1140,7 +1143,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnFMP02.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnFMP02.setEnabled(false);
         getContentPane().add(spnFMP02);
-        spnFMP02.setBounds(590, 200, 40, 18);
+        spnFMP02.setBounds(590, 200, 40, 24);
 
         btnGroupStepSelection.add(radF03);
         radF03.setEnabled(false);
@@ -1178,7 +1181,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnFMP03.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnFMP03.setEnabled(false);
         getContentPane().add(spnFMP03);
-        spnFMP03.setBounds(590, 220, 40, 18);
+        spnFMP03.setBounds(590, 220, 40, 24);
 
         btnGroupStepSelection.add(radF04);
         radF04.setEnabled(false);
@@ -1216,7 +1219,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnFMP04.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnFMP04.setEnabled(false);
         getContentPane().add(spnFMP04);
-        spnFMP04.setBounds(590, 240, 40, 18);
+        spnFMP04.setBounds(590, 240, 40, 24);
 
         btnGroupStepSelection.add(radF05);
         radF05.setEnabled(false);
@@ -1254,7 +1257,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnFMP05.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnFMP05.setEnabled(false);
         getContentPane().add(spnFMP05);
-        spnFMP05.setBounds(590, 260, 40, 18);
+        spnFMP05.setBounds(590, 260, 40, 24);
 
         btnGroupStepSelection.add(radF06);
         radF06.setEnabled(false);
@@ -1292,7 +1295,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnFMP06.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnFMP06.setEnabled(false);
         getContentPane().add(spnFMP06);
-        spnFMP06.setBounds(590, 280, 40, 18);
+        spnFMP06.setBounds(590, 280, 40, 24);
 
         btnGroupStepSelection.add(radF07);
         radF07.setEnabled(false);
@@ -1330,7 +1333,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnFMP07.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnFMP07.setEnabled(false);
         getContentPane().add(spnFMP07);
-        spnFMP07.setBounds(590, 300, 40, 18);
+        spnFMP07.setBounds(590, 300, 40, 24);
 
         btnGroupStepSelection.add(radF08);
         radF08.setEnabled(false);
@@ -1368,7 +1371,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnFMP08.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnFMP08.setEnabled(false);
         getContentPane().add(spnFMP08);
-        spnFMP08.setBounds(590, 320, 40, 18);
+        spnFMP08.setBounds(590, 320, 40, 24);
 
         btnGroupStepSelection.add(radF09);
         radF09.setEnabled(false);
@@ -1406,7 +1409,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnFMP09.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnFMP09.setEnabled(false);
         getContentPane().add(spnFMP09);
-        spnFMP09.setBounds(590, 340, 40, 18);
+        spnFMP09.setBounds(590, 340, 40, 24);
 
         btnGroupStepSelection.add(radF10);
         radF10.setEnabled(false);
@@ -1444,7 +1447,7 @@ public class RestoreLongStep extends javax.swing.JDialog {
         spnFMP10.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnFMP10.setEnabled(false);
         getContentPane().add(spnFMP10);
-        spnFMP10.setBounds(590, 360, 40, 18);
+        spnFMP10.setBounds(590, 360, 40, 24);
 
         btnNext.setLabel("Подтвердить и продолжить");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -1487,86 +1490,165 @@ public class RestoreLongStep extends javax.swing.JDialog {
     }
     
     
-    public void initAsDegasation( TechProcessHFInfo inf) {
+    public void initAsDegasation( TechProcessHFInfo inf, int nProcessedDeviceType) {
         
-        UnitControls ControlsR[] = {    new UnitControls( radR01, edtRD01, edtRP01, edtMP01, spnRMP01),
-                                        new UnitControls( radR02, edtRD02, edtRP02, edtMP02, spnRMP02),
-                                        new UnitControls( radR03, edtRD03, edtRP03, edtMP03, spnRMP03),
-                                        new UnitControls( radR04, edtRD04, edtRP04, edtMP04, spnRMP04),
-                                        new UnitControls( radR05, edtRD05, edtRP05, edtMP05, spnRMP05),
-                                        new UnitControls( radR06, edtRD06, edtRP06, edtMP06, spnRMP06),
-                                        new UnitControls( radR07, edtRD07, edtRP07, edtMP07, spnRMP07),
-                                        new UnitControls( radR08, edtRD08, edtRP08, edtMP08, spnRMP08),
-                                        new UnitControls( radR09, edtRD09, edtRP09, edtMP09, spnRMP09),
-                                        new UnitControls( radR10, edtRD10, edtRP10, edtMP10, spnRMP10)};
+        UnitControls ControlsR[] = {    new UnitControls( radR01, edtRD01, edtRP01, edtRMP01, spnRMP01),
+                                        new UnitControls( radR02, edtRD02, edtRP02, edtRMP02, spnRMP02),
+                                        new UnitControls( radR03, edtRD03, edtRP03, edtRMP03, spnRMP03),
+                                        new UnitControls( radR04, edtRD04, edtRP04, edtRMP04, spnRMP04),
+                                        new UnitControls( radR05, edtRD05, edtRP05, edtRMP05, spnRMP05),
+                                        new UnitControls( radR06, edtRD06, edtRP06, edtRMP06, spnRMP06),
+                                        new UnitControls( radR07, edtRD07, edtRP07, edtRMP07, spnRMP07),
+                                        new UnitControls( radR08, edtRD08, edtRP08, edtRMP08, spnRMP08),
+                                        new UnitControls( radR09, edtRD09, edtRP09, edtRMP09, spnRMP09),
+                                        new UnitControls( radR10, edtRD10, edtRP10, edtRMP10, spnRMP10)};
         
-        UnitControls ControlsM[] = {    new UnitControls( radM01, edtMD01, edtMP01, edtMP01, spnMMP01),
-                                        new UnitControls( radM02, edtMD02, edtMP02, edtMP02, spnMMP02),
-                                        new UnitControls( radM03, edtMD03, edtMP03, edtMP03, spnMMP03),
-                                        new UnitControls( radM04, edtMD04, edtMP04, edtMP04, spnMMP04),
-                                        new UnitControls( radM05, edtMD05, edtMP05, edtMP05, spnMMP05),
-                                        new UnitControls( radM06, edtMD06, edtMP06, edtMP06, spnMMP06),
-                                        new UnitControls( radM07, edtMD07, edtMP07, edtMP07, spnMMP07),
-                                        new UnitControls( radM08, edtMD08, edtMP08, edtMP08, spnMMP08),
-                                        new UnitControls( radM09, edtMD09, edtMP09, edtMP09, spnMMP09),
-                                        new UnitControls( radM10, edtMD10, edtMP10, edtMP10, spnMMP10)};
+        UnitControls ControlsM[] = {    new UnitControls( radM01, edtMD01, edtMP01, edtMMP01, spnMMP01),
+                                        new UnitControls( radM02, edtMD02, edtMP02, edtMMP02, spnMMP02),
+                                        new UnitControls( radM03, edtMD03, edtMP03, edtMMP03, spnMMP03),
+                                        new UnitControls( radM04, edtMD04, edtMP04, edtMMP04, spnMMP04),
+                                        new UnitControls( radM05, edtMD05, edtMP05, edtMMP05, spnMMP05),
+                                        new UnitControls( radM06, edtMD06, edtMP06, edtMMP06, spnMMP06),
+                                        new UnitControls( radM07, edtMD07, edtMP07, edtMMP07, spnMMP07),
+                                        new UnitControls( radM08, edtMD08, edtMP08, edtMMP08, spnMMP08),
+                                        new UnitControls( radM09, edtMD09, edtMP09, edtMMP09, spnMMP09),
+                                        new UnitControls( radM10, edtMD10, edtMP10, edtMMP10, spnMMP10)};
         
-        UnitControls ControlsF[] = {    new UnitControls( radF01, edtFD01, edtFP01, edtFP01, spnFMP01),
-                                        new UnitControls( radF02, edtFD02, edtFP02, edtFP02, spnFMP02),
-                                        new UnitControls( radF03, edtFD03, edtFP03, edtFP03, spnFMP03),
-                                        new UnitControls( radF04, edtFD04, edtFP04, edtFP04, spnFMP04),
-                                        new UnitControls( radF05, edtFD05, edtFP05, edtFP05, spnFMP05),
-                                        new UnitControls( radF06, edtFD06, edtFP06, edtFP06, spnFMP06),
-                                        new UnitControls( radF07, edtFD07, edtFP07, edtFP07, spnFMP07),
-                                        new UnitControls( radF08, edtFD08, edtFP08, edtFP08, spnFMP08),
-                                        new UnitControls( radF09, edtFD09, edtFP09, edtFP09, spnFMP09),
-                                        new UnitControls( radF10, edtFD10, edtFP10, edtFP10, spnFMP10)};
+        UnitControls ControlsF[] = {    new UnitControls( radF01, edtFD01, edtFP01, edtFMP01, spnFMP01),
+                                        new UnitControls( radF02, edtFD02, edtFP02, edtFMP02, spnFMP02),
+                                        new UnitControls( radF03, edtFD03, edtFP03, edtFMP03, spnFMP03),
+                                        new UnitControls( radF04, edtFD04, edtFP04, edtFMP04, spnFMP04),
+                                        new UnitControls( radF05, edtFD05, edtFP05, edtFMP05, spnFMP05),
+                                        new UnitControls( radF06, edtFD06, edtFP06, edtFMP06, spnFMP06),
+                                        new UnitControls( radF07, edtFD07, edtFP07, edtFMP07, spnFMP07),
+                                        new UnitControls( radF08, edtFD08, edtFP08, edtFMP08, spnFMP08),
+                                        new UnitControls( radF09, edtFD09, edtFP09, edtFMP09, spnFMP09),
+                                        new UnitControls( radF10, edtFD10, edtFP10, edtFMP10, spnFMP10)};
         
-        
-        if( inf.m_lstProgram != null && inf.m_lstProgram.size() > 0) {
-            Iterator it = inf.m_lstProgram.iterator();
+        if( inf.GetGetter() == HVV_Admin4Constants.GETTER2) radGet2.setSelected( true);
+        if( inf.GetInductor() == HVV_Admin4Constants.INDUCTOR_TYPE2) radInd2.setSelected( true);
             
-            boolean bRise = true;
-            int nLastPower = 0;
-            
-            int nIndxR = 0, nIndxF = 0;
-            do {
-                TechProcessDegasationStepInfo lstep = ( TechProcessDegasationStepInfo) it.next();
-                if( bRise) {
-                    //заполняем восходящую лесенку и отслеживаем "перевал" по мощности
-                    if( lstep.GetPower() < nLastPower) bRise = false;
-                    
+        if( inf.m_lstProgram != null) {
+            if( inf.m_lstProgram.size() > 0) {
+                Iterator it = inf.m_lstProgram.iterator();
+
+                boolean bRise = true;
+                int nLastPower = 0;
+
+                int nIndxR = 0, nIndxF = 0;
+                do {
+                    TechProcessDegasationStepInfo lstep = ( TechProcessDegasationStepInfo) it.next();
                     if( bRise) {
-                        ControlsR[ nIndxR].rad.setEnabled(   true);
-                        ControlsR[ nIndxR].edtD.setEnabled(  true); ControlsR[ nIndxR].edtD.setText(  "" + lstep.GetDuration());
-                        ControlsR[ nIndxR].edtP.setEnabled(  true); ControlsR[ nIndxR].edtP.setText(  "" + lstep.GetPower());
-                        ControlsR[ nIndxR].edtMP.setEnabled( true); ControlsR[ nIndxR].edtMP.setText( "" + getMantissa( lstep.GetMaxPressure()));
-                        ControlsR[ nIndxR].spnMP.setEnabled( true); ControlsR[ nIndxR].spnMP.setValue( ( int) getExponent( lstep.GetMaxPressure()));
-                        
-                        nIndxR++;
+                        //заполняем восходящую лесенку и отслеживаем "перевал" по мощности
+                        if( lstep.GetPower() < nLastPower) bRise = false;
+
+                        if( bRise) {
+                            ControlsR[ nIndxR].rad.setEnabled(   true);
+                            ControlsR[ nIndxR].edtD.setEnabled(  true); ControlsR[ nIndxR].edtD.setText(  "" + lstep.GetDuration());
+                            ControlsR[ nIndxR].edtP.setEnabled(  true); ControlsR[ nIndxR].edtP.setText(  "" + lstep.GetPower());
+                            ControlsR[ nIndxR].edtMP.setEnabled( true); ControlsR[ nIndxR].edtMP.setText( "" + getMantissa( lstep.GetMaxPressure()));
+                            ControlsR[ nIndxR].spnMP.setEnabled( true); ControlsR[ nIndxR].spnMP.setValue( ( int) getExponent( lstep.GetMaxPressure()));
+
+                            nIndxR++;
+                        }
+                        else {
+                            ControlsF[ nIndxF].rad.setEnabled(   true);
+                            ControlsF[ nIndxF].edtD.setEnabled(  true); ControlsR[ nIndxF].edtD.setText(  "" + lstep.GetDuration());
+                            ControlsF[ nIndxF].edtP.setEnabled(  true); ControlsR[ nIndxF].edtP.setText(  "" + lstep.GetPower());
+                            ControlsF[ nIndxF].edtMP.setEnabled( true); ControlsR[ nIndxF].edtMP.setText( "" + getMantissa( lstep.GetMaxPressure()));
+                            ControlsF[ nIndxF].spnMP.setEnabled( true); ControlsR[ nIndxF].spnMP.setValue( ( int) getExponent( lstep.GetMaxPressure()));
+
+                            nIndxF++;
+                        }
                     }
                     else {
+                        //заполняем нисходящую лесенку
                         ControlsF[ nIndxF].rad.setEnabled(   true);
                         ControlsF[ nIndxF].edtD.setEnabled(  true); ControlsR[ nIndxF].edtD.setText(  "" + lstep.GetDuration());
                         ControlsF[ nIndxF].edtP.setEnabled(  true); ControlsR[ nIndxF].edtP.setText(  "" + lstep.GetPower());
                         ControlsF[ nIndxF].edtMP.setEnabled( true); ControlsR[ nIndxF].edtMP.setText( "" + getMantissa( lstep.GetMaxPressure()));
                         ControlsF[ nIndxF].spnMP.setEnabled( true); ControlsR[ nIndxF].spnMP.setValue( ( int) getExponent( lstep.GetMaxPressure()));
-                        
+
                         nIndxF++;
                     }
-                }
-                else {
-                    //заполняем нисходящую лесенку
-                    ControlsF[ nIndxF].rad.setEnabled(   true);
-                    ControlsF[ nIndxF].edtD.setEnabled(  true); ControlsR[ nIndxF].edtD.setText(  "" + lstep.GetDuration());
-                    ControlsF[ nIndxF].edtP.setEnabled(  true); ControlsR[ nIndxF].edtP.setText(  "" + lstep.GetPower());
-                    ControlsF[ nIndxF].edtMP.setEnabled( true); ControlsR[ nIndxF].edtMP.setText( "" + getMantissa( lstep.GetMaxPressure()));
-                    ControlsF[ nIndxF].spnMP.setEnabled( true); ControlsR[ nIndxF].spnMP.setValue( ( int) getExponent( lstep.GetMaxPressure()));
+                } while( it.hasNext());
+            }
+            else {
+                int nDur = 0, nPow=0;
+                int nProgramType = 0;
+        
+                if( nProcessedDeviceType == HVV_Admin4Constants.DEVICE_SMALL) nProgramType += 100;
+                else if( nProcessedDeviceType == HVV_Admin4Constants.DEVICE_MEDIUM) nProgramType += 200;
+                else nProgramType += 300;
 
-                    nIndxF++;
+                if( inf.GetGetter() == HVV_Admin4Constants.GETTER1) nProgramType += 10;
+                else nProgramType += 20;
+
+                if( inf.GetInductor() == HVV_Admin4Constants.INDUCTOR_TYPE1) nProgramType += 1;
+                else nProgramType += 2;
+
+                switch( nProgramType) {
+
+                    //SMALL
+                    case 111:   //small, get1, ind1    - no
+                        nDur = 1; nPow = 1;
+                    break;
+
+                    case 112:   //small, get1, ind2    - no
+                        nDur = 1; nPow = 1;
+                    break;
+
+                    case 121:   //small, get2, ind1    - no
+                        nDur = 1; nPow = 1;
+                    break;
+
+                    case 122:   //small, get2, ind2    - yes
+                        nDur = 2; nPow = 2;
+                    break;
+
+                        
+                    //MEDIUM
+                    case 211:   //medium, get1, ind1    - no
+                        nDur = 1; nPow = 1;
+                    break;
+
+                    case 212:   //medium, get1, ind2    - no
+                        nDur = 1; nPow = 1;
+                    break;
+
+                    case 221:   //medium, get2, ind1    - yes
+                        nDur = 3; nPow = 10;
+                    break;
+
+                    case 222:   //medium, get2, ind2    - yes
+                        nDur = 2; nPow = 2;
+                    break;
+
+
+                    //BIG
+                    case 311:   //BIG, get1, ind1    - no
+                        nDur = 1; nPow = 1;
+                    break;
+
+                    case 312:   //BIG, get1, ind2    - no
+                        nDur = 1; nPow = 1;
+                    break;
+
+                    case 321:   //BIG, get2, ind1    - no
+                        nDur = 1; nPow = 1;
+                    break;
+
+                    case 322:   //BIG, get2, ind2    - no
+                        nDur = 1; nPow = 1;
+                    break;
                 }
-            } while( it.hasNext());
-            
+                
+                ControlsR[ 0].rad.setEnabled(   true);
+                ControlsR[ 0].edtD.setEnabled(  true); ControlsR[ 0].edtD.setText(  "" + nDur);
+                ControlsR[ 0].edtP.setEnabled(  true); ControlsR[ 0].edtP.setText(  "" + nPow);
+                ControlsR[ 0].edtMP.setEnabled( true); ControlsR[ 0].edtMP.setText( "");
+                ControlsR[ 0].spnMP.setEnabled( true); ControlsR[ 0].spnMP.setValue( -5);
+            }
         }
     }
     
@@ -1762,10 +1844,10 @@ public class RestoreLongStep extends javax.swing.JDialog {
     private javax.swing.JRadioButton radF08;
     private javax.swing.JRadioButton radF09;
     private javax.swing.JRadioButton radF10;
+    private javax.swing.JRadioButton radGet1;
+    private javax.swing.JRadioButton radGet2;
     private javax.swing.JRadioButton radInd1;
     private javax.swing.JRadioButton radInd2;
-    private javax.swing.JRadioButton radInd3;
-    private javax.swing.JRadioButton radInd4;
     private javax.swing.JRadioButton radM01;
     private javax.swing.JRadioButton radM02;
     private javax.swing.JRadioButton radM03;
