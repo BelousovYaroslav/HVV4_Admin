@@ -163,6 +163,7 @@ public class PanelEnterComment extends javax.swing.JPanel {
         }
         
         theApp.m_pStateKeeper.SaveState();
+        theApp.m_pStateKeeperXML.SaveState();
         theApp.m_ReportGenerator.Generate();
         
     }//GEN-LAST:event_btnOkNextActionPerformed

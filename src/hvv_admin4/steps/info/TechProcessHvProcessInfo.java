@@ -9,6 +9,7 @@ import hvv_admin4.HVV_Admin4;
 import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import org.dom4j.Element;
 
 /**
  *
@@ -43,6 +44,16 @@ public class TechProcessHvProcessInfo extends TechProcessStepCommon {
         m_dblVoltageTuStart = is.readDouble();
         m_dblVoltageAnStop  = is.readDouble();
         m_dblVoltageTuStop  = is.readDouble();
+    }
+    
+    public TechProcessHvProcessInfo( Element root) throws IOException, ClassNotFoundException {
+        super( root);
+        /*
+        m_dblVoltageAnStart = is.readDouble();
+        m_dblVoltageTuStart = is.readDouble();
+        m_dblVoltageAnStop  = is.readDouble();
+        m_dblVoltageTuStop  = is.readDouble();
+        */
     }
     
     @Override
@@ -92,5 +103,14 @@ public class TechProcessHvProcessInfo extends TechProcessStepCommon {
         out.writeDouble( m_dblVoltageTuStart);
         out.writeDouble( m_dblVoltageAnStop);
         out.writeDouble( m_dblVoltageTuStop);
-    }    
+    }
+    
+    @Override
+    public void SaveItemXML( Element root) throws IOException {
+        super.SaveItemXML( root);
+        root.addElement( "AnStartV").addText( String.format( "%.0f", m_dblVoltageAnStart));
+        root.addElement( "TuStartV").addText( String.format( "%.0f", m_dblVoltageTuStart));
+        root.addElement( "AnStopV").addText( String.format( "%.0f", m_dblVoltageAnStop));
+        root.addElement( "TuStopV").addText( String.format( "%.0f", m_dblVoltageTuStop));
+    }
 }

@@ -5,11 +5,11 @@
  */
 package hvv_admin4.steps.info;
 
-import hvv_admin4.HVV_Admin4;
 import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Date;
+import org.dom4j.Element;
 
 /**
  *
@@ -56,6 +56,16 @@ public class TechProcessStepCommon {
         m_bRestoredAfterFail = false;
     }
     
+    public TechProcessStepCommon( Element root)  throws IOException, ClassNotFoundException {
+        /*
+        m_dtStart               = ( Date) is.readObject();
+        m_strStartReportTitle   = ( String) is.readObject();
+        m_dtStop                = ( Date) is.readObject();
+        m_strStopReportTitle    = ( String) is.readObject();
+        m_bRestoredAfterFail = false;
+        */
+    }
+    
     @Override
     public String toString() {
         String strResult = "\n";
@@ -92,6 +102,29 @@ public class TechProcessStepCommon {
         out.writeObject( m_strStartReportTitle);
         out.writeObject( m_dtStop);
         out.writeObject( m_strStopReportTitle);
+    }
+    
+    public void SaveItemXML( Element root) throws IOException {
+        if( m_dtStart != null)
+            root.addElement( "dtStart").addText( "" + m_dtStart.getTime());
+        else
+            root.addElement( "dtStart").addText( "NULL");
+        
+        if( m_strStartReportTitle != null)
+            root.addElement( "strStartReportTitle").addText( m_strStartReportTitle);
+        else
+            root.addElement( "strStartReportTitle").addText( "NULL");
+        
+        
+        if( m_dtStop != null)
+            root.addElement( "dtStop").addText( "" + m_dtStop.getTime());
+        else
+            root.addElement( "dtStop").addText( "NULL");
+        
+        if( m_strStopReportTitle != null)
+            root.addElement( "strStopReportTitle").addText( m_strStopReportTitle);
+        else
+            root.addElement( "strStopReportTitle").addText( "NULL");
     }
     
     public Date GetLocalDate( int nShiftHour) {

@@ -8,6 +8,7 @@ package hvv_admin4;
 import hvv_admin4.planner.HVV_AdminPlanner;
 import hvv_admin4.report.ReportGenerator;
 import hvv_admin4.state.HVV_StateKeeper;
+import hvv_admin4.state.HVV_StateKeeperXML;
 import hvv_admin4.steps.info.TechProcessCommentInfo;
 import hvv_admin4.steps.info.TechProcessGetterInfo;
 import hvv_admin4.steps.info.TechProcessHvProcessInfo;
@@ -54,6 +55,7 @@ public class HVV_Admin4 {
     public String m_strAdminStartDtm;
     public ReportGenerator m_ReportGenerator;
     public HVV_StateKeeper m_pStateKeeper;
+    public HVV_StateKeeperXML m_pStateKeeperXML;
     
     private String m_strSerial;
     public String GetSerial() { return m_strSerial; }
@@ -117,8 +119,10 @@ public class HVV_Admin4 {
     public boolean IsStepMapContainsKey( String strStepName) { return m_mapSteps.containsKey( strStepName);}
     public void SaveStepInfo( String strStepName, TechProcessStepCommon info, boolean bSaveState) {
         m_mapSteps.put( strStepName, info);
-        if( bSaveState)
+        if( bSaveState) {
             m_pStateKeeper.SaveState();
+            m_pStateKeeperXML.SaveState();
+        }
     }
     
     public TechProcessStepCommon GetCommonStep( String strStepName) {
@@ -248,6 +252,7 @@ public class HVV_Admin4 {
         
         m_dtTOend = null;
         
+        m_pStateKeeperXML = new HVV_StateKeeperXML( this);
         m_pStateKeeper = new HVV_StateKeeper( this);
         if( m_pStateKeeper.CheckStateKeeperFileExistance()) {
             int nResponce = MessageBoxAskYesNo( "Обнаружен файл хранения состояния.\nВосстановить состояние предыдущего запуска?", "HVV_Admin");
