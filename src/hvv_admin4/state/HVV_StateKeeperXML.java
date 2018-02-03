@@ -15,11 +15,10 @@ import hvv_admin4.steps.info.TechProcessStepCommon;
 import hvv_admin4.steps.info.TechProcessUacProcessInfo;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
@@ -51,174 +50,10 @@ public class HVV_StateKeeperXML {
         m_bDropReadState = false;
     }
     
-    /*
-    private void SaveCommonPoint( ObjectOutputStream oos, String strStep1) throws IOException {
-        
-        TechProcessStepCommon info = theApp.GetCommonStep( strStep1);
-        if( info != null) {
-            oos.writeObject( info.GetStartDate());
-            oos.writeObject( info.GetStartReportTitle());
-            
-            oos.writeObject( info.GetStopDate());
-            oos.writeObject( info.GetStopReportTitle());
-        }
-        else {
-            oos.writeObject( null);
-            oos.writeObject( null);
-            
-            oos.writeObject( null);
-            oos.writeObject( null);
-        }
-    }
-    
-    private TechProcessStepCommon ReadCommonPoint( ObjectInputStream ois) throws IOException {
-        
-        TechProcessStepCommon info = new TechProcessStepCommon();
-        try {            
-            info.SetStartDate( ( Date) ois.readObject());
-            info.SetStartReportTitle( ( String) ois.readObject());
-            
-            info.SetStopDate( ( Date) ois.readObject());
-            info.SetStopReportTitle( ( String) ois.readObject());
-            
-        } catch (ClassNotFoundException ex) {
-            logger.error( "ClassNotFoundException caught, при чтении state-файла", ex);
-        }
-        
-        return info;
-    }
-    
-    
-    private void SaveHvPoint( ObjectOutputStream oos, String strStep1) throws IOException {
-        
-        TechProcessHvProcessInfo info = ( TechProcessHvProcessInfo) theApp.GetHvStep( strStep1);
-        if( info != null) {
-            oos.writeObject( info.GetStartDate());
-            oos.writeObject( info.GetStartReportTitle());
-            oos.writeDouble( info.GetAnStart());
-            oos.writeDouble( info.GetTuStart());
-            
-            oos.writeObject( info.GetStopDate());
-            oos.writeObject( info.GetStopReportTitle());
-            oos.writeDouble( info.GetAnStop());
-            oos.writeDouble( info.GetTuStop());
-        }
-        else {
-            for( int i=0; i<8; i++)
-                oos.writeObject( null);
-        }
-    }
-    
-    private TechProcessHvProcessInfo ReadHvPoint( ObjectInputStream ois) throws IOException {
-        
-        TechProcessHvProcessInfo info = new TechProcessHvProcessInfo();
-        try {
-            info.SetStartDate( ( Date)          ois.readObject());
-            info.SetStartReportTitle( ( String) ois.readObject());
-            info.SetAnStart(                    ois.readDouble());
-            info.SetTuStart(                    ois.readDouble());
-            
-            info.SetStopDate( ( Date)           ois.readObject());
-            info.SetStopReportTitle( ( String)  ois.readObject());
-            info.SetAnStop(                     ois.readDouble());
-            info.SetTuStop(                     ois.readDouble());
-            
-        } catch (ClassNotFoundException ex) {
-            logger.error( "ClassNotFoundException caught, при чтении state-файла", ex);
-        }
-        
-        return info;
-    }
-    
-    private void SaveGetterInfoPoint( ObjectOutputStream oos, String strStep1) throws IOException {
-        
-        TechProcessGetterInfo info = ( TechProcessGetterInfo) theApp.GetGetterInfoStep( strStep1);
-        if( info != null) {
-            oos.writeObject( info.GetStartDate());
-            oos.writeObject( info.GetStartReportTitle());
-            oos.writeObject( info.GetStopDate());
-            oos.writeObject( info.GetStopReportTitle());
-            
-            oos.writeObject( info.GetDtEffusion4v());
-            oos.writeDouble( info.GetDblEffusion4v());
-            oos.writeObject( info.GetDtEffusion9v());
-            oos.writeDouble( info.GetDblEffusion9v());
-            oos.writeObject( info.GetDtTurnOff9v());
-        }
-        else {
-            for( int i=0; i<8; i++)
-                oos.writeObject( null);
-        }
-    }
-    
-    private TechProcessGetterInfo ReadGetterInfoPoint( ObjectInputStream ois) throws IOException {
-        
-        TechProcessGetterInfo info = new TechProcessGetterInfo();
-        try {
-            info.SetStartDate( ( Date)          ois.readObject());
-            info.SetStartReportTitle( ( String) ois.readObject());
-            info.SetStopDate( ( Date)           ois.readObject());
-            info.SetStopReportTitle( ( String)  ois.readObject());
-            
-            info.SetDtEffusion4v( ( Date)       ois.readObject());
-            info.SetDblEffusion4v(              ois.readDouble());
-            info.SetDtEffusion9v( ( Date)       ois.readObject());
-            info.SetDblEffusion9v(              ois.readDouble());
-            info.SetDtTurnOff9v(( Date)         ois.readObject());
-            
-        } catch (ClassNotFoundException ex) {
-            logger.error( "ClassNotFoundException caught, при чтении state-файла", ex);
-        }
-        
-        return info;
-    }
-    
-    private void SaveIgenIextPoint( ObjectOutputStream oos, String strStep1) throws IOException {
-        
-        TechProcessGetterInfo info = ( TechProcessGetterInfo) theApp.GetGetterInfoStep( strStep1);
-        if( info != null) {
-            oos.writeObject( info.GetStartDate());
-            oos.writeObject( info.GetStartReportTitle());
-            oos.writeObject( info.GetStopDate());
-            oos.writeObject( info.GetStopReportTitle());
-            
-            oos.writeObject( info.GetDtEffusion4v());
-            oos.writeDouble( info.GetDblEffusion4v());
-            oos.writeObject( info.GetDtEffusion9v());
-            oos.writeDouble( info.GetDblEffusion9v());
-            oos.writeObject( info.GetDtTurnOff9v());
-        }
-        else {
-            for( int i=0; i<8; i++)
-                oos.writeObject( null);
-        }
-    }
-    
-    private TechProcessGetterInfo ReadIgenIextPoint( ObjectInputStream ois) throws IOException {
-        
-        TechProcessGetterInfo info = new TechProcessGetterInfo();
-        try {
-            info.SetStartDate( ( Date)          ois.readObject());
-            info.SetStartReportTitle( ( String) ois.readObject());
-            info.SetStopDate( ( Date)           ois.readObject());
-            info.SetStopReportTitle( ( String)  ois.readObject());
-            
-            info.SetDtEffusion4v( ( Date)       ois.readObject());
-            info.SetDblEffusion4v(              ois.readDouble());
-            info.SetDtEffusion9v( ( Date)       ois.readObject());
-            info.SetDblEffusion9v(              ois.readDouble());
-            info.SetDtTurnOff9v(( Date)         ois.readObject());
-            
-        } catch (ClassNotFoundException ex) {
-            logger.error( "ClassNotFoundException caught, при чтении state-файла", ex);
-        }
-        
-        return info;
-    }
-    */
-    
     public void SaveState() {
         if( theApp.GetCurrentStep() < 20) return;
+        
+        SimpleDateFormat formatter = new SimpleDateFormat( "yyyy.MM.dd HH:mm:ss");
         
         try {
             Document document = DocumentHelper.createDocument();
@@ -237,7 +72,7 @@ public class HVV_StateKeeperXML {
             if( theApp.GetDtmTOEnd() == null) 
                 root.addElement( "dtmTOEnd").addText( "NULL");
             else
-                root.addElement( "dtmTOEnd").addText( "" + theApp.GetDtmTOEnd().getTime());
+                root.addElement( "dtmTOEnd").addText( formatter.format( theApp.GetDtmTOEnd()));
             
             
             Set set = theApp.SecretSteps().entrySet();
@@ -250,7 +85,6 @@ public class HVV_StateKeeperXML {
 
                 Element innerRoot = root.addElement( "Step" + strKey);
                 switch( strKey) {
-                    /*
                     case "001":
                     case "061":
                     case "062":
@@ -261,8 +95,7 @@ public class HVV_StateKeeperXML {
                     case "141":
                     case "143":
                     case "181":
-                        (( TechProcessStepCommon) objValue).SaveItemXML( innerRoot); break;
-                    */
+                        ( ( TechProcessStepCommon) objValue).SaveItemXML( innerRoot, theApp.GetStepNameWithNum(Integer.parseInt( strKey))); break;
                     
                     case "021":
                     case "022":
@@ -275,29 +108,29 @@ public class HVV_StateKeeperXML {
                     case "106":
                     case "142":
                     case "144":
-                        (( TechProcessHvProcessInfo) objValue).SaveItemXML( innerRoot); break;
+                        (( TechProcessHvProcessInfo) objValue).SaveItemXML( innerRoot, theApp.GetStepNameWithNum(Integer.parseInt( strKey))); break;
                     
-                    /*
                     case "063":
                     case "121":
                     case "161":
-                        (( TechProcessGetterInfo) objValue).SaveItem(oos); break;
+                        (( TechProcessGetterInfo) objValue).SaveItemXML( innerRoot, theApp.GetStepNameWithNum(Integer.parseInt( strKey))); break;
                         
                     case "081":
                     case "182":
-                        (( TechProcessIgenIextProcessInfo) objValue).SaveItem(oos); break;
+                        (( TechProcessIgenIextProcessInfo) objValue).SaveItemXML( innerRoot, theApp.GetStepNameWithNum(Integer.parseInt( strKey))); break;
                         
                     case "082":
                     case "183":
-                        (( TechProcessUacProcessInfo) objValue).SaveItem(oos); break;
+                        (( TechProcessUacProcessInfo) objValue).SaveItemXML( innerRoot, theApp.GetStepNameWithNum(Integer.parseInt( strKey))); break;
                         
                     case "083":
                     case "184":
-                        (( TechProcessCommentInfo) objValue).SaveItem(oos); break;
+                        (( TechProcessCommentInfo) objValue).SaveItemXML( innerRoot, theApp.GetStepNameWithNum(Integer.parseInt( strKey))); break;
                         
+                        /*
                     case "122":
                     case "162":
-                        (( TechProcessHFInfo ) objValue).SaveItem(oos); break;
+                        (( TechProcessHFInfo ) objValue).SaveItemXML( innerRoot); break;
                     */
                 }
             }

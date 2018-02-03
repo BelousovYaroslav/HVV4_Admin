@@ -9,6 +9,7 @@ import hvv_admin4.HVV_Admin4;
 import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import org.dom4j.Element;
 
 /**
  *
@@ -96,5 +97,15 @@ public class TechProcessIgenIextProcessInfo extends TechProcessStepCommon {
         out.writeDouble( m_dblA_Igen);
         out.writeDouble( m_dblT_Iext);
         out.writeDouble( m_dblT_Igen);
+    }
+    
+    @Override
+    public void SaveItemXML( Element root, String strTitle) throws IOException {
+        super.SaveItemXML( root, strTitle);
+        
+        root.addElement( "dblA_Iext").addText( String.format( "%.0f", m_dblA_Iext));
+        root.addElement( "dblA_Igen").addText( String.format( "%.0f", m_dblA_Igen));
+        root.addElement( "dblT_Iext").addText( String.format( "%.0f", m_dblT_Iext));
+        root.addElement( "dblT_Igen").addText( String.format( "%.0f", m_dblT_Igen));        
     }
 }

@@ -8,6 +8,8 @@ package hvv_admin4.steps.info;
 import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.dom4j.Element;
 
@@ -104,9 +106,16 @@ public class TechProcessStepCommon {
         out.writeObject( m_strStopReportTitle);
     }
     
-    public void SaveItemXML( Element root) throws IOException {
+    public void SaveItemXML( Element root, String strTitle) throws IOException {
+        
+        if( strTitle != null)
+            root.addElement( "Title").addText( strTitle);
+        else
+            root.addElement( "Title").addText( "NULL");
+        
+        SimpleDateFormat formatter = new SimpleDateFormat( "yyyy.MM.dd HH:mm:ss");
         if( m_dtStart != null)
-            root.addElement( "dtStart").addText( "" + m_dtStart.getTime());
+            root.addElement( "dtStart").addText( formatter.format( m_dtStart));
         else
             root.addElement( "dtStart").addText( "NULL");
         
@@ -117,7 +126,7 @@ public class TechProcessStepCommon {
         
         
         if( m_dtStop != null)
-            root.addElement( "dtStop").addText( "" + m_dtStop.getTime());
+            root.addElement( "dtStop").addText( formatter.format( m_dtStop));
         else
             root.addElement( "dtStop").addText( "NULL");
         

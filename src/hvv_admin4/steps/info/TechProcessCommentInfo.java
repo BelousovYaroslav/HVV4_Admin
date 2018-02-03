@@ -8,6 +8,7 @@ package hvv_admin4.steps.info;
 import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import org.dom4j.Element;
 
 /**
  *
@@ -65,5 +66,14 @@ public class TechProcessCommentInfo extends TechProcessStepCommon {
     public void SaveItem( java.io.ObjectOutputStream out) throws IOException {
         super.SaveItem( out);
         out.writeUTF( m_strComment);
+    }
+    
+    @Override
+    public void SaveItemXML( Element root, String strTitle) throws IOException {
+        super.SaveItemXML( root, strTitle);
+        if( m_strComment != null)
+            root.addElement( "Comment").addText( m_strComment);
+        else
+            root.addElement( "Comment").addText( m_strComment);
     }
 }

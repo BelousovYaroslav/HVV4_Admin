@@ -9,7 +9,9 @@ import hvv_admin4.HVV_Admin4;
 import hvv_admin4.report.ReportGenerator;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.dom4j.Element;
 
 /**
  *
@@ -114,4 +116,30 @@ public class TechProcessGetterInfo extends TechProcessStepCommon {
         out.writeDouble( m_dblEffusion9v);
         out.writeObject( m_dtTurnOff9v);
     }
+    
+    @Override
+    public void SaveItemXML( Element root, String strTitle) throws IOException {
+        super.SaveItemXML( root, strTitle);
+        SimpleDateFormat formatter = new SimpleDateFormat( "yyyy.MM.dd HH:mm:ss");
+        
+        if( m_dtEffusion4v != null)
+            root.addElement( "dtEffusion4v").addText( formatter.format( m_dtEffusion4v));
+        else
+            root.addElement( "dtEffusion4v").addText( "NULL");
+        
+        root.addElement( "dblEffusuon4v").addText( String.format( "%.0f", m_dblEffusion4v));
+        
+        if( m_dtEffusion9v != null)
+            root.addElement( "dtEffusion9v").addText( formatter.format( m_dtEffusion9v));
+        else
+            root.addElement( "dtEffusion9v").addText( "NULL");
+        
+        root.addElement( "dblEffusuon9v").addText( String.format( "%.0f", m_dblEffusion9v));
+        
+        if( m_dtTurnOff9v != null)
+            root.addElement( "dtTurnOff9v").addText( formatter.format( m_dtTurnOff9v));
+        else
+            root.addElement( "dtTurnOff9v").addText( "NULL");
+    }
+    
 }

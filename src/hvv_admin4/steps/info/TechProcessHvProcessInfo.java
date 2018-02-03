@@ -106,8 +106,8 @@ public class TechProcessHvProcessInfo extends TechProcessStepCommon {
     }
     
     @Override
-    public void SaveItemXML( Element root) throws IOException {
-        super.SaveItemXML( root);
+    public void SaveItemXML( Element root, String strTitle) throws IOException {
+        super.SaveItemXML( root, strTitle);
         root.addElement( "AnStartV").addText( String.format( "%.0f", m_dblVoltageAnStart));
         root.addElement( "TuStartV").addText( String.format( "%.0f", m_dblVoltageTuStart));
         root.addElement( "AnStopV").addText( String.format( "%.0f", m_dblVoltageAnStop));
