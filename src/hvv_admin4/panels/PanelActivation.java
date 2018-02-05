@@ -292,6 +292,7 @@ public class PanelActivation extends javax.swing.JPanel {
             radInductorType2.setEnabled( false);
             
             m_pnlProgress.m_nStep = 0;
+            info.SetCurrentStep( 0);
             if( theApp.GetSettings().GetDebugShortenProgTimes())
                 m_pnlProgress.m_nStepSecondsLeft = ( ( TechProcessDegasationStepInfo) m_lstProgram.getFirst()).GetDuration() * 5;
             else

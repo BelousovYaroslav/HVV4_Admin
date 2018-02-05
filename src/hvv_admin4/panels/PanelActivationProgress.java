@@ -8,6 +8,7 @@ package hvv_admin4.panels;
 import hvv_admin4.HVV_Admin4;
 import hvv_admin4.HVV_Admin4Constants;
 import hvv_admin4.steps.info.TechProcessDegasationStepInfo;
+import hvv_admin4.steps.info.TechProcessHFInfo;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -66,6 +67,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
                             if( ++m_nStep == m_pParent.m_lstProgram.size() && m_bTrailingAdded)
                                 m_pRefreshTimer.stop();
                             m_pParent.btnNext.setEnabled( true);
+                            ( ( TechProcessHFInfo) theApp.SecretSteps().get( "162")).SetCurrentStep( m_nStep);
                         }
                         
                         if( m_nFlashSeconds == 0)

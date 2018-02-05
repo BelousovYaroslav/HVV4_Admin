@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Iterator;
 import java.util.LinkedList;
+import org.dom4j.Element;
 
 /**
  *
@@ -18,6 +19,10 @@ import java.util.LinkedList;
  */
 public class TechProcessHFInfo extends TechProcessStepCommon {
     public LinkedList m_lstProgram;
+    
+    private int m_nCurrentStep;
+    public int GetCurrentStep() { return m_nCurrentStep; }
+    public void SetCurrentStep( int nStep) { m_nCurrentStep = nStep; }
     
     private int m_nGetter;
     public int GetGetter() { return m_nGetter; }
@@ -30,6 +35,7 @@ public class TechProcessHFInfo extends TechProcessStepCommon {
     public TechProcessHFInfo() {
         super();
         
+        m_nCurrentStep = -1;
         m_nGetter = -1;
         m_nInductor = -1;
     }
@@ -38,7 +44,17 @@ public class TechProcessHFInfo extends TechProcessStepCommon {
         super( is);
         m_nGetter = is.readInt();
         m_nInductor = is.readInt();
-        m_lstProgram = ( LinkedList) is.readObject();
+        m_nCurrentStep = is.readInt();
+        
+        m_lstProgram = new LinkedList();
+        int len = is.readInt();
+        for( int i=0; i<len; i++) {
+            TechProcessDegasationStepInfo step = new TechProcessDegasationStepInfo();
+            step.SetDuration( is.readInt());
+            step.SetPower( is.readInt());
+            step.SetMaxPressure( is.readDouble());
+            m_lstProgram.addLast( step);
+        }
     }
             
     @Override
@@ -88,6 +104,34 @@ public class TechProcessHFInfo extends TechProcessStepCommon {
         super.SaveItem( out);
         out.writeInt( m_nGetter);
         out.writeInt( m_nInductor);
-        out.writeObject( m_lstProgram);
+        out.writeInt( m_nCurrentStep);
+        out.writeInt( m_lstProgram.size());
+        Iterator it = m_lstProgram.iterator();
+        while( it.hasNext()) {
+            TechProcessDegasationStepInfo step = ( TechProcessDegasationStepInfo) it.next();
+            out.writeInt( step.GetDuration());
+            out.writeInt( step.GetPower());
+            out.writeDouble( step.GetMaxPressure());               
+        }
+    }
+    
+    @Override
+    public void SaveItemXML( Element root, String strTitle) throws IOException {
+        super.SaveItemXML( root, strTitle);
+        
+        root.addElement( "nGetter").addText( "" + m_nGetter);
+        root.addElement( "nInductor").addText( "" + m_nInductor);
+        root.addElement( "nCurrentStep").addText( "" + m_nCurrentStep);
+        root.addElement( "nProgramSize").addText( "" + m_lstProgram.size());
+        Iterator it = m_lstProgram.iterator();
+        Element innerRoot = root.addElement( "Program");
+        int cnt = 0;
+        while( it.hasNext()) {
+            Element innerRoot2 = innerRoot.addElement( "Step" + cnt++);
+            TechProcessDegasationStepInfo step = ( TechProcessDegasationStepInfo) it.next();
+            innerRoot2.addElement( "nDuration").addText( "" + step.GetDuration());
+            innerRoot2.addElement( "nPower").addText( "" + step.GetPower());
+            innerRoot2.addElement( "dblMaxP").addText( String.format( "%.0f", step.GetMaxPressure()));
+        }
     }
 }
