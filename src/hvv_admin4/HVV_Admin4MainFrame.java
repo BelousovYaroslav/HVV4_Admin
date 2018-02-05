@@ -19,6 +19,7 @@ import hvv_admin4.panels.PanelMessage;
 import hvv_admin4.panels.PanelPuffMessage;
 import hvv_admin4.panels.PanelSetThermoProcessingFinishTime;
 import hvv_admin4.panels.PanelTimer;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -152,6 +153,11 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(660, 510));
         setPreferredSize(new java.awt.Dimension(660, 510));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         pnlMainView.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
@@ -175,6 +181,12 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        if( HVV_Admin4.MessageBoxAskYesNo( "Вы уверены что вы хотите выйти?", "ADMIN4") == JOptionPane.YES_OPTION) {
+            dispose();
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     
 
