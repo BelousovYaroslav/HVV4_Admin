@@ -63,7 +63,7 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
             if( !theApp.GetSerial().contains( "(м)"))
                 strTitle += " (м)";
         }
-        strTitle += ",     v 2017.12.28 17:30, (С) ФЛАВТ, 2017.";
+        strTitle += ",     v 2018.02.12 11:10, (С) ФЛАВТ, 2018.";
         setTitle( strTitle);
         
         m_pnlMain = new PanelMain( theApp);
@@ -184,6 +184,7 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         if( HVV_Admin4.MessageBoxAskYesNo( "Вы уверены что вы хотите выйти?", "ADMIN4") == JOptionPane.YES_OPTION) {
+            //TODO optionable check-box option "drop state"
             dispose();
         }
     }//GEN-LAST:event_formWindowClosing

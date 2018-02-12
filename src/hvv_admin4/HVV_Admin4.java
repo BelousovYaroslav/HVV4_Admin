@@ -471,7 +471,7 @@ public class HVV_Admin4 {
     public static void main(String[] args) {
         String strAMSrootEnvVar = System.getenv( "AMS_ROOT");
         if( strAMSrootEnvVar == null) {
-            MessageBoxError( "Не задана переменная окружения AMS_ROOT!", "HVV_Admin");
+            MessageBoxError( "Не задана переменная окружения AMS_ROOT!", "HVV4.Admin");
             return;
         }
         
@@ -479,7 +479,7 @@ public class HVV_Admin4 {
         String strlog4jPropertiesFile = strAMSrootEnvVar + "/etc/log4j.admin.properties";
         File file = new File( "", strlog4jPropertiesFile);
         */
-        File file = new File( strAMSrootEnvVar, "etc" + File.separator + "log4j.admin4.properties");
+        File file = new File( strAMSrootEnvVar, "etc" + File.separator + "log4j" + File.separator + "log4j.admin4.properties");
         if(!file.exists()) {
             System.out.println("It is not possible to load the given log4j properties file :" + file.getAbsolutePath());
             BasicConfigurator.configure();
@@ -487,7 +487,7 @@ public class HVV_Admin4 {
         else
             PropertyConfigurator.configure( file.getAbsolutePath());
         
-        logger.info( "HVV_Admin::main(): in. Start point!");
+        logger.info( "HVV4.Admin::main(): in. Start point!");
         
         
         new HVV_Admin4().start();
