@@ -19,7 +19,9 @@ import hvv_admin4.panels.PanelMessage;
 import hvv_admin4.panels.PanelPuffMessage;
 import hvv_admin4.panels.PanelSetThermoProcessingFinishTime;
 import hvv_admin4.panels.PanelTimer;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -183,8 +185,21 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if( HVV_Admin4.MessageBoxAskYesNo( "Вы уверены что вы хотите выйти?", "ADMIN4") == JOptionPane.YES_OPTION) {
-            //TODO optionable check-box option "drop state"
+        
+        UIManager.put("OptionPane.noButtonText", "Нет");
+        UIManager.put("OptionPane.okButtonText", "Согласен");
+        UIManager.put("OptionPane.yesButtonText", "Да");
+        
+        JCheckBox checkbox = new JCheckBox("Сохранить файл состояния");
+        checkbox.setSelected( true);
+        String message = "Вы уверены что хотите выйти из программы?";
+        Object[] params = {message, checkbox};
+        int n = JOptionPane.showConfirmDialog( this, params, "HVV4_ADMIN", JOptionPane.YES_NO_OPTION);        
+        if( n == JOptionPane.YES_OPTION) {
+            if( !checkbox.isSelected()) {
+                theApp.m_pStateKeeper.DropState();
+                theApp.m_pStateKeeperXML.DropState();
+            }
             dispose();
         }
     }//GEN-LAST:event_formWindowClosing
