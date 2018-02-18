@@ -54,28 +54,26 @@ public class DlgBigStopWatch extends javax.swing.JDialog {
         lblInductor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(400, 250));
-        setMinimumSize(new java.awt.Dimension(400, 250));
-        setPreferredSize(new java.awt.Dimension(400, 250));
+        setPreferredSize(new java.awt.Dimension(500, 150));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         lblStopWatch.setFont(new java.awt.Font("Cantarell", 0, 120)); // NOI18N
         lblStopWatch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblStopWatch.setText("--:--");
-        lblStopWatch.setToolTipText("");
+        lblStopWatch.setText("00:00");
         getContentPane().add(lblStopWatch);
-        lblStopWatch.setBounds(10, 50, 380, 140);
+        lblStopWatch.setBounds(130, 10, 360, 130);
 
         lblWorkbench.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         lblWorkbench.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblWorkbench.setText("РМ1");
         getContentPane().add(lblWorkbench);
-        lblWorkbench.setBounds(10, 10, 190, 40);
+        lblWorkbench.setBounds(10, 10, 120, 70);
 
         lblInductor.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         lblInductor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(lblInductor);
-        lblInductor.setBounds(200, 10, 190, 40);
+        lblInductor.setBounds(10, 80, 120, 60);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

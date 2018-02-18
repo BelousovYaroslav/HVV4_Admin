@@ -49,7 +49,7 @@ public class PanelActivation extends javax.swing.JPanel {
         int nY = 0;
         if( theApp.GetSelectedArm() == HVV_Admin4Constants.ARM3 ||
             theApp.GetSelectedArm() == HVV_Admin4Constants.ARM4)
-                    nY = m_dlgBigStopWatch.getHeight();
+                    nY = (int) (m_dlgBigStopWatch.getHeight() * 1.3);
         m_dlgBigStopWatch.setLocation( rect.width - m_dlgBigStopWatch.getWidth(), nY);
         
         
