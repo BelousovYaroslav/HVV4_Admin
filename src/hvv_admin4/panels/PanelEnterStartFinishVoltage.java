@@ -31,6 +31,8 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
     public PanelEnterStartFinishVoltage( HVV_Admin4 app) {
         theApp = app;    
         initComponents();
+        btnStart.setVisible( false);
+        btnStop.setVisible( false);
     }
 
     public void StartTimer( int nSecondsPlanned) {
@@ -172,15 +174,17 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         edtAnodeStart = new javax.swing.JTextField();
         lblTitle = new javax.swing.JLabel();
         edtAnodeStop = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lblStart = new javax.swing.JLabel();
+        lblStop = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         edtTubuStart = new javax.swing.JTextField();
         edtTubuStop = new javax.swing.JTextField();
         btnNext = new javax.swing.JButton();
         lblTimer = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         chkLongDischargeTrackFail = new javax.swing.JCheckBox();
+        btnStart = new javax.swing.JButton();
+        btnStop = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 200)));
         setMaximumSize(new java.awt.Dimension(640, 440));
@@ -219,11 +223,17 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         add(edtAnodeStop);
         edtAnodeStop.setBounds(420, 120, 210, 110);
 
-        jLabel2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Конец");
-        add(jLabel2);
-        jLabel2.setBounds(440, 60, 160, 50);
+        lblStart.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblStart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStart.setText("Начало");
+        add(lblStart);
+        lblStart.setBounds(230, 60, 170, 50);
+
+        lblStop.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblStop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStop.setText("Конец");
+        add(lblStop);
+        lblStop.setBounds(440, 60, 170, 50);
 
         jLabel3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -278,12 +288,6 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         add(lblTimer);
         lblTimer.setBounds(0, 50, 230, 60);
 
-        jLabel6.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Начало");
-        add(jLabel6);
-        jLabel6.setBounds(230, 60, 170, 50);
-
         chkLongDischargeTrackFail.setText("Прибор не удалось зажечь по длинному плечу");
         chkLongDischargeTrackFail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -292,6 +296,16 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         });
         add(chkLongDischargeTrackFail);
         chkLongDischargeTrackFail.setBounds(10, 350, 620, 23);
+
+        btnStart.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        btnStart.setText("Начало");
+        add(btnStart);
+        btnStart.setBounds(230, 60, 170, 50);
+
+        btnStop.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        btnStop.setText("Конец");
+        add(btnStop);
+        btnStop.setBounds(440, 60, 170, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
@@ -535,15 +549,17 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnStart;
+    private javax.swing.JButton btnStop;
     private javax.swing.JCheckBox chkLongDischargeTrackFail;
     public javax.swing.JTextField edtAnodeStart;
     public javax.swing.JTextField edtAnodeStop;
     public javax.swing.JTextField edtTubuStart;
     public javax.swing.JTextField edtTubuStop;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel lblStart;
+    private javax.swing.JLabel lblStop;
     private javax.swing.JLabel lblTimer;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
