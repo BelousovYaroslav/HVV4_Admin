@@ -280,6 +280,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep17_10 = new javax.swing.JLabel();
         spnStep17MaxPressureExp = new javax.swing.JSpinner();
 
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         setMaximumSize(new java.awt.Dimension(490, 680));
         setMinimumSize(new java.awt.Dimension(490, 680));
         setPreferredSize(new java.awt.Dimension(490, 680));
@@ -298,7 +299,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep1TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep1TimeTotal.setOpaque(true);
         add(lblStep1TimeTotal);
-        lblStep1TimeTotal.setBounds(30, 0, 100, 40);
+        lblStep1TimeTotal.setBounds(30, 0, 120, 40);
 
         lblStep1Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep1Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -306,7 +307,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep1Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep1Power.setOpaque(true);
         add(lblStep1Power);
-        lblStep1Power.setBounds(150, 0, 100, 40);
+        lblStep1Power.setBounds(150, 0, 120, 40);
 
         edtStep1MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep1MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -323,7 +324,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep1MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep1MaxPressureExp.setNextFocusableComponent(edtStep2MaxPressure);
         add(spnStep1MaxPressureExp);
-        spnStep1MaxPressureExp.setBounds(420, 0, 50, 26);
+        spnStep1MaxPressureExp.setBounds(420, 0, 40, 20);
 
         lblStep2Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep2Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -338,7 +339,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep2TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep2TimeTotal.setOpaque(true);
         add(lblStep2TimeTotal);
-        lblStep2TimeTotal.setBounds(30, 40, 100, 40);
+        lblStep2TimeTotal.setBounds(30, 40, 120, 40);
 
         lblStep2Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep2Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -346,7 +347,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep2Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep2Power.setOpaque(true);
         add(lblStep2Power);
-        lblStep2Power.setBounds(150, 40, 100, 40);
+        lblStep2Power.setBounds(150, 40, 120, 40);
 
         edtStep2MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep2MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -363,7 +364,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep2MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep2MaxPressureExp.setNextFocusableComponent(edtStep3MaxPressure);
         add(spnStep2MaxPressureExp);
-        spnStep2MaxPressureExp.setBounds(420, 40, 50, 26);
+        spnStep2MaxPressureExp.setBounds(420, 40, 40, 20);
 
         lblStep3Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep3Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -378,7 +379,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep3TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep3TimeTotal.setOpaque(true);
         add(lblStep3TimeTotal);
-        lblStep3TimeTotal.setBounds(30, 80, 100, 40);
+        lblStep3TimeTotal.setBounds(30, 80, 120, 40);
 
         lblStep3Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep3Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -386,7 +387,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep3Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep3Power.setOpaque(true);
         add(lblStep3Power);
-        lblStep3Power.setBounds(150, 80, 100, 40);
+        lblStep3Power.setBounds(150, 80, 120, 40);
 
         edtStep3MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep3MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -403,7 +404,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep3MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep3MaxPressureExp.setNextFocusableComponent(edtStep4MaxPressure);
         add(spnStep3MaxPressureExp);
-        spnStep3MaxPressureExp.setBounds(420, 80, 50, 26);
+        spnStep3MaxPressureExp.setBounds(420, 80, 40, 20);
 
         lblStep4Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep4Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -418,7 +419,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep4TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep4TimeTotal.setOpaque(true);
         add(lblStep4TimeTotal);
-        lblStep4TimeTotal.setBounds(30, 120, 100, 40);
+        lblStep4TimeTotal.setBounds(30, 120, 120, 40);
 
         lblStep4Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep4Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -426,7 +427,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep4Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep4Power.setOpaque(true);
         add(lblStep4Power);
-        lblStep4Power.setBounds(150, 120, 100, 40);
+        lblStep4Power.setBounds(150, 120, 120, 40);
 
         edtStep4MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep4MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -443,7 +444,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep4MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep4MaxPressureExp.setNextFocusableComponent(edtStep5MaxPressure);
         add(spnStep4MaxPressureExp);
-        spnStep4MaxPressureExp.setBounds(420, 120, 50, 26);
+        spnStep4MaxPressureExp.setBounds(420, 120, 40, 20);
 
         lblStep5Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep5Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -458,7 +459,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep5TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep5TimeTotal.setOpaque(true);
         add(lblStep5TimeTotal);
-        lblStep5TimeTotal.setBounds(30, 160, 100, 40);
+        lblStep5TimeTotal.setBounds(30, 160, 120, 40);
 
         lblStep5Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep5Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -466,7 +467,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep5Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep5Power.setOpaque(true);
         add(lblStep5Power);
-        lblStep5Power.setBounds(150, 160, 100, 40);
+        lblStep5Power.setBounds(150, 160, 120, 40);
 
         edtStep5MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep5MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -483,7 +484,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep5MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep5MaxPressureExp.setNextFocusableComponent(edtStep6MaxPressure);
         add(spnStep5MaxPressureExp);
-        spnStep5MaxPressureExp.setBounds(420, 160, 50, 26);
+        spnStep5MaxPressureExp.setBounds(420, 160, 40, 20);
 
         lblStep6Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep6Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -498,7 +499,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep6TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep6TimeTotal.setOpaque(true);
         add(lblStep6TimeTotal);
-        lblStep6TimeTotal.setBounds(30, 200, 100, 40);
+        lblStep6TimeTotal.setBounds(30, 200, 120, 40);
 
         lblStep6Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep6Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -506,7 +507,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep6Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep6Power.setOpaque(true);
         add(lblStep6Power);
-        lblStep6Power.setBounds(150, 200, 100, 40);
+        lblStep6Power.setBounds(150, 200, 120, 40);
 
         edtStep6MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep6MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -523,7 +524,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep6MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep6MaxPressureExp.setNextFocusableComponent(edtStep7MaxPressure);
         add(spnStep6MaxPressureExp);
-        spnStep6MaxPressureExp.setBounds(420, 200, 50, 26);
+        spnStep6MaxPressureExp.setBounds(420, 200, 40, 20);
 
         lblStep7Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep7Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -538,7 +539,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep7TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep7TimeTotal.setOpaque(true);
         add(lblStep7TimeTotal);
-        lblStep7TimeTotal.setBounds(30, 240, 100, 40);
+        lblStep7TimeTotal.setBounds(30, 240, 120, 40);
 
         lblStep7Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep7Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -546,7 +547,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep7Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep7Power.setOpaque(true);
         add(lblStep7Power);
-        lblStep7Power.setBounds(150, 240, 100, 40);
+        lblStep7Power.setBounds(150, 240, 120, 40);
 
         edtStep7MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep7MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -563,7 +564,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep7MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep7MaxPressureExp.setNextFocusableComponent(edtStep8MaxPressure);
         add(spnStep7MaxPressureExp);
-        spnStep7MaxPressureExp.setBounds(420, 240, 50, 26);
+        spnStep7MaxPressureExp.setBounds(420, 240, 40, 20);
 
         lblStep8Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep8Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -578,7 +579,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep8TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep8TimeTotal.setOpaque(true);
         add(lblStep8TimeTotal);
-        lblStep8TimeTotal.setBounds(30, 280, 100, 40);
+        lblStep8TimeTotal.setBounds(30, 280, 120, 40);
 
         lblStep8Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep8Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -586,7 +587,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep8Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep8Power.setOpaque(true);
         add(lblStep8Power);
-        lblStep8Power.setBounds(150, 280, 100, 40);
+        lblStep8Power.setBounds(150, 280, 120, 40);
 
         edtStep8MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep8MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -603,7 +604,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep8MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep8MaxPressureExp.setNextFocusableComponent(edtStep9MaxPressure);
         add(spnStep8MaxPressureExp);
-        spnStep8MaxPressureExp.setBounds(420, 280, 50, 26);
+        spnStep8MaxPressureExp.setBounds(420, 280, 40, 20);
 
         lblStep9Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep9Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -618,7 +619,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep9TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep9TimeTotal.setOpaque(true);
         add(lblStep9TimeTotal);
-        lblStep9TimeTotal.setBounds(30, 320, 100, 40);
+        lblStep9TimeTotal.setBounds(30, 320, 120, 40);
 
         lblStep9Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep9Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -626,7 +627,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep9Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep9Power.setOpaque(true);
         add(lblStep9Power);
-        lblStep9Power.setBounds(150, 320, 100, 40);
+        lblStep9Power.setBounds(150, 320, 120, 40);
 
         edtStep9MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep9MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -643,10 +644,11 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep9MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep9MaxPressureExp.setNextFocusableComponent(edtStep10MaxPressure);
         add(spnStep9MaxPressureExp);
-        spnStep9MaxPressureExp.setBounds(420, 320, 50, 26);
+        spnStep9MaxPressureExp.setBounds(420, 320, 40, 20);
 
-        lblStep10Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblStep10Icon.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblStep10Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStep10Icon.setText("10");
         lblStep10Icon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep10Icon.setOpaque(true);
         add(lblStep10Icon);
@@ -658,7 +660,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep10TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep10TimeTotal.setOpaque(true);
         add(lblStep10TimeTotal);
-        lblStep10TimeTotal.setBounds(30, 360, 100, 40);
+        lblStep10TimeTotal.setBounds(30, 360, 120, 40);
 
         lblStep10Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep10Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -666,7 +668,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep10Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep10Power.setOpaque(true);
         add(lblStep10Power);
-        lblStep10Power.setBounds(150, 360, 100, 40);
+        lblStep10Power.setBounds(150, 360, 120, 40);
 
         edtStep10MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep10MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -683,7 +685,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep10MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep10MaxPressureExp.setNextFocusableComponent(edtStep11MaxPressure);
         add(spnStep10MaxPressureExp);
-        spnStep10MaxPressureExp.setBounds(420, 360, 50, 26);
+        spnStep10MaxPressureExp.setBounds(420, 360, 40, 20);
 
         lblStep11Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep11Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -698,7 +700,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep11TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep11TimeTotal.setOpaque(true);
         add(lblStep11TimeTotal);
-        lblStep11TimeTotal.setBounds(30, 400, 100, 40);
+        lblStep11TimeTotal.setBounds(30, 400, 120, 40);
 
         lblStep11Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep11Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -706,7 +708,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep11Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep11Power.setOpaque(true);
         add(lblStep11Power);
-        lblStep11Power.setBounds(150, 400, 100, 40);
+        lblStep11Power.setBounds(150, 400, 120, 40);
 
         edtStep11MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep11MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -723,7 +725,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep11MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep11MaxPressureExp.setNextFocusableComponent(edtStep12MaxPressure);
         add(spnStep11MaxPressureExp);
-        spnStep11MaxPressureExp.setBounds(420, 400, 50, 26);
+        spnStep11MaxPressureExp.setBounds(420, 400, 40, 20);
 
         lblStep12Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep12Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -738,7 +740,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep12TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep12TimeTotal.setOpaque(true);
         add(lblStep12TimeTotal);
-        lblStep12TimeTotal.setBounds(30, 440, 100, 40);
+        lblStep12TimeTotal.setBounds(30, 440, 120, 40);
 
         lblStep12Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep12Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -746,7 +748,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep12Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep12Power.setOpaque(true);
         add(lblStep12Power);
-        lblStep12Power.setBounds(150, 440, 100, 40);
+        lblStep12Power.setBounds(150, 440, 120, 40);
 
         edtStep12MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep12MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -763,7 +765,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep12MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep12MaxPressureExp.setNextFocusableComponent(edtStep13MaxPressure);
         add(spnStep12MaxPressureExp);
-        spnStep12MaxPressureExp.setBounds(420, 440, 50, 26);
+        spnStep12MaxPressureExp.setBounds(420, 440, 40, 20);
 
         lblStep13Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep13Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -778,7 +780,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep13TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep13TimeTotal.setOpaque(true);
         add(lblStep13TimeTotal);
-        lblStep13TimeTotal.setBounds(30, 480, 100, 40);
+        lblStep13TimeTotal.setBounds(30, 480, 120, 40);
 
         lblStep13Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep13Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -786,7 +788,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep13Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep13Power.setOpaque(true);
         add(lblStep13Power);
-        lblStep13Power.setBounds(150, 480, 100, 40);
+        lblStep13Power.setBounds(150, 480, 120, 40);
 
         edtStep13MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep13MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -803,7 +805,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep13MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep13MaxPressureExp.setNextFocusableComponent(edtStep14MaxPressure);
         add(spnStep13MaxPressureExp);
-        spnStep13MaxPressureExp.setBounds(420, 480, 50, 26);
+        spnStep13MaxPressureExp.setBounds(420, 480, 40, 20);
 
         lblStep14Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep14Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -818,7 +820,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep14TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep14TimeTotal.setOpaque(true);
         add(lblStep14TimeTotal);
-        lblStep14TimeTotal.setBounds(30, 520, 100, 40);
+        lblStep14TimeTotal.setBounds(30, 520, 120, 40);
 
         lblStep14Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep14Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -826,7 +828,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep14Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep14Power.setOpaque(true);
         add(lblStep14Power);
-        lblStep14Power.setBounds(150, 520, 100, 40);
+        lblStep14Power.setBounds(150, 520, 120, 40);
 
         edtStep14MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep14MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -843,10 +845,11 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep14MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep14MaxPressureExp.setNextFocusableComponent(edtStep15MaxPressure);
         add(spnStep14MaxPressureExp);
-        spnStep14MaxPressureExp.setBounds(420, 520, 50, 26);
+        spnStep14MaxPressureExp.setBounds(420, 520, 40, 20);
 
-        lblStep15Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblStep15Icon.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblStep15Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStep15Icon.setText("15");
         lblStep15Icon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep15Icon.setOpaque(true);
         add(lblStep15Icon);
@@ -858,7 +861,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep15TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep15TimeTotal.setOpaque(true);
         add(lblStep15TimeTotal);
-        lblStep15TimeTotal.setBounds(30, 560, 100, 40);
+        lblStep15TimeTotal.setBounds(30, 560, 120, 40);
 
         lblStep15Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep15Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -866,7 +869,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep15Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep15Power.setOpaque(true);
         add(lblStep15Power);
-        lblStep15Power.setBounds(150, 560, 100, 40);
+        lblStep15Power.setBounds(150, 560, 120, 40);
 
         edtStep15MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep15MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -883,7 +886,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep15MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep15MaxPressureExp.setNextFocusableComponent(edtStep16MaxPressure);
         add(spnStep15MaxPressureExp);
-        spnStep15MaxPressureExp.setBounds(420, 560, 50, 26);
+        spnStep15MaxPressureExp.setBounds(420, 560, 40, 20);
 
         lblStep16Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep16Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -898,7 +901,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep16TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep16TimeTotal.setOpaque(true);
         add(lblStep16TimeTotal);
-        lblStep16TimeTotal.setBounds(30, 600, 100, 40);
+        lblStep16TimeTotal.setBounds(30, 600, 120, 40);
 
         lblStep16Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep16Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -906,7 +909,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep16Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep16Power.setOpaque(true);
         add(lblStep16Power);
-        lblStep16Power.setBounds(150, 600, 100, 40);
+        lblStep16Power.setBounds(150, 600, 120, 40);
 
         edtStep16MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep16MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -923,10 +926,11 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         spnStep16MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep16MaxPressureExp.setNextFocusableComponent(edtStep17MaxPressure);
         add(spnStep16MaxPressureExp);
-        spnStep16MaxPressureExp.setBounds(420, 600, 50, 26);
+        spnStep16MaxPressureExp.setBounds(420, 600, 40, 20);
 
-        lblStep17Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblStep17Icon.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblStep17Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStep17Icon.setText("x");
         lblStep17Icon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep17Icon.setOpaque(true);
         add(lblStep17Icon);
@@ -938,7 +942,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep17TimeTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep17TimeTotal.setOpaque(true);
         add(lblStep17TimeTotal);
-        lblStep17TimeTotal.setBounds(30, 640, 100, 40);
+        lblStep17TimeTotal.setBounds(30, 640, 120, 40);
 
         lblStep17Power.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep17Power.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -946,7 +950,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
         lblStep17Power.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lblStep17Power.setOpaque(true);
         add(lblStep17Power);
-        lblStep17Power.setBounds(150, 640, 100, 40);
+        lblStep17Power.setBounds(150, 640, 120, 40);
 
         edtStep17MaxPressure.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtStep17MaxPressure.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -962,7 +966,7 @@ public class PanelDegasationProgress extends javax.swing.JPanel {
 
         spnStep17MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         add(spnStep17MaxPressureExp);
-        spnStep17MaxPressureExp.setBounds(420, 640, 50, 26);
+        spnStep17MaxPressureExp.setBounds(420, 640, 40, 20);
     }// </editor-fold>//GEN-END:initComponents
 
 

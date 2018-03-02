@@ -107,7 +107,7 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
     }
     
     public void InitOnStart_71( Date dt) {
-        lblTitle.setText( "<html><u>7.1 Подготовка технологического геттера.</u></thml>");
+        lblTitle.setText( "<html><u>7.1 Подготовка технологич. геттера.</u></thml>");
         
         m_gdtmDate4vEffusion = new GregorianCalendar();
         m_gdtmDate4vEffusion.setTime( dt);
@@ -121,7 +121,7 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
     }
     
     public void InitOnStart_91( Date dt) {
-        lblTitle.setText( "<html><u>9.1 Подготовка технологического геттера.</u></thml>");
+        lblTitle.setText( "<html><u>9.1 Подготовка технолог. геттера.</u></thml>");
         
         m_gdtmDate4vEffusion = new GregorianCalendar();
         m_gdtmDate4vEffusion.setTime( dt);
@@ -282,79 +282,72 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
         lblStopWatch = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 200)));
-        setMaximumSize(new java.awt.Dimension(640, 440));
-        setMinimumSize(new java.awt.Dimension(640, 440));
-        setPreferredSize(new java.awt.Dimension(640, 440));
+        setMaximumSize(new java.awt.Dimension(520, 440));
+        setMinimumSize(new java.awt.Dimension(520, 440));
+        setPreferredSize(new java.awt.Dimension(520, 440));
         setLayout(null);
 
         lblTitle.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitle.setText("<html><u>4.3 Ввод данных о выбросах с геттера.</u></thml>");
-        lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
-        lblTitle.setBounds(10, 10, 620, 40);
+        lblTitle.setBounds(10, 10, 440, 40);
 
         lblTitleTime.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitleTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitleTime.setText("Время");
-        lblTitleTime.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitleTime);
-        lblTitleTime.setBounds(210, 60, 200, 40);
+        lblTitleTime.setBounds(160, 60, 140, 40);
 
         lblTitlePmax.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitlePmax.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitlePmax.setText("Max давление");
-        lblTitlePmax.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitlePmax);
-        lblTitlePmax.setBounds(420, 60, 210, 40);
+        lblTitlePmax.setBounds(310, 60, 200, 40);
 
         lblTitle4vEffusion.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitle4vEffusion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle4vEffusion.setText("<html>Выброс 4V</html>");
-        lblTitle4vEffusion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle4vEffusion);
-        lblTitle4vEffusion.setBounds(10, 110, 190, 80);
+        lblTitle4vEffusion.setBounds(10, 110, 140, 80);
 
-        lbl4vEffusionHour.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
+        lbl4vEffusionHour.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lbl4vEffusionHour.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl4vEffusionHour.setText("10");
-        lbl4vEffusionHour.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl4vEffusionHour.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
                 lbl4vEffusionHourMouseWheelMoved(evt);
             }
         });
         add(lbl4vEffusionHour);
-        lbl4vEffusionHour.setBounds(210, 110, 90, 80);
+        lbl4vEffusionHour.setBounds(150, 110, 70, 80);
 
         spn4vHours.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         spn4vHours.setModel(new javax.swing.SpinnerNumberModel(23, 0, 23, 1));
         add(spn4vHours);
-        spn4vHours.setBounds(440, 280, 90, 80);
+        spn4vHours.setBounds(310, 290, 90, 80);
 
-        lblSeparator4vEffusion.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
+        lblSeparator4vEffusion.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblSeparator4vEffusion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSeparator4vEffusion.setText(":");
-        lblSeparator4vEffusion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblSeparator4vEffusion);
-        lblSeparator4vEffusion.setBounds(300, 110, 20, 80);
+        lblSeparator4vEffusion.setBounds(220, 110, 20, 80);
 
-        lbl4vEffusionMinutes.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
+        lbl4vEffusionMinutes.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lbl4vEffusionMinutes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl4vEffusionMinutes.setText("40");
-        lbl4vEffusionMinutes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl4vEffusionMinutes.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
                 lbl4vEffusionMinutesMouseWheelMoved(evt);
             }
         });
         add(lbl4vEffusionMinutes);
-        lbl4vEffusionMinutes.setBounds(320, 110, 90, 80);
+        lbl4vEffusionMinutes.setBounds(240, 110, 70, 80);
 
         spn4vMinutes.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         spn4vMinutes.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
         add(spn4vMinutes);
-        spn4vMinutes.setBounds(540, 280, 90, 80);
+        spn4vMinutes.setBounds(410, 290, 90, 80);
 
         edt4vEffusionPmax.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         edt4vEffusionPmax.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -365,67 +358,62 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
             }
         });
         add(edt4vEffusionPmax);
-        edt4vEffusionPmax.setBounds(420, 110, 100, 80);
+        edt4vEffusionPmax.setBounds(310, 110, 100, 80);
 
         lbl4vEffusionPow10.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lbl4vEffusionPow10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl4vEffusionPow10.setText("× 10");
-        lbl4vEffusionPow10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
+        lbl4vEffusionPow10.setText("×10");
         add(lbl4vEffusionPow10);
-        lbl4vEffusionPow10.setBounds(520, 110, 60, 80);
+        lbl4vEffusionPow10.setBounds(410, 110, 50, 80);
 
         spn4vEffusionExponent.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         spn4vEffusionExponent.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         add(spn4vEffusionExponent);
-        spn4vEffusionExponent.setBounds(580, 110, 50, 40);
+        spn4vEffusionExponent.setBounds(460, 110, 50, 40);
 
         lblTitle9vEffusion.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitle9vEffusion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle9vEffusion.setText("<html>Выброс 9V</html>");
-        lblTitle9vEffusion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle9vEffusion);
-        lblTitle9vEffusion.setBounds(10, 200, 190, 80);
+        lblTitle9vEffusion.setBounds(10, 200, 140, 80);
 
-        lbl9vEffusionHour.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
+        lbl9vEffusionHour.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lbl9vEffusionHour.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl9vEffusionHour.setText("10");
-        lbl9vEffusionHour.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl9vEffusionHour.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
                 lbl9vEffusionHourMouseWheelMoved(evt);
             }
         });
         add(lbl9vEffusionHour);
-        lbl9vEffusionHour.setBounds(210, 200, 90, 80);
+        lbl9vEffusionHour.setBounds(150, 200, 70, 80);
 
         spn9vHours.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         spn9vHours.setModel(new javax.swing.SpinnerNumberModel(23, 0, 23, 1));
         add(spn9vHours);
-        spn9vHours.setBounds(440, 290, 90, 80);
+        spn9vHours.setBounds(310, 300, 90, 80);
 
-        lblSeparator9vEffusion.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
+        lblSeparator9vEffusion.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblSeparator9vEffusion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSeparator9vEffusion.setText(":");
-        lblSeparator9vEffusion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblSeparator9vEffusion);
-        lblSeparator9vEffusion.setBounds(300, 200, 20, 80);
+        lblSeparator9vEffusion.setBounds(220, 200, 20, 80);
 
-        lbl9vEffusionMinutes.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
+        lbl9vEffusionMinutes.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lbl9vEffusionMinutes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl9vEffusionMinutes.setText("40");
-        lbl9vEffusionMinutes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl9vEffusionMinutes.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
                 lbl9vEffusionMinutesMouseWheelMoved(evt);
             }
         });
         add(lbl9vEffusionMinutes);
-        lbl9vEffusionMinutes.setBounds(320, 200, 90, 80);
+        lbl9vEffusionMinutes.setBounds(240, 200, 70, 80);
 
         spn9vMinutes.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         spn9vMinutes.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
         add(spn9vMinutes);
-        spn9vMinutes.setBounds(540, 290, 90, 80);
+        spn9vMinutes.setBounds(410, 300, 90, 80);
 
         edt9vEffusionPmax.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         edt9vEffusionPmax.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -436,67 +424,62 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
             }
         });
         add(edt9vEffusionPmax);
-        edt9vEffusionPmax.setBounds(420, 200, 100, 80);
+        edt9vEffusionPmax.setBounds(310, 200, 100, 80);
 
         lbl9vEffusionPow10.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lbl9vEffusionPow10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl9vEffusionPow10.setText("× 10");
-        lbl9vEffusionPow10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
+        lbl9vEffusionPow10.setText("×10");
         add(lbl9vEffusionPow10);
-        lbl9vEffusionPow10.setBounds(520, 200, 60, 80);
+        lbl9vEffusionPow10.setBounds(410, 200, 50, 80);
 
         spn9vEffusionExponent.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         spn9vEffusionExponent.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         add(spn9vEffusionExponent);
-        spn9vEffusionExponent.setBounds(580, 200, 50, 40);
+        spn9vEffusionExponent.setBounds(460, 200, 50, 40);
 
         lblTitle9vTurnOffTime.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitle9vTurnOffTime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle9vTurnOffTime.setText("Время отключения 9V");
-        lblTitle9vTurnOffTime.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
+        lblTitle9vTurnOffTime.setText("<html><center>Время<br>отключения 9V</center></html>");
         add(lblTitle9vTurnOffTime);
-        lblTitle9vTurnOffTime.setBounds(10, 290, 190, 80);
+        lblTitle9vTurnOffTime.setBounds(10, 290, 140, 80);
 
-        lbl9vTurnOffHour.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
+        lbl9vTurnOffHour.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lbl9vTurnOffHour.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl9vTurnOffHour.setText("10");
-        lbl9vTurnOffHour.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl9vTurnOffHour.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
                 lbl9vTurnOffHourMouseWheelMoved(evt);
             }
         });
         add(lbl9vTurnOffHour);
-        lbl9vTurnOffHour.setBounds(210, 290, 90, 80);
+        lbl9vTurnOffHour.setBounds(150, 290, 70, 80);
 
         spn9vOffHours.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         spn9vOffHours.setModel(new javax.swing.SpinnerNumberModel(23, 0, 23, 1));
         add(spn9vOffHours);
-        spn9vOffHours.setBounds(440, 300, 90, 80);
+        spn9vOffHours.setBounds(310, 310, 90, 80);
 
-        lblSeparator9vTurnOff.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
+        lblSeparator9vTurnOff.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblSeparator9vTurnOff.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSeparator9vTurnOff.setText(":");
-        lblSeparator9vTurnOff.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblSeparator9vTurnOff);
-        lblSeparator9vTurnOff.setBounds(300, 290, 20, 80);
+        lblSeparator9vTurnOff.setBounds(220, 290, 20, 80);
 
-        lbl9vTurnOffMinutes.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
+        lbl9vTurnOffMinutes.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lbl9vTurnOffMinutes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl9vTurnOffMinutes.setText("40");
-        lbl9vTurnOffMinutes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl9vTurnOffMinutes.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
                 lbl9vTurnOffMinutesMouseWheelMoved(evt);
             }
         });
         add(lbl9vTurnOffMinutes);
-        lbl9vTurnOffMinutes.setBounds(320, 290, 90, 80);
+        lbl9vTurnOffMinutes.setBounds(240, 290, 70, 80);
 
         spn9vOffMinutes.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         spn9vOffMinutes.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
         add(spn9vOffMinutes);
-        spn9vOffMinutes.setBounds(540, 300, 90, 80);
+        spn9vOffMinutes.setBounds(410, 310, 90, 80);
 
         btnNext.setText("Далее");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -505,13 +488,12 @@ public class PanelEnterGetterInfo extends javax.swing.JPanel {
             }
         });
         add(btnNext);
-        btnNext.setBounds(10, 380, 620, 50);
+        btnNext.setBounds(10, 380, 500, 50);
 
         lblStopWatch.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         lblStopWatch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblStopWatch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblStopWatch);
-        lblStopWatch.setBounds(10, 60, 190, 40);
+        lblStopWatch.setBounds(10, 60, 140, 40);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed

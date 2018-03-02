@@ -88,12 +88,12 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
     public void Init() {
         switch( theApp.GetCurrentStep()) {
             case 21:
-                lblTitle.setText( "<html><u>2.1 Обработка O<sub>2</sub>. 1-ый цикл. Ввод напряжений.</u></thml>");
+                lblTitle.setText( "<html><u>2.1 Обработка O<sub>2</sub>. 1-ый цикл. Ввод напряж.</u></thml>");
                 chkLongDischargeTrackFail.setVisible( false);
             break;
             
             case 22:
-                lblTitle.setText( "<html><u>2.2 Обработка O<sub>2</sub>. 2-ой цикл. Ввод напряжений.</u></thml>");
+                lblTitle.setText( "<html><u>2.2 Обработка O<sub>2</sub>. 2-ой цикл. Ввод напряж.</u></thml>");
                 chkLongDischargeTrackFail.setVisible( false);
             break;
             
@@ -192,7 +192,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(640, 440));
         setLayout(null);
 
-        edtAnodeStart.setFont(new java.awt.Font("Cantarell", 0, 80)); // NOI18N
+        edtAnodeStart.setFont(new java.awt.Font("Cantarell", 0, 70)); // NOI18N
         edtAnodeStart.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         edtAnodeStart.setText("000");
         edtAnodeStart.setNextFocusableComponent(edtTubuStart);
@@ -202,16 +202,16 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             }
         });
         add(edtAnodeStart);
-        edtAnodeStart.setBounds(210, 120, 210, 110);
+        edtAnodeStart.setBounds(180, 120, 160, 110);
 
         lblTitle.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblTitle.setText("<html><u>2.2 Обработка O<sub>2</sub>. Первый цикл. Ввод напряжений.</u></thml>");
+        lblTitle.setText("<html><u>2.2 Обработка O<sub>2</sub>. 1 цикл. Ввод напряж.</u></thml>");
         lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
-        lblTitle.setBounds(10, 10, 620, 40);
+        lblTitle.setBounds(10, 10, 500, 40);
 
-        edtAnodeStop.setFont(new java.awt.Font("Cantarell", 0, 80)); // NOI18N
+        edtAnodeStop.setFont(new java.awt.Font("Cantarell", 0, 70)); // NOI18N
         edtAnodeStop.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         edtAnodeStop.setText("000");
         edtAnodeStop.setNextFocusableComponent(edtTubuStop);
@@ -221,35 +221,35 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             }
         });
         add(edtAnodeStop);
-        edtAnodeStop.setBounds(420, 120, 210, 110);
+        edtAnodeStop.setBounds(350, 120, 160, 110);
 
         lblStart.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblStart.setText("Начало");
         add(lblStart);
-        lblStart.setBounds(230, 60, 170, 50);
+        lblStart.setBounds(180, 60, 160, 50);
 
         lblStop.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblStop.setText("Конец");
         add(lblStop);
-        lblStop.setBounds(440, 60, 170, 50);
+        lblStop.setBounds(350, 60, 160, 50);
 
         jLabel3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("<html>U<sub>на аноде</sub>  (В)</html>");
         jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(jLabel3);
-        jLabel3.setBounds(10, 120, 190, 110);
+        jLabel3.setBounds(10, 120, 160, 110);
 
         jLabel4.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("<html>U<sub>на штенгеле</sub> (В)</html>");
+        jLabel4.setText("<html>U<sub>на штенг</sub> (В)</html>");
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(jLabel4);
-        jLabel4.setBounds(10, 240, 190, 110);
+        jLabel4.setBounds(10, 240, 160, 110);
 
-        edtTubuStart.setFont(new java.awt.Font("Cantarell", 0, 80)); // NOI18N
+        edtTubuStart.setFont(new java.awt.Font("Cantarell", 0, 70)); // NOI18N
         edtTubuStart.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         edtTubuStart.setText("000");
         edtTubuStart.setNextFocusableComponent(edtAnodeStop);
@@ -259,9 +259,9 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             }
         });
         add(edtTubuStart);
-        edtTubuStart.setBounds(210, 240, 210, 110);
+        edtTubuStart.setBounds(180, 240, 160, 110);
 
-        edtTubuStop.setFont(new java.awt.Font("Cantarell", 0, 80)); // NOI18N
+        edtTubuStop.setFont(new java.awt.Font("Cantarell", 0, 70)); // NOI18N
         edtTubuStop.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         edtTubuStop.setText("000");
         edtTubuStop.setNextFocusableComponent(edtAnodeStart);
@@ -271,7 +271,7 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             }
         });
         add(edtTubuStop);
-        edtTubuStop.setBounds(420, 240, 210, 110);
+        edtTubuStop.setBounds(350, 240, 160, 110);
 
         btnNext.setText("Далее");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -280,13 +280,13 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             }
         });
         add(btnNext);
-        btnNext.setBounds(10, 380, 620, 50);
+        btnNext.setBounds(10, 380, 500, 50);
 
-        lblTimer.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
+        lblTimer.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         lblTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTimer.setText("00:00:00");
         add(lblTimer);
-        lblTimer.setBounds(0, 50, 230, 60);
+        lblTimer.setBounds(10, 50, 160, 60);
 
         chkLongDischargeTrackFail.setText("Прибор не удалось зажечь по длинному плечу");
         chkLongDischargeTrackFail.addActionListener(new java.awt.event.ActionListener() {
@@ -295,17 +295,17 @@ public class PanelEnterStartFinishVoltage extends javax.swing.JPanel {
             }
         });
         add(chkLongDischargeTrackFail);
-        chkLongDischargeTrackFail.setBounds(10, 350, 620, 23);
+        chkLongDischargeTrackFail.setBounds(10, 350, 500, 23);
 
         btnStart.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         btnStart.setText("Начало");
         add(btnStart);
-        btnStart.setBounds(230, 60, 170, 50);
+        btnStart.setBounds(180, 60, 160, 50);
 
         btnStop.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         btnStop.setText("Конец");
         add(btnStop);
-        btnStop.setBounds(440, 60, 170, 50);
+        btnStop.setBounds(350, 60, 160, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed

@@ -66,9 +66,8 @@ public class PanelImpermeability extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitle.setText("<html>1.1 Подтвердите герметичность установки.</thml>");
-        lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
-        lblTitle.setBounds(10, 10, 620, 40);
+        lblTitle.setBounds(10, 10, 500, 40);
 
         btnNext.setText("Приборы установлены герметично, продолжаем процесс");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +76,7 @@ public class PanelImpermeability extends javax.swing.JPanel {
             }
         });
         add(btnNext);
-        btnNext.setBounds(10, 360, 620, 50);
+        btnNext.setBounds(10, 360, 500, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed

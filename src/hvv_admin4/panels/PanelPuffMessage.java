@@ -157,9 +157,9 @@ public class PanelPuffMessage extends javax.swing.JPanel {
         lblMessageL = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 200)));
-        setMaximumSize(new java.awt.Dimension(640, 440));
-        setMinimumSize(new java.awt.Dimension(640, 440));
-        setPreferredSize(new java.awt.Dimension(640, 440));
+        setMaximumSize(new java.awt.Dimension(520, 440));
+        setMinimumSize(new java.awt.Dimension(520, 440));
+        setPreferredSize(new java.awt.Dimension(520, 440));
         setLayout(null);
 
         lblTitle.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
@@ -167,7 +167,7 @@ public class PanelPuffMessage extends javax.swing.JPanel {
         lblTitle.setText("<html><u>Заполнение кислород-неонной смесью.</u></html>");
         lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
-        lblTitle.setBounds(10, 10, 620, 40);
+        lblTitle.setBounds(10, 10, 500, 40);
 
         btnNext.setFont(new java.awt.Font("Cantarell", 0, 15)); // NOI18N
         btnNext.setText("Далее");
@@ -178,23 +178,23 @@ public class PanelPuffMessage extends javax.swing.JPanel {
             }
         });
         add(btnNext);
-        btnNext.setBounds(20, 370, 600, 50);
+        btnNext.setBounds(10, 370, 500, 50);
 
         lblMessageR.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         lblMessageR.setText("<html>Неон Ne<sub>20</sub><br>200.0 Па</html>");
         lblMessageR.setToolTipText("");
         add(lblMessageR);
-        lblMessageR.setBounds(330, 70, 290, 290);
+        lblMessageR.setBounds(270, 70, 240, 290);
 
         lblMessageF.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
         lblMessageF.setText("<html>Ток обработки 2.5мА</html>");
         add(lblMessageF);
-        lblMessageF.setBounds(20, 60, 600, 300);
+        lblMessageF.setBounds(10, 60, 500, 300);
 
         lblMessageL.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         lblMessageL.setText("<html>Кислород O<sub>2</sub><br>66.6 Па</html>");
         add(lblMessageL);
-        lblMessageL.setBounds(20, 70, 290, 290);
+        lblMessageL.setBounds(20, 70, 240, 290);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed

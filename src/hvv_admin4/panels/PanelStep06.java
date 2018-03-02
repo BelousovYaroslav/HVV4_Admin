@@ -13,7 +13,7 @@ import hvv_admin4.steps.info.TechProcessStepCommon;
  * @author yaroslav
  */
 public class PanelStep06 extends TechProcessStepPanelTemplate {
-    public final int MAXIMIZED_HEIGHT = 210;
+    public final int MAXIMIZED_HEIGHT = 280;
     
     /**
      * Creates new form PanelStep01
@@ -81,9 +81,10 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
         lbl_06_06_Date_stop = new javax.swing.JLabel();
         lbl_06_06_Time_stop = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(580, 210));
-        setMinimumSize(new java.awt.Dimension(580, 210));
+        setMaximumSize(new java.awt.Dimension(460, 280));
+        setMinimumSize(new java.awt.Dimension(460, 280));
         setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(460, 280));
         setLayout(null);
 
         btn_06_01_Start.setText("Старт");
@@ -93,11 +94,11 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
             }
         });
         add(btn_06_01_Start);
-        btn_06_01_Start.setBounds(0, 29, 150, 30);
+        btn_06_01_Start.setBounds(0, 40, 90, 40);
 
         btn_06_01_Next.setText("Далее");
         add(btn_06_01_Next);
-        btn_06_01_Next.setBounds(430, 29, 150, 30);
+        btn_06_01_Next.setBounds(370, 40, 90, 40);
 
         btn_06_02_Start.setText("Старт");
         btn_06_02_Start.addActionListener(new java.awt.event.ActionListener() {
@@ -106,11 +107,11 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
             }
         });
         add(btn_06_02_Start);
-        btn_06_02_Start.setBounds(0, 59, 150, 30);
+        btn_06_02_Start.setBounds(0, 80, 90, 40);
 
         btn_06_02_Next.setText("Далее");
         add(btn_06_02_Next);
-        btn_06_02_Next.setBounds(430, 59, 150, 30);
+        btn_06_02_Next.setBounds(370, 80, 90, 40);
 
         btn_06_03_Start.setText("Старт");
         btn_06_03_Start.addActionListener(new java.awt.event.ActionListener() {
@@ -119,11 +120,11 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
             }
         });
         add(btn_06_03_Start);
-        btn_06_03_Start.setBounds(0, 89, 150, 30);
+        btn_06_03_Start.setBounds(0, 120, 90, 40);
 
         btn_06_03_Next.setText("Далее");
         add(btn_06_03_Next);
-        btn_06_03_Next.setBounds(430, 89, 150, 30);
+        btn_06_03_Next.setBounds(370, 120, 90, 40);
 
         btn_06_04_Start.setText("Старт");
         btn_06_04_Start.addActionListener(new java.awt.event.ActionListener() {
@@ -132,11 +133,11 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
             }
         });
         add(btn_06_04_Start);
-        btn_06_04_Start.setBounds(0, 119, 150, 30);
+        btn_06_04_Start.setBounds(0, 160, 90, 40);
 
         btn_06_04_Next.setText("Далее");
         add(btn_06_04_Next);
-        btn_06_04_Next.setBounds(430, 119, 150, 30);
+        btn_06_04_Next.setBounds(370, 160, 90, 40);
 
         btn_06_05_Start.setText("Старт");
         btn_06_05_Start.addActionListener(new java.awt.event.ActionListener() {
@@ -145,11 +146,11 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
             }
         });
         add(btn_06_05_Start);
-        btn_06_05_Start.setBounds(0, 149, 150, 30);
+        btn_06_05_Start.setBounds(0, 200, 90, 40);
 
         btn_06_05_Next.setText("Далее");
         add(btn_06_05_Next);
-        btn_06_05_Next.setBounds(430, 149, 150, 30);
+        btn_06_05_Next.setBounds(370, 200, 90, 40);
 
         btn_06_06_Start.setText("Старт");
         btn_06_06_Start.addActionListener(new java.awt.event.ActionListener() {
@@ -158,266 +159,230 @@ public class PanelStep06 extends TechProcessStepPanelTemplate {
             }
         });
         add(btn_06_06_Start);
-        btn_06_06_Start.setBounds(0, 179, 150, 30);
+        btn_06_06_Start.setBounds(0, 240, 90, 40);
 
         btn_06_06_Next.setText("Далее");
         add(btn_06_06_Next);
-        btn_06_06_Next.setBounds(430, 179, 150, 30);
+        btn_06_06_Next.setBounds(370, 240, 90, 40);
 
         lbl_06_00_Date_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_00_Date_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_00_Date_start.setText("-");
-        lbl_06_00_Date_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_00_Date_start);
-        lbl_06_00_Date_start.setBounds(0, 0, 90, 25);
+        lbl_06_00_Date_start.setBounds(0, 0, 90, 20);
 
         lbl_06_00_Time_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_00_Time_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_00_Time_start.setText("-");
-        lbl_06_00_Time_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_00_Time_start);
-        lbl_06_00_Time_start.setBounds(90, 0, 60, 25);
+        lbl_06_00_Time_start.setBounds(0, 20, 90, 20);
 
         lbl_06_00_IcoStep.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_06_00_IcoStep.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_00_IcoStep.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbl_06_00_IcoStepMouseClicked(evt);
             }
         });
         add(lbl_06_00_IcoStep);
-        lbl_06_00_IcoStep.setBounds(150, 0, 30, 25);
+        lbl_06_00_IcoStep.setBounds(90, 0, 30, 40);
 
         lbl_06_00_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_06_00_Title.setText("<html>6. Тренировка катода</html>");
-        lbl_06_00_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_00_Title.setOpaque(true);
         add(lbl_06_00_Title);
-        lbl_06_00_Title.setBounds(180, 0, 250, 25);
+        lbl_06_00_Title.setBounds(120, 0, 250, 40);
 
         lbl_06_00_Date_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_00_Date_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_00_Date_stop.setText("-");
-        lbl_06_00_Date_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_00_Date_stop);
-        lbl_06_00_Date_stop.setBounds(430, 0, 90, 25);
+        lbl_06_00_Date_stop.setBounds(370, 0, 90, 20);
 
         lbl_06_00_Time_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_00_Time_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_00_Time_stop.setText("-");
-        lbl_06_00_Time_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_00_Time_stop);
-        lbl_06_00_Time_stop.setBounds(520, 0, 60, 25);
+        lbl_06_00_Time_stop.setBounds(370, 20, 90, 20);
 
         lbl_06_01_Date_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_01_Date_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_01_Date_start.setText("-");
-        lbl_06_01_Date_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_01_Date_start);
-        lbl_06_01_Date_start.setBounds(0, 30, 90, 25);
+        lbl_06_01_Date_start.setBounds(0, 40, 90, 20);
 
         lbl_06_01_Time_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_01_Time_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_01_Time_start.setText("-");
-        lbl_06_01_Time_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_01_Time_start);
-        lbl_06_01_Time_start.setBounds(90, 30, 60, 25);
+        lbl_06_01_Time_start.setBounds(0, 60, 90, 20);
 
         lbl_06_01_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_06_01_Title.setText("6.1 Выдержка");
-        lbl_06_01_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_01_Title.setOpaque(true);
         add(lbl_06_01_Title);
-        lbl_06_01_Title.setBounds(180, 30, 250, 25);
+        lbl_06_01_Title.setBounds(120, 40, 250, 40);
 
         lbl_06_01_Date_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_01_Date_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_01_Date_stop.setText("-");
-        lbl_06_01_Date_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_01_Date_stop);
-        lbl_06_01_Date_stop.setBounds(430, 30, 90, 25);
+        lbl_06_01_Date_stop.setBounds(370, 40, 90, 20);
 
         lbl_06_01_Time_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_01_Time_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_01_Time_stop.setText("-");
-        lbl_06_01_Time_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_01_Time_stop);
-        lbl_06_01_Time_stop.setBounds(520, 30, 60, 25);
+        lbl_06_01_Time_stop.setBounds(370, 60, 90, 20);
 
         lbl_06_02_Date_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_02_Date_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_02_Date_start.setText("-");
-        lbl_06_02_Date_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_02_Date_start);
-        lbl_06_02_Date_start.setBounds(0, 60, 90, 25);
+        lbl_06_02_Date_start.setBounds(0, 80, 90, 20);
 
         lbl_06_02_Time_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_02_Time_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_02_Time_start.setText("-");
-        lbl_06_02_Time_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_02_Time_start);
-        lbl_06_02_Time_start.setBounds(90, 60, 60, 25);
+        lbl_06_02_Time_start.setBounds(0, 100, 90, 20);
 
         lbl_06_02_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_06_02_Title.setText("6.2 Обработка. 1ый цикл.");
-        lbl_06_02_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_02_Title.setOpaque(true);
         add(lbl_06_02_Title);
-        lbl_06_02_Title.setBounds(180, 60, 250, 25);
+        lbl_06_02_Title.setBounds(120, 80, 250, 40);
 
         lbl_06_02_Date_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_02_Date_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_02_Date_stop.setText("-");
-        lbl_06_02_Date_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_02_Date_stop);
-        lbl_06_02_Date_stop.setBounds(430, 60, 90, 25);
+        lbl_06_02_Date_stop.setBounds(370, 80, 90, 20);
 
         lbl_06_02_Time_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_02_Time_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_02_Time_stop.setText("-");
-        lbl_06_02_Time_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_02_Time_stop);
-        lbl_06_02_Time_stop.setBounds(520, 60, 60, 25);
+        lbl_06_02_Time_stop.setBounds(370, 100, 90, 20);
 
         lbl_06_03_Date_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_03_Date_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_03_Date_start.setText("-");
-        lbl_06_03_Date_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_03_Date_start);
-        lbl_06_03_Date_start.setBounds(0, 90, 90, 25);
+        lbl_06_03_Date_start.setBounds(0, 120, 90, 20);
 
         lbl_06_03_Time_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_03_Time_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_03_Time_start.setText("-");
-        lbl_06_03_Time_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_03_Time_start);
-        lbl_06_03_Time_start.setBounds(90, 90, 60, 25);
+        lbl_06_03_Time_start.setBounds(0, 140, 90, 20);
 
         lbl_06_03_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_06_03_Title.setText("6.3 Выдержка");
-        lbl_06_03_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_03_Title.setOpaque(true);
         add(lbl_06_03_Title);
-        lbl_06_03_Title.setBounds(180, 90, 250, 25);
+        lbl_06_03_Title.setBounds(120, 120, 250, 40);
 
         lbl_06_03_Date_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_03_Date_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_03_Date_stop.setText("-");
-        lbl_06_03_Date_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_03_Date_stop);
-        lbl_06_03_Date_stop.setBounds(430, 90, 90, 25);
+        lbl_06_03_Date_stop.setBounds(370, 120, 90, 20);
 
         lbl_06_03_Time_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_03_Time_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_03_Time_stop.setText("-");
-        lbl_06_03_Time_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_03_Time_stop);
-        lbl_06_03_Time_stop.setBounds(520, 90, 60, 25);
+        lbl_06_03_Time_stop.setBounds(370, 140, 90, 20);
 
         lbl_06_04_Date_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_04_Date_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_04_Date_start.setText("-");
-        lbl_06_04_Date_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_04_Date_start);
-        lbl_06_04_Date_start.setBounds(0, 120, 90, 25);
+        lbl_06_04_Date_start.setBounds(0, 160, 90, 20);
 
         lbl_06_04_Time_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_04_Time_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_04_Time_start.setText("-");
-        lbl_06_04_Time_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_04_Time_start);
-        lbl_06_04_Time_start.setBounds(90, 120, 60, 25);
+        lbl_06_04_Time_start.setBounds(0, 180, 90, 20);
 
         lbl_06_04_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_06_04_Title.setText("6.4 Обработка. 2ой цикл.");
-        lbl_06_04_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_04_Title.setOpaque(true);
         add(lbl_06_04_Title);
-        lbl_06_04_Title.setBounds(180, 120, 250, 25);
+        lbl_06_04_Title.setBounds(120, 160, 250, 40);
 
         lbl_06_04_Date_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_04_Date_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_04_Date_stop.setText("-");
-        lbl_06_04_Date_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_04_Date_stop);
-        lbl_06_04_Date_stop.setBounds(430, 120, 90, 25);
+        lbl_06_04_Date_stop.setBounds(370, 160, 90, 20);
 
         lbl_06_04_Time_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_04_Time_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_04_Time_stop.setText("-");
-        lbl_06_04_Time_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_04_Time_stop);
-        lbl_06_04_Time_stop.setBounds(520, 120, 60, 25);
+        lbl_06_04_Time_stop.setBounds(370, 180, 90, 20);
 
         lbl_06_05_Date_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_05_Date_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_05_Date_start.setText("-");
-        lbl_06_05_Date_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_05_Date_start);
-        lbl_06_05_Date_start.setBounds(0, 150, 90, 25);
+        lbl_06_05_Date_start.setBounds(0, 200, 90, 20);
 
         lbl_06_05_Time_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_05_Time_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_05_Time_start.setText("-");
-        lbl_06_05_Time_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_05_Time_start);
-        lbl_06_05_Time_start.setBounds(90, 150, 60, 25);
+        lbl_06_05_Time_start.setBounds(0, 220, 90, 20);
 
         lbl_06_05_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_06_05_Title.setText("6.5 Выдержка");
-        lbl_06_05_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_05_Title.setOpaque(true);
         add(lbl_06_05_Title);
-        lbl_06_05_Title.setBounds(180, 150, 250, 25);
+        lbl_06_05_Title.setBounds(120, 200, 250, 40);
 
         lbl_06_05_Date_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_05_Date_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_05_Date_stop.setText("-");
-        lbl_06_05_Date_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_05_Date_stop);
-        lbl_06_05_Date_stop.setBounds(430, 150, 90, 25);
+        lbl_06_05_Date_stop.setBounds(370, 200, 90, 20);
 
         lbl_06_05_Time_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_05_Time_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_05_Time_stop.setText("-");
-        lbl_06_05_Time_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_05_Time_stop);
-        lbl_06_05_Time_stop.setBounds(520, 150, 60, 25);
+        lbl_06_05_Time_stop.setBounds(370, 220, 90, 20);
 
         lbl_06_06_Date_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_06_Date_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_06_Date_start.setText("-");
-        lbl_06_06_Date_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_06_Date_start);
-        lbl_06_06_Date_start.setBounds(0, 180, 90, 25);
+        lbl_06_06_Date_start.setBounds(0, 240, 90, 20);
 
         lbl_06_06_Time_start.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_06_Time_start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_06_Time_start.setText("-");
-        lbl_06_06_Time_start.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_06_Time_start);
-        lbl_06_06_Time_start.setBounds(90, 180, 60, 25);
+        lbl_06_06_Time_start.setBounds(0, 260, 90, 20);
 
         lbl_06_06_Title.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_06_06_Title.setText("6.6 Обработка. 3ий цикл.");
-        lbl_06_06_Title.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         lbl_06_06_Title.setOpaque(true);
         add(lbl_06_06_Title);
-        lbl_06_06_Title.setBounds(180, 180, 250, 25);
+        lbl_06_06_Title.setBounds(120, 240, 250, 40);
 
         lbl_06_06_Date_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_06_Date_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_06_Date_stop.setText("-");
-        lbl_06_06_Date_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_06_Date_stop);
-        lbl_06_06_Date_stop.setBounds(430, 180, 90, 25);
+        lbl_06_06_Date_stop.setBounds(370, 240, 90, 20);
 
         lbl_06_06_Time_stop.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         lbl_06_06_Time_stop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_06_06_Time_stop.setText("-");
-        lbl_06_06_Time_stop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lbl_06_06_Time_stop);
-        lbl_06_06_Time_stop.setBounds(520, 180, 60, 25);
+        lbl_06_06_Time_stop.setBounds(370, 260, 90, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbl_06_00_IcoStepMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_06_00_IcoStepMouseClicked

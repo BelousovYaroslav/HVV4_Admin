@@ -57,7 +57,7 @@ public class PanelDegasation extends javax.swing.JPanel {
         
         m_pnlProgress = new PanelDegasationProgress( theApp, this);
         pnlProgress.add( m_pnlProgress);
-        m_pnlProgress.setBounds( 2, 2, 475, 269);
+        m_pnlProgress.setBounds( 2, 2, 465, 269);
         m_pnlProgress.setVisible( true);
         
         
@@ -81,7 +81,7 @@ public class PanelDegasation extends javax.swing.JPanel {
             }
         }).start();
         
-        m_scrollBar.setMaximum( 301);
+        m_scrollBar.setMaximum( 680 - 250 + 15);
         m_scrollBar.setValue( 0);
     }
 
@@ -124,7 +124,6 @@ public class PanelDegasation extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitle.setText("<html><u>7.2 Обезгаживание рабочих геттеров</u></thml>");
-        lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
         lblTitle.setBounds(10, 10, 620, 40);
 
@@ -135,17 +134,14 @@ public class PanelDegasation extends javax.swing.JPanel {
             }
         });
         add(btnNext);
-        btnNext.setBounds(10, 380, 620, 50);
+        btnNext.setBounds(10, 380, 500, 50);
 
         lblGetterType.setText("<html>Тип геттера:</html>");
-        lblGetterType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblGetterType);
-        lblGetterType.setBounds(530, 90, 100, 20);
+        lblGetterType.setBounds(10, 60, 100, 20);
 
         buttonGroup1.add(radGetterType1);
         radGetterType1.setText("1");
-        radGetterType1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        radGetterType1.setBorderPainted(true);
         radGetterType1.setEnabled(false);
         radGetterType1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,13 +149,11 @@ public class PanelDegasation extends javax.swing.JPanel {
             }
         });
         add(radGetterType1);
-        radGetterType1.setBounds(530, 120, 40, 20);
+        radGetterType1.setBounds(110, 60, 40, 23);
 
         buttonGroup1.add(radGetterType2);
         radGetterType2.setSelected(true);
         radGetterType2.setText("2");
-        radGetterType2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        radGetterType2.setBorderPainted(true);
         radGetterType2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         radGetterType2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,31 +161,26 @@ public class PanelDegasation extends javax.swing.JPanel {
             }
         });
         add(radGetterType2);
-        radGetterType2.setBounds(590, 120, 40, 20);
+        radGetterType2.setBounds(170, 60, 40, 20);
 
         lblInductorType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInductorType.setText("<html>Тип индуктора:</html>");
-        lblInductorType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblInductorType);
-        lblInductorType.setBounds(530, 230, 100, 40);
+        lblInductorType.setBounds(290, 60, 120, 20);
 
         buttonGroup2.add(radInductorType1);
         radInductorType1.setSelected(true);
         radInductorType1.setText("1");
-        radInductorType1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        radInductorType1.setBorderPainted(true);
         radInductorType1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radInductorType1ActionPerformed(evt);
             }
         });
         add(radInductorType1);
-        radInductorType1.setBounds(530, 280, 40, 20);
+        radInductorType1.setBounds(410, 60, 40, 20);
 
         buttonGroup2.add(radInductorType2);
         radInductorType2.setText("2");
-        radInductorType2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        radInductorType2.setBorderPainted(true);
         radInductorType2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         radInductorType2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,24 +188,22 @@ public class PanelDegasation extends javax.swing.JPanel {
             }
         });
         add(radInductorType2);
-        radInductorType2.setBounds(590, 280, 40, 20);
+        radInductorType2.setBounds(470, 60, 40, 20);
 
         pnlProgress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         pnlProgress.setLayout(null);
         add(pnlProgress);
-        pnlProgress.setBounds(10, 90, 480, 280);
+        pnlProgress.setBounds(10, 120, 470, 250);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("P выброса");
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(jLabel3);
-        jLabel3.setBounds(280, 60, 210, 20);
+        jLabel3.setBounds(280, 90, 210, 20);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Мощность");
-        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(jLabel5);
-        jLabel5.setBounds(170, 60, 90, 20);
+        jLabel5.setBounds(170, 90, 90, 20);
 
         m_scrollBar.addAdjustmentListener(new java.awt.event.AdjustmentListener() {
             public void adjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {
@@ -224,13 +211,12 @@ public class PanelDegasation extends javax.swing.JPanel {
             }
         });
         add(m_scrollBar);
-        m_scrollBar.setBounds(500, 90, 19, 280);
+        m_scrollBar.setBounds(490, 120, 20, 250);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Длительность");
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(jLabel6);
-        jLabel6.setBounds(40, 60, 110, 20);
+        jLabel6.setBounds(40, 90, 110, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
@@ -385,7 +371,7 @@ public class PanelDegasation extends javax.swing.JPanel {
 
     private void m_scrollBarAdjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {//GEN-FIRST:event_m_scrollBarAdjustmentValueChanged
         if( m_pnlProgress != null)
-            m_pnlProgress.setBounds( 2, 2 - m_scrollBar.getValue(), 475, 269 + m_scrollBar.getValue());
+            m_pnlProgress.setBounds( 2, 2 - m_scrollBar.getValue(), 465, 269 + m_scrollBar.getValue());
     }//GEN-LAST:event_m_scrollBarAdjustmentValueChanged
 
     public void Init() {
@@ -545,13 +531,14 @@ public class PanelDegasation extends javax.swing.JPanel {
             break;
         }
         
+        /*
         if( m_lstProgram.size() >= 7) {
             m_scrollBar.setEnabled( true);
             m_scrollBar.setMaximum( 21 + 40 * ( m_lstProgram.size() - 7));
         }
         else
             m_scrollBar.setEnabled( false);
-        
+        */
     }
     
     private void radGetterType1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radGetterType1ActionPerformed

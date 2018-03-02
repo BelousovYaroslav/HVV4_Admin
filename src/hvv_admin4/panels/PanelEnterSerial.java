@@ -62,27 +62,27 @@ public class PanelEnterSerial extends javax.swing.JPanel {
         lblTitle.setText("<html><u>1.1 Установка прибора. Введите информацию об установленном приборе.</u></thml>");
         lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
-        lblTitle.setBounds(10, 10, 620, 40);
+        lblTitle.setBounds(10, 10, 500, 60);
 
         lblSerial.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblSerial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSerial.setText("<html>Серийный номер:</html>");
         lblSerial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblSerial);
-        lblSerial.setBounds(10, 70, 290, 100);
+        lblSerial.setBounds(10, 70, 220, 100);
 
         edtSerial.setFont(new java.awt.Font("Cantarell", 0, 48)); // NOI18N
         edtSerial.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        edtSerial.setText("801780_2");
+        edtSerial.setText("8780_2");
         add(edtSerial);
-        edtSerial.setBounds(310, 70, 320, 100);
+        edtSerial.setBounds(240, 70, 270, 100);
 
         lblSize.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblSize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSize.setText("<html>Размер прибора:</html>");
         lblSize.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblSize);
-        lblSize.setBounds(10, 180, 290, 90);
+        lblSize.setBounds(10, 180, 220, 90);
 
         btnGroupSize.add(radSizeSmall);
         radSizeSmall.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
@@ -91,7 +91,7 @@ public class PanelEnterSerial extends javax.swing.JPanel {
         radSizeSmall.setBorderPainted(true);
         radSizeSmall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(radSizeSmall);
-        radSizeSmall.setBounds(310, 180, 100, 90);
+        radSizeSmall.setBounds(240, 180, 90, 90);
 
         btnGroupSize.add(radSizeBig);
         radSizeBig.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
@@ -100,7 +100,7 @@ public class PanelEnterSerial extends javax.swing.JPanel {
         radSizeBig.setBorderPainted(true);
         radSizeBig.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(radSizeBig);
-        radSizeBig.setBounds(530, 180, 100, 90);
+        radSizeBig.setBounds(420, 180, 90, 90);
 
         btnGroupSize.add(radSizeMed);
         radSizeMed.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
@@ -110,14 +110,14 @@ public class PanelEnterSerial extends javax.swing.JPanel {
         radSizeMed.setBorderPainted(true);
         radSizeMed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(radSizeMed);
-        radSizeMed.setBounds(420, 180, 100, 90);
+        radSizeMed.setBounds(330, 180, 90, 90);
 
         lblGetter.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblGetter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGetter.setText("<html>Тип геттера:</html>");
         lblGetter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblGetter);
-        lblGetter.setBounds(10, 280, 290, 90);
+        lblGetter.setBounds(10, 280, 220, 90);
 
         btnGroupGetter.add(radGetter1);
         radGetter1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
@@ -127,7 +127,7 @@ public class PanelEnterSerial extends javax.swing.JPanel {
         radGetter1.setEnabled(false);
         radGetter1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(radGetter1);
-        radGetter1.setBounds(310, 280, 150, 90);
+        radGetter1.setBounds(240, 280, 130, 90);
 
         btnGroupGetter.add(radGetter2);
         radGetter2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
@@ -137,7 +137,7 @@ public class PanelEnterSerial extends javax.swing.JPanel {
         radGetter2.setBorderPainted(true);
         radGetter2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(radGetter2);
-        radGetter2.setBounds(480, 280, 150, 90);
+        radGetter2.setBounds(380, 280, 130, 90);
 
         btnNext.setText("Далее");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +146,7 @@ public class PanelEnterSerial extends javax.swing.JPanel {
             }
         });
         add(btnNext);
-        btnNext.setBounds(10, 380, 620, 50);
+        btnNext.setBounds(10, 380, 500, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed

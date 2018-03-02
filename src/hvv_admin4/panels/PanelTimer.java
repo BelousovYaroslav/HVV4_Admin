@@ -470,9 +470,8 @@ public class PanelTimer extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitle.setText("<html><u>2.1 Обработка O<sub>2</sub>. Первый цикл.</u></thml>");
-        lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
-        lblTitle.setBounds(10, 10, 620, 40);
+        lblTitle.setBounds(10, 10, 500, 40);
 
         btnNext.setText("Далее");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -481,7 +480,7 @@ public class PanelTimer extends javax.swing.JPanel {
             }
         });
         add(btnNext);
-        btnNext.setBounds(10, 380, 620, 50);
+        btnNext.setBounds(10, 380, 500, 50);
 
         btnStart.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         btnStart.setText("С Т А Р Т");
@@ -491,18 +490,17 @@ public class PanelTimer extends javax.swing.JPanel {
             }
         });
         add(btnStart);
-        btnStart.setBounds(20, 170, 600, 120);
+        btnStart.setBounds(20, 170, 480, 120);
 
-        lblTimer.setFont(new java.awt.Font("Cantarell", 0, 120)); // NOI18N
+        lblTimer.setFont(new java.awt.Font("Cantarell", 0, 100)); // NOI18N
         lblTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTimer.setText("00:00:00");
-        lblTimer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTimer);
-        lblTimer.setBounds(10, 60, 620, 280);
+        lblTimer.setBounds(10, 60, 500, 280);
 
         lblStart.setText("<html>Заполните приборы рабочей смесью, и нажмите \"СТАРТ\" для начала отсчёта времени выдержки.</html>");
         add(lblStart);
-        lblStart.setBounds(20, 70, 600, 90);
+        lblStart.setBounds(20, 70, 480, 90);
 
         chkLongShoulder.setText("Прибор не удалось зажечь по длинному плечу");
         chkLongShoulder.addActionListener(new java.awt.event.ActionListener() {
@@ -511,7 +509,7 @@ public class PanelTimer extends javax.swing.JPanel {
             }
         });
         add(chkLongShoulder);
-        chkLongShoulder.setBounds(20, 350, 590, 22);
+        chkLongShoulder.setBounds(10, 350, 500, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed

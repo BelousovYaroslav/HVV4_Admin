@@ -77,7 +77,7 @@ public class PanelMessage extends javax.swing.JPanel {
         lblTitle.setText("<html><u>10.5 Завершение процесса э/в обработки.</u></html>");
         lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
-        lblTitle.setBounds(10, 10, 620, 40);
+        lblTitle.setBounds(10, 10, 500, 40);
 
         btnFinish.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         btnFinish.setText("Завершение обработки");
@@ -88,17 +88,17 @@ public class PanelMessage extends javax.swing.JPanel {
             }
         });
         add(btnFinish);
-        btnFinish.setBounds(20, 300, 600, 120);
+        btnFinish.setBounds(10, 300, 500, 120);
 
         lblStart.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblStart.setText("<html>Проведите герметизацию.</html>");
         add(lblStart);
-        lblStart.setBounds(20, 70, 600, 110);
+        lblStart.setBounds(10, 70, 500, 90);
 
         lblStart1.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         lblStart1.setText("<html>По завершению герметизации, выключите геттер.</html>");
         add(lblStart1);
-        lblStart1.setBounds(20, 180, 600, 110);
+        lblStart1.setBounds(10, 160, 500, 130);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinishActionPerformed

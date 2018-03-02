@@ -38,7 +38,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-72,0,0,2,-128"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-72,0,0,2,8"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -52,17 +52,10 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;9.2 &#x410;&#x43a;&#x442;&#x438;&#x432;&#x430;&#x446;&#x438;&#x44f; &#x440;&#x430;&#x431;&#x43e;&#x447;&#x438;&#x445; &#x433;&#x435;&#x442;&#x442;&#x435;&#x440;&#x43e;&#x432;&lt;/u&gt;&lt;/thml&gt;"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="10" width="620" height="40"/>
+          <AbsoluteConstraints x="10" y="10" width="500" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -78,24 +71,17 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="380" width="620" height="50"/>
+          <AbsoluteConstraints x="10" y="380" width="500" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="lblGetterType">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&#x422;&#x438;&#x43f; &#x433;&#x435;&#x442;&#x442;&#x435;&#x440;&#x430;:&lt;/html&gt;"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="530" y="90" width="100" height="20"/>
+          <AbsoluteConstraints x="10" y="60" width="100" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -106,14 +92,6 @@
         </Property>
         <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="2"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
-        <Property name="borderPainted" type="boolean" value="true"/>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="horizontalTextPosition" type="int" value="2"/>
       </Properties>
@@ -125,7 +103,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="580" y="120" width="50" height="-1"/>
+          <AbsoluteConstraints x="160" y="60" width="50" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -135,14 +113,6 @@
           <ComponentRef name="buttonGroup1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="1"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
-        <Property name="borderPainted" type="boolean" value="true"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -153,24 +123,17 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="530" y="120" width="50" height="-1"/>
+          <AbsoluteConstraints x="110" y="60" width="50" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="lblInductorType">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&#x422;&#x438;&#x43f; &#x438;&#x43d;&#x434;&#x443;&#x43a;&#x442;&#x43e;&#x440;&#x430;:&lt;/html&gt;"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="530" y="230" width="100" height="40"/>
+          <AbsoluteConstraints x="290" y="60" width="120" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -180,14 +143,6 @@
           <ComponentRef name="buttonGroup2"/>
         </Property>
         <Property name="text" type="java.lang.String" value="2"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
-        <Property name="borderPainted" type="boolean" value="true"/>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="horizontalTextPosition" type="int" value="2"/>
       </Properties>
@@ -199,7 +154,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="580" y="280" width="50" height="20"/>
+          <AbsoluteConstraints x="460" y="60" width="50" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -210,14 +165,6 @@
         </Property>
         <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="1"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
-        <Property name="borderPainted" type="boolean" value="true"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radInductorType1ActionPerformed"/>
@@ -227,7 +174,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="530" y="280" width="50" height="20"/>
+          <AbsoluteConstraints x="410" y="60" width="50" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -243,7 +190,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="90" width="480" height="280"/>
+          <AbsoluteConstraints x="10" y="120" width="470" height="250"/>
         </Constraint>
       </Constraints>
 
@@ -255,17 +202,10 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="P &#x432;&#x44b;&#x431;&#x440;&#x43e;&#x441;&#x430;"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="280" y="60" width="210" height="20"/>
+          <AbsoluteConstraints x="280" y="90" width="200" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -273,17 +213,10 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="&#x414;&#x43b;&#x438;&#x442;&#x435;&#x43b;&#x44c;&#x43d;&#x43e;&#x441;&#x442;&#x44c;"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="60" width="110" height="20"/>
+          <AbsoluteConstraints x="40" y="90" width="110" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -291,17 +224,10 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="&#x41c;&#x43e;&#x449;&#x43d;&#x43e;&#x441;&#x442;&#x44c;"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="dc" green="dc" red="dc" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="170" y="60" width="90" height="20"/>
+          <AbsoluteConstraints x="170" y="90" width="90" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -311,7 +237,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="500" y="90" width="20" height="280"/>
+          <AbsoluteConstraints x="490" y="120" width="20" height="250"/>
         </Constraint>
       </Constraints>
     </Component>

@@ -184,12 +184,12 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
 
         lblTitle.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblTitle.setText("<html><u>4.1 Задание времени окончания термообезгаживания.</u></thml>");
+        lblTitle.setText("<html><u>4.1 Время завершения термообезгаживания.</u></thml>");
         lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
-        lblTitle.setBounds(10, 10, 620, 40);
+        lblTitle.setBounds(10, 10, 500, 40);
 
-        lblDoW.setFont(new java.awt.Font("Cantarell", 0, 50)); // NOI18N
+        lblDoW.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblDoW.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDoW.setText("чт");
         lblDoW.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
@@ -199,9 +199,9 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
             }
         });
         add(lblDoW);
-        lblDoW.setBounds(20, 60, 80, 110);
+        lblDoW.setBounds(10, 60, 70, 110);
 
-        lblYear.setFont(new java.awt.Font("Cantarell", 0, 50)); // NOI18N
+        lblYear.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblYear.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblYear.setText("2016");
         lblYear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
@@ -211,16 +211,16 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
             }
         });
         add(lblYear);
-        lblYear.setBounds(300, 60, 150, 110);
+        lblYear.setBounds(230, 60, 110, 110);
 
-        lblTimerPointYM.setFont(new java.awt.Font("Cantarell", 0, 50)); // NOI18N
+        lblTimerPointYM.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblTimerPointYM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTimerPointYM.setText(".");
         lblTimerPointYM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTimerPointYM);
-        lblTimerPointYM.setBounds(200, 60, 10, 110);
+        lblTimerPointYM.setBounds(150, 60, 10, 110);
 
-        lblMonth.setFont(new java.awt.Font("Cantarell", 0, 50)); // NOI18N
+        lblMonth.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblMonth.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMonth.setText("09");
         lblMonth.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
@@ -230,16 +230,16 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
             }
         });
         add(lblMonth);
-        lblMonth.setBounds(210, 60, 80, 110);
+        lblMonth.setBounds(160, 60, 60, 110);
 
-        lblPointMD.setFont(new java.awt.Font("Cantarell", 0, 50)); // NOI18N
+        lblPointMD.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblPointMD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPointMD.setText(".");
         lblPointMD.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblPointMD);
-        lblPointMD.setBounds(290, 60, 10, 110);
+        lblPointMD.setBounds(220, 60, 10, 110);
 
-        lblDay.setFont(new java.awt.Font("Cantarell", 0, 50)); // NOI18N
+        lblDay.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblDay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDay.setText("29");
         lblDay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
@@ -249,9 +249,9 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
             }
         });
         add(lblDay);
-        lblDay.setBounds(120, 60, 80, 110);
+        lblDay.setBounds(80, 60, 70, 110);
 
-        lblHour.setFont(new java.awt.Font("Cantarell", 0, 50)); // NOI18N
+        lblHour.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblHour.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHour.setText("16");
         lblHour.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
@@ -261,16 +261,16 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
             }
         });
         add(lblHour);
-        lblHour.setBounds(470, 60, 70, 110);
+        lblHour.setBounds(350, 60, 70, 110);
 
-        lblPointHM.setFont(new java.awt.Font("Cantarell", 0, 50)); // NOI18N
+        lblPointHM.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblPointHM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPointHM.setText(":");
         lblPointHM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblPointHM);
-        lblPointHM.setBounds(540, 60, 20, 110);
+        lblPointHM.setBounds(420, 60, 20, 110);
 
-        lblMinute.setFont(new java.awt.Font("Cantarell", 0, 50)); // NOI18N
+        lblMinute.setFont(new java.awt.Font("Cantarell", 0, 40)); // NOI18N
         lblMinute.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMinute.setText("41");
         lblMinute.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
@@ -280,91 +280,91 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
             }
         });
         add(lblMinute);
-        lblMinute.setBounds(560, 60, 70, 110);
+        lblMinute.setBounds(440, 60, 70, 110);
 
         lblFinish.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblFinish.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblFinish.setText("<html>Завершение термообезгаживания:</html>");
         lblFinish.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblFinish);
-        lblFinish.setBounds(10, 180, 390, 40);
+        lblFinish.setBounds(10, 180, 290, 40);
 
         lblFinishValue.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         lblFinishValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFinishValue.setText("9940");
         lblFinishValue.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblFinishValue);
-        lblFinishValue.setBounds(420, 180, 130, 40);
+        lblFinishValue.setBounds(310, 180, 130, 40);
 
         lblFinishMin.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblFinishMin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFinishMin.setText("<html>мин</thml>");
         lblFinishMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblFinishMin);
-        lblFinishMin.setBounds(570, 180, 60, 40);
+        lblFinishMin.setBounds(450, 180, 60, 40);
 
         lblTurnOn4v.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTurnOn4v.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTurnOn4v.setText("<html>Включение геттера 4V:</html>");
         lblTurnOn4v.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTurnOn4v);
-        lblTurnOn4v.setBounds(10, 230, 390, 40);
+        lblTurnOn4v.setBounds(10, 230, 290, 40);
 
         lblTurnOn4vValue.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         lblTurnOn4vValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTurnOn4vValue.setText("9940");
         lblTurnOn4vValue.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTurnOn4vValue);
-        lblTurnOn4vValue.setBounds(420, 230, 130, 40);
+        lblTurnOn4vValue.setBounds(310, 230, 130, 40);
 
         lblTurnOn4vMin.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTurnOn4vMin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTurnOn4vMin.setText("<html>мин</thml>");
         lblTurnOn4vMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTurnOn4vMin);
-        lblTurnOn4vMin.setBounds(570, 230, 60, 40);
+        lblTurnOn4vMin.setBounds(450, 230, 60, 40);
 
         lblTurnOn9v.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTurnOn9v.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTurnOn9v.setText("<html>Включение геттера 9V:</html>");
         lblTurnOn9v.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTurnOn9v);
-        lblTurnOn9v.setBounds(10, 280, 390, 40);
+        lblTurnOn9v.setBounds(10, 280, 290, 40);
 
         lblTurnOn9vValue.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         lblTurnOn9vValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTurnOn9vValue.setText("9940");
         lblTurnOn9vValue.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTurnOn9vValue);
-        lblTurnOn9vValue.setBounds(420, 280, 130, 40);
+        lblTurnOn9vValue.setBounds(310, 280, 130, 40);
 
         lblTurnOn9vMin.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTurnOn9vMin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTurnOn9vMin.setText("<html>мин</thml>");
         lblTurnOn9vMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTurnOn9vMin);
-        lblTurnOn9vMin.setBounds(570, 280, 60, 40);
+        lblTurnOn9vMin.setBounds(450, 280, 60, 40);
 
         lblTurnOff9v.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTurnOff9v.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTurnOff9v.setText("<html>Отключение геттера 9V:</html>");
         lblTurnOff9v.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTurnOff9v);
-        lblTurnOff9v.setBounds(10, 330, 390, 40);
+        lblTurnOff9v.setBounds(10, 330, 290, 40);
 
         lblTurnOff9vValue.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         lblTurnOff9vValue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTurnOff9vValue.setText("9940");
         lblTurnOff9vValue.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTurnOff9vValue);
-        lblTurnOff9vValue.setBounds(420, 330, 130, 40);
+        lblTurnOff9vValue.setBounds(310, 330, 130, 40);
 
         lblTurnOff9vMin.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTurnOff9vMin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTurnOff9vMin.setText("<html>мин</thml>");
         lblTurnOff9vMin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTurnOff9vMin);
-        lblTurnOff9vMin.setBounds(570, 330, 60, 40);
+        lblTurnOff9vMin.setBounds(450, 330, 60, 40);
 
         btnNext.setText("Далее");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -373,7 +373,7 @@ public class PanelSetThermoProcessingFinishTime extends javax.swing.JPanel {
             }
         });
         add(btnNext);
-        btnNext.setBounds(10, 380, 620, 50);
+        btnNext.setBounds(10, 380, 500, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed

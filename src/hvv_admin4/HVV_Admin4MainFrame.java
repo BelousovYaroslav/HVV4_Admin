@@ -65,77 +65,77 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
             if( !theApp.GetSerial().contains( "(м)"))
                 strTitle += " (м)";
         }
-        strTitle += ",     v 2018.02.12 11:10, (С) ФЛАВТ, 2018.";
+        strTitle += ", 2018.03.02 14:30, (С) ФЛАВТ, 2018.";
         setTitle( strTitle);
         
         m_pnlMain = new PanelMain( theApp);
         pnlMainView.add( m_pnlMain);
-        m_pnlMain.setBounds( 2, 2, 635, 456);
+        m_pnlMain.setBounds( 2, 2, 515, 456);
         m_pnlMain.setVisible( true);
         
         m_pnlEnterSerial = new PanelEnterSerial( app);
         pnlMainView.add( m_pnlEnterSerial);
-        m_pnlEnterSerial.setBounds( 2, 2, 635, 456);
+        m_pnlEnterSerial.setBounds( 2, 2, 515, 456);
         m_pnlEnterSerial.setVisible( false);
         
         m_pnlEnterHvVoltage = new PanelEnterStartFinishVoltage( app);
         pnlMainView.add( m_pnlEnterHvVoltage);
-        m_pnlEnterHvVoltage.setBounds( 2, 2, 635, 456);
+        m_pnlEnterHvVoltage.setBounds( 2, 2, 515, 456);
         m_pnlEnterHvVoltage.setVisible( false);
         
         m_pnlStopWatch = new PanelTimer( app);
         pnlMainView.add( m_pnlStopWatch);
-        m_pnlStopWatch.setBounds( 2, 2, 635, 456);
+        m_pnlStopWatch.setBounds( 2, 2, 515, 456);
         m_pnlStopWatch.setVisible( false);
         
         m_pnlImpermeability = new PanelImpermeability( app);
         pnlMainView.add( m_pnlImpermeability);
-        m_pnlImpermeability.setBounds( 2, 2, 635, 456);
+        m_pnlImpermeability.setBounds( 2, 2, 515, 456);
         m_pnlImpermeability.setVisible( false);
         
         m_pnlSetThermoProcessingFinishTime = new PanelSetThermoProcessingFinishTime( app);
         pnlMainView.add( m_pnlSetThermoProcessingFinishTime);
-        m_pnlSetThermoProcessingFinishTime.setBounds( 2, 2, 635, 456);
+        m_pnlSetThermoProcessingFinishTime.setBounds( 2, 2, 515, 456);
         m_pnlSetThermoProcessingFinishTime.setVisible( false);
         
         m_pnlEnterGetterInfo = new PanelEnterGetterInfo(app);
         pnlMainView.add( m_pnlEnterGetterInfo);
-        m_pnlEnterGetterInfo.setBounds( 2, 2, 635, 456);
+        m_pnlEnterGetterInfo.setBounds( 2, 2, 515, 456);
         m_pnlEnterGetterInfo.setVisible( false);
         
         m_pnlEnterCVC = new PanelEnterCVC(app);
         pnlMainView.add( m_pnlEnterCVC);
-        m_pnlEnterCVC.setBounds( 2, 2, 635, 456);
+        m_pnlEnterCVC.setBounds( 2, 2, 515, 456);
         m_pnlEnterCVC.setVisible( false);
         
         m_pnlEnterIgenIext = new PanelEnterIgenIext( app);
         pnlMainView.add( m_pnlEnterIgenIext);
-        m_pnlEnterIgenIext.setBounds( 2, 2, 635, 456);
+        m_pnlEnterIgenIext.setBounds( 2, 2, 515, 456);
         m_pnlEnterIgenIext.setVisible( false);
         
         m_pnlEnterComment = new PanelEnterComment(app);
         pnlMainView.add( m_pnlEnterComment);
-        m_pnlEnterComment.setBounds( 2, 2, 635, 456);
+        m_pnlEnterComment.setBounds( 2, 2, 515, 456);
         m_pnlEnterComment.setVisible( false);
         
         m_pnlDegasation = new PanelDegasation(app);
         pnlMainView.add( m_pnlDegasation);
-        m_pnlDegasation.setBounds( 2, 2, 635, 456);
+        m_pnlDegasation.setBounds( 2, 2, 515, 456);
         m_pnlDegasation.setVisible( false);
         
         m_pnlActivation = new PanelActivation(app);
         pnlMainView.add( m_pnlActivation);
-        m_pnlActivation.setBounds( 2, 2, 635, 456);
+        m_pnlActivation.setBounds( 2, 2, 515, 456);
         m_pnlActivation.setVisible( false);
         
         m_pnlFinalMessage = new PanelMessage(app);
         pnlMainView.add( m_pnlFinalMessage);
-        m_pnlFinalMessage.setBounds( 2, 2, 635, 456);
+        m_pnlFinalMessage.setBounds( 2, 2, 515, 456);
         m_pnlFinalMessage.setVisible( false);
         
         m_pnlPuffMessage = new PanelPuffMessage(app);
         pnlMainView.add( m_pnlPuffMessage);
-        m_pnlPuffMessage.setBounds( 2, 2, 635, 456);
+        m_pnlPuffMessage.setBounds( 2, 2, 515, 456);
         m_pnlPuffMessage.setVisible( false);
     }
 
@@ -151,9 +151,9 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
         pnlMainView = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(660, 510));
-        setMinimumSize(new java.awt.Dimension(660, 510));
-        setPreferredSize(new java.awt.Dimension(660, 510));
+        setMaximumSize(new java.awt.Dimension(540, 510));
+        setMinimumSize(new java.awt.Dimension(540, 510));
+        setPreferredSize(new java.awt.Dimension(540, 510));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -163,15 +163,15 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         pnlMainView.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
-        pnlMainView.setMaximumSize(new java.awt.Dimension(640, 460));
-        pnlMainView.setMinimumSize(new java.awt.Dimension(640, 460));
-        pnlMainView.setPreferredSize(new java.awt.Dimension(640, 460));
+        pnlMainView.setMaximumSize(new java.awt.Dimension(520, 460));
+        pnlMainView.setMinimumSize(new java.awt.Dimension(520, 460));
+        pnlMainView.setPreferredSize(new java.awt.Dimension(520, 460));
 
         javax.swing.GroupLayout pnlMainViewLayout = new javax.swing.GroupLayout(pnlMainView);
         pnlMainView.setLayout(pnlMainViewLayout);
         pnlMainViewLayout.setHorizontalGroup(
             pnlMainViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 638, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
         );
         pnlMainViewLayout.setVerticalGroup(
             pnlMainViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +179,7 @@ public class HVV_Admin4MainFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(pnlMainView);
-        pnlMainView.setBounds(10, 10, 640, 460);
+        pnlMainView.setBounds(10, 10, 520, 460);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

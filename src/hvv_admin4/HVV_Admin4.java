@@ -225,8 +225,8 @@ public class HVV_Admin4 {
         //RESOURCES
         m_Resources = HVV_Resources.getInstance();
         
-        m_fontUsual = new Font( "Cantarell", Font.PLAIN, 15);
-        m_fontBold = new Font( "Cantarell", Font.BOLD, 15);
+        m_fontUsual = new Font( "Cantarell", Font.PLAIN, 16);
+        m_fontBold = new Font( "Cantarell", Font.BOLD, 16);
         
         m_nArm = -1;
         m_nProcessedDeviceType = -1;

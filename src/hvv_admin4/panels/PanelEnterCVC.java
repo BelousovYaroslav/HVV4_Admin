@@ -32,7 +32,9 @@ public class PanelEnterCVC extends javax.swing.JPanel {
         theApp = app;
         initComponents();
         
-        
+        btn1000mcA.setVisible( false);
+        btn1100mcA.setVisible( false);
+        btn1200mcA.setVisible( false);
         
         switch( theApp.GetSelectedArm()) {
             case HVV_Admin4Constants.ARM1:
@@ -131,40 +133,39 @@ public class PanelEnterCVC extends javax.swing.JPanel {
         lblEquUt1200 = new javax.swing.JLabel();
         lblValueUt1200 = new javax.swing.JLabel();
         btnNext = new javax.swing.JButton();
+        btn1000mcA = new javax.swing.JButton();
+        btn1100mcA = new javax.swing.JButton();
+        btn1200mcA = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 200)));
-        setMaximumSize(new java.awt.Dimension(640, 440));
-        setMinimumSize(new java.awt.Dimension(640, 440));
-        setPreferredSize(new java.awt.Dimension(640, 440));
+        setMaximumSize(new java.awt.Dimension(520, 440));
+        setMinimumSize(new java.awt.Dimension(520, 440));
+        setPreferredSize(new java.awt.Dimension(520, 440));
         setLayout(null);
 
         lblTitle.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitle.setText("<html><u>5.1 Замеры параметров. ВАХ.</u></html>");
-        lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
-        lblTitle.setBounds(10, 10, 620, 40);
+        lblTitle.setBounds(10, 10, 500, 40);
 
         lblTitleUanode.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitleUanode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitleUanode.setText("<html>U<sub> на аноде</sub></html>");
-        lblTitleUanode.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitleUanode);
-        lblTitleUanode.setBounds(120, 60, 250, 40);
+        lblTitleUanode.setBounds(90, 60, 210, 40);
 
         lblTitleUtubulation.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitleUtubulation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitleUtubulation.setText("<html>U<sub> на штенгеле</sub></html>");
-        lblTitleUtubulation.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitleUtubulation);
-        lblTitleUtubulation.setBounds(380, 60, 250, 40);
+        lblTitleUtubulation.setBounds(300, 60, 210, 40);
 
         lblTitle1000mcA.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitle1000mcA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1000mcA.setText("<html>1.0 мА</html>");
-        lblTitle1000mcA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle1000mcA);
-        lblTitle1000mcA.setBounds(10, 110, 100, 80);
+        lblTitle1000mcA.setBounds(10, 110, 70, 80);
 
         edt1000mcA_UA.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edt1000mcA_UA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -175,21 +176,19 @@ public class PanelEnterCVC extends javax.swing.JPanel {
             }
         });
         add(edt1000mcA_UA);
-        edt1000mcA_UA.setBounds(120, 110, 100, 80);
+        edt1000mcA_UA.setBounds(90, 110, 100, 80);
 
-        lblEquUa1000.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblEquUa1000.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblEquUa1000.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEquUa1000.setText("=");
-        lblEquUa1000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblEquUa1000);
-        lblEquUa1000.setBounds(220, 110, 40, 80);
+        lblEquUa1000.setBounds(190, 110, 30, 80);
 
-        lblValueUa1000.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblValueUa1000.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblValueUa1000.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblValueUa1000.setText("0 V");
-        lblValueUa1000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblValueUa1000);
-        lblValueUa1000.setBounds(260, 110, 110, 80);
+        lblValueUa1000.setBounds(220, 110, 80, 80);
 
         edt1000mcA_UT.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edt1000mcA_UT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -200,28 +199,25 @@ public class PanelEnterCVC extends javax.swing.JPanel {
             }
         });
         add(edt1000mcA_UT);
-        edt1000mcA_UT.setBounds(380, 110, 100, 80);
+        edt1000mcA_UT.setBounds(300, 110, 100, 80);
 
-        lblEquUt1000.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblEquUt1000.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblEquUt1000.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEquUt1000.setText("=");
-        lblEquUt1000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblEquUt1000);
-        lblEquUt1000.setBounds(480, 110, 40, 80);
+        lblEquUt1000.setBounds(400, 110, 30, 80);
 
-        lblValueUt1000.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblValueUt1000.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblValueUt1000.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblValueUt1000.setText("0 V");
-        lblValueUt1000.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblValueUt1000);
-        lblValueUt1000.setBounds(520, 110, 110, 80);
+        lblValueUt1000.setBounds(430, 110, 80, 80);
 
         lblTitle1100mcA.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitle1100mcA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1100mcA.setText("<html>1.1 мА</html>");
-        lblTitle1100mcA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle1100mcA);
-        lblTitle1100mcA.setBounds(10, 200, 100, 80);
+        lblTitle1100mcA.setBounds(10, 200, 70, 80);
 
         edt1100mcA_UA.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edt1100mcA_UA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -232,21 +228,19 @@ public class PanelEnterCVC extends javax.swing.JPanel {
             }
         });
         add(edt1100mcA_UA);
-        edt1100mcA_UA.setBounds(120, 200, 100, 80);
+        edt1100mcA_UA.setBounds(90, 200, 100, 80);
 
-        lblEquUa1100.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblEquUa1100.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblEquUa1100.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEquUa1100.setText("=");
-        lblEquUa1100.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblEquUa1100);
-        lblEquUa1100.setBounds(220, 200, 40, 80);
+        lblEquUa1100.setBounds(190, 200, 30, 80);
 
-        lblValueUa1100.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblValueUa1100.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblValueUa1100.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblValueUa1100.setText("0 V");
-        lblValueUa1100.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblValueUa1100);
-        lblValueUa1100.setBounds(260, 200, 110, 80);
+        lblValueUa1100.setBounds(220, 200, 80, 80);
 
         edt1100mcA_UT.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edt1100mcA_UT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -257,28 +251,25 @@ public class PanelEnterCVC extends javax.swing.JPanel {
             }
         });
         add(edt1100mcA_UT);
-        edt1100mcA_UT.setBounds(380, 200, 100, 80);
+        edt1100mcA_UT.setBounds(300, 200, 100, 80);
 
-        lblEquUt1100.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblEquUt1100.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblEquUt1100.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEquUt1100.setText("=");
-        lblEquUt1100.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblEquUt1100);
-        lblEquUt1100.setBounds(480, 200, 40, 80);
+        lblEquUt1100.setBounds(400, 200, 30, 80);
 
-        lblValueUt1100.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblValueUt1100.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblValueUt1100.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblValueUt1100.setText("0 V");
-        lblValueUt1100.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblValueUt1100);
-        lblValueUt1100.setBounds(520, 200, 110, 80);
+        lblValueUt1100.setBounds(430, 200, 80, 80);
 
         lblTitle1200mcA.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitle1200mcA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1200mcA.setText("1.2 мА");
-        lblTitle1200mcA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle1200mcA);
-        lblTitle1200mcA.setBounds(10, 290, 100, 80);
+        lblTitle1200mcA.setBounds(10, 290, 70, 80);
 
         edt1200mcA_UA.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edt1200mcA_UA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -289,21 +280,19 @@ public class PanelEnterCVC extends javax.swing.JPanel {
             }
         });
         add(edt1200mcA_UA);
-        edt1200mcA_UA.setBounds(120, 290, 100, 80);
+        edt1200mcA_UA.setBounds(90, 290, 100, 80);
 
-        lblEquUa1200.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblEquUa1200.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblEquUa1200.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEquUa1200.setText("=");
-        lblEquUa1200.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblEquUa1200);
-        lblEquUa1200.setBounds(220, 290, 40, 80);
+        lblEquUa1200.setBounds(190, 290, 30, 80);
 
-        lblValueUa1200.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblValueUa1200.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblValueUa1200.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblValueUa1200.setText("0 V");
-        lblValueUa1200.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblValueUa1200);
-        lblValueUa1200.setBounds(260, 290, 110, 80);
+        lblValueUa1200.setBounds(220, 290, 80, 80);
 
         edt1200mcA_UT.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edt1200mcA_UT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -314,21 +303,19 @@ public class PanelEnterCVC extends javax.swing.JPanel {
             }
         });
         add(edt1200mcA_UT);
-        edt1200mcA_UT.setBounds(380, 290, 100, 80);
+        edt1200mcA_UT.setBounds(300, 290, 100, 80);
 
-        lblEquUt1200.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblEquUt1200.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblEquUt1200.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEquUt1200.setText("=");
-        lblEquUt1200.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblEquUt1200);
-        lblEquUt1200.setBounds(480, 290, 40, 80);
+        lblEquUt1200.setBounds(400, 290, 30, 80);
 
-        lblValueUt1200.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblValueUt1200.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
         lblValueUt1200.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblValueUt1200.setText("0 V");
-        lblValueUt1200.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblValueUt1200);
-        lblValueUt1200.setBounds(520, 290, 110, 80);
+        lblValueUt1200.setBounds(430, 290, 80, 80);
 
         btnNext.setText("Далее");
         btnNext.setNextFocusableComponent(edt1000mcA_UA);
@@ -338,7 +325,22 @@ public class PanelEnterCVC extends javax.swing.JPanel {
             }
         });
         add(btnNext);
-        btnNext.setBounds(10, 380, 620, 50);
+        btnNext.setBounds(10, 380, 500, 50);
+
+        btn1000mcA.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        btn1000mcA.setText("1.0 мА");
+        add(btn1000mcA);
+        btn1000mcA.setBounds(10, 290, 70, 80);
+
+        btn1100mcA.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        btn1100mcA.setText("1.0 мА");
+        add(btn1100mcA);
+        btn1100mcA.setBounds(10, 200, 70, 80);
+
+        btn1200mcA.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        btn1200mcA.setText("1.0 мА");
+        add(btn1200mcA);
+        btn1200mcA.setBounds(10, 110, 70, 80);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
@@ -438,6 +440,9 @@ public class PanelEnterCVC extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn1000mcA;
+    private javax.swing.JButton btn1100mcA;
+    private javax.swing.JButton btn1200mcA;
     private javax.swing.JButton btnNext;
     public javax.swing.JTextField edt1000mcA_UA;
     public javax.swing.JTextField edt1000mcA_UT;

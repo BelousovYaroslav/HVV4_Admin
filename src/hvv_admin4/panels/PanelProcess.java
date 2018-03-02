@@ -203,10 +203,10 @@ public class PanelProcess extends javax.swing.JPanel {
             }
             
             if( pnl != null) {
-                if( bCollapsed == true) nFlowHeight = 30;
+                if( bCollapsed == true) nFlowHeight = 40;
                 else nFlowHeight = nMaximizedHeight;
             
-                pnl.setBounds( 1, 1, 580, nFlowHeight);
+                pnl.setBounds( 1, 1, 460, nFlowHeight);
                 pnl.setLocation( 1, y);
                 
                 y += nFlowHeight;
@@ -218,7 +218,7 @@ public class PanelProcess extends javax.swing.JPanel {
         if( y <= 440) {
             theApp.m_pMainWnd.m_pnlMain.m_scrollBar.setEnabled( false);
             theApp.m_pMainWnd.m_pnlMain.m_scrollBar.setValue( 0);
-            setBounds( 2, 2, 586, 430);
+            setBounds( 2, 2, 466, 430);
         }
         else {
             //logger.fatal( "theApp=" + theApp);
@@ -243,15 +243,15 @@ public class PanelProcess extends javax.swing.JPanel {
     private void initComponents() {
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 200)));
-        setMaximumSize(new java.awt.Dimension(590, 440));
-        setMinimumSize(new java.awt.Dimension(590, 440));
-        setPreferredSize(new java.awt.Dimension(590, 440));
+        setMaximumSize(new java.awt.Dimension(470, 440));
+        setMinimumSize(new java.awt.Dimension(470, 440));
+        setPreferredSize(new java.awt.Dimension(470, 440));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGap(0, 468, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

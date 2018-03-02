@@ -447,6 +447,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         lblStep32_10 = new javax.swing.JLabel();
         spnStep32MaxPressureExp = new javax.swing.JSpinner();
 
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         setFocusTraversalPolicyProvider(true);
         setMaximumSize(new java.awt.Dimension(580, 1320));
         setMinimumSize(new java.awt.Dimension(580, 1320));
@@ -471,7 +472,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
             }
         });
         add(btnAddStep);
-        btnAddStep.setBounds(270, 80, 200, 40);
+        btnAddStep.setBounds(270, 80, 190, 40);
 
         btnAddTrailingSteps.setText("Добавить завершающие шаги");
         btnAddTrailingSteps.addActionListener(new java.awt.event.ActionListener() {
@@ -480,7 +481,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
             }
         });
         add(btnAddTrailingSteps);
-        btnAddTrailingSteps.setBounds(30, 120, 440, 40);
+        btnAddTrailingSteps.setBounds(30, 120, 430, 40);
 
         lblStep1Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep1Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -520,7 +521,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep1MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep1MaxPressureExp.setNextFocusableComponent(edtStep2MaxPressure);
         add(spnStep1MaxPressureExp);
-        spnStep1MaxPressureExp.setBounds(420, 0, 50, 26);
+        spnStep1MaxPressureExp.setBounds(420, 0, 40, 20);
 
         lblStep2Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep2Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -560,7 +561,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep2MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep2MaxPressureExp.setNextFocusableComponent(edtStep3MaxPressure);
         add(spnStep2MaxPressureExp);
-        spnStep2MaxPressureExp.setBounds(420, 40, 50, 26);
+        spnStep2MaxPressureExp.setBounds(420, 40, 40, 20);
 
         lblStep3Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep3Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -600,7 +601,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep3MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep3MaxPressureExp.setNextFocusableComponent(edtStep4MaxPressure);
         add(spnStep3MaxPressureExp);
-        spnStep3MaxPressureExp.setBounds(420, 80, 50, 26);
+        spnStep3MaxPressureExp.setBounds(420, 80, 40, 20);
 
         lblStep4Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep4Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -640,7 +641,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep4MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep4MaxPressureExp.setNextFocusableComponent(edtStep5MaxPressure);
         add(spnStep4MaxPressureExp);
-        spnStep4MaxPressureExp.setBounds(420, 120, 50, 26);
+        spnStep4MaxPressureExp.setBounds(420, 120, 40, 20);
 
         lblStep5Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep5Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -680,7 +681,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep5MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep5MaxPressureExp.setNextFocusableComponent(edtStep6MaxPressure);
         add(spnStep5MaxPressureExp);
-        spnStep5MaxPressureExp.setBounds(420, 160, 50, 26);
+        spnStep5MaxPressureExp.setBounds(420, 160, 40, 20);
 
         lblStep6Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep6Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -720,7 +721,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep6MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep6MaxPressureExp.setNextFocusableComponent(edtStep7MaxPressure);
         add(spnStep6MaxPressureExp);
-        spnStep6MaxPressureExp.setBounds(420, 200, 50, 26);
+        spnStep6MaxPressureExp.setBounds(420, 200, 40, 20);
 
         lblStep7Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep7Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -760,7 +761,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep7MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep7MaxPressureExp.setNextFocusableComponent(edtStep8MaxPressure);
         add(spnStep7MaxPressureExp);
-        spnStep7MaxPressureExp.setBounds(420, 240, 50, 26);
+        spnStep7MaxPressureExp.setBounds(420, 240, 40, 20);
 
         lblStep8Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep8Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -800,7 +801,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep8MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep8MaxPressureExp.setNextFocusableComponent(edtStep9MaxPressure);
         add(spnStep8MaxPressureExp);
-        spnStep8MaxPressureExp.setBounds(420, 280, 50, 26);
+        spnStep8MaxPressureExp.setBounds(420, 280, 40, 20);
 
         lblStep9Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep9Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -840,7 +841,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep9MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep9MaxPressureExp.setNextFocusableComponent(edtStep10MaxPressure);
         add(spnStep9MaxPressureExp);
-        spnStep9MaxPressureExp.setBounds(420, 320, 50, 26);
+        spnStep9MaxPressureExp.setBounds(420, 320, 40, 20);
 
         lblStep10Icon.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblStep10Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -881,7 +882,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep10MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep10MaxPressureExp.setNextFocusableComponent(edtStep11MaxPressure);
         add(spnStep10MaxPressureExp);
-        spnStep10MaxPressureExp.setBounds(420, 360, 50, 26);
+        spnStep10MaxPressureExp.setBounds(420, 360, 40, 20);
 
         lblStep11Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep11Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -921,7 +922,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep11MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep11MaxPressureExp.setNextFocusableComponent(edtStep12MaxPressure);
         add(spnStep11MaxPressureExp);
-        spnStep11MaxPressureExp.setBounds(420, 400, 50, 26);
+        spnStep11MaxPressureExp.setBounds(420, 400, 40, 20);
 
         lblStep12Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep12Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -961,7 +962,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep12MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep12MaxPressureExp.setNextFocusableComponent(edtStep13MaxPressure);
         add(spnStep12MaxPressureExp);
-        spnStep12MaxPressureExp.setBounds(420, 440, 50, 26);
+        spnStep12MaxPressureExp.setBounds(420, 440, 40, 20);
 
         lblStep13Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep13Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1001,7 +1002,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep13MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep13MaxPressureExp.setNextFocusableComponent(edtStep14MaxPressure);
         add(spnStep13MaxPressureExp);
-        spnStep13MaxPressureExp.setBounds(420, 480, 50, 26);
+        spnStep13MaxPressureExp.setBounds(420, 480, 40, 20);
 
         lblStep14Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep14Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1041,7 +1042,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep14MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep14MaxPressureExp.setNextFocusableComponent(edtStep15MaxPressure);
         add(spnStep14MaxPressureExp);
-        spnStep14MaxPressureExp.setBounds(420, 520, 50, 26);
+        spnStep14MaxPressureExp.setBounds(420, 520, 40, 20);
 
         lblStep15Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep15Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1081,7 +1082,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep15MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep15MaxPressureExp.setNextFocusableComponent(edtStep16MaxPressure);
         add(spnStep15MaxPressureExp);
-        spnStep15MaxPressureExp.setBounds(420, 560, 50, 26);
+        spnStep15MaxPressureExp.setBounds(420, 560, 40, 20);
 
         lblStep16Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep16Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1121,7 +1122,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep16MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep16MaxPressureExp.setNextFocusableComponent(edtStep17MaxPressure);
         add(spnStep16MaxPressureExp);
-        spnStep16MaxPressureExp.setBounds(420, 600, 50, 26);
+        spnStep16MaxPressureExp.setBounds(420, 600, 40, 20);
 
         lblStep17Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep17Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1161,7 +1162,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep17MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep17MaxPressureExp.setNextFocusableComponent(edtStep18MaxPressure);
         add(spnStep17MaxPressureExp);
-        spnStep17MaxPressureExp.setBounds(420, 640, 50, 26);
+        spnStep17MaxPressureExp.setBounds(420, 640, 40, 20);
 
         lblStep18Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep18Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1201,7 +1202,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep18MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep18MaxPressureExp.setNextFocusableComponent(edtStep19MaxPressure);
         add(spnStep18MaxPressureExp);
-        spnStep18MaxPressureExp.setBounds(420, 680, 50, 26);
+        spnStep18MaxPressureExp.setBounds(420, 680, 40, 20);
 
         lblStep19Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep19Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1241,7 +1242,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep19MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep19MaxPressureExp.setNextFocusableComponent(edtStep20MaxPressure);
         add(spnStep19MaxPressureExp);
-        spnStep19MaxPressureExp.setBounds(420, 720, 50, 26);
+        spnStep19MaxPressureExp.setBounds(420, 720, 40, 20);
 
         lblStep20Icon.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblStep20Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1282,7 +1283,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep20MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep20MaxPressureExp.setNextFocusableComponent(edtStep21MaxPressure);
         add(spnStep20MaxPressureExp);
-        spnStep20MaxPressureExp.setBounds(420, 760, 50, 26);
+        spnStep20MaxPressureExp.setBounds(420, 760, 40, 20);
 
         lblStep21Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep21Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1322,7 +1323,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep21MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep21MaxPressureExp.setNextFocusableComponent(edtStep22MaxPressure);
         add(spnStep21MaxPressureExp);
-        spnStep21MaxPressureExp.setBounds(420, 800, 50, 26);
+        spnStep21MaxPressureExp.setBounds(420, 800, 40, 20);
 
         lblStep22Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep22Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1362,7 +1363,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep22MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep22MaxPressureExp.setNextFocusableComponent(edtStep23MaxPressure);
         add(spnStep22MaxPressureExp);
-        spnStep22MaxPressureExp.setBounds(420, 840, 50, 26);
+        spnStep22MaxPressureExp.setBounds(420, 840, 40, 20);
 
         lblStep23Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep23Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1402,7 +1403,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep23MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep23MaxPressureExp.setNextFocusableComponent(edtStep24MaxPressure);
         add(spnStep23MaxPressureExp);
-        spnStep23MaxPressureExp.setBounds(420, 880, 50, 26);
+        spnStep23MaxPressureExp.setBounds(420, 880, 40, 20);
 
         lblStep24Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep24Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1442,7 +1443,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep24MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep24MaxPressureExp.setNextFocusableComponent(edtStep25MaxPressure);
         add(spnStep24MaxPressureExp);
-        spnStep24MaxPressureExp.setBounds(420, 920, 50, 26);
+        spnStep24MaxPressureExp.setBounds(420, 920, 40, 20);
 
         lblStep25Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep25Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1482,7 +1483,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep25MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep25MaxPressureExp.setNextFocusableComponent(edtStep26MaxPressure);
         add(spnStep25MaxPressureExp);
-        spnStep25MaxPressureExp.setBounds(420, 960, 50, 26);
+        spnStep25MaxPressureExp.setBounds(420, 960, 40, 20);
 
         lblStep26Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep26Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1522,7 +1523,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep26MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep26MaxPressureExp.setNextFocusableComponent(edtStep27MaxPressure);
         add(spnStep26MaxPressureExp);
-        spnStep26MaxPressureExp.setBounds(420, 1000, 50, 26);
+        spnStep26MaxPressureExp.setBounds(420, 1000, 40, 20);
 
         lblStep27Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep27Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1562,7 +1563,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep27MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep27MaxPressureExp.setNextFocusableComponent(edtStep28MaxPressure);
         add(spnStep27MaxPressureExp);
-        spnStep27MaxPressureExp.setBounds(420, 1040, 50, 26);
+        spnStep27MaxPressureExp.setBounds(420, 1040, 40, 20);
 
         lblStep28Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep28Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1602,7 +1603,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep28MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep28MaxPressureExp.setNextFocusableComponent(edtStep29MaxPressure);
         add(spnStep28MaxPressureExp);
-        spnStep28MaxPressureExp.setBounds(420, 1080, 50, 26);
+        spnStep28MaxPressureExp.setBounds(420, 1080, 40, 20);
 
         lblStep29Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep29Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1642,7 +1643,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep29MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep29MaxPressureExp.setNextFocusableComponent(edtStep30MaxPressure);
         add(spnStep29MaxPressureExp);
-        spnStep29MaxPressureExp.setBounds(420, 1120, 50, 26);
+        spnStep29MaxPressureExp.setBounds(420, 1120, 40, 20);
 
         lblStep30Icon.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblStep30Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1683,7 +1684,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep30MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep30MaxPressureExp.setNextFocusableComponent(edtStep31MaxPressure);
         add(spnStep30MaxPressureExp);
-        spnStep30MaxPressureExp.setBounds(420, 1160, 50, 26);
+        spnStep30MaxPressureExp.setBounds(420, 1160, 40, 20);
 
         lblStep31Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblStep31Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1723,9 +1724,9 @@ public class PanelActivationProgress extends javax.swing.JPanel {
         spnStep31MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         spnStep31MaxPressureExp.setNextFocusableComponent(edtStep32MaxPressure);
         add(spnStep31MaxPressureExp);
-        spnStep31MaxPressureExp.setBounds(420, 1200, 50, 26);
+        spnStep31MaxPressureExp.setBounds(420, 1200, 40, 20);
 
-        lblStep32Icon.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        lblStep32Icon.setFont(new java.awt.Font("Cantarell", 0, 10)); // NOI18N
         lblStep32Icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblStep32Icon.setText("x");
         lblStep32Icon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
@@ -1763,7 +1764,7 @@ public class PanelActivationProgress extends javax.swing.JPanel {
 
         spnStep32MaxPressureExp.setModel(new javax.swing.SpinnerNumberModel(-5, -6, -4, 1));
         add(spnStep32MaxPressureExp);
-        spnStep32MaxPressureExp.setBounds(420, 1240, 50, 26);
+        spnStep32MaxPressureExp.setBounds(420, 1240, 40, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddStepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStepActionPerformed

@@ -126,30 +126,26 @@ public class PanelEnterIgenIext extends javax.swing.JPanel {
         lblTitle.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitle.setText("<html><u>5.1 Замеры параметров. Токи генерации и погасания.</u></thml>");
-        lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
-        lblTitle.setBounds(10, 10, 620, 40);
+        lblTitle.setBounds(10, 10, 500, 60);
 
         lblTitleIanode.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitleIanode.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitleIanode.setText("<html>I<sub> анода</sub></html>");
-        lblTitleIanode.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
+        lblTitleIanode.setText("Ток на аноде");
         add(lblTitleIanode);
-        lblTitleIanode.setBounds(120, 70, 250, 40);
+        lblTitleIanode.setBounds(60, 90, 230, 40);
 
         lblTitleItubu.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblTitleItubu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitleItubu.setText("<html>I<sub> штенгеля</sub></html>");
-        lblTitleItubu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
+        lblTitleItubu.setText("Ток на штенгеле");
         add(lblTitleItubu);
-        lblTitleItubu.setBounds(380, 70, 250, 40);
+        lblTitleItubu.setBounds(290, 90, 220, 40);
 
         lblIgeneration.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblIgeneration.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIgeneration.setText("<html>I <sub>генерации</sub></html>");
-        lblIgeneration.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
+        lblIgeneration.setText("<html>I <sub>ген.</sub></html>");
         add(lblIgeneration);
-        lblIgeneration.setBounds(10, 140, 100, 80);
+        lblIgeneration.setBounds(10, 140, 50, 80);
 
         edtIgenA.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtIgenA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -160,21 +156,19 @@ public class PanelEnterIgenIext extends javax.swing.JPanel {
             }
         });
         add(edtIgenA);
-        edtIgenA.setBounds(120, 140, 80, 80);
+        edtIgenA.setBounds(60, 140, 80, 80);
 
-        lblEquIgenA.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblEquIgenA.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         lblEquIgenA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEquIgenA.setText("=");
-        lblEquIgenA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblEquIgenA);
-        lblEquIgenA.setBounds(200, 140, 30, 80);
+        lblEquIgenA.setBounds(140, 140, 20, 80);
 
         lblValueIgenA.setFont(new java.awt.Font("Cantarell", 0, 28)); // NOI18N
         lblValueIgenA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblValueIgenA.setText("<html>&lt; I<sub>погас.</sub></html>");
-        lblValueIgenA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblValueIgenA);
-        lblValueIgenA.setBounds(230, 140, 140, 80);
+        lblValueIgenA.setBounds(160, 140, 120, 80);
 
         edtIgenT.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtIgenT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -185,28 +179,25 @@ public class PanelEnterIgenIext extends javax.swing.JPanel {
             }
         });
         add(edtIgenT);
-        edtIgenT.setBounds(380, 140, 80, 80);
+        edtIgenT.setBounds(290, 140, 80, 80);
 
-        lblEquIgenT.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblEquIgenT.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         lblEquIgenT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEquIgenT.setText("=");
-        lblEquIgenT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblEquIgenT);
-        lblEquIgenT.setBounds(460, 140, 30, 80);
+        lblEquIgenT.setBounds(370, 140, 20, 80);
 
         lblValueIgenT.setFont(new java.awt.Font("Cantarell", 0, 28)); // NOI18N
         lblValueIgenT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblValueIgenT.setText("<html>&lt; I<sub>погас.</sub></html>");
-        lblValueIgenT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblValueIgenT);
-        lblValueIgenT.setBounds(490, 140, 140, 80);
+        lblValueIgenT.setBounds(390, 140, 120, 80);
 
         lblIextinction.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblIextinction.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIextinction.setText("<html>I<sub> погасания</sub></html>");
-        lblIextinction.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
+        lblIextinction.setText("<html>I<sub> пог.</sub></html>");
         add(lblIextinction);
-        lblIextinction.setBounds(10, 260, 100, 80);
+        lblIextinction.setBounds(10, 260, 50, 80);
 
         edtIextA.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtIextA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -217,21 +208,19 @@ public class PanelEnterIgenIext extends javax.swing.JPanel {
             }
         });
         add(edtIextA);
-        edtIextA.setBounds(120, 260, 80, 80);
+        edtIextA.setBounds(60, 260, 80, 80);
 
-        lblEquIextA.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblEquIextA.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         lblEquIextA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEquIextA.setText("=");
-        lblEquIextA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblEquIextA);
-        lblEquIextA.setBounds(200, 260, 30, 80);
+        lblEquIextA.setBounds(140, 260, 20, 80);
 
         lblValueIextA.setFont(new java.awt.Font("Cantarell", 0, 28)); // NOI18N
         lblValueIextA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblValueIextA.setText("0.00 mA");
-        lblValueIextA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblValueIextA);
-        lblValueIextA.setBounds(230, 260, 140, 80);
+        lblValueIextA.setBounds(160, 260, 120, 80);
 
         edtIextT.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
         edtIextT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -242,21 +231,19 @@ public class PanelEnterIgenIext extends javax.swing.JPanel {
             }
         });
         add(edtIextT);
-        edtIextT.setBounds(380, 260, 80, 80);
+        edtIextT.setBounds(290, 260, 80, 80);
 
-        lblEquIextT.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
+        lblEquIextT.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         lblEquIextT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEquIextT.setText("=");
-        lblEquIextT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblEquIextT);
-        lblEquIextT.setBounds(460, 260, 30, 80);
+        lblEquIextT.setBounds(370, 260, 20, 80);
 
         lblValueIextT.setFont(new java.awt.Font("Cantarell", 0, 28)); // NOI18N
         lblValueIextT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblValueIextT.setText("0.00 mA");
-        lblValueIextT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblValueIextT);
-        lblValueIextT.setBounds(490, 260, 140, 80);
+        lblValueIextT.setBounds(390, 260, 120, 80);
 
         btnNext.setText("Далее");
         btnNext.setNextFocusableComponent(edtIgenA);
@@ -266,7 +253,7 @@ public class PanelEnterIgenIext extends javax.swing.JPanel {
             }
         });
         add(btnNext);
-        btnNext.setBounds(10, 380, 620, 50);
+        btnNext.setBounds(10, 380, 500, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed

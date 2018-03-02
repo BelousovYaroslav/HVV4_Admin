@@ -26,7 +26,7 @@ public class PanelMain extends javax.swing.JPanel {
         
         jPanel1.add( m_pnlProcess);
         m_pnlProcess.setVisible( true);
-        m_pnlProcess.setBounds( 2, 2, 586, 430);
+        m_pnlProcess.setBounds( 2, 2, 466, 430);
     }
 
     /**
@@ -41,9 +41,9 @@ public class PanelMain extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         m_scrollBar = new javax.swing.JScrollBar();
 
-        setMaximumSize(new java.awt.Dimension(640, 460));
-        setMinimumSize(new java.awt.Dimension(640, 460));
-        setPreferredSize(new java.awt.Dimension(640, 460));
+        setMaximumSize(new java.awt.Dimension(520, 460));
+        setMinimumSize(new java.awt.Dimension(520, 460));
+        setPreferredSize(new java.awt.Dimension(520, 460));
         addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
                 formMouseWheelMoved(evt);
@@ -52,14 +52,15 @@ public class PanelMain extends javax.swing.JPanel {
         setLayout(null);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 0, 0)));
-        jPanel1.setMaximumSize(new java.awt.Dimension(590, 440));
-        jPanel1.setPreferredSize(new java.awt.Dimension(590, 440));
+        jPanel1.setMaximumSize(new java.awt.Dimension(470, 440));
+        jPanel1.setMinimumSize(new java.awt.Dimension(470, 440));
+        jPanel1.setPreferredSize(new java.awt.Dimension(470, 440));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGap(0, 468, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,7 +68,7 @@ public class PanelMain extends javax.swing.JPanel {
         );
 
         add(jPanel1);
-        jPanel1.setBounds(10, 10, 590, 440);
+        jPanel1.setBounds(10, 10, 470, 440);
 
         m_scrollBar.setPreferredSize(new java.awt.Dimension(25, 440));
         m_scrollBar.addAdjustmentListener(new java.awt.event.AdjustmentListener() {
@@ -76,7 +77,7 @@ public class PanelMain extends javax.swing.JPanel {
             }
         });
         add(m_scrollBar);
-        m_scrollBar.setBounds(610, 10, 25, 440);
+        m_scrollBar.setBounds(490, 10, 25, 440);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_formMouseWheelMoved
@@ -97,7 +98,7 @@ public class PanelMain extends javax.swing.JPanel {
 
     private void m_scrollBarAdjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {//GEN-FIRST:event_m_scrollBarAdjustmentValueChanged
         if( m_pnlProcess != null)
-            m_pnlProcess.setBounds( 2, 2 - m_scrollBar.getValue(), 586, 436 + m_scrollBar.getValue());
+            m_pnlProcess.setBounds( 2, 2 - m_scrollBar.getValue(), 466, 436 + m_scrollBar.getValue());
     }//GEN-LAST:event_m_scrollBarAdjustmentValueChanged
 
     public void ScrollActiveStepToCenter() {                                                   

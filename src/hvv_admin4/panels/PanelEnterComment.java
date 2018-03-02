@@ -93,14 +93,14 @@ public class PanelEnterComment extends javax.swing.JPanel {
         lblTitle.setText("<html><u>5.2 Внесение комментариев.</u></html>");
         lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblTitle);
-        lblTitle.setBounds(10, 10, 620, 40);
+        lblTitle.setBounds(10, 10, 500, 40);
 
         lblSerial.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         lblSerial.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblSerial.setText("<html>Введите комментарий по результату измерения промежуточных параметров:</html>");
+        lblSerial.setText("<html>Введите комментарий по результату замеров промежуточных параметров:</html>");
         lblSerial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(220, 220, 220)));
         add(lblSerial);
-        lblSerial.setBounds(10, 60, 620, 50);
+        lblSerial.setBounds(10, 60, 500, 50);
 
         edtComment.setColumns(20);
         edtComment.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
@@ -108,7 +108,7 @@ public class PanelEnterComment extends javax.swing.JPanel {
         jScrollPane1.setViewportView(edtComment);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(10, 120, 620, 190);
+        jScrollPane1.setBounds(10, 120, 500, 190);
 
         btnOkNext.setFont(new java.awt.Font("Cantarell", 0, 14)); // NOI18N
         btnOkNext.setText("Прибор годен. Продолжаем процесс обработки.");
@@ -118,10 +118,10 @@ public class PanelEnterComment extends javax.swing.JPanel {
             }
         });
         add(btnOkNext);
-        btnOkNext.setBounds(10, 320, 620, 50);
+        btnOkNext.setBounds(10, 320, 500, 50);
 
         btnFailStop.setFont(new java.awt.Font("Cantarell", 0, 14)); // NOI18N
-        btnFailStop.setText("Прибор будет снят и отправлен на переборку. Останавливаем процесс обработки.");
+        btnFailStop.setText("<html><center>Прибор будет снят и отправлен на переборку.<br>Останавливаем процесс обработки.</center></html>");
         btnFailStop.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnFailStop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +129,7 @@ public class PanelEnterComment extends javax.swing.JPanel {
             }
         });
         add(btnFailStop);
-        btnFailStop.setBounds(10, 380, 620, 50);
+        btnFailStop.setBounds(10, 380, 500, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOkNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkNextActionPerformed
